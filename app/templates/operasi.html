@@ -1,0 +1,150 @@
+{% extends "base.html" %}
+{% import "_components.html" as ui %}
+{% block content %}
+
+<h1 class="text-2xl font-bold mb-1">Operasi: Daftar, Konfirmasi Hadir &amp; Pelayanan</h1>
+<p class="text-sm text-base-content/60 mb-6">
+  Semua tahap di sini menyetir Chrome via CDP. <b>Sebelum mulai:</b> buka Chrome (tombol di bawah),
+  login portal &amp; buka menu CKG, lalu <b>tutup file Excel</b>.
+  <br>(Catatan: halaman <a href="/" class="link link-primary">"Daftar via Login (alt)"</a>
+  adalah alur pendaftaran alternatif berbasis login &mdash; bukan CDP.)
+</p>
+
+<!-- Persiapan + parameter umum -->
+{% call ui.card(classes="mb-5") %}
+  <div class="flex items-end gap-3 flex-wrap">
+    {{ ui.button("Buka Chrome (port 9222)", variant="neutral", attrs='onclick="bukaChrome()"') }}
+    <label class="label flex-col items-start gap-1">File Excel:
+      <input id="excel" value="{{ excel_default }}" class="input input-bordered w-72">
+    </label>
+    <label class="label flex-col items-start gap-1">Kelompok:
+      <select id="kelompok" class="select select-bordered">
+        {% for k in kelompok %}<option value="{{k}}" {% if k=='lansia' %}selected{% endif %}>{{k}}</option>{% endfor %}
+      </select>
+    </label>
+    <label class="label flex-col items-start gap-1">NIK (opsional, 1 peserta):
+      <input id="nik" placeholder="kosong = semua" class="input input-bordered w-44">
+    </label>
+  </div>
+{% endcall %}
+
+<!-- TAHAP 1: Pendaftaran (Batch, CDP) -->
+{% call ui.card(title="1. Pendaftaran (Batch)", classes="mb-5") %}
+  <p class="text-sm text-base-content/60">
+    Mendaftarkan semua peserta di Excel (baris ber-No.Tiket dilewati). Hasil (No. Tiket /
+    Status) ditulis balik ke Excel.
+  </p>
+  <div class="flex items-center gap-4 flex-wrap">
+    {{ ui.button("Jalankan Pendaftaran", classes="run-btn", attrs='onclick="jalankanDaftar()"') }}
+    {{ ui.checkbox("paksa", "Paksa (daftar ulang walau sudah ada No. Tiket)") }}
+  </div>
+{% endcall %}
+
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+  <!-- TAHAP 2: Konfirmasi Hadir -->
+  {% call ui.card(title="2. Konfirmasi Hadir") %}
+    <p class="text-sm text-base-content/60">Menandai kehadiran peserta yang sudah terdaftar (Status Daftar = SUKSES).</p>
+    {{ ui.button("Jalankan Konfirmasi Hadir", classes="run-btn", attrs='onclick="jalankanHadir()"') }}
+  {% endcall %}
+
+  <!-- TAHAP 3: Pelayanan -->
+  {% call ui.card(title="3. Pelayanan (isi form skrining)") %}
+    <div class="space-y-2 text-sm">
+      <div class="flex items-center gap-4 flex-wrap">
+        <label class="label cursor-pointer gap-1"><input type="radio" name="mode" value="dry" class="radio radio-sm" checked> Dry-run (uji, tak kirim)</label>
+        <label class="label cursor-pointer gap-1"><input type="radio" name="mode" value="submit" class="radio radio-sm"> Submit (kirim nyata)</label>
+      </div>
+      <div class="flex items-center gap-4 flex-wrap">
+        {{ ui.checkbox("resume", "Resume (lengkapi yg belum)", checked=True, classes="cursor-pointer") }}
+        {{ ui.checkbox("selesaikan", 'Selesaikan + Konfirmasi <span class="text-error">(KUNCI data)</span>') }}
+      </div>
+      <div class="flex items-center gap-3 flex-wrap">
+        {{ ui.checkbox("mulai_pemeriksaan", 'Paksa "Mulai Pemeriksaan"') }}
+        <label class="label gap-1">Tab (opsional):
+          <select id="tab" class="select select-bordered select-sm">
+            <option value="">auto (dari Excel)</option>
+            <option>Belum Pemeriksaan</option>
+            <option>Sedang Pemeriksaan</option>
+            <option>Selesai Pemeriksaan</option>
+          </select>
+        </label>
+      </div>
+    </div>
+    {{ ui.button("Jalankan Pelayanan", classes="run-btn mt-2", attrs='onclick="jalankanPelayanan()"') }}
+  {% endcall %}
+</div>
+
+<!-- Status + Log live -->
+{% call ui.card(classes="mt-5") %}
+  <div class="flex items-center justify-between mb-2 flex-wrap gap-2">
+    <div><span class="font-medium" id="st_label">Idle</span>
+      {{ ui.badge("berhenti", variant="ghost", id="st_run", classes="ml-2") }}</div>
+    <div class="flex items-center gap-3">
+      <span id="st_pesan" class="text-sm text-base-content/60" aria-live="polite" role="status"></span>
+      {{ ui.button("Hentikan", variant="error", size="sm", attrs='onclick="hentikan()"') }}
+    </div>
+  </div>
+  <pre id="log" class="bg-neutral text-neutral-content text-xs rounded-box p-3 h-80 overflow-auto whitespace-pre-wrap" aria-live="polite"></pre>
+{% endcall %}
+
+<script>
+const $ = id => document.getElementById(id);
+function params() {
+  const fd = new FormData();
+  fd.set('excel', $('excel').value);
+  fd.set('kelompok', $('kelompok').value);
+  fd.set('nik', $('nik').value);
+  return fd;
+}
+async function post(url, fd) {
+  const r = await fetch(url, { method: 'POST', body: fd });
+  const d = await r.json();
+  if (d.pesan) $('st_pesan').textContent = d.pesan;
+  refresh();
+}
+function bukaChrome() { post('/stage/chrome', new FormData()); }
+function jalankanDaftar() {
+  if (!confirm('Jalankan Pendaftaran batch? Pastikan Chrome sudah login & Excel ditutup.')) return;
+  const fd = params();
+  fd.set('paksa', $('paksa').checked ? 'true' : 'false');
+  post('/stage/daftar', fd);
+}
+function jalankanHadir() {
+  if (!confirm('Jalankan Konfirmasi Hadir? Pastikan Chrome sudah login & Excel ditutup.')) return;
+  post('/stage/hadir', params());
+}
+function jalankanPelayanan() {
+  const fd = params();
+  const mode = document.querySelector('input[name=mode]:checked').value;
+  fd.set('mode', mode);
+  fd.set('resume', $('resume').checked ? 'true' : 'false');
+  fd.set('selesaikan', $('selesaikan').checked ? 'true' : 'false');
+  fd.set('mulai_pemeriksaan', $('mulai_pemeriksaan').checked ? 'true' : 'false');
+  fd.set('tab', $('tab').value);
+  let pesan = 'Jalankan Pelayanan (' + mode + ')?';
+  if (mode === 'submit' && $('selesaikan').checked)
+    pesan = '⚠ SUBMIT + SELESAIKAN akan MENGUNCI data peserta (final, tak bisa diubah). Lanjut?';
+  if (!confirm(pesan)) return;
+  post('/stage/pelayanan', fd);
+}
+function hentikan() { post('/stage/stop', new FormData()); }
+
+async function refresh() {
+  try {
+    const s = await (await fetch('/stage/status')).json();
+    $('st_label').textContent = s.label || 'Idle';
+    $('st_run').textContent = s.running ? 'BERJALAN' : 'berhenti';
+    $('st_run').className = 'badge badge-sm ml-2 ' + (s.running ? 'badge-warning' : 'badge-ghost');
+    // Cegah memulai tahap baru selagi satu proses berjalan (hindari double-run)
+    document.querySelectorAll('.run-btn').forEach(b => { b.disabled = !!s.running; });
+    const log = $('log');
+    const atBottom = log.scrollTop + log.clientHeight >= log.scrollHeight - 20;
+    log.textContent = (s.log || []).join('\n');
+    if (atBottom) log.scrollTop = log.scrollHeight;
+  } catch (e) {}
+}
+refresh();
+setInterval(refresh, 1500);
+</script>
+
+{% endblock %}

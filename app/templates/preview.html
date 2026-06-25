@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+{% import "_components.html" as ui %}
+{% block content %}
+
+{{ ui.steps(2) }}
+
+<h1 class="text-2xl font-bold mb-2">Preview Data</h1>
+<p class="text-base-content/70 mb-4">
+  File <strong>{{ nama_file }}</strong> ({{ kelompok|capitalize }}) —
+  {{ total }} baris, <span class="text-success font-medium">{{ valid }} valid</span>,
+  <span class="text-error font-medium">{{ total - valid }} bermasalah</span>.
+</p>
+
+{% set info_icon %}<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>{% endset %}
+{% call ui.alert(variant="info", classes="mb-4", icon=info_icon) %}
+  <strong>{{ disimpan }}</strong> peserta disimpan ke database.
+  {% if duplikat %}
+  <span class="text-warning">{{ duplikat|length }} dilewati karena NIK sudah ada
+  ({{ duplikat[:5]|join(", ") }}{% if duplikat|length > 5 %}, …{% endif %}).</span>
+  {% endif %}
+  Total antrian siap proses: <strong class="tabular">{{ jumlah_siap }}</strong>.
+{% endcall %}
+
+{% call ui.card(body=False, classes="mb-6") %}
+  <div class="overflow-x-auto">
+    <table class="table table-zebra">
+      <thead>
+        <tr>
+          <th scope="col">NIK</th>
+          <th scope="col">Nama</th>
+          <th scope="col">Tgl Lahir</th>
+          <th scope="col">JK</th>
+          <th scope="col">Status Validasi</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in preview %}
+        <tr class="{% if row.errors %}bg-error/10{% endif %}">
+          <td class="tabular">{{ row.peserta.nik }}</td>
+          <td>{{ row.peserta.nama }}</td>
+          <td class="tabular">{{ row.peserta.tgl_lahir }}</td>
+          <td>{{ row.peserta.jenis_kelamin }}</td>
+          <td>
+            {% if row.errors %}
+              <span class="text-error">{{ row.errors|join(", ") }}</span>
+            {% else %}
+              {{ ui.badge("Valid", variant="success") }}
+            {% endif %}
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endcall %}
+
+{% call ui.card(title="Mulai Automation") %}
+  <p class="text-sm text-base-content/60 mb-2">Kredensial portal hanya dipakai untuk login &amp; tidak disimpan permanen.</p>
+  <form id="formMulai" class="space-y-3">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      {{ ui.field("username", "Username portal", placeholder="Username portal", autocomplete="username", required=True) }}
+      {{ ui.field("password", "Password portal", type="password", placeholder="Password portal", autocomplete="current-password", required=True) }}
+    </div>
+    <div class="flex items-center gap-4 flex-wrap">
+      {{ ui.checkbox("headless", "Mode headless (tanpa tampilan browser)", checked=True) }}
+      <label class="label gap-2">
+        Jeda antar aksi (ms):
+        <input name="delay_ms" type="number" value="800" class="input input-bordered w-24">
+      </label>
+      <label class="label gap-2">
+        Tunggu OTP/2FA (detik):
+        <input name="otp_wait_s" type="number" value="0" class="input input-bordered w-24">
+      </label>
+    </div>
+    <p class="text-xs text-base-content/60">
+      Jika portal memakai OTP/2FA: matikan headless &amp; isi “Tunggu OTP” (mis. 120 detik)
+      agar Anda sempat memasukkan kode di jendela browser.
+    </p>
+    <div class="flex items-center gap-3">
+      {{ ui.button("Mulai Proses", type="submit", attrs='id="btnMulai"') }}
+      <a href="/" class="link link-hover text-base-content/70">Tambah file lain</a>
+    </div>
+  </form>
+  <p id="pesan" class="mt-3 text-sm" aria-live="polite" role="status"></p>
+{% endcall %}
+
+<script>
+document.getElementById('formMulai').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const btn = document.getElementById('btnMulai');
+  const label = btn.textContent;
+  btn.disabled = true;
+  btn.innerHTML = '<span class="loading loading-spinner loading-sm"></span> Memproses…';
+  try {
+    const fd = new FormData(e.target);
+    // checkbox -> boolean
+    fd.set('headless', e.target.headless.checked ? 'true' : 'false');
+    const res = await fetch('/mulai', { method: 'POST', body: fd });
+    const data = await res.json();
+    document.getElementById('pesan').textContent = data.pesan;
+    if (data.ok) { setTimeout(() => location.href = '/dashboard', 1000); return; }
+  } catch (err) {
+    document.getElementById('pesan').textContent = 'Gagal mengirim: ' + err;
+  }
+  btn.disabled = false;
+  btn.textContent = label;
+});
+</script>
+
+{% endblock %}

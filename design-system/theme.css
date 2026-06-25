@@ -1,0 +1,87 @@
+/* =========================================================================
+   CKG Automation — Theme (Tailwind v4 + DaisyUI v5)
+   Sumber kebenaran warna/typografi. Lihat design-system/MASTER.md.
+   Build (saat migrasi ke v4):
+     npm i -D tailwindcss @tailwindcss/cli daisyui@latest
+     npx @tailwindcss/cli -i ./design-system/theme.css -o ./app/static/app.css --minify
+   ========================================================================= */
+
+/* --- @import HARUS paling atas --- */
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+/* Hanya tema kustom 'ckg' yang di-emit (tema bawaan light/dark dimatikan) */
+@plugin "daisyui" {
+  themes: false;
+}
+
+/* Sumber kelas yang dipindai (relatif ke file ini) */
+@source "../app/templates";
+
+/* ---------- Tema "ckg" (light, default) ---------- */
+@plugin "daisyui/theme" {
+  name: "ckg";
+  default: true;
+  prefersdark: false;
+  color-scheme: light;
+
+  /* Permukaan & teks */
+  --color-base-100: #ffffff;   /* kartu / permukaan utama          */
+  --color-base-200: #f1f5f9;   /* latar halaman (slate-100)        */
+  --color-base-300: #e2e8f0;   /* border / pembatas (slate-200)    */
+  --color-base-content: #0f172a; /* teks utama (slate-900) — 16:1   */
+
+  /* Brand (teal kesehatan) — semua -content lolos AA pada solid */
+  --color-primary: #0e7490;        /* cyan-700  (white 4.8:1)      */
+  --color-primary-content: #ffffff;
+  --color-secondary: #0f766e;      /* teal-700  (white 4.9:1)      */
+  --color-secondary-content: #ffffff;
+  --color-accent: #15803d;         /* green-700 health (white 4.7:1) */
+  --color-accent-content: #ffffff;
+  --color-neutral: #1e293b;        /* slate-800                    */
+  --color-neutral-content: #f8fafc;
+
+  /* Status semantik */
+  --color-info: #0284c7;           /* sky-600  (white 4.5:1)       */
+  --color-info-content: #ffffff;
+  --color-success: #15803d;        /* green-700 (white 4.7:1)      */
+  --color-success-content: #ffffff;
+  --color-warning: #f59e0b;        /* amber-500 — teks GELAP       */
+  --color-warning-content: #451a03;
+  --color-error: #dc2626;          /* red-600                      */
+  --color-error-content: #ffffff;
+
+  /* Bentuk & efek (gaya minimal/flat) */
+  --radius-selector: 0.5rem;   /* checkbox/radio/toggle */
+  --radius-field: 0.5rem;      /* input/select/btn      */
+  --radius-box: 0.75rem;       /* card/modal/alert      */
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 1;                  /* shadow halus, bukan tebal */
+  --noise: 0;
+}
+
+/* ---------- Token typografi (Tailwind v4 @theme) ---------- */
+@theme {
+  --font-sans: "Source Sans 3", system-ui, -apple-system, sans-serif;
+  --font-heading: "Lexend", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "Cascadia Code", monospace;
+}
+
+/* ---------- Base ---------- */
+@layer base {
+  body { @apply bg-base-200 text-base-content; font-family: var(--font-sans); }
+  h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: 600; line-height: 1.2; }
+
+  /* Target sentuh minimal 44px (aksesibilitas) */
+  .btn, select, input:not([type="checkbox"]):not([type="radio"]):not([type="file"]) {
+    min-height: 2.75rem; /* 44px */
+  }
+  /* Angka data sejajar (NIK, No. Tiket, jumlah) -> hindari layout shift */
+  .tabular { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+
+  /* Hormati reduce-motion */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+  }
+}

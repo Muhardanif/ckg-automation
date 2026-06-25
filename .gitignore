@@ -1,0 +1,12 @@
+data/output/*.xlsx
+data/output/screenshots/*
+data/input/*
+data/*.db
+data/*.db-journal
+data/*.db-wal
+.env
+__pycache__/
+*.pyc
+venv/
+.venv/
+node_modules/

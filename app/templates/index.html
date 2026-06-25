@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% import "_components.html" as ui %}
+{% block content %}
+
+{{ ui.steps(1) }}
+
+<h1 class="text-2xl font-bold mb-2">Upload Data Excel</h1>
+<p class="text-base-content/70 mb-6">Unggah file Excel per kelompok usia. Data akan dinormalisasi ke format standar sebelum dikirim ke portal CKG.</p>
+
+{% if error %}
+{% call ui.alert(variant="error", classes="mb-4") %}{{ error }}{% endcall %}
+{% endif %}
+
+{% call ui.card(classes="mb-6") %}
+  <form action="/upload" method="post" enctype="multipart/form-data" class="space-y-4">
+    {% call ui.select("kelompok", "Kelompok Usia", required=True) %}
+      {% for k in kelompok %}
+      <option value="{{ k }}">{{ k|capitalize }}</option>
+      {% endfor %}
+    {% endcall %}
+
+    {{ ui.field("header_row", "Baris Header (0 = baris pertama)", type="number", value="0",
+       help="Jika file punya baris judul di atas tabel, set sesuai posisi baris header kolom.",
+       attrs='min="0"') }}
+
+    <fieldset class="fieldset">
+      <label class="label" for="file">File Excel (.xlsx) <span class="text-error" aria-hidden="true">*</span></label>
+      <input id="file" type="file" name="file" accept=".xlsx,.xls" required
+             class="file-input file-input-bordered w-full">
+    </fieldset>
+
+    {{ ui.button("Upload &amp; Preview", type="submit") }}
+  </form>
+{% endcall %}
+
+{% call ui.card(body_classes="flex-row items-center justify-between") %}
+  <span>Data siap diproses: <strong class="tabular">{{ jumlah_siap }}</strong> peserta</span>
+  <form action="/reset" method="post">
+    {{ ui.button("Kosongkan", type="submit", variant="ghost", size="sm", classes="text-error") }}
+  </form>
+{% endcall %}
+
+{% endblock %}
