@@ -51,6 +51,15 @@ class KesalahanProsesError(LewatiPesertaError):
     status_prefix = "GAGAL PROSES PORTAL"
 
 
+class DukcapilFetchError(LewatiPesertaError):
+    """Portal gagal mengambil data identitas dari Dukcapil saat simpan
+    pendaftaran (popup 'Terjadi kesalahan / img-response-fetch - ada kesalahan
+    saat mengambil data identitas anda. Silakan perbarui data di Dukcapil.').
+    Masalah data sumber di sisi Dukcapil, BUKAN kegagalan teknis bot & tidak
+    akan sembuh dengan retry: tandai terminal & lanjut (skip saat rerun)."""
+    status_prefix = "GAGAL DUKCAPIL"
+
+
 class SudahHadirError(LewatiPesertaError):
     """Peserta SUDAH dikonfirmasi hadir (baris menampilkan 'Sudah Hadir').
     Bukan kegagalan: tandai terminal & lanjut (skip saat rerun)."""
@@ -1100,6 +1109,15 @@ class CKGBot:
                     raise KesalahanProsesError(
                         "Portal belum bisa memproses data (Terjadi kesalahan) "
                         "saat Isi identitas. Dilewati, tidak diulang.")
+                # Gagal ambil data identitas dari Dukcapil (img-response-fetch).
+                if await page.get_by_text(
+                        re.compile(L["teks_dukcapil_fetch"], re.IGNORECASE)
+                        ).count() > 0:
+                    await self._shot("gagal_dukcapil")
+                    raise DukcapilFetchError(
+                        "Gagal mengambil data identitas dari Dukcapil. Peserta "
+                        "perlu memperbarui data di Dukcapil. Dilewati, tidak "
+                        "diulang.")
                 if await page.get_by_text(
                         L["teks_valid"], exact=False).count() > 0:
                     break
@@ -1164,6 +1182,15 @@ class CKGBot:
                     await self._shot("sudah_menerima_layanan")
                     raise SudahMenerimaLayananError(
                         "Individu sudah menerima layanan (sudah pernah CKG).")
+                # Gagal ambil data identitas dari Dukcapil saat simpan akhir.
+                if await page.get_by_text(
+                        re.compile(L["teks_dukcapil_fetch"], re.IGNORECASE)
+                        ).count() > 0:
+                    await self._shot("gagal_dukcapil")
+                    raise DukcapilFetchError(
+                        "Gagal mengambil data identitas dari Dukcapil saat "
+                        "simpan pendaftaran. Peserta perlu memperbarui data di "
+                        "Dukcapil. Dilewati, tidak diulang.")
                 if await page.get_by_text(
                         L["teks_berhasil"], exact=False).count() > 0:
                     break

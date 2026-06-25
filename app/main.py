@@ -158,10 +158,13 @@ def stage_chrome():
 @app.post("/stage/daftar")
 def stage_daftar(excel: str = Form(EXCEL_DEFAULT),
                  kelompok: str = Form("lansia"),
-                 paksa: str = Form("false")):
+                 paksa: str = Form("false"),
+                 koreksi_nik: str = Form("true")):
     args = ["tools/jalankan_batch.py", "--excel", excel, "--kelompok", kelompok]
     if paksa == "true":
         args += ["--paksa"]
+    if koreksi_nik != "true":
+        args += ["--no-koreksi-tgl", "--no-koreksi-jk"]
     ok, pesan = mulai_stage("Pendaftaran (Batch)", args)
     return JSONResponse({"ok": ok, "pesan": pesan})
 

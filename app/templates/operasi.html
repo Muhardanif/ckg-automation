@@ -37,6 +37,7 @@
   <div class="flex items-center gap-4 flex-wrap">
     {{ ui.button("Jalankan Pendaftaran", classes="run-btn", attrs='onclick="jalankanDaftar()"') }}
     {{ ui.checkbox("paksa", "Paksa (daftar ulang walau sudah ada No. Tiket)") }}
+    {{ ui.checkbox("koreksi_nik", "Koreksi Tgl Lahir &amp; Jenis Kelamin dari NIK otomatis (bukan dilewati)", checked=True) }}
   </div>
 {% endcall %}
 
@@ -107,6 +108,7 @@ function jalankanDaftar() {
   if (!confirm('Jalankan Pendaftaran batch? Pastikan Chrome sudah login & Excel ditutup.')) return;
   const fd = params();
   fd.set('paksa', $('paksa').checked ? 'true' : 'false');
+  fd.set('koreksi_nik', $('koreksi_nik').checked ? 'true' : 'false');
   post('/stage/daftar', fd);
 }
 function jalankanHadir() {
