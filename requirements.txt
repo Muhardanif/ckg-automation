@@ -1,0 +1,12 @@
+# Versi di-set sebagai floor minimum agar pip memilih wheel terbaru yang
+# kompatibel dengan Python yang terpasang (mesin ini memakai Python 3.14,
+# sehingga butuh rilis yang sudah menyediakan wheel cp314).
+fastapi>=0.115
+uvicorn[standard]>=0.32
+jinja2>=3.1.4
+python-multipart>=0.0.9
+pandas>=2.2.3
+openpyxl>=3.1.5
+playwright>=1.49
+python-dotenv>=1.0.1
+SQLAlchemy>=2.0.32

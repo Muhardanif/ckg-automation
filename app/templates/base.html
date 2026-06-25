@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="ckg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}CKG Automation{% endblock %}</title>
+  <!-- Tailwind v4 + DaisyUI v5, hasil build. Rebuild: `npm run build:css` -->
+  <link rel="stylesheet" href="/static/app.css">
+  <style>
+    /* Sisa style app-spesifik (highlight nav aktif). Token & base lain di theme.css */
+    .nav-link { display:inline-flex; align-items:center; min-height:40px; padding:.35rem .6rem; border-radius:.5rem; }
+    .nav-link:hover { background:color-mix(in oklch, currentColor 12%, transparent); }
+    .nav-link[aria-current="page"] { background:color-mix(in oklch, currentColor 22%, transparent); font-weight:600; }
+  </style>
+</head>
+<body>
+  {% set path = request.url.path %}
+  <nav class="navbar bg-primary text-primary-content shadow-sm">
+    <div class="max-w-5xl mx-auto w-full px-4 py-1 flex flex-wrap items-center justify-between gap-y-2 gap-x-4">
+      <span class="font-semibold text-lg">CKG Automation</span>
+      <button id="navToggle" type="button"
+              class="btn btn-ghost btn-square md:hidden"
+              aria-label="Buka menu navigasi" aria-expanded="false" aria-controls="navMenu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+      <div id="navMenu"
+           class="hidden md:flex flex-col md:flex-row items-start md:items-center gap-1 basis-full md:basis-auto md:ml-auto">
+        {# Alur utama (CDP) #}
+        <a href="/operasi" class="nav-link hover:underline"{% if path == '/operasi' %} aria-current="page"{% endif %}>Operasi (CDP)</a>
+        {# Pemisah dua alur agar jelas mana yang utama vs alternatif #}
+        <span class="hidden md:inline-block w-px h-5 bg-primary-content/30 mx-1" aria-hidden="true"></span>
+        <span class="text-primary-content/60 text-xs px-1 md:px-2" aria-hidden="true">Alur Login (alt):</span>
+        {# Upload aktif juga saat di halaman Preview (/upload) — bagian alur yg sama #}
+        <a href="/" class="nav-link hover:underline"{% if path in ['/', '/upload'] %} aria-current="page"{% endif %}>Upload &amp; Daftar</a>
+        <a href="/dashboard" class="nav-link hover:underline"{% if path == '/dashboard' %} aria-current="page"{% endif %}>Dashboard</a>
+        <a href="/unduh-log" class="nav-link hover:underline" title="Unduh file log hasil (.xlsx)">Unduh Log ↓</a>
+      </div>
+    </div>
+  </nav>
+  <script>
+    (function () {
+      var btn = document.getElementById('navToggle');
+      var menu = document.getElementById('navMenu');
+      if (!btn || !menu) return;
+      btn.addEventListener('click', function () {
+        var open = menu.classList.toggle('hidden') === false;
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    })();
+  </script>
+  <main class="max-w-5xl mx-auto px-4 py-8">
+    {% block content %}{% endblock %}
+  </main>
+</body>
+</html>

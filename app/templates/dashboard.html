@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+{% import "_components.html" as ui %}
+{% block content %}
+
+{{ ui.steps(3) }}
+
+<h1 class="text-2xl font-bold mb-6">Dashboard Progress</h1>
+
+{% if notif == 'log-kosong' %}
+{% call ui.alert(variant="warning", classes="mb-6") %}
+  Log hasil belum tersedia — belum ada peserta yang selesai diproses. Jalankan proses dulu, lalu coba unduh lagi.
+{% endcall %}
+{% endif %}
+
+<div class="stats stats-vertical sm:stats-horizontal bg-base-100 border border-base-300 shadow-sm w-full mb-6">
+  <div class="stat">
+    <div class="stat-title">Total</div>
+    <div class="stat-value tabular" id="total">0</div>
+  </div>
+  <div class="stat">
+    <div class="stat-title">Selesai</div>
+    <div class="stat-value text-info tabular" id="selesai">0</div>
+  </div>
+  <div class="stat">
+    <div class="stat-title">Sukses</div>
+    <div class="stat-value text-success tabular" id="sukses">0</div>
+  </div>
+  <div class="stat">
+    <div class="stat-title">Gagal</div>
+    <div class="stat-value text-error tabular" id="gagal">0</div>
+  </div>
+</div>
+
+{% call ui.card() %}
+  <div class="flex justify-between mb-1">
+    <span id="pesan" class="font-medium" aria-live="polite">Memuat status...</span>
+    <span id="persen" class="text-base-content/60 tabular">0%</span>
+  </div>
+  <progress id="bar" class="progress progress-primary w-full" value="0" max="100" aria-label="Progres proses"></progress>
+  <div class="mt-3 text-sm text-base-content/60">Mulai: <span id="mulai">-</span></div>
+{% endcall %}
+
+<div class="mt-6 flex items-center gap-3 flex-wrap">
+  <a href="/unduh-log" class="btn btn-primary">Unduh Log Hasil (.xlsx)</a>
+  <a href="/" class="link link-hover text-base-content/70">Upload data lain</a>
+</div>
+
+{% call ui.card(title="Ulangi yang Gagal (Retry)", classes="mt-6") %}
+  <p class="text-sm text-base-content/60 mb-2">
+    Memproses ulang hanya peserta berstatus <span class="text-error">gagal</span>.
+    Kredensial dipakai untuk login &amp; tidak disimpan permanen.
+  </p>
+  <form id="formRetry" class="space-y-3">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      {{ ui.field("username", "Username portal", id="retryUser", placeholder="Username portal", autocomplete="username", required=True) }}
+      {{ ui.field("password", "Password portal", type="password", id="retryPass", placeholder="Password portal", autocomplete="current-password", required=True) }}
+    </div>
+    <div class="flex items-center gap-4 flex-wrap">
+      {{ ui.checkbox("headless", "Mode headless", checked=True) }}
+      <label class="label gap-2">
+        Jeda (ms): <input name="delay_ms" type="number" value="800" class="input input-bordered w-24">
+      </label>
+      <label class="label gap-2">
+        Tunggu OTP (detik): <input name="otp_wait_s" type="number" value="0" class="input input-bordered w-24">
+      </label>
+    </div>
+    <div class="flex items-center gap-3 flex-wrap">
+      {{ ui.button("Ulangi yang Gagal", type="submit", variant="warning", attrs='id="btnRetry"') }}
+      <span id="pesanRetry" class="text-sm" aria-live="polite" role="status"></span>
+    </div>
+  </form>
+{% endcall %}
+
+<script>
+async function refresh() {
+  try {
+    const res = await fetch('/status');
+    const s = await res.json();
+    document.getElementById('total').textContent = s.total;
+    document.getElementById('selesai').textContent = s.selesai;
+    document.getElementById('sukses').textContent = s.sukses;
+    document.getElementById('gagal').textContent = s.gagal;
+    document.getElementById('pesan').textContent = s.pesan;
+    document.getElementById('persen').textContent = s.persen + '%';
+    document.getElementById('bar').value = s.persen;
+    document.getElementById('mulai').textContent = s.mulai || '-';
+  } catch (e) {}
+}
+refresh();
+setInterval(refresh, 2000);
+
+document.getElementById('formRetry').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const btn = document.getElementById('btnRetry');
+  const label = btn.textContent;
+  btn.disabled = true;
+  btn.innerHTML = '<span class="loading loading-spinner loading-sm"></span> Memproses…';
+  try {
+    const fd = new FormData(e.target);
+    fd.set('headless', e.target.headless.checked ? 'true' : 'false');
+    const res = await fetch('/retry', { method: 'POST', body: fd });
+    const data = await res.json();
+    document.getElementById('pesanRetry').textContent = data.pesan;
+    refresh();
+  } catch (err) {
+    document.getElementById('pesanRetry').textContent = 'Gagal mengirim: ' + err;
+  } finally {
+    btn.disabled = false;
+    btn.textContent = label;
+  }
+});
+</script>
+
+{% endblock %}

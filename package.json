@@ -1,0 +1,15 @@
+{
+  "name": "ckg-automation-ui",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Build CSS (Tailwind v4 + DaisyUI v5) untuk UI CKG Automation. Tema 'ckg' di design-system/theme.css.",
+  "scripts": {
+    "build:css": "tailwindcss -i ./design-system/theme.css -o ./app/static/app.css --minify",
+    "watch:css": "tailwindcss -i ./design-system/theme.css -o ./app/static/app.css --watch"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4",
+    "tailwindcss": "^4",
+    "daisyui": "^5"
+  }
+}

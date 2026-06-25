@@ -1,0 +1,156 @@
+{#
+  ============================================================================
+  CKG Automation — Komponen Dasar Reusable (Jinja2 macros)
+  ----------------------------------------------------------------------------
+  Sumber kebenaran markup komponen. Token warna/typografi dari design-system
+  (theme.css + MASTER.md). JANGAN hardcode warna di halaman — pakai macro ini
+  atau class semantik DaisyUI (btn-primary, badge-success, dst).
+
+  Pakai di template anak:
+      {% import "_components.html" as ui %}
+
+      {{ ui.button("Jalankan", variant="primary") }}
+      {{ ui.badge("Sukses", variant="success") }}
+      {{ ui.field("username", "Username portal", required=True) }}
+
+      {% call ui.card(title="1. Pendaftaran") %}
+        ...isi kartu...
+      {% endcall %}
+
+  Parameter `attrs` = string atribut HTML mentah lain (mis. onclick, aria-*,
+  data-*) yang tidak punya parameter khusus. Parameter `classes` = class
+  tambahan (mis. "run-btn", "w-72", "mt-2").
+  ============================================================================
+#}
+
+{#- ----- Tombol -----------------------------------------------------------
+    variant: primary | secondary | accent | neutral | ghost | outline
+             | info | success | warning | error | link
+    size:    None | xs | sm | lg
+    Aturan: satu btn-primary per kartu/layar; aksi destruktif pakai
+    variant="error" dan dipisah dari aksi normal (lihat MASTER §1, §5).      -#}
+{% macro button(label, variant="primary", type="button", size=None, block=False, classes="", attrs="") -%}
+<button type="{{ type }}" class="btn btn-{{ variant }}
+  {%- if size %} btn-{{ size }}{% endif %}
+  {%- if block %} btn-block{% endif %}
+  {%- if classes %} {{ classes }}{% endif %}"
+  {%- if attrs %} {{ attrs|safe }}{% endif %}>{{ label }}</button>
+{%- endmacro %}
+
+
+{#- ----- Kartu (permukaan) -------------------------------------------------
+    Pemakaian dengan {% call %}:
+        {% call ui.card(title="Judul") %} ...isi... {% endcall %}
+    body=False -> tanpa wrapper card-body (mis. untuk tabel full-bleed yang
+    dibungkus overflow-x-auto sendiri).                                       -#}
+{% macro card(title=None, body=True, classes="", body_classes="gap-3") -%}
+<div class="card bg-base-100 border border-base-300 shadow-sm{% if classes %} {{ classes }}{% endif %}">
+  {%- if body %}
+  <div class="card-body{% if body_classes %} {{ body_classes }}{% endif %}">
+    {%- if title %}<h2 class="card-title">{{ title }}</h2>{% endif %}
+    {{ caller() }}
+  </div>
+  {%- else %}
+  {{ caller() }}
+  {%- endif %}
+</div>
+{%- endmacro %}
+
+
+{#- ----- Input (field dengan label) ----------------------------------------
+    Label selalu terlihat + for/id (MASTER §5). Field wajib -> required=True
+    menambah tanda *. Teks bantuan opsional di bawah field.                   -#}
+{% macro field(name, label, type="text", value="", placeholder="", required=False, help=None, id=None, autocomplete=None, classes="", attrs="") -%}
+{% set fid = id or name -%}
+<fieldset class="fieldset">
+  <label class="label" for="{{ fid }}">{{ label }}{% if required %} <span class="text-error" aria-hidden="true">*</span>{% endif %}</label>
+  <input id="{{ fid }}" name="{{ name }}" type="{{ type }}"
+    {%- if value != "" %} value="{{ value }}"{% endif %}
+    {%- if placeholder %} placeholder="{{ placeholder }}"{% endif %}
+    {%- if autocomplete %} autocomplete="{{ autocomplete }}"{% endif %}
+    class="input input-bordered w-full{% if classes %} {{ classes }}{% endif %}"
+    {%- if required %} required{% endif %}
+    {%- if attrs %} {{ attrs|safe }}{% endif %}>
+  {%- if help %}<p class="label text-base-content/60">{{ help }}</p>{% endif %}
+</fieldset>
+{%- endmacro %}
+
+
+{#- ----- Select (field dengan label) ---------------------------------------
+    options: list nilai, ATAU pakai {% call %} untuk menaruh <option> sendiri.
+    selected: nilai yang dipilih. labelize: fungsi/filter tak dipakai di sini;
+    teks opsi = nilai (pakai {% call %} bila perlu label berbeda).            -#}
+{% macro select(name, label, options=None, selected=None, required=False, id=None, classes="", attrs="") -%}
+{% set fid = id or name -%}
+<fieldset class="fieldset">
+  <label class="label" for="{{ fid }}">{{ label }}{% if required %} <span class="text-error" aria-hidden="true">*</span>{% endif %}</label>
+  <select id="{{ fid }}" name="{{ name }}"
+    class="select select-bordered w-full{% if classes %} {{ classes }}{% endif %}"
+    {%- if required %} required{% endif %}
+    {%- if attrs %} {{ attrs|safe }}{% endif %}>
+    {%- if options %}
+      {%- for opt in options %}
+    <option value="{{ opt }}"{% if selected is not none and opt == selected %} selected{% endif %}>{{ opt }}</option>
+      {%- endfor %}
+    {%- else %}{{ caller() }}{% endif %}
+  </select>
+</fieldset>
+{%- endmacro %}
+
+
+{#- ----- Checkbox sebaris (label + kotak) ----------------------------------
+    Untuk opsi boolean di dalam form/baris aksi.                              -#}
+{% macro checkbox(name, label, checked=False, id=None, size="sm", classes="", attrs="") -%}
+{% set fid = id or name -%}
+<label class="label cursor-pointer gap-2" for="{{ fid }}">
+  <input id="{{ fid }}" name="{{ name }}" type="checkbox"
+    class="checkbox{% if size %} checkbox-{{ size }}{% endif %}{% if classes %} {{ classes }}{% endif %}"
+    {%- if checked %} checked{% endif %}
+    {%- if attrs %} {{ attrs|safe }}{% endif %}> {{ label|safe }}
+</label>
+{%- endmacro %}
+
+
+{#- ----- Badge status ------------------------------------------------------
+    variant: success | error | warning | info | ghost | primary | ...
+    Warna BUKAN satu-satunya penanda -> sertakan teks (MASTER §1).            -#}
+{% macro badge(label, variant="ghost", size="sm", id=None, classes="", attrs="") -%}
+<span {% if id %}id="{{ id }}" {% endif %}class="badge badge-{{ variant }}
+  {%- if size %} badge-{{ size }}{% endif %}
+  {%- if classes %} {{ classes }}{% endif %}"
+  {%- if attrs %} {{ attrs|safe }}{% endif %}>{{ label }}</span>
+{%- endmacro %}
+
+
+{#- ----- Steps / penanda langkah alur login --------------------------------
+    Indikator langkah untuk alur "Daftar via Login": Upload -> Preview ->
+    Proses. `current` = 1..3 (langkah yang sedang aktif). Semua langkah <=
+    current ditandai step-primary. Tiap langkah jadi tautan ke halamannya bila
+    sudah/akan dilalui sehingga pengguna bisa mundur tanpa tombol back browser.
+    (MASTER §5: konteks "di mana saya" harus selalu terlihat.)               -#}
+{% macro steps(current=1) -%}
+{% set labels = [("Upload", "/"), ("Preview", None), ("Proses", "/dashboard")] -%}
+<ul class="steps steps-horizontal w-full mb-6" aria-label="Langkah alur pendaftaran">
+  {%- for label, href in labels %}
+  {%- set n = loop.index %}
+  <li class="step{% if n <= current %} step-primary{% endif %}"
+      {% if n == current %}aria-current="step"{% endif %}>
+    {%- if href and n != current %}<a href="{{ href }}" class="link link-hover">{{ label }}</a>
+    {%- else %}{{ label }}{% endif %}
+  </li>
+  {%- endfor %}
+</ul>
+{%- endmacro %}
+
+
+{#- ----- Alert / feedback --------------------------------------------------
+    variant: success | error | warning | info
+    role default: error/warning -> alert, lainnya -> status (a11y).
+    icon: SVG string opsional (mis. ikon Lucide) ditaruh sebelum teks.        -#}
+{% macro alert(variant="info", role=None, classes="", icon=None) -%}
+<div class="alert alert-{{ variant }}{% if classes %} {{ classes }}{% endif %}"
+  role="{{ role or ('alert' if variant in ('error', 'warning') else 'status') }}">
+  {%- if icon %}{{ icon|safe }}{% endif %}
+  <span>{{ caller() }}</span>
+</div>
+{%- endmacro %}
