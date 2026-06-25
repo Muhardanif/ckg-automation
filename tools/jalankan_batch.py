@@ -31,7 +31,8 @@ import openpyxl                                            # noqa: E402
 from app.automation.ckg_bot import CKGBot, LewatiPesertaError  # noqa: E402
 from app.automation import selectors as S                 # noqa: E402
 from app.schema import KelompokUsia                       # noqa: E402
-from app.readers import baca_excel, validasi, cek_konsistensi_nik  # noqa: E402
+from app.readers import (baca_excel, validasi, cek_konsistensi_nik,   # noqa: E402
+                         koreksi_tgl_dari_nik, koreksi_jk_dari_nik)
 from app.excel_hasil import (KOL_TIKET, KOL_STATUS, KOL_WAKTU,       # noqa: E402
                              STATUS_TERMINAL, warnai_baris)
 
@@ -157,6 +158,28 @@ async def jalankan(args):
             _simpan(wb, args.excel)
             n_lewat += 1
             continue
+
+        # b2) Koreksi otomatis Tgl Lahir & Jenis Kelamin agar sesuai NIK (default
+        #     aktif). NIK = kunci pencocokan Dukcapil, jadi data dari NIK lebih
+        #     mungkin lolos. Daripada melewati baris, pakai data NIK lalu lanjut.
+        dikoreksi = []
+        if not args.no_koreksi_tgl:
+            baru = koreksi_tgl_dari_nik(p)
+            if baru and baru != p.tgl_lahir:
+                log(f"KOREKSI {label}: Tgl Lahir {p.tgl_lahir or '-'} -> {baru} "
+                    f"(sesuai NIK).")
+                p.tgl_lahir = baru
+                dikoreksi.append("tgl")
+        if not args.no_koreksi_jk:
+            jk = koreksi_jk_dari_nik(p)
+            if jk and jk != p.jenis_kelamin:
+                log(f"KOREKSI {label}: Jenis Kelamin {p.jenis_kelamin or '-'} -> "
+                    f"{jk} (sesuai NIK).")
+                p.jenis_kelamin = jk
+                dikoreksi.append("jk")
+        if dikoreksi:
+            warn = cek_konsistensi_nik(p)       # nilai ulang; warning terkait hilang
+
         if warn and not args.paksa:
             pesan = "DILEWATI (cek data): " + "; ".join(warn)
             log(f"LEWATI {label}: {pesan} [pakai --paksa utk tetap coba]")
@@ -175,7 +198,9 @@ async def jalankan(args):
         try:
             no_tiket = await bot.daftar_satu(
                 p, on_step=lambda nama, info="": None)
-            _tandai(row, "SUKSES", no_tiket=no_tiket)
+            status = ("SUKSES (dikoreksi dari NIK: " + "+".join(dikoreksi) + ")"
+                      if dikoreksi else "SUKSES")
+            _tandai(row, status, no_tiket=no_tiket)
             log(f"SUKSES {label} -> No. Tiket {no_tiket}")
             n_sukses += 1
         except LewatiPesertaError as e:
@@ -223,6 +248,14 @@ def main():
                     help="Jeda antar-aksi (ms). Naikkan bila koneksi lambat.")
     ap.add_argument("--paksa", action="store_true",
                     help="Tetap coba walau pra-cek NIK memberi peringatan.")
+    ap.add_argument("--no-koreksi-tgl", dest="no_koreksi_tgl",
+                    action="store_true",
+                    help="Matikan koreksi otomatis Tgl Lahir dari NIK (default: "
+                         "aktif - tgl yg tak cocok NIK dibetulkan, bukan dilewati).")
+    ap.add_argument("--no-koreksi-jk", dest="no_koreksi_jk",
+                    action="store_true",
+                    help="Matikan koreksi otomatis Jenis Kelamin dari NIK (default: "
+                         "aktif - JK yg tak cocok NIK dibetulkan, bukan dilewati).")
     ap.add_argument("--cdp", default=S.CDP_URL,
                     help=f"URL Chrome remote-debugging (default {S.CDP_URL}).")
     args = ap.parse_args()

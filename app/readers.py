@@ -13,7 +13,7 @@ di Excel Anda.
 import os
 import pandas as pd
 from datetime import datetime, timedelta
-from typing import List
+from typing import List, Optional
 
 from .schema import (
     Peserta, KelompokUsia, FIELD_PEMERIKSAAN, DEFAULT_DATA_PENDUKUNG,
@@ -273,3 +273,59 @@ def cek_konsistensi_nik(peserta: Peserta) -> List[str]:
             f"Jenis kelamin '{peserta.jenis_kelamin}' TIDAK cocok dengan NIK "
             f"(NIK menunjukkan '{jk_nik}').")
     return peringatan
+
+
+def koreksi_tgl_dari_nik(peserta: Peserta) -> Optional[str]:
+    """
+    Kembalikan Tanggal Lahir (ISO 'YYYY-MM-DD') hasil koreksi dari NIK bila
+    `peserta.tgl_lahir` saat ini TIDAK cocok dengan tanggal yang ter-encode di
+    NIK. NIK adalah kunci pencocokan portal ke Dukcapil, jadi tanggal dari NIK
+    lebih mungkin cocok daripada tanggal di Excel. Kembalikan None bila:
+      - NIK tidak valid (tak bisa diturunkan),
+      - tanggal sudah cocok (tak perlu dikoreksi), atau
+      - hasil koreksi bukan tanggal valid (mis. 31-02) -> biarkan dilewati.
+
+    Abad (digit pertama tahun) tidak tersimpan di NIK. Bila hanya hari/bulan yang
+    beda (2-digit tahun sudah sama), abad dari Excel dipertahankan. Bila 2-digit
+    tahun pun beda, abad ditebak: 20yy bila <= tahun sekarang, selain itu 19yy.
+    """
+    info = _tgl_dari_nik(peserta.nik or "")
+    if info is None:
+        return None
+    day, mm, yy, _jk = info
+
+    tahun = None
+    if peserta.tgl_lahir:
+        try:
+            d = datetime.strptime(peserta.tgl_lahir, "%Y-%m-%d")
+            if (d.day, d.month, d.year % 100) == (day, mm, yy):
+                return None                 # sudah cocok
+            if d.year % 100 == yy:
+                tahun = d.year              # abad benar, hanya hari/bulan beda
+        except ValueError:
+            pass                            # format tgl ditangani validasi()
+
+    if tahun is None:
+        skrg = datetime.now().year
+        tahun = 2000 + yy if 2000 + yy <= skrg else 1900 + yy
+
+    try:
+        return datetime(tahun, mm, day).strftime("%Y-%m-%d")
+    except ValueError:
+        return None                         # tanggal mustahil -> jangan koreksi
+
+
+def koreksi_jk_dari_nik(peserta: Peserta) -> Optional[str]:
+    """
+    Kembalikan Jenis Kelamin ('L'/'P') sesuai NIK bila `peserta.jenis_kelamin`
+    saat ini TIDAK cocok dengan NIK (digit DD > 40 = perempuan). NIK = kunci
+    pencocokan Dukcapil, jadi JK dari NIK lebih mungkin benar. Kembalikan None
+    bila NIK tak valid, JK bukan 'L'/'P', atau sudah cocok (tak perlu dikoreksi).
+    """
+    info = _tgl_dari_nik(peserta.nik or "")
+    if info is None:
+        return None
+    _day, _mm, _yy, jk_nik = info
+    if peserta.jenis_kelamin in ("L", "P") and peserta.jenis_kelamin != jk_nik:
+        return jk_nik
+    return None

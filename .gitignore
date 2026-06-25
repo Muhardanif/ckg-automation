@@ -1,5 +1,5 @@
-data/output/*.xlsx
-data/output/screenshots/*
+data/output/*
+!data/output/.gitkeep
 data/input/*
 data/*.db
 data/*.db-journal

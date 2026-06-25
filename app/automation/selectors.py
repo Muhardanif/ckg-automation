@@ -80,6 +80,14 @@ SATUSEHAT = {
     # -> dicatat & dilewati (tidak diulang), bukan kegagalan teknis bot.
     "teks_belum_proses": "Belum bisa memproses data",
 
+    # Popup gagal AMBIL data identitas dari Dukcapil saat simpan pendaftaran:
+    # 'Terjadi kesalahan / img-response-fetch - ada kesalahan saat mengambil
+    # data identitas anda. silahkan untuk melakukan pembaharuan data identitas
+    # di Dukcapil.' -> masalah data di Dukcapil, dicatat & dilewati (retry tak
+    # menolong). Cocokkan frasa khas (bukan 'Terjadi kesalahan' yg terlalu umum).
+    "teks_dukcapil_fetch":
+        r"mengambil data identitas|pembaharuan data identitas|img-response-fetch",
+
     # Teks penanda dialog GAGAL (mis. Cek NIK ditolak Dukcapil)
     "teks_error":    "Terjadi kesalahan",
     "teks_error2":   "Gagal memproses",

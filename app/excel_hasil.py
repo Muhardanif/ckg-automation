@@ -21,9 +21,15 @@ KOL_WAKTU = "Waktu Daftar"
 # `status_prefix` pada exception terkait di app/automation/ckg_bot.py.
 STATUS_SUDAH_LAYANAN = "SUDAH CKG"
 STATUS_TIDAK_VALID = "DATA TIDAK VALID"
+# Gagal ambil data identitas dari Dukcapil (peserta harus perbarui data di
+# Dukcapil) - masalah data sumber, retry tak menolong -> terminal.
+STATUS_GAGAL_DUKCAPIL = "GAGAL DUKCAPIL"
 
-# Semua penanda terminal (untuk skip saat rerun).
-STATUS_TERMINAL = (STATUS_SUDAH_LAYANAN, STATUS_TIDAK_VALID)
+# Semua penanda terminal (untuk skip saat rerun). Untuk memaksa proses ulang
+# satu baris (mis. setelah data Dukcapil diperbaiki): KOSONGKAN sel "Status
+# Daftar" baris itu.
+STATUS_TERMINAL = (STATUS_SUDAH_LAYANAN, STATUS_TIDAK_VALID,
+                   STATUS_GAGAL_DUKCAPIL)
 
 # --- Tahap KONFIRMASI HADIR (kolom hasil terpisah dari pendaftaran) ---
 KOL_STATUS_HADIR = "Status Hadir"
