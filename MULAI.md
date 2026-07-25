@@ -3,15 +3,7 @@
 Panduan singkat untuk menjalankan otomasi pendaftaran CKG (mode tempel ke Chrome
 yang login manual). Lakukan langkah ini tiap kali mau menjalankan/ melanjutkan.
 
-## A. Melanjutkan obrolan dengan Claude (opsional)
-Buka terminal di folder ini lalu:
-```
-claude --continue      # lanjutkan percakapan terakhir
-# atau
-claude --resume        # pilih dari daftar sesi sebelumnya
-```
-
-## B. Menyiapkan & menjalankan pendaftaran (wajib tiap hari)
+## A. Menyiapkan & menjalankan pendaftaran (wajib tiap hari)
 
 1. **Buka Chrome khusus otomasi** — klik dua kali:
    ```
