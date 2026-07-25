@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1202 280" width="1202" height="280"><g transform="translate(20,20) scale(0.86)">
+  <polyline points="225,32 115,32 45,140 115,248 225,248" stroke="#0B132B" fill="none" stroke-width="46" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="6"/>
+  <polyline points="345,32 258,140 345,248" stroke="#0B132B" fill="none" stroke-width="46" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="6"/>
+  <path d="M 655,32 L 470,32 L 383,140 L 470,248 L 632,248 L 632,152 L 528,152" stroke="#0B132B" fill="none" stroke-width="46" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="6"/></g><text x="680" y="122" font-family="Plus Jakarta Sans" font-weight="800" font-size="86" letter-spacing="5" fill="#0B132B">CKG</text><text x="680" y="216" font-family="Plus Jakarta Sans" font-weight="700" font-size="64" letter-spacing="7" fill="#0B132B">AUTOMATION</text>
+</svg>

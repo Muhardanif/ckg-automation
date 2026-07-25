@@ -1,60 +1,207 @@
 <!DOCTYPE html>
-<html lang="id" data-theme="ckg">
+<html lang="id">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% block title %}CKG Automation{% endblock %}</title>
-  <!-- Tailwind v4 + DaisyUI v5, hasil build. Rebuild: `npm run build:css` -->
-  <link rel="stylesheet" href="/static/app.css">
-  <style>
-    /* Sisa style app-spesifik (highlight nav aktif). Token & base lain di theme.css */
-    .nav-link { display:inline-flex; align-items:center; min-height:40px; padding:.35rem .6rem; border-radius:.5rem; }
-    .nav-link:hover { background:color-mix(in oklch, currentColor 12%, transparent); }
-    .nav-link[aria-current="page"] { background:color-mix(in oklch, currentColor 22%, transparent); font-weight:600; }
-  </style>
-</head>
-<body>
-  {% set path = request.url.path %}
-  <nav class="navbar bg-primary text-primary-content shadow-sm">
-    <div class="max-w-5xl mx-auto w-full px-4 py-1 flex flex-wrap items-center justify-between gap-y-2 gap-x-4">
-      <span class="font-semibold text-lg">CKG Automation</span>
-      <button id="navToggle" type="button"
-              class="btn btn-ghost btn-square md:hidden"
-              aria-label="Buka menu navigasi" aria-expanded="false" aria-controls="navMenu">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-             stroke-linecap="round" aria-hidden="true">
-          <line x1="3" y1="6" x2="21" y2="6"></line>
-          <line x1="3" y1="12" x2="21" y2="12"></line>
-          <line x1="3" y1="18" x2="21" y2="18"></line>
-        </svg>
-      </button>
-      <div id="navMenu"
-           class="hidden md:flex flex-col md:flex-row items-start md:items-center gap-1 basis-full md:basis-auto md:ml-auto">
-        {# Alur utama (CDP) #}
-        <a href="/operasi" class="nav-link hover:underline"{% if path == '/operasi' %} aria-current="page"{% endif %}>Operasi (CDP)</a>
-        {# Pemisah dua alur agar jelas mana yang utama vs alternatif #}
-        <span class="hidden md:inline-block w-px h-5 bg-primary-content/30 mx-1" aria-hidden="true"></span>
-        <span class="text-primary-content/60 text-xs px-1 md:px-2" aria-hidden="true">Alur Login (alt):</span>
-        {# Upload aktif juga saat di halaman Preview (/upload) — bagian alur yg sama #}
-        <a href="/" class="nav-link hover:underline"{% if path in ['/', '/upload'] %} aria-current="page"{% endif %}>Upload &amp; Daftar</a>
-        <a href="/dashboard" class="nav-link hover:underline"{% if path == '/dashboard' %} aria-current="page"{% endif %}>Dashboard</a>
-        <a href="/unduh-log" class="nav-link hover:underline" title="Unduh file log hasil (.xlsx)">Unduh Log ↓</a>
-      </div>
-    </div>
-  </nav>
+  <meta name="description" content="Alat bantu operator untuk mendaftarkan, mengonfirmasi kehadiran, dan mengisi skrining peserta Cek Kesehatan Gratis.">
+  <meta name="theme-color" content="#0f766e" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0b132b" media="(prefers-color-scheme: dark)">
+
+  {# Aset brand ada di app/static/img/brand/ dan sudah disajikan oleh mount /static
+     yang ada — tidak perlu mount tambahan di main.py. #}
+  <link rel="icon" type="image/png" sizes="32x32" href="/static/img/brand/favicon/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/static/img/brand/favicon/favicon-192.png">
+  <link rel="apple-touch-icon" href="/static/img/brand/app-icon/ckg-app-icon-180.png">
+
+  {# Tema diterapkan SEBELUM paint pertama. Kalau ditaruh di akhir <body>,
+     halaman berkedip terang lalu berubah gelap (FOUC). #}
   <script>
     (function () {
-      var btn = document.getElementById('navToggle');
-      var menu = document.getElementById('navMenu');
-      if (!btn || !menu) return;
-      btn.addEventListener('click', function () {
-        var open = menu.classList.toggle('hidden') === false;
-        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-      });
+      try {
+        var simpan = localStorage.getItem('tema');
+        var gelap = simpan ? simpan === 'ckg-dark'
+                           : matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.dataset.theme = gelap ? 'ckg-dark' : 'ckg';
+      } catch (e) { document.documentElement.dataset.theme = 'ckg'; }
     })();
   </script>
-  <main class="max-w-5xl mx-auto px-4 py-8">
-    {% block content %}{% endblock %}
-  </main>
+
+  {# Tailwind v4 + DaisyUI v5, hasil build. Rebuild: `npm run build:css`
+     (4_buka_aplikasi.bat sudah melakukannya otomatis bila Node tersedia).
+     ?v= (mtime) memaksa browser mengambil ulang CSS setiap habis build —
+     tanpanya cache browser menyajikan CSS lama dan tata letak berantakan. #}
+  <link rel="stylesheet" href="/static/app.css?v={{ versi_aset('app.css') }}">
+</head>
+<body>
+{% import "_components.html" as ui %}
+{% set path = request.url.path %}
+{% set menu = [
+     ("/operasi",   "Operasi",       "operasi",   "Jalankan pendaftaran, kehadiran, dan pelayanan"),
+     ("/riwayat",   "Riwayat",       "riwayat",   "Audit trail proses yang pernah dijalankan"),
+     ("/peserta",   "Data Peserta",  "peserta",   "Cari peserta dan lihat status submit-nya"),
+     ("/dashboard", "Dashboard",     "dashboard", "Progres proses yang sedang berjalan")
+   ] %}
+
+{# Halaman aktif dipakai dua kali: judul topbar mobile (sidebar tersembunyi,
+   orientasi harus ikut topbar) dan penanda lokasi ringan di desktop. #}
+{% set nav = namespace(judul=None, ikon=None) %}
+{% for href, label, ikon, ket in menu %}
+  {% if path == href or path.startswith(href ~ '/') %}
+    {% set nav.judul = label %}{% set nav.ikon = ikon %}
+  {% endif %}
+{% endfor %}
+{% if path in ['/', '/upload'] %}
+  {% set nav.judul = 'Upload & Daftar' %}{% set nav.ikon = 'upload' %}
+{% endif %}
+
+<a href="#konten" class="skip-link">Lewati ke konten utama</a>
+
+<div class="drawer lg:drawer-open">
+  <input id="drawerToggle" type="checkbox" class="drawer-toggle">
+
+  <!-- ===== Kolom konten ===== -->
+  <div class="drawer-content flex flex-col min-h-dvh">
+    <!-- Topbar: judul halaman di layar sempit (sidebar tersembunyi) +
+         penanda lokasi di desktop + aksi global (Unduh Log, tema) -->
+    <header class="navbar bg-base-100/95 backdrop-blur border-b border-base-300 sticky top-0 z-30 px-4 gap-3">
+      <label for="drawerToggle" class="btn btn-ghost btn-square lg:hidden"
+             aria-label="Buka menu navigasi">{{ ui.icon("menu", classes="h-6 w-6") }}</label>
+
+      {# Mobile: nama halaman aktif, bukan brand — brand sudah ada di drawer &
+         judul tab; operator lebih butuh tahu "saya sedang di mana". #}
+      <span class="font-heading font-semibold text-lg lg:hidden truncate">
+        {{ nav.judul or "CKG Automation" }}</span>
+
+      {# Desktop: penanda lokasi ringan; heading utama tetap h1 halaman. #}
+      {% if nav.judul %}
+      <span class="hidden lg:flex items-center gap-2 text-sm font-medium text-base-content/70">
+        {{ ui.icon(nav.ikon, classes="h-4 w-4 shrink-0") }}{{ nav.judul }}
+      </span>
+      {% endif %}
+
+      <div class="ml-auto flex items-center gap-1">
+        <a href="/unduh-log" class="btn btn-ghost btn-sm gap-2"
+           title="Unduh log hasil dalam format Excel">
+          {{ ui.icon("unduh", classes="h-4 w-4") }}
+          <span class="hidden sm:inline">Unduh Log</span>
+        </a>
+        <span class="w-px h-5 bg-base-300 mx-1" aria-hidden="true"></span>
+        <button id="temaToggle" type="button" class="btn btn-ghost btn-square btn-sm"
+                aria-label="Ganti tema terang/gelap">
+          <span class="dark-only">{{ ui.icon("terang", classes="h-5 w-5") }}</span>
+          <span class="light-only">{{ ui.icon("gelap", classes="h-5 w-5") }}</span>
+        </button>
+      </div>
+    </header>
+
+    <main id="konten" class="flex-1 w-full max-w-7xl mx-auto px-4 py-8">
+      {% block content %}{% endblock %}
+    </main>
+  </div>
+
+  <!-- ===== Sidebar ===== -->
+  <div class="drawer-side z-40">
+    <label for="drawerToggle" class="drawer-overlay" aria-label="Tutup menu navigasi"></label>
+
+    <nav id="sidebar" class="bg-base-100 border-r border-base-300 w-72 min-h-full flex flex-col"
+         aria-label="Navigasi utama">
+      {# Logo horizontal sudah memuat wordmark "CKG AUTOMATION", jadi lockup teks
+         yang dulu ada di sebelahnya dihapus — kalau tidak, namanya terbaca dua
+         kali berdampingan.
+
+         Dua berkas, bukan satu: versi color memakai wordmark navy yang praktis
+         lenyap di atas sidebar tema gelap. .light-only/.dark-only (theme.css)
+         memilih salah satunya.
+
+         PNG, bukan SVG: SVG brand menyimpan wordmark sebagai <text> hidup
+         ber-font Plus Jakarta Sans, dan SVG yang dimuat lewat <img> dirender
+         terisolasi — font web halaman tidak berlaku di dalamnya, jadi wordmark
+         akan diam-diam jatuh ke font sistem di PC yang tak memasang font itu. #}
+      <a href="/operasi"
+         class="flex items-center px-4 h-16 shrink-0 border-b border-base-300
+                hover:bg-base-200/60 transition-colors">
+        <img src="/static/img/brand/logo/ckg-logo-horizontal-color.png"
+             alt="CKG Automation" width="3000" height="699"
+             class="light-only h-10 w-auto">
+        <img src="/static/img/brand/logo/ckg-logo-horizontal-white.png"
+             alt="CKG Automation" width="3000" height="699"
+             class="dark-only h-10 w-auto">
+      </a>
+
+      {# Item menu dua baris: deskripsi yang dulu tersembunyi di tooltip title
+         (tak terjangkau layar sentuh) kini terlihat langsung. Gaya state
+         aktifnya (latar primary tipis + bilah kiri + ikon primary) ada di
+         theme.css bagian "Sidebar: navigasi utama". #}
+      <ul class="menu gap-1 p-3 grow">
+        <li class="menu-title text-xs font-semibold uppercase tracking-wider text-base-content/60">
+          Menu utama</li>
+        {% for href, label, ikon, ket in menu %}
+        {% set aktif = path == href or path.startswith(href ~ '/') %}
+        <li>
+          <a href="{{ href }}" class="items-start gap-3 px-3 py-2.5{% if aktif %} menu-active{% endif %}"
+             {% if aktif %}aria-current="page"{% endif %}>
+            <span class="nav-ikon mt-0.5 shrink-0">{{ ui.icon(ikon) }}</span>
+            <span class="flex flex-col gap-0.5 min-w-0">
+              <span class="nav-label text-sm font-medium leading-tight">{{ label }}</span>
+              <span class="text-xs text-base-content/70 leading-snug">{{ ket }}</span>
+            </span>
+          </a>
+        </li>
+        {% endfor %}
+
+        <li class="menu-title text-xs font-semibold uppercase tracking-wider text-base-content/60 mt-4">
+          Alur alternatif</li>
+        {% set alt_aktif = path in ['/', '/upload'] %}
+        <li>
+          <a href="/" class="items-start gap-3 px-3 py-2.5{% if alt_aktif %} menu-active{% endif %}"
+             {% if alt_aktif %}aria-current="page"{% endif %}>
+            <span class="nav-ikon mt-0.5 shrink-0">{{ ui.icon("upload") }}</span>
+            <span class="flex flex-col gap-0.5 min-w-0">
+              <span class="nav-label text-sm font-medium leading-tight">Upload &amp; Daftar</span>
+              <span class="text-xs text-base-content/70 leading-snug">Pendaftaran lewat
+                login portal, bukan Chrome yang sudah dibuka</span>
+            </span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="flex items-start gap-2.5 px-4 py-3 border-t border-base-300">
+        {{ ui.icon("kunci", classes="h-3.5 w-3.5 shrink-0 mt-0.5 text-base-content/60") }}
+        <p class="text-xs text-base-content/60 leading-relaxed">
+          Berjalan lokal di komputer ini. Data peserta tidak dikirim ke mana pun
+          selain portal CKG.
+        </p>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<script>
+  // Tombol tema: simpan pilihan eksplisit; tanpa pilihan, ikut sistem.
+  // (CSS pergantian ikon .light-only/.dark-only ada di theme.css.)
+  document.getElementById('temaToggle').addEventListener('click', function () {
+    var akar = document.documentElement;
+    var baru = akar.dataset.theme === 'ckg-dark' ? 'ckg' : 'ckg-dark';
+    akar.dataset.theme = baru;
+    try { localStorage.setItem('tema', baru); } catch (e) {}
+  });
+
+  // Menutup drawer setelah pindah halaman di layar sempit.
+  document.querySelectorAll('.drawer-side a').forEach(function (a) {
+    a.addEventListener('click', function () {
+      document.getElementById('drawerToggle').checked = false;
+    });
+  });
+
+  // Esc menutup drawer (rute keluar keyboard, selain klik overlay).
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      document.getElementById('drawerToggle').checked = false;
+    }
+  });
+</script>
+<script src="/static/ui.js?v={{ versi_aset('ui.js') }}"></script>
+{% block scripts %}{% endblock %}
 </body>
 </html>

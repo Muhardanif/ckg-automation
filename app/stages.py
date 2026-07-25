@@ -13,6 +13,8 @@ import threading
 from collections import deque
 from datetime import datetime
 
+from . import db
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 _VENV_PY = os.path.join(ROOT, "venv", "Scripts", "python.exe")
 PY = _VENV_PY if os.path.exists(_VENV_PY) else sys.executable
@@ -28,12 +30,14 @@ class StageState:
         self.returncode = None
         self.log = deque(maxlen=MAX_LOG)
         self._proc = None
+        self.run_id = None       # baris audit trail yang sedang terbuka
+        self.dihentikan = False  # dibedakan dari gagal: operator yang menekan Hentikan
 
     def snapshot(self):
         return {
             "running": self.running, "label": self.label, "cmd": self.cmd,
             "mulai": self.mulai, "returncode": self.returncode,
-            "log": list(self.log),
+            "log": list(self.log), "run_id": self.run_id,
         }
 
 
@@ -51,13 +55,26 @@ def _stream(proc):
     STAGE.running = False
     STAGE.log.append(f"[SELESAI] kode keluar = {proc.returncode}")
 
+    # Proses yang di-terminate keluar dengan kode != 0; itu bukan kegagalan
+    # tool, melainkan keputusan operator. Bedakan supaya riwayat jujur.
+    if STAGE.dihentikan:
+        status, ringkasan = "dihentikan", "Dihentikan oleh operator."
+    elif proc.returncode == 0:
+        status, ringkasan = "sukses", "Selesai tanpa error."
+    else:
+        status, ringkasan = "gagal", f"Tool keluar dengan kode {proc.returncode}."
+    db.akhiri_run(STAGE.run_id, status, returncode=proc.returncode,
+                  ringkasan=ringkasan)
+    STAGE.run_id = None
 
-def mulai_stage(label, args):
+
+def mulai_stage(label, args, jenis="lain", parameter=None):
     """Jalankan `PY <args...>` sbg subprocess (cwd = root proyek). args = list
     diawali path skrip relatif, mis. ['tools/pelayanan.py','--excel',...]."""
     if STAGE.running:
         return False, "Masih ada proses berjalan. Tunggu selesai atau Hentikan dulu."
     STAGE.running = True
+    STAGE.dihentikan = False
     STAGE.label = label
     STAGE.cmd = "python " + " ".join(args)
     STAGE.mulai = datetime.now().isoformat(timespec="seconds")
@@ -65,6 +82,9 @@ def mulai_stage(label, args):
     STAGE.log.clear()
     STAGE.log.append(f"[MULAI] {label} — {STAGE.mulai}")
     STAGE.log.append(f"[CMD] {STAGE.cmd}")
+
+    STAGE.run_id = db.mulai_run(jenis, label, perintah=STAGE.cmd,
+                                parameter=parameter or {})
     try:
         proc = subprocess.Popen(
             [PY] + args, cwd=ROOT,
@@ -73,6 +93,8 @@ def mulai_stage(label, args):
     except Exception as e:
         STAGE.running = False
         STAGE.log.append(f"[ERROR] gagal start: {e}")
+        db.akhiri_run(STAGE.run_id, "gagal", ringkasan=f"Gagal start: {e}")
+        STAGE.run_id = None
         return False, f"Gagal start: {e}"
     STAGE._proc = proc
     threading.Thread(target=_stream, args=(proc,), daemon=True).start()
@@ -82,10 +104,12 @@ def mulai_stage(label, args):
 def stop_stage():
     if STAGE._proc and STAGE.running:
         try:
+            STAGE.dihentikan = True
             STAGE._proc.terminate()
             STAGE.log.append("[DIHENTIKAN] oleh pengguna.")
             return True
         except Exception:
+            STAGE.dihentikan = False
             return False
     return False
 

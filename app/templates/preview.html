@@ -4,26 +4,26 @@
 
 {{ ui.steps(2) }}
 
-<h1 class="text-2xl font-bold mb-2">Preview Data</h1>
+<h1 class="text-3xl font-bold mb-2">Preview Data</h1>
 <p class="text-base-content/70 mb-4">
   File <strong>{{ nama_file }}</strong> ({{ kelompok|capitalize }}) —
   {{ total }} baris, <span class="text-success font-medium">{{ valid }} valid</span>,
   <span class="text-error font-medium">{{ total - valid }} bermasalah</span>.
 </p>
 
-{% set info_icon %}<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>{% endset %}
-{% call ui.alert(variant="info", classes="mb-4", icon=info_icon) %}
+{% call ui.alert(variant="info", classes="mb-4", ikon="info") %}
   <strong>{{ disimpan }}</strong> peserta disimpan ke database.
   {% if duplikat %}
-  <span class="text-warning">{{ duplikat|length }} dilewati karena NIK sudah ada
-  ({{ duplikat[:5]|join(", ") }}{% if duplikat|length > 5 %}, …{% endif %}).</span>
+  {{ duplikat|length }} dilewati karena NIK sudah ada
+  ({{ duplikat[:5]|join(", ") }}{% if duplikat|length > 5 %}, …{% endif %}).
   {% endif %}
   Total antrian siap proses: <strong class="tabular">{{ jumlah_siap }}</strong>.
 {% endcall %}
 
-{% call ui.card(body=False, classes="mb-6") %}
+{% call ui.card(body=False, classes="mb-2") %}
   <div class="overflow-x-auto">
     <table class="table table-zebra">
+      <caption class="sr-only">Hasil normalisasi data peserta dari {{ nama_file }}</caption>
       <thead>
         <tr>
           <th scope="col">NIK</th>
@@ -42,7 +42,11 @@
           <td>{{ row.peserta.jenis_kelamin }}</td>
           <td>
             {% if row.errors %}
-              <span class="text-error">{{ row.errors|join(", ") }}</span>
+              {# Ikon + teks, bukan sekadar merah: warna tak boleh jadi
+                 satu-satunya penanda makna (MASTER §1). #}
+              <span class="text-error inline-flex items-start gap-1.5">
+                {{ ui.icon("gagal", classes="h-4 w-4 shrink-0 mt-0.5") }}{{ row.errors|join(", ") }}
+              </span>
             {% else %}
               {{ ui.badge("Valid", variant="success") }}
             {% endif %}
@@ -54,28 +58,29 @@
   </div>
 {% endcall %}
 
+{# Excel bisa berisi ribuan baris; merender semuanya memberatkan halaman tanpa
+   menambah informasi. Baris bermasalah selalu ditaruh di atas. #}
+<p class="text-sm text-base-content/70 mb-6">
+  Menampilkan <span class="tabular">{{ ditampilkan }}</span> dari
+  <span class="tabular">{{ total }}</span> baris (yang bermasalah didahulukan).
+  Semua peserta bisa dicari di <a href="/peserta" class="link link-primary">Data Peserta</a>.
+</p>
+
 {% call ui.card(title="Mulai Automation") %}
-  <p class="text-sm text-base-content/60 mb-2">Kredensial portal hanya dipakai untuk login &amp; tidak disimpan permanen.</p>
+  <p class="text-sm text-base-content/70 mb-2">Kredensial portal hanya dipakai untuk login &amp; tidak disimpan permanen.</p>
   <form id="formMulai" class="space-y-3">
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
       {{ ui.field("username", "Username portal", placeholder="Username portal", autocomplete="username", required=True) }}
       {{ ui.field("password", "Password portal", type="password", placeholder="Password portal", autocomplete="current-password", required=True) }}
     </div>
-    <div class="flex items-center gap-4 flex-wrap">
-      {{ ui.checkbox("headless", "Mode headless (tanpa tampilan browser)", checked=True) }}
-      <label class="label gap-2">
-        Jeda antar aksi (ms):
-        <input name="delay_ms" type="number" value="800" class="input input-bordered w-24">
-      </label>
-      <label class="label gap-2">
-        Tunggu OTP/2FA (detik):
-        <input name="otp_wait_s" type="number" value="0" class="input input-bordered w-24">
-      </label>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      {{ ui.field("delay_ms", "Jeda antar aksi (ms)", type="number", value="800",
+         id="delayMulai", attrs='min="0"') }}
+      {{ ui.field("otp_wait_s", "Tunggu OTP/2FA (detik)", type="number", value="0",
+         id="otpMulai", attrs='min="0"',
+         help="Jika portal memakai OTP: matikan headless & isi mis. 120 detik.") }}
     </div>
-    <p class="text-xs text-base-content/60">
-      Jika portal memakai OTP/2FA: matikan headless &amp; isi “Tunggu OTP” (mis. 120 detik)
-      agar Anda sempat memasukkan kode di jendela browser.
-    </p>
+    {{ ui.checkbox("headless", "Mode headless (tanpa tampilan browser)", checked=True) }}
     <div class="flex items-center gap-3">
       {{ ui.button("Mulai Proses", type="submit", attrs='id="btnMulai"') }}
       <a href="/" class="link link-hover text-base-content/70">Tambah file lain</a>
@@ -84,11 +89,28 @@
   <p id="pesan" class="mt-3 text-sm" aria-live="polite" role="status"></p>
 {% endcall %}
 
+{% endblock %}
+
+{% block scripts %}
 <script>
 document.getElementById('formMulai').addEventListener('submit', async (e) => {
   e.preventDefault();
   const btn = document.getElementById('btnMulai');
   const label = btn.textContent;
+
+  const ok = await ckg.konfirmasiAksi({
+    judul: 'Mulai mendaftarkan peserta ke portal?',
+    pesan: 'Proses akan login ke portal CKG dan mengirim data peserta satu per satu. '
+         + 'Peserta yang sudah terkirim tidak otomatis dibatalkan bila proses dihentikan.',
+    rincian: [
+      'Antrian siap proses: {{ jumlah_siap }} peserta',
+      'Baris bermasalah: {{ total - valid }} (akan gagal validasi)',
+      'Mode: ' + (e.target.headless.checked ? 'headless (tanpa jendela browser)' : 'jendela browser terlihat')
+    ],
+    tombol: 'Mulai proses'
+  });
+  if (!ok) return;
+
   btn.disabled = true;
   btn.innerHTML = '<span class="loading loading-spinner loading-sm"></span> Memproses…';
   try {
@@ -106,5 +128,4 @@ document.getElementById('formMulai').addEventListener('submit', async (e) => {
   btn.textContent = label;
 });
 </script>
-
 {% endblock %}

@@ -332,7 +332,7 @@ async def _cari(page, fh, kata, match_text=None, tries=16):
         pass
     # KETIK per-karakter (bukan fill): kotak 'searchNik' (filter NIK) MENOLAK value
     # yg di-set sekaligus → error 'NIK hanya bisa angka'. Mengetik tiap karakter
-    # memicu handler input Vue dgn benar (terbukti via tools/diag_nik_box.py).
+    # memicu handler input Vue dgn benar.
     await box.type(str(kata), delay=80)
     await box.press("Enter")
     # poll: tunggu tabel benar2 terfilter (baris memuat `cek`) hingga tries x500ms.

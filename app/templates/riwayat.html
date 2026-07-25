@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% import "_components.html" as ui %}
+{% block title %}Riwayat — CKG Automation{% endblock %}
+{% block content %}
+
+<h1 class="text-3xl font-bold mb-2">Riwayat Proses</h1>
+<p class="text-base-content/70 mb-6 max-w-prose">
+  Setiap proses yang pernah dijalankan beserta parameternya. Dipakai untuk menelusuri
+  mundur: siapa menjalankan apa, kapan, dan apa hasilnya.
+</p>
+
+<form method="get" class="flex items-end gap-3 flex-wrap mb-4">
+  <div class="w-full sm:w-56">
+    {% call ui.select("jenis", "Jenis proses", id="jenis", attrs='onchange="this.form.submit()"') %}
+      <option value="">Semua jenis</option>
+      {% for j in jenis_pilihan %}
+      <option value="{{ j }}" {% if j == jenis %}selected{% endif %}>{{ j }}</option>
+      {% endfor %}
+    {% endcall %}
+  </div>
+  {% if jenis %}<a href="/riwayat" class="btn btn-ghost">Hapus filter</a>{% endif %}
+</form>
+
+{% if runs %}
+{% call ui.card(body=False) %}
+  <div class="overflow-x-auto">
+    <table class="table">
+      <caption class="sr-only">Daftar proses yang pernah dijalankan, terbaru dulu</caption>
+      <thead>
+        <tr>
+          <th scope="col">Mulai</th>
+          <th scope="col">Proses</th>
+          <th scope="col">Operator</th>
+          <th scope="col">Status</th>
+          <th scope="col" class="text-right">Durasi</th>
+          <th scope="col">Hasil</th>
+          <th scope="col"><span class="sr-only">Aksi</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for r in runs %}
+        <tr>
+          <td class="tabular whitespace-nowrap">{{ r.mulai.strftime('%d %b %Y %H:%M') }}</td>
+          <td>
+            <span class="font-medium">{{ r.label }}</span>
+            <span class="block text-xs text-base-content/60">{{ r.jenis }}</span>
+          </td>
+          <td>{{ r.operator }}</td>
+          <td>{{ ui.status_run(r.status) }}</td>
+          <td class="tabular text-right whitespace-nowrap">
+            {% if r.durasi_detik is none %}—
+            {% elif r.durasi_detik < 60 %}{{ r.durasi_detik }} dtk
+            {% else %}{{ r.durasi_detik // 60 }} mnt {{ r.durasi_detik % 60 }} dtk{% endif %}
+          </td>
+          <td class="text-sm text-base-content/70 max-w-xs">{{ r.ringkasan or "—" }}</td>
+          <td class="text-right">
+            <a href="/riwayat/{{ r.id }}" class="btn btn-ghost btn-xs">Detail</a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endcall %}
+
+{{ ui.paginasi(p, dasar=("jenis=" ~ jenis) if jenis else "") }}
+
+{% else %}
+{% call ui.card() %}
+  {{ ui.empty_state(
+       "Belum ada proses tercatat" if not jenis else "Tidak ada proses berjenis “" ~ jenis ~ "”",
+       "Riwayat terisi otomatis setiap kali Anda menjalankan tahap di halaman Operasi.",
+       ikon="riwayat") }}
+{% endcall %}
+{% endif %}
+
+{% endblock %}

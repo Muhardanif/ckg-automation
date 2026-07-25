@@ -1,95 +1,210 @@
 {% extends "base.html" %}
 {% import "_components.html" as ui %}
+{% block title %}Operasi — CKG Automation{% endblock %}
 {% block content %}
 
-<h1 class="text-2xl font-bold mb-1">Operasi: Daftar, Konfirmasi Hadir &amp; Pelayanan</h1>
-<p class="text-sm text-base-content/60 mb-6">
-  Semua tahap di sini menyetir Chrome via CDP. <b>Sebelum mulai:</b> buka Chrome (tombol di bawah),
-  login portal &amp; buka menu CKG, lalu <b>tutup file Excel</b>.
-  <br>(Catatan: halaman <a href="/" class="link link-primary">"Daftar via Login (alt)"</a>
-  adalah alur pendaftaran alternatif berbasis login &mdash; bukan CDP.)
-</p>
-
-<!-- Persiapan + parameter umum -->
-{% call ui.card(classes="mb-5") %}
-  <div class="flex items-end gap-3 flex-wrap">
-    {{ ui.button("Buka Chrome (port 9222)", variant="neutral", attrs='onclick="bukaChrome()"') }}
-    <label class="label flex-col items-start gap-1">File Excel:
-      <input id="excel" value="{{ excel_default }}" class="input input-bordered w-72">
-    </label>
-    <label class="label flex-col items-start gap-1">Kelompok:
-      <select id="kelompok" class="select select-bordered">
-        {% for k in kelompok %}<option value="{{k}}" {% if k=='lansia' %}selected{% endif %}>{{k}}</option>{% endfor %}
-      </select>
-    </label>
-    <label class="label flex-col items-start gap-1">NIK (opsional, 1 peserta):
-      <input id="nik" placeholder="kosong = semua" class="input input-bordered w-44">
-    </label>
+{# Judul + satu kalimat. Syarat "sebelum mulai" TIDAK ditaruh di sini: ia
+   instruksi untuk tombol Buka Chrome, jadi tempatnya di kartu Persiapan,
+   bersebelahan dengan tombolnya. #}
+<div class="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 mb-5">
+  <div>
+    <h1 class="text-3xl font-bold">Operasi</h1>
+    <p class="text-sm text-base-content/70 mt-1">
+      Tiga tahap yang menyetir Chrome yang sudah Anda buka.
+    </p>
   </div>
-{% endcall %}
-
-<!-- TAHAP 1: Pendaftaran (Batch, CDP) -->
-{% call ui.card(title="1. Pendaftaran (Batch)", classes="mb-5") %}
-  <p class="text-sm text-base-content/60">
-    Mendaftarkan semua peserta di Excel (baris ber-No.Tiket dilewati). Hasil (No. Tiket /
-    Status) ditulis balik ke Excel.
+  <p class="text-sm text-base-content/70">
+    Tanpa Chrome? <a href="/" class="link link-primary">Upload &amp; Daftar</a>
   </p>
-  <div class="flex items-center gap-4 flex-wrap">
-    {{ ui.button("Jalankan Pendaftaran", classes="run-btn", attrs='onclick="jalankanDaftar()"') }}
-    {{ ui.checkbox("paksa", "Paksa (daftar ulang walau sudah ada No. Tiket)") }}
-    {{ ui.checkbox("koreksi_nik", "Koreksi Tgl Lahir &amp; Jenis Kelamin dari NIK otomatis (bukan dilewati)", checked=True) }}
-  </div>
-{% endcall %}
+</div>
 
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
-  <!-- TAHAP 2: Konfirmasi Hadir -->
-  {% call ui.card(title="2. Konfirmasi Hadir") %}
-    <p class="text-sm text-base-content/60">Menandai kehadiran peserta yang sudah terdaftar (Status Daftar = SUKSES).</p>
-    {{ ui.button("Jalankan Konfirmasi Hadir", classes="run-btn", attrs='onclick="jalankanHadir()"') }}
-  {% endcall %}
+<div id="koneksi" hidden role="alert"
+     class="alert alert-error mb-5 text-sm"></div>
 
-  <!-- TAHAP 3: Pelayanan -->
-  {% call ui.card(title="3. Pelayanan (isi form skrining)") %}
-    <div class="space-y-2 text-sm">
-      <div class="flex items-center gap-4 flex-wrap">
-        <label class="label cursor-pointer gap-1"><input type="radio" name="mode" value="dry" class="radio radio-sm" checked> Dry-run (uji, tak kirim)</label>
-        <label class="label cursor-pointer gap-1"><input type="radio" name="mode" value="submit" class="radio radio-sm"> Submit (kirim nyata)</label>
+{# Tata letak konsol: kolom kiri = kontrol, kolom kanan = status & log yang
+   ikut menempel saat halaman digulir. Sebelumnya log ditumpuk paling bawah,
+   sehingga operator menekan tombol di layar atas dan hasilnya muncul di luar
+   layar. Dua kolom baru dipakai di >=xl (1280px): di lg konten tinggal ~700px
+   setelah sidebar, terlalu sempit untuk dibelah. #}
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-5">
+
+  <!-- ======================= KOLOM KIRI: KONTROL ======================= -->
+  <div class="xl:col-span-7 space-y-5">
+
+    <!-- Persiapan + parameter umum -->
+    {% call ui.card(classes="", body_classes="gap-4") %}
+      <div class="flex items-center justify-between gap-3 flex-wrap">
+        <h2 class="card-title text-lg">Persiapan</h2>
+        {{ ui.button("Buka Chrome (port 9222)", variant="neutral", size="sm",
+           attrs='onclick="bukaChrome()"') }}
       </div>
-      <div class="flex items-center gap-4 flex-wrap">
-        {{ ui.checkbox("resume", "Resume (lengkapi yg belum)", checked=True, classes="cursor-pointer") }}
-        {{ ui.checkbox("selesaikan", 'Selesaikan + Konfirmasi <span class="text-error">(KUNCI data)</span>') }}
+
+      {# Daftar bernomor, bukan paragraf: ini urutan langkah yang dikerjakan
+         satu per satu, dan operator perlu memindainya sekilas. #}
+      <ol class="list-decimal pl-5 space-y-1 text-sm text-base-content/70">
+        <li>Buka jendela Chrome khusus lewat tombol di atas.</li>
+        <li>Login ke portal dan buka menu CKG di jendela itu.</li>
+        <li><b class="font-medium text-base-content">Tutup file Excel</b> sebelum menjalankan tahap apa pun.</li>
+      </ol>
+
+      <hr class="border-base-300">
+
+      {# Parameter dipakai oleh ketiga tahap di bawah, jadi ditaruh sekali di sini. #}
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="sm:col-span-2">
+          {{ ui.field("excel", "File Excel", value=excel_default, id="excel") }}
+        </div>
+        {% call ui.select("kelompok", "Kelompok usia", id="kelompok") %}
+          {% for k in kelompok %}
+          <option value="{{ k }}" {% if k == 'lansia' %}selected{% endif %}>{{ k|capitalize }}</option>
+          {% endfor %}
+        {% endcall %}
+        {{ ui.field("nik", "NIK", id="nik", placeholder="kosong = semua",
+           help="Isi untuk memproses satu peserta saja.") }}
       </div>
-      <div class="flex items-center gap-3 flex-wrap">
-        {{ ui.checkbox("mulai_pemeriksaan", 'Paksa "Mulai Pemeriksaan"') }}
-        <label class="label gap-1">Tab (opsional):
-          <select id="tab" class="select select-bordered select-sm">
-            <option value="">auto (dari Excel)</option>
+    {% endcall %}
+
+    <!-- TAHAP 1: Pendaftaran (Batch, CDP) -->
+    {% call ui.card(body_classes="gap-4") %}
+      {{ ui.step_title(1, "Pendaftaran (Batch)") }}
+      <p class="text-sm text-base-content/70 max-w-prose">
+        Mendaftarkan semua peserta di Excel. Baris yang sudah ber-No. Tiket dilewati.
+        Hasil (No. Tiket / Status) ditulis balik ke Excel.
+      </p>
+
+      {# Keterangan tiap opsi menempel pada labelnya sendiri. Kalau dipisah jadi
+         paragraf abu di bawah grup, pembaca harus mencocokkan sendiri kalimat
+         mana milik centangan mana. #}
+      {% call ui.option_group() %}
+        <div class="space-y-2">
+          {{ ui.checkbox("paksa", "Paksa — daftar ulang walau sudah ada No. Tiket") }}
+          {{ ui.checkbox("koreksi_nik",
+             "Koreksi Tgl Lahir & Jenis Kelamin dari NIK — dibetulkan, bukan dilewati",
+             checked=True) }}
+        </div>
+      {% endcall %}
+
+      <div class="card-actions justify-end mt-1 pt-3 border-t border-base-300">
+        {{ ui.button("Jalankan Pendaftaran", classes="run-btn", attrs='onclick="jalankanDaftar()"') }}
+      </div>
+    {% endcall %}
+
+    <!-- TAHAP 2: Konfirmasi Hadir -->
+    {% call ui.card(body_classes="gap-4") %}
+      {{ ui.step_title(2, "Konfirmasi Hadir") }}
+      <p class="text-sm text-base-content/70 max-w-prose">
+        Menandai kehadiran peserta yang sudah terdaftar (Status Daftar = SUKSES).
+        Memakai parameter yang sama dengan tahap 1.
+      </p>
+      <div class="card-actions justify-end mt-1 pt-3 border-t border-base-300">
+        {{ ui.button("Jalankan Konfirmasi Hadir", classes="run-btn", attrs='onclick="jalankanHadir()"') }}
+      </div>
+    {% endcall %}
+
+    <!-- TAHAP 3: Pelayanan -->
+    {% call ui.card(body_classes="gap-4") %}
+      {{ ui.step_title(3, "Pelayanan (isi form skrining)") }}
+      <p class="text-sm text-base-content/70 max-w-prose">
+        Mengisi form skrining tiap peserta di portal. Jalankan uji coba lebih dulu
+        untuk memeriksa pemetaan jawaban sebelum mengirim sungguhan.
+      </p>
+
+      <fieldset>
+        <legend class="text-sm font-medium mb-2">Mode</legend>
+        {% call ui.option_group() %}
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2">
+            {{ ui.radio("mode", "dry", "Uji coba — isi form tanpa mengirim", checked=True) }}
+            {{ ui.radio("mode", "submit", "Kirim sungguhan ke portal") }}
+          </div>
+        {% endcall %}
+      </fieldset>
+
+      <fieldset>
+        <legend class="text-sm font-medium mb-2">Opsi</legend>
+        {% call ui.option_group() %}
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2">
+            {{ ui.checkbox("resume", "Lanjutkan peserta yang belum selesai", checked=True) }}
+            {{ ui.checkbox("mulai_pemeriksaan", 'Paksa “Mulai Pemeriksaan”') }}
+            <div class="sm:col-span-2">
+              {{ ui.checkbox("selesaikan", 'Selesaikan + Konfirmasi <span class="text-error font-semibold">(mengunci data)</span>', html=True) }}
+            </div>
+          </div>
+        {% endcall %}
+      </fieldset>
+
+      {# Select + tombol satu baris: keduanya kontrol terakhir sebelum eksekusi,
+         dan barisnya mengisi lebar kartu alih-alih menyisakan kanan kosong. #}
+      <div class="flex flex-wrap items-end gap-3 mt-1 pt-3 border-t border-base-300">
+        <div class="w-full sm:w-56">
+          {% call ui.select("tab", "Tab portal", id="tab") %}
+            <option value="">Auto (dari Excel)</option>
             <option>Belum Pemeriksaan</option>
             <option>Sedang Pemeriksaan</option>
             <option>Selesai Pemeriksaan</option>
-          </select>
-        </label>
+          {% endcall %}
+        </div>
+        <div class="sm:ml-auto">
+          {{ ui.button("Jalankan Pelayanan", classes="run-btn", attrs='onclick="jalankanPelayanan()"') }}
+        </div>
       </div>
-    </div>
-    {{ ui.button("Jalankan Pelayanan", classes="run-btn mt-2", attrs='onclick="jalankanPelayanan()"') }}
-  {% endcall %}
+    {% endcall %}
+  </div>
+
+  <!-- ==================== KOLOM KANAN: STATUS & LOG ==================== -->
+  <div class="xl:col-span-5">
+    {# sticky + tinggi viewport: log tetap terlihat sambil operator menggulir
+       kontrol di kiri. top-20 (80px) melewati navbar sticky (64px). #}
+    {% call ui.card(classes="xl:sticky xl:top-20 xl:h-[calc(100dvh-6.5rem)]",
+                    body_classes="gap-3 min-h-0 grow") %}
+      <div class="flex items-center gap-2 flex-wrap">
+        <h2 class="card-title text-lg">Status proses</h2>
+        {{ ui.badge("berhenti", variant="ghost", id="st_run") }}
+        {# Disabled saat idle: tombol destruktif tidak boleh tampak bisa ditekan
+           ketika tidak ada yang bisa dihentikan. #}
+        <button type="button" id="btnHentikan" class="btn btn-error btn-sm gap-2 ml-auto"
+                onclick="hentikan()" disabled>
+          {{ ui.icon("stop", classes="h-4 w-4") }}Hentikan
+        </button>
+      </div>
+
+      <div class="flex items-baseline justify-between gap-3 flex-wrap">
+        <span class="font-medium text-sm" id="st_label">Idle</span>
+        <span id="st_pesan" class="text-sm text-base-content/70 text-right"
+              aria-live="polite" role="status"></span>
+      </div>
+
+      {# Kotak kosong dan kotak log memakai aturan tinggi yang sama supaya kartu
+         tidak melompat saat proses pertama dimulai.
+
+         Tinggi dibedakan per breakpoint dengan sengaja:
+         - <xl kartu tumbuh mengikuti isi, jadi log WAJIB dikunci `h-80`. Tanpa
+           itu `flex-1` membuat <pre> setinggi seluruh log (200 baris = 9600px)
+           dan halaman ikut memanjang.
+         - >=xl kartu punya tinggi viewport tetap, jadi `flex-1 min-h-0` yang
+           dipakai: log mengisi sisa kartu dan menggulir di dalam dirinya. #}
+      <div id="log_kosong"
+           class="bg-base-200 rounded-box h-80 xl:h-auto xl:flex-1 xl:min-h-0
+                  flex items-center justify-center">
+        {# Tanpa arah ("di kiri"/"di atas"): posisi panel ini berpindah menurut
+           lebar layar, kalimatnya harus benar di kedua tata letak. #}
+        {{ ui.empty_state("Belum ada proses dijalankan",
+             "Log langsung dari tool akan muncul di sini begitu salah satu tahap dijalankan.") }}
+      </div>
+      <pre id="log" hidden
+           class="bg-neutral text-neutral-content text-xs rounded-box p-3 h-80 xl:h-auto
+                  xl:flex-1 xl:min-h-0 overflow-auto whitespace-pre-wrap"
+           aria-live="polite"></pre>
+    {% endcall %}
+  </div>
 </div>
 
-<!-- Status + Log live -->
-{% call ui.card(classes="mt-5") %}
-  <div class="flex items-center justify-between mb-2 flex-wrap gap-2">
-    <div><span class="font-medium" id="st_label">Idle</span>
-      {{ ui.badge("berhenti", variant="ghost", id="st_run", classes="ml-2") }}</div>
-    <div class="flex items-center gap-3">
-      <span id="st_pesan" class="text-sm text-base-content/60" aria-live="polite" role="status"></span>
-      {{ ui.button("Hentikan", variant="error", size="sm", attrs='onclick="hentikan()"') }}
-    </div>
-  </div>
-  <pre id="log" class="bg-neutral text-neutral-content text-xs rounded-box p-3 h-80 overflow-auto whitespace-pre-wrap" aria-live="polite"></pre>
-{% endcall %}
+{% endblock %}
 
+{% block scripts %}
 <script>
 const $ = id => document.getElementById(id);
+let poller = null;
+
 function params() {
   const fd = new FormData();
   fd.set('excel', $('excel').value);
@@ -97,56 +212,129 @@ function params() {
   fd.set('nik', $('nik').value);
   return fd;
 }
+function konteks() {
+  const nik = $('nik').value.trim();
+  return [
+    'File Excel: ' + $('excel').value,
+    'Kelompok: ' + $('kelompok').value,
+    'Peserta: ' + (nik ? 'hanya NIK ' + nik : 'semua peserta di file')
+  ];
+}
 async function post(url, fd) {
   const r = await fetch(url, { method: 'POST', body: fd });
   const d = await r.json();
   if (d.pesan) $('st_pesan').textContent = d.pesan;
-  refresh();
+  if (poller) poller.segarkan();
 }
+
 function bukaChrome() { post('/stage/chrome', new FormData()); }
-function jalankanDaftar() {
-  if (!confirm('Jalankan Pendaftaran batch? Pastikan Chrome sudah login & Excel ditutup.')) return;
+
+async function jalankanDaftar() {
+  const ok = await ckg.konfirmasiAksi({
+    judul: 'Jalankan Pendaftaran batch?',
+    pesan: 'Peserta akan didaftarkan ke portal CKG satu per satu. Pastikan Chrome sudah login dan file Excel sudah ditutup.',
+    rincian: konteks().concat([
+      $('paksa').checked ? 'Paksa: ya — baris ber-No. Tiket akan didaftar ulang'
+                         : 'Paksa: tidak — baris ber-No. Tiket dilewati'
+    ]),
+    tombol: 'Jalankan'
+  });
+  if (!ok) return;
   const fd = params();
   fd.set('paksa', $('paksa').checked ? 'true' : 'false');
   fd.set('koreksi_nik', $('koreksi_nik').checked ? 'true' : 'false');
   post('/stage/daftar', fd);
 }
-function jalankanHadir() {
-  if (!confirm('Jalankan Konfirmasi Hadir? Pastikan Chrome sudah login & Excel ditutup.')) return;
+
+async function jalankanHadir() {
+  const ok = await ckg.konfirmasiAksi({
+    judul: 'Jalankan Konfirmasi Hadir?',
+    pesan: 'Peserta berstatus SUKSES akan ditandai hadir di portal. Pastikan Chrome sudah login dan file Excel sudah ditutup.',
+    rincian: konteks(),
+    tombol: 'Jalankan'
+  });
+  if (!ok) return;
   post('/stage/hadir', params());
 }
-function jalankanPelayanan() {
-  const fd = params();
+
+async function jalankanPelayanan() {
   const mode = document.querySelector('input[name=mode]:checked').value;
+  const kirim = mode === 'submit';
+  const kunci = $('selesaikan').checked;
+
+  const rincian = konteks().concat([
+    kirim ? 'Mode: KIRIM SUNGGUHAN ke portal' : 'Mode: uji coba, tidak ada yang dikirim',
+    $('resume').checked ? 'Melanjutkan peserta yang belum selesai' : 'Mengulang dari awal',
+    kunci ? 'Selesaikan + Konfirmasi: YA' : 'Selesaikan + Konfirmasi: tidak'
+  ]);
+
+  // Hanya kombinasi submit+selesaikan yang ireversibel. Beban konfirmasi
+  // dinaikkan hanya di situ, supaya operator tidak belajar menekan "Ya" refleks.
+  let opsi;
+  if (kirim && kunci) {
+    opsi = {
+      judul: 'Kunci data peserta secara final?',
+      pesan: 'Kombinasi "Kirim sungguhan" + "Selesaikan + Konfirmasi" mengunci data '
+           + 'peserta di portal. Setelah ini data TIDAK BISA diubah lagi, termasuk oleh admin.',
+      rincian: rincian, varian: 'error', tombol: 'Kunci data sekarang',
+      ketik: 'KUNCI'
+    };
+  } else if (kirim) {
+    opsi = {
+      judul: 'Kirim data pelayanan ke portal?',
+      pesan: 'Jawaban skrining akan dikirim sungguhan. Data masih bisa diperbaiki '
+           + 'selama belum diselesaikan/dikunci.',
+      rincian: rincian, varian: 'warning', tombol: 'Kirim'
+    };
+  } else {
+    opsi = {
+      judul: 'Jalankan uji coba Pelayanan?',
+      pesan: 'Form akan diisi tanpa mengirim apa pun. Aman untuk memeriksa pemetaan jawaban.',
+      rincian: rincian, tombol: 'Jalankan uji coba'
+    };
+  }
+  if (!await ckg.konfirmasiAksi(opsi)) return;
+
+  const fd = params();
   fd.set('mode', mode);
   fd.set('resume', $('resume').checked ? 'true' : 'false');
-  fd.set('selesaikan', $('selesaikan').checked ? 'true' : 'false');
+  fd.set('selesaikan', kunci ? 'true' : 'false');
   fd.set('mulai_pemeriksaan', $('mulai_pemeriksaan').checked ? 'true' : 'false');
   fd.set('tab', $('tab').value);
-  let pesan = 'Jalankan Pelayanan (' + mode + ')?';
-  if (mode === 'submit' && $('selesaikan').checked)
-    pesan = '⚠ SUBMIT + SELESAIKAN akan MENGUNCI data peserta (final, tak bisa diubah). Lanjut?';
-  if (!confirm(pesan)) return;
   post('/stage/pelayanan', fd);
 }
-function hentikan() { post('/stage/stop', new FormData()); }
 
-async function refresh() {
-  try {
-    const s = await (await fetch('/stage/status')).json();
-    $('st_label').textContent = s.label || 'Idle';
-    $('st_run').textContent = s.running ? 'BERJALAN' : 'berhenti';
-    $('st_run').className = 'badge badge-sm ml-2 ' + (s.running ? 'badge-warning' : 'badge-ghost');
-    // Cegah memulai tahap baru selagi satu proses berjalan (hindari double-run)
-    document.querySelectorAll('.run-btn').forEach(b => { b.disabled = !!s.running; });
-    const log = $('log');
-    const atBottom = log.scrollTop + log.clientHeight >= log.scrollHeight - 20;
-    log.textContent = (s.log || []).join('\n');
-    if (atBottom) log.scrollTop = log.scrollHeight;
-  } catch (e) {}
+async function hentikan() {
+  const ok = await ckg.konfirmasiAksi({
+    judul: 'Hentikan proses yang sedang berjalan?',
+    pesan: 'Tool dihentikan di tengah jalan. Peserta yang sudah diproses tetap tersimpan; '
+         + 'sisanya tidak akan diproses.',
+    varian: 'error', tombol: 'Hentikan'
+  });
+  if (ok) post('/stage/stop', new FormData());
 }
-refresh();
-setInterval(refresh, 1500);
-</script>
 
+function gambar(s) {
+  $('st_label').textContent = s.label || 'Idle';
+  $('st_run').textContent = s.running ? 'BERJALAN' : 'berhenti';
+  $('st_run').className = 'badge badge-sm ' + (s.running ? 'badge-warning' : 'badge-ghost');
+
+  // Cegah memulai tahap baru selagi satu proses berjalan (hindari double-run).
+  document.querySelectorAll('.run-btn').forEach(b => { b.disabled = !!s.running; });
+  $('btnHentikan').disabled = !s.running;
+
+  const baris = s.log || [];
+  const log = $('log');
+  const kosong = $('log_kosong');
+  log.hidden = baris.length === 0;
+  kosong.hidden = baris.length > 0;
+  if (baris.length) {
+    const diBawah = log.scrollTop + log.clientHeight >= log.scrollHeight - 20;
+    log.textContent = baris.join('\n');
+    if (diBawah) log.scrollTop = log.scrollHeight;
+  }
+}
+
+poller = ckg.mulaiPolling('/stage/status', gambar, { elemenKoneksi: 'koneksi' });
+</script>
 {% endblock %}

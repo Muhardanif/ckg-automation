@@ -1,23 +1,73 @@
 /* =========================================================================
    CKG Automation — Theme (Tailwind v4 + DaisyUI v5)
    Sumber kebenaran warna/typografi. Lihat design-system/MASTER.md.
-   Build (saat migrasi ke v4):
-     npm i -D tailwindcss @tailwindcss/cli daisyui@latest
-     npx @tailwindcss/cli -i ./design-system/theme.css -o ./app/static/app.css --minify
+
+   Angka kontras SEMUA token di sini diverifikasi oleh:
+       venv\Scripts\python.exe tools/cek_kontras.py
+   Skrip itu memuat salinan token yang sama; bila kamu mengubah hex di file
+   ini, ubah juga di sana lalu jalankan skripnya (exit != 0 = ada yang gagal).
+
+   Build:
+     npm run build:css     # sekali (minified)
+     npm run watch:css     # mode tonton saat mengembangkan
    ========================================================================= */
 
 /* --- @import HARUS paling atas --- */
-@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+/* Font di-host sendiri (lihat tools/ambil_font.py) supaya aplikasi tetap
+   tampil benar di jaringan puskesmas/dinkes yang terisolasi dari internet. */
+@import "./fonts.css";
 @import "tailwindcss";
-/* Hanya tema kustom 'ckg' yang di-emit (tema bawaan light/dark dimatikan) */
+
+/* Hanya tema kustom yang di-emit (tema bawaan light/dark dimatikan) */
 @plugin "daisyui" {
   themes: false;
 }
 
-/* Sumber kelas yang dipindai (relatif ke file ini) */
+/* Sumber kelas yang dipindai (relatif ke file ini).
+   ui.js WAJIB disebut: modal konfirmasi dibangun dari JavaScript, jadi class
+   .modal/.modal-box/.btn-error di sana tak akan ter-emit kalau hanya template
+   yang dipindai. (Auto-deteksi Tailwind kebetulan menangkapnya sekarang —
+   jangan bergantung pada kebetulan.) */
 @source "../app/templates";
+@source "../app/static/ui.js";
 
-/* ---------- Tema "ckg" (light, default) ---------- */
+/* ---------- Safelist varian yang disusun dinamis ----------
+   Macro di _components.html membangun nama class dari parameter, mis.
+   `btn btn-{{ variant }}` dan `badge badge-{{ variant }}`. Pemindai Tailwind
+   membaca TEKS SUMBER, bukan hasil render, jadi ia tak pernah melihat
+   "btn-warning" dan class itu tidak di-emit — tombolnya lalu tampil abu-abu
+   polos tanpa satu pun error.
+
+   Sebelum safelist ini, satu-satunya alasan sebagian varian berfungsi adalah
+   kebetulan: namanya muncul harfiah di contoh kode design-system/MASTER.md
+   yang ikut terpindai auto-deteksi. Jangan bergantung pada itu.
+
+   Kalau menambah nilai `variant` baru di macro, tambahkan juga di sini. */
+@source inline("btn-{primary,secondary,accent,neutral,info,success,warning,error,ghost,outline,link}");
+@source inline("btn-{xs,sm,lg,block,square}");
+@source inline("badge-{primary,secondary,accent,neutral,info,success,warning,error,ghost}");
+@source inline("badge-{xs,sm,lg}");
+@source inline("alert-{info,success,warning,error}");
+@source inline("checkbox-{primary,xs,sm,lg}");
+@source inline("radio-{primary,xs,sm,lg}");
+@source inline("text-{primary,info,success,warning,error}");
+
+/* ---------- Warna brand (paket aset di app/static/img/brand/) ----------
+   Sumber kebenaran identitas visual. `--ckg-*` adalah nama yang dipakai di
+   panduan brand; alias `--color-ckg-*` di @theme (bawah) yang membuat Tailwind
+   ikut meng-emit utility `bg-ckg-navy`, `text-ckg-teal`, dst.
+
+   Token DaisyUI di bawah menyalin hex ini secara harfiah — bukan var() —
+   karena DaisyUI mengolah nilainya saat build (color-mix untuk varian
+   hover/opasitas). Kalau salah satu hex di sini berubah, ubah juga di blok
+   tema DaisyUI DAN di tools/cek_kontras.py, lalu jalankan skrip itu.         */
+:root {
+  --ckg-teal: #0f766e;   /* teal-700  — warna utama logo & aksi utama */
+  --ckg-navy: #0b132b;   /* navy      — wordmark, permukaan gelap     */
+  --ckg-grey: #e5e7eb;   /* abu terang — pemisah, latar netral        */
+}
+
+/* ---------- Tema "ckg" (terang, default) ---------- */
 @plugin "daisyui/theme" {
   name: "ckg";
   default: true;
@@ -27,27 +77,31 @@
   /* Permukaan & teks */
   --color-base-100: #ffffff;   /* kartu / permukaan utama          */
   --color-base-200: #f1f5f9;   /* latar halaman (slate-100)        */
-  --color-base-300: #e2e8f0;   /* border / pembatas (slate-200)    */
-  --color-base-content: #0f172a; /* teks utama (slate-900) — 16:1   */
+  --color-base-300: #e5e7eb;   /* pemisah dekoratif (--ckg-grey)   */
+  --color-base-content: #0f172a; /* teks utama (slate-900) — 17.9:1 */
 
-  /* Brand (teal kesehatan) — semua -content lolos AA pada solid */
-  --color-primary: #0e7490;        /* cyan-700  (white 4.8:1)      */
+  /* Brand — semua -content lolos AA pada solid.
+     primary = teal brand (--ckg-teal); cyan-700 turun jadi secondary supaya
+     aksi utama di UI memakai warna yang sama dengan logo. */
+  --color-primary: #0f766e;        /* teal-700 brand (putih 5.47:1) */
   --color-primary-content: #ffffff;
-  --color-secondary: #0f766e;      /* teal-700  (white 4.9:1)      */
+  --color-secondary: #0e7490;      /* cyan-700  (putih 5.36:1)     */
   --color-secondary-content: #ffffff;
-  --color-accent: #15803d;         /* green-700 health (white 4.7:1) */
+  --color-accent: #15803d;         /* green-700 health (5.02:1)    */
   --color-accent-content: #ffffff;
-  --color-neutral: #1e293b;        /* slate-800                    */
+  --color-neutral: #0b132b;        /* navy brand (--ckg-navy) 18.9:1 */
   --color-neutral-content: #f8fafc;
 
   /* Status semantik */
-  --color-info: #0284c7;           /* sky-600  (white 4.5:1)       */
+  --color-info: #0369a1;           /* sky-700 (5.93:1). Sebelumnya sky-600
+                                      #0284c7 = 4.10:1 -> GAGAL AA di alert. */
   --color-info-content: #ffffff;
-  --color-success: #15803d;        /* green-700 (white 4.7:1)      */
+  --color-success: #15803d;        /* green-700 (5.02:1)           */
   --color-success-content: #ffffff;
-  --color-warning: #f59e0b;        /* amber-500 — teks GELAP       */
+  --color-warning: #f59e0b;        /* amber-500 — teks GELAP (6.97:1) */
   --color-warning-content: #451a03;
-  --color-error: #dc2626;          /* red-600                      */
+  --color-error: #b91c1c;          /* red-700 (6.47:1). red-600 #dc2626
+                                      hanya 4.41:1 di atas base-200.  */
   --color-error-content: #ffffff;
 
   /* Bentuk & efek (gaya minimal/flat) */
@@ -61,12 +115,79 @@
   --noise: 0;
 }
 
-/* ---------- Token typografi (Tailwind v4 @theme) ---------- */
-@theme {
-  --font-sans: "Source Sans 3", system-ui, -apple-system, sans-serif;
-  --font-heading: "Lexend", system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, "Cascadia Code", monospace;
+/* ---------- Tema "ckg-dark" (gelap) ----------
+   Bukan inversi tema terang: brand dinaikkan terangnya (cyan-400/teal-400)
+   dan -content-nya digelapkan, sesuai praktik dark mode (Material/HIG).
+   base-100 (kartu) sengaja LEBIH TERANG dari base-200 (latar) supaya aturan
+   `body{bg-base-200}` + `card{bg-base-100}` tetap menghasilkan kartu yang
+   terangkat, sama seperti di tema terang.                                   */
+@plugin "daisyui/theme" {
+  name: "ckg-dark";
+  default: false;
+  prefersdark: true;
+  color-scheme: dark;
+
+  --color-base-100: #1e293b;   /* kartu / permukaan (slate-800)    */
+  --color-base-200: #0f172a;   /* latar halaman (slate-900)        */
+  --color-base-300: #334155;   /* pemisah dekoratif (slate-700)    */
+  --color-base-content: #e2e8f0; /* teks utama (slate-200) — 11.9:1 */
+
+  /* primary = teal brand versi terang, sejalan dengan tema terang.
+     --ckg-navy TIDAK dipakai sebagai `neutral` di sini: nilainya nyaris sama
+     dengan base-200 (#0f172a), jadi tombol neutral akan lenyap ke latar. */
+  --color-primary: #2dd4bf;        /* teal-400 brand (7.77:1)      */
+  --color-primary-content: #042f2e;
+  --color-secondary: #22d3ee;      /* cyan-400  (7.41:1)           */
+  --color-secondary-content: #083344;
+  --color-accent: #4ade80;         /* green-400 (8.55:1)           */
+  --color-accent-content: #052e16;
+  --color-neutral: #334155;        /* slate-700 (9.90:1)           */
+  --color-neutral-content: #f8fafc;
+
+  --color-info: #38bdf8;           /* sky-400   (6.48:1)           */
+  --color-info-content: #082f49;
+  --color-success: #4ade80;        /* green-400 (8.55:1)           */
+  --color-success-content: #052e16;
+  --color-warning: #fbbf24;        /* amber-400 (8.97:1)           */
+  --color-warning-content: #451a03;
+  --color-error: #f87171;          /* red-400   (5.84:1)           */
+  --color-error-content: #450a0a;
+
+  --radius-selector: 0.5rem;
+  --radius-field: 0.5rem;
+  --radius-box: 0.75rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 1;
+  --noise: 0;
 }
+
+/* ---------- Token typografi & warna brand (Tailwind v4 @theme) ----------
+   Plus Jakarta Sans adalah font wordmark logo, jadi ia dipakai untuk teks isi
+   maupun heading — UI dan logo memakai huruf yang sama. Di-host sendiri
+   (tools/ambil_font.py), bukan dari fonts.googleapis.com, supaya tetap benar
+   di jaringan puskesmas yang terisolasi.
+
+   `--color-ckg-*` membuat Tailwind meng-emit utility bg-/text-/border-ckg-*.
+   Nilainya menunjuk ke --ckg-* di :root agar hex-nya hanya ditulis sekali. */
+@theme {
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  --font-heading: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "Cascadia Code", monospace;
+
+  --color-ckg-teal: var(--ckg-teal);
+  --color-ckg-navy: var(--ckg-navy);
+  --color-ckg-grey: var(--ckg-grey);
+}
+
+/* ---------- Token yang tidak dikenal DaisyUI ----------
+   `base-300` dipakai sebagai pemisah dekoratif dan sengaja tetap tipis.
+   Batas kontrol form adalah komponen UI: WCAG 1.4.11 menuntut >= 3:1, jadi
+   ia butuh warna sendiri yang lebih gelap.                                  */
+:root,
+[data-theme="ckg"] { --color-border-strong: #64748b; } /* slate-500, 4.76:1 */
+[data-theme="ckg-dark"] { --color-border-strong: #94a3b8; } /* slate-400, 5.71:1 */
 
 /* ---------- Base ---------- */
 @layer base {
@@ -77,6 +198,15 @@
   .btn, select, input:not([type="checkbox"]):not([type="radio"]):not([type="file"]) {
     min-height: 2.75rem; /* 44px */
   }
+
+
+  /* Fokus keyboard selalu terlihat, di kedua tema. */
+  :where(a, button, input, select, textarea, [tabindex]):focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+    border-radius: var(--radius-field);
+  }
+
   /* Angka data sejajar (NIK, No. Tiket, jumlah) -> hindari layout shift */
   .tabular { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
 
@@ -84,4 +214,75 @@
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
   }
+}
+
+/* ---------- Batas kontrol form (WCAG 1.4.11) ----------
+   Bawaan DaisyUI memberi border `base-content/20` (~1.2:1) — praktis tak
+   terlihat, terutama pada checkbox/radio yang kotaknya kecil. Batas kontrol
+   form adalah komponen UI dan wajib >= 3:1.
+
+   PENTING: aturan ini sengaja TIDAK ditaruh di `@layer base`. DaisyUI meng-emit
+   komponennya di layer `components`, yang menang atas `base`; versi awal
+   perbaikan ini ditulis di dalam @layer base dan diam-diam tidak pernah
+   berlaku. CSS tanpa layer selalu menang atas CSS ber-layer, berapa pun
+   urutannya. */
+.input, .select, .textarea, .file-input {
+  border-color: var(--color-border-strong);
+}
+/* Saat tercentang, kotak terisi warna primary (dari `checkbox-primary`), jadi
+   border netral hanya berlaku untuk keadaan kosong. */
+.checkbox:not(:checked), .radio:not(:checked), .toggle:not(:checked) {
+  border-color: var(--color-border-strong);
+}
+
+/* ---------- Sidebar: navigasi utama (base.html #sidebar) ----------
+   Item aktif bawaan DaisyUI adalah pil neutral gelap; di sini diganti nuansa
+   brand: latar primary tipis + bilah kiri + ikon primary. Teks tetap
+   base-content (kontras aman di kedua tema — primary murni sebagai warna teks
+   di atas latar ber-tint hanya ~4.5:1 di tema terang, terlalu mepet).
+   Penanda aktif bukan warna saja: ada bilah, tint, dan font-weight.
+   Sengaja TIDAK di @layer (menang atas layer components DaisyUI).            */
+#sidebar .menu > li > a {
+  border-radius: var(--radius-field);
+  transition: background-color .15s ease, color .15s ease;
+}
+#sidebar .menu > li > a.menu-active {
+  position: relative;
+  background: color-mix(in oklab, var(--color-primary) 10%, transparent);
+  color: var(--color-base-content);
+}
+#sidebar .menu > li > a.menu-active::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  translate: 0 -50%;
+  width: 3px;
+  height: 55%;
+  border-radius: 9999px;
+  background: var(--color-primary);
+}
+#sidebar .menu > li > a.menu-active .nav-ikon { color: var(--color-primary); }
+#sidebar .menu > li > a.menu-active .nav-label { font-weight: 600; }
+
+/* Ikon matahari/bulan pada tombol tema (#temaToggle) bergantian sesuai tema
+   aktif — satu tombol, dua ikon. */
+.dark-only { display: none; }
+[data-theme="ckg-dark"] .dark-only { display: inline-flex; }
+[data-theme="ckg-dark"] .light-only { display: none; }
+
+/* Lewati-ke-konten: tersembunyi sampai difokus lewat keyboard. */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  z-index: 100;
+}
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+  padding: .75rem 1rem;
+  background: var(--color-base-100);
+  color: var(--color-base-content);
+  border-radius: var(--radius-field);
+  box-shadow: 0 4px 12px rgb(0 0 0 / .25);
 }

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024"><rect width="1024" height="1024" rx="220" fill="#0B132B"/><g transform="translate(176,378) scale(0.96)">
+  <polyline points="225,32 115,32 45,140 115,248 225,248" stroke="#0F766E" fill="none" stroke-width="50" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="6"/>
+  <polyline points="345,32 258,140 345,248" stroke="#FFFFFF" fill="none" stroke-width="50" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="6"/>
+  <path d="M 655,32 L 470,32 L 383,140 L 470,248 L 632,248 L 632,152 L 528,152" stroke="#0F766E" fill="none" stroke-width="50" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="6"/></g>
+</svg>

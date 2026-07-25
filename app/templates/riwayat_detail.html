@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% import "_components.html" as ui %}
+{% block title %}Riwayat #{{ run.id }} — CKG Automation{% endblock %}
+{% block content %}
+
+<a href="/riwayat" class="btn btn-ghost btn-sm gap-2 mb-4">
+  {{ ui.icon("kembali", classes="h-4 w-4") }}Kembali ke Riwayat
+</a>
+
+<div class="flex items-start justify-between gap-4 flex-wrap mb-6">
+  <div>
+    <h1 class="text-3xl font-bold mb-1">{{ run.label }}</h1>
+    <p class="text-base-content/70">
+      Dijalankan <span class="tabular">{{ run.mulai.strftime('%d %B %Y, %H:%M:%S') }}</span>
+      oleh <strong>{{ run.operator }}</strong>
+    </p>
+  </div>
+  {{ ui.status_run(run.status) }}
+</div>
+
+{% if run.status == 'gagal' %}
+{% call ui.alert(variant="error", classes="mb-6", ikon="gagal") %}
+  {{ run.ringkasan or "Proses berakhir dengan kegagalan." }}
+{% endcall %}
+{% elif run.status == 'dihentikan' %}
+{% call ui.alert(variant="warning", classes="mb-6", ikon="peringatan") %}
+  {{ run.ringkasan or "Dihentikan oleh operator sebelum selesai." }}
+{% endcall %}
+{% endif %}
+
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+  {% call ui.card(title="Ringkasan") %}
+    <dl class="grid grid-cols-[auto_1fr] gap-x-6 gap-y-2 text-sm">
+      <dt class="text-base-content/70">Jenis</dt><dd>{{ run.jenis }}</dd>
+      <dt class="text-base-content/70">Mulai</dt>
+      <dd class="tabular">{{ run.mulai.strftime('%d/%m/%Y %H:%M:%S') }}</dd>
+      <dt class="text-base-content/70">Selesai</dt>
+      <dd class="tabular">{{ run.selesai.strftime('%d/%m/%Y %H:%M:%S') if run.selesai else "— masih berjalan" }}</dd>
+      <dt class="text-base-content/70">Durasi</dt>
+      <dd class="tabular">
+        {% if run.durasi_detik is none %}—
+        {% else %}{{ run.durasi_detik // 60 }} menit {{ run.durasi_detik % 60 }} detik{% endif %}
+      </dd>
+      <dt class="text-base-content/70">Kode keluar</dt>
+      <dd class="tabular">{{ run.returncode if run.returncode is not none else "—" }}</dd>
+      {% if run.jumlah_total or run.jumlah_sukses or run.jumlah_gagal %}
+      <dt class="text-base-content/70">Peserta</dt>
+      <dd class="tabular">
+        {{ run.jumlah_total }} total &middot;
+        <span class="text-success">{{ run.jumlah_sukses }} sukses</span> &middot;
+        <span class="text-error">{{ run.jumlah_gagal }} gagal</span>
+      </dd>
+      {% endif %}
+    </dl>
+    {% if run.ringkasan %}
+    <p class="text-sm text-base-content/70 mt-3 pt-3 border-t border-base-300">{{ run.ringkasan }}</p>
+    {% endif %}
+  {% endcall %}
+
+  {% call ui.card(title="Parameter") %}
+    {% if run.parameter %}
+    <dl class="grid grid-cols-[auto_1fr] gap-x-6 gap-y-2 text-sm">
+      {% for kunci, nilai in run.parameter.items() %}
+      <dt class="text-base-content/70">{{ kunci }}</dt>
+      <dd class="break-all
+        {%- if kunci == 'selesaikan' and nilai %} text-error font-semibold{% endif %}">
+        {%- if nilai is boolean %}{{ "ya" if nilai else "tidak" }}
+        {%- elif nilai is iterable and nilai is not string %}{{ nilai|join(", ") }}
+        {%- else %}{{ nilai }}{% endif %}
+      </dd>
+      {% endfor %}
+    </dl>
+    {% if run.parameter.get('selesaikan') and run.parameter.get('mode') == 'submit' %}
+    <div class="alert alert-error mt-3" role="alert">
+      {{ ui.icon("kunci") }}
+      <span class="text-sm">Proses ini mengunci data peserta secara final di portal.</span>
+    </div>
+    {% endif %}
+    {% else %}
+    {{ ui.empty_state("Tanpa parameter", "Proses ini dijalankan tanpa opsi tambahan.") }}
+    {% endif %}
+  {% endcall %}
+</div>
+
+{% if run.perintah %}
+{% call ui.card(title="Perintah", classes="mt-5") %}
+  <pre class="bg-neutral text-neutral-content text-xs rounded-box p-3 overflow-x-auto whitespace-pre-wrap">{{ run.perintah }}</pre>
+  <p class="text-xs text-base-content/60">Kredensial portal tidak pernah dicatat di sini.</p>
+{% endcall %}
+{% endif %}
+
+{% endblock %}
