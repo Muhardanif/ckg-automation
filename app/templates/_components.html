@@ -11,7 +11,7 @@
 
       {{ ui.button("Jalankan", variant="primary") }}
       {{ ui.badge("Sukses", variant="success") }}
-      {{ ui.field("username", "Username portal", required=True) }}
+      {{ ui.field("excel", "Path file Excel", required=True) }}
 
       {% call ui.card(title="1. Pendaftaran") %}
         ...isi kartu...
@@ -196,27 +196,6 @@
   {%- if size %} badge-{{ size }}{% endif %}
   {%- if classes %} {{ classes }}{% endif %}"
   {%- if attrs %} {{ attrs|safe }}{% endif %}>{{ label }}</span>
-{%- endmacro %}
-
-
-{#- ----- Steps / penanda langkah alur login --------------------------------
-    Indikator langkah untuk alur "Daftar via Login": Upload -> Preview ->
-    Proses. `current` = 1..3 (langkah yang sedang aktif). Semua langkah <=
-    current ditandai step-primary. Tiap langkah jadi tautan ke halamannya bila
-    sudah/akan dilalui sehingga pengguna bisa mundur tanpa tombol back browser.
-    (MASTER §5: konteks "di mana saya" harus selalu terlihat.)               -#}
-{% macro steps(current=1) -%}
-{% set labels = [("Upload", "/"), ("Preview", None), ("Proses", "/dashboard")] -%}
-<ul class="steps steps-horizontal w-full mb-6" aria-label="Langkah alur pendaftaran">
-  {%- for label, href in labels %}
-  {%- set n = loop.index %}
-  <li class="step{% if n <= current %} step-primary{% endif %}"
-      {% if n == current %}aria-current="step"{% endif %}>
-    {%- if href and n != current %}<a href="{{ href }}" class="link link-hover">{{ label }}</a>
-    {%- else %}{{ label }}{% endif %}
-  </li>
-  {%- endfor %}
-</ul>
 {%- endmacro %}
 
 

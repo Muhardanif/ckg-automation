@@ -21,7 +21,7 @@ from typing import Optional
 from playwright.async_api import async_playwright, Page, TimeoutError as PWTimeout
 
 from . import selectors as S
-from ..schema import Peserta, StatusSubmit
+from ..schema import Peserta
 
 SCREENSHOT_DIR = "data/output/screenshots"
 
@@ -74,27 +74,17 @@ class TidakDitemukanError(LewatiPesertaError):
 
 
 class CKGBot:
-    def __init__(self, username: str = "", password: str = "",
-                 headless: bool = True, delay_ms: int = 800,
-                 otp_wait_s: int = 0, cdp_url: Optional[str] = None):
-        self.username = username
-        self.password = password
-        self.headless = headless
+    def __init__(self, delay_ms: int = 800, cdp_url: Optional[str] = None):
+        # Tanpa username/password/headless: login (termasuk CAPTCHA) dilakukan
+        # MANUAL oleh petugas di Chrome, bot hanya menempel lewat CDP ke jendela
+        # yang sudah terbuka - tidak pernah meluncurkan browser sendiri.
         self.delay_ms = delay_ms       # jeda antar aksi (hindari deteksi bot)
         self.jeda_n = 0                # berapa kali _jeda() dipanggil (utk kalibrasi)
-        self.otp_wait_s = otp_wait_s    # detik menunggu input OTP/2FA manual (0 = nonaktif)
         self.cdp_url = cdp_url or S.CDP_URL
         self._pw = None
         self._browser = None
         self._page: Optional[Page] = None
         self._connected = False         # True bila menempel ke Chrome via CDP
-
-    # ----- lifecycle (mode launch sendiri - dipakai web app lama) -----
-    async def start(self):
-        self._pw = await async_playwright().start()
-        self._browser = await self._pw.chromium.launch(headless=self.headless)
-        context = await self._browser.new_context()
-        self._page = await context.new_page()
 
     # ----- lifecycle (mode CDP - menempel ke Chrome login manual) -----
     async def connect_to_browser(self, url_contains: Optional[str] = None) -> Page:
@@ -156,118 +146,6 @@ class CKGBot:
             await self._page.wait_for_load_state("networkidle", timeout=timeout_ms)
         except Exception:
             pass
-
-    # ----- login -----
-    async def login(self) -> bool:
-        page = self._page
-        await page.goto(S.URL_LOGIN)
-        await page.fill(S.LOGIN["username"], self.username)
-        await page.fill(S.LOGIN["password"], self.password)
-        await self._jeda()
-        await page.click(S.LOGIN["tombol_login"])
-
-        # Portal pakai OTP/2FA? Beri jeda agar petugas memasukkan kode manual.
-        # Mode ini hanya berguna saat headless=False (browser terlihat).
-        if self.otp_wait_s > 0:
-            if self.headless:
-                print("[CKGBot] PERINGATAN: OTP diaktifkan tetapi headless=True; "
-                      "input manual tidak mungkin. Jalankan dengan headless=False.")
-            else:
-                print(f"[CKGBot] Menunggu input OTP/2FA manual hingga "
-                      f"{self.otp_wait_s} detik. Selesaikan login di jendela browser...")
-            timeout_ms = max(self.otp_wait_s, 1) * 1000
-        else:
-            timeout_ms = 15000
-
-        try:
-            await page.wait_for_selector(S.LOGIN["indikator_sukses"], timeout=timeout_ms)
-            return True
-        except PWTimeout:
-            return False
-
-    async def pastikan_login(self) -> bool:
-        """
-        Pastikan sesi masih aktif sebelum submit (anti session-timeout).
-
-        Bila portal sudah me-logout (form login muncul kembali), lakukan
-        re-login otomatis. Kembalikan True bila sesi siap dipakai.
-        """
-        page = self._page
-        try:
-            # Jika elemen form login terdeteksi, berarti sesi sudah habis.
-            perlu_login = await page.locator(
-                S.LOGIN["indikator_perlu_login"]).count()
-            if perlu_login > 0:
-                print("[CKGBot] Sesi tampaknya habis. Mencoba re-login...")
-                return await self.login()
-            return True
-        except Exception:
-            # bila pengecekan gagal, coba re-login defensif
-            return await self.login()
-
-    # ----- isi field util -----
-    async def _isi(self, selector: str, nilai):
-        """Isi field teks. Lewati jika nilai kosong."""
-        if nilai is None or nilai == "":
-            return
-        await self._page.fill(selector, str(nilai))
-
-    async def _pilih(self, selector: str, nilai):
-        """Pilih opsi dropdown (label). Lewati jika kosong."""
-        if nilai is None or nilai == "":
-            return
-        try:
-            await self._page.select_option(selector, label=str(nilai))
-        except Exception:
-            # fallback: anggap input teks biasa
-            await self._isi(selector, nilai)
-
-    # ----- submit satu peserta -----
-    async def submit_peserta(self, p: Peserta) -> Peserta:
-        page = self._page
-        try:
-            # 1. PENDAFTARAN
-            await page.goto(S.URL_FORM_PENDAFTARAN)
-            await self._isi(S.PENDAFTARAN["nik"], p.nik)
-            await self._isi(S.PENDAFTARAN["nama"], p.nama)
-            await self._isi(S.PENDAFTARAN["tgl_lahir"], p.tgl_lahir)
-            await self._pilih(S.PENDAFTARAN["jenis_kelamin"],
-                              "Laki-laki" if p.jenis_kelamin == "L" else "Perempuan")
-            await self._isi(S.PENDAFTARAN["no_hp"], p.no_hp)
-            await self._isi(S.PENDAFTARAN["alamat"], p.alamat)
-            await self._jeda()
-            await page.click(S.PENDAFTARAN["tombol_simpan"])
-            await page.wait_for_selector(
-                S.PENDAFTARAN["indikator_sukses"], timeout=15000)
-
-            # 2. PELAYANAN / HASIL PEMERIKSAAN
-            sel_pelayanan = S.PELAYANAN[p.kelompok_usia.value]
-            for field_std, nilai in p.pemeriksaan.items():
-                selector = sel_pelayanan.get(field_std)
-                if selector:
-                    await self._isi(selector, nilai)
-            await self._jeda()
-            await page.click(sel_pelayanan["tombol_simpan"])
-            await page.wait_for_selector(
-                sel_pelayanan["indikator_sukses"], timeout=15000)
-
-            # 3. BUKTI
-            os.makedirs(SCREENSHOT_DIR, exist_ok=True)
-            shot = f"{SCREENSHOT_DIR}/{p.nik or 'noNIK'}_{int(datetime.now().timestamp())}.png"
-            await page.screenshot(path=shot)
-
-            p.status_submit = StatusSubmit.SUKSES
-            p.keterangan = "OK"
-            p.bukti_screenshot = shot
-        except PWTimeout:
-            p.status_submit = StatusSubmit.GAGAL
-            p.keterangan = "Timeout menunggu konfirmasi portal"
-        except Exception as e:
-            p.status_submit = StatusSubmit.GAGAL
-            p.keterangan = f"Error: {type(e).__name__}: {e}"
-
-        p.waktu_submit = datetime.now().isoformat(timespec="seconds")
-        return p
 
     # =====================================================================
     # ALUR SATUSEHAT (wizard 2-step) - dipakai trial & batch CDP

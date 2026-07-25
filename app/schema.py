@@ -5,7 +5,7 @@ Semua file Excel (bayi/anak/dewasa/lansia) dengan format berbeda-beda
 akan dinormalisasi menjadi struktur ini, sehingga modul automation hanya
 perlu memahami SATU format, bukan empat.
 """
-from dataclasses import dataclass, field, asdict
+from dataclasses import dataclass, field
 from enum import Enum
 from typing import Optional
 
@@ -15,13 +15,6 @@ class KelompokUsia(str, Enum):
     BALITA = "balita"      # 1 - 6 tahun (balita & prasekolah)
     DEWASA = "dewasa"      # 18 - 59 tahun
     LANSIA = "lansia"      # 60 tahun ke atas
-
-
-class StatusSubmit(str, Enum):
-    BELUM = "belum"        # belum dikirim ke portal
-    PROSES = "proses"      # sedang dikirim
-    SUKSES = "sukses"      # berhasil submit
-    GAGAL = "gagal"        # gagal, lihat keterangan
 
 
 @dataclass
@@ -62,19 +55,11 @@ class Peserta:
     # contoh bayi:   {"berat_badan": "3.2", "panjang_badan": "49", ...}
     pemeriksaan: dict = field(default_factory=dict)
 
-    # --- Metadata proses automation ---
+    # --- Metadata asal data ---
+    # Status/hasil pendaftaran TIDAK disimpan di sini: sumber kebenarannya
+    # kolom 'Status Daftar'/'No. Tiket' di Excel (lihat app/excel_hasil.py).
     baris_sumber: Optional[int] = None     # nomor baris di excel asal
     file_sumber: Optional[str] = None      # nama file asal
-    status_submit: StatusSubmit = StatusSubmit.BELUM
-    keterangan: Optional[str] = None       # alasan gagal / pesan error
-    waktu_submit: Optional[str] = None      # timestamp ISO
-    bukti_screenshot: Optional[str] = None  # path screenshot bukti
-
-    def to_dict(self) -> dict:
-        d = asdict(self)
-        d["kelompok_usia"] = self.kelompok_usia.value
-        d["status_submit"] = self.status_submit.value
-        return d
 
 
 # Nilai DEFAULT untuk "data pendukung" (Step 2 wizard) bila tidak tersedia di

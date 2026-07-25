@@ -91,7 +91,7 @@ async def jalankan(peserta: Peserta, args):
         f"TglLahir={peserta.tgl_lahir} | WA={peserta.no_wa or peserta.no_hp}")
     log(f"Menyambung ke Chrome di {args.cdp} ...")
 
-    bot = CKGBot(headless=False, delay_ms=1000, cdp_url=args.cdp)
+    bot = CKGBot(delay_ms=1000, cdp_url=args.cdp)
     try:
         await bot.connect_to_browser()
     except Exception as e:

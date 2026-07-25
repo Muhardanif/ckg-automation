@@ -825,7 +825,7 @@ async def jalankan(args):
     if num_cols:
         log(f"Kolom angka klinis terdeteksi: {list(num_cols)}")
 
-    bot = CKGBot(headless=False, delay_ms=args.delay, cdp_url=args.cdp)
+    bot = CKGBot(delay_ms=args.delay, cdp_url=args.cdp)
     try:
         await bot.connect_to_browser()
     except Exception as e:

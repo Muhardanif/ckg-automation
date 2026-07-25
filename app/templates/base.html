@@ -38,9 +38,7 @@
 {% set path = request.url.path %}
 {% set menu = [
      ("/operasi",   "Operasi",       "operasi",   "Jalankan pendaftaran, kehadiran, dan pelayanan"),
-     ("/riwayat",   "Riwayat",       "riwayat",   "Audit trail proses yang pernah dijalankan"),
-     ("/peserta",   "Data Peserta",  "peserta",   "Cari peserta dan lihat status submit-nya"),
-     ("/dashboard", "Dashboard",     "dashboard", "Progres proses yang sedang berjalan")
+     ("/riwayat",   "Riwayat",       "riwayat",   "Audit trail proses yang pernah dijalankan")
    ] %}
 
 {# Halaman aktif dipakai dua kali: judul topbar mobile (sidebar tersembunyi,
@@ -51,9 +49,6 @@
     {% set nav.judul = label %}{% set nav.ikon = ikon %}
   {% endif %}
 {% endfor %}
-{% if path in ['/', '/upload'] %}
-  {% set nav.judul = 'Upload & Daftar' %}{% set nav.ikon = 'upload' %}
-{% endif %}
 
 <a href="#konten" class="skip-link">Lewati ke konten utama</a>
 
@@ -81,12 +76,6 @@
       {% endif %}
 
       <div class="ml-auto flex items-center gap-1">
-        <a href="/unduh-log" class="btn btn-ghost btn-sm gap-2"
-           title="Unduh log hasil dalam format Excel">
-          {{ ui.icon("unduh", classes="h-4 w-4") }}
-          <span class="hidden sm:inline">Unduh Log</span>
-        </a>
-        <span class="w-px h-5 bg-base-300 mx-1" aria-hidden="true"></span>
         <button id="temaToggle" type="button" class="btn btn-ghost btn-square btn-sm"
                 aria-label="Ganti tema terang/gelap">
           <span class="dark-only">{{ ui.icon("terang", classes="h-5 w-5") }}</span>
@@ -149,21 +138,6 @@
           </a>
         </li>
         {% endfor %}
-
-        <li class="menu-title text-xs font-semibold uppercase tracking-wider text-base-content/60 mt-4">
-          Alur alternatif</li>
-        {% set alt_aktif = path in ['/', '/upload'] %}
-        <li>
-          <a href="/" class="items-start gap-3 px-3 py-2.5{% if alt_aktif %} menu-active{% endif %}"
-             {% if alt_aktif %}aria-current="page"{% endif %}>
-            <span class="nav-ikon mt-0.5 shrink-0">{{ ui.icon("upload") }}</span>
-            <span class="flex flex-col gap-0.5 min-w-0">
-              <span class="nav-label text-sm font-medium leading-tight">Upload &amp; Daftar</span>
-              <span class="text-xs text-base-content/70 leading-snug">Pendaftaran lewat
-                login portal, bukan Chrome yang sudah dibuka</span>
-            </span>
-          </a>
-        </li>
       </ul>
 
       <div class="flex items-start gap-2.5 px-4 py-3 border-t border-base-300">

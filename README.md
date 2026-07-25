@@ -1,24 +1,30 @@
 # CKG Automation
 
-Aplikasi web untuk mengotomatiskan input data peserta CKG (Cek Kesehatan Gratis)
-dari file Excel ke portal CKG. Membaca Excel (format berbeda per kelompok usia),
-menormalisasi ke format standar, menyimpan ke database, lalu mengisi & submit form
-portal satu per satu secara otomatis menggunakan Playwright.
+Otomasi input data peserta CKG (Cek Kesehatan Gratis) dari Excel ke portal
+**sehatindonesiaku.kemkes.go.id**, memakai Playwright yang **menempel ke Chrome
+milik petugas** lewat CDP.
+
+**Login dilakukan MANUAL oleh petugas** — termasuk CAPTCHA. Program tidak pernah
+menyimpan, meminta, atau mengirim kredensial portal. Bot hanya menempel ke tab
+yang sudah login dan mengisi form.
 
 ## Alur Kerja
 
 ```
-Excel (bayi/balita/dewasa/lansia)
-        │  readers.py  (normalisasi -> format standar)
+data/input/template_pendaftaran.xlsx
+        │  app/readers.py  (normalisasi -> dataclass Peserta)
         ▼
-   Preview & Validasi  (cek data sebelum kirim)
-        │  db.py  (simpan ke SQLite, deteksi duplikat NIK)
+   Chrome (login manual, --remote-debugging-port=9222)
+        │  app/automation/ckg_bot.py  (menempel via CDP, isi wizard portal)
         ▼
-   Playwright Bot  (login -> isi form pendaftaran -> isi form pelayanan -> submit)
-        │  runner.py  (batch + progress + retry baris gagal)
+   3 tahap: Pendaftaran -> Konfirmasi Hadir -> Pelayanan
+        │  app/excel_hasil.py  (tulis-balik + warnai baris)
         ▼
-   Log hasil (.xlsx) + screenshot bukti + dashboard progress
+   Excel yang sama: No. Tiket / Status Daftar / Status Hadir / Status Layanan
 ```
+
+Excel adalah **sumber kebenaran hasil**, bukan database. SQLite (`data/ckg.db`)
+hanya menyimpan audit trail: siapa menjalankan tahap apa, kapan, hasilnya.
 
 ## Struktur
 
@@ -26,115 +32,92 @@ Excel (bayi/balita/dewasa/lansia)
 |------|--------|
 | `app/schema.py` | Format standar (Peserta) & daftar field per kelompok usia |
 | `app/readers.py` | Baca Excel & normalisasi. **Sesuaikan MAPPING di sini** |
-| `app/db.py` | Database SQLite (SQLAlchemy): model, simpan, status, dedup NIK |
-| `app/automation/selectors.py` | Selector elemen portal. **Ganti placeholder dengan selektor asli** |
-| `app/automation/ckg_bot.py` | Bot Playwright (login, OTP, re-login, isi form, submit) |
-| `app/runner.py` | Orkestrasi batch + progress + retry + log |
-| `app/main.py` | Web app (upload, preview, dashboard, retry) |
-| `tools/buat_contoh_excel.py` | Generator file Excel contoh untuk uji reader |
+| `app/excel_hasil.py` | Tulis-balik hasil ke Excel + status terminal (anti-dobel) |
+| `app/automation/selectors.py` | Teks label / regex elemen portal |
+| `app/automation/ckg_bot.py` | Bot Playwright: menempel via CDP, isi wizard pendaftaran |
+| `app/db.py` | SQLite: tabel `run` (audit trail) |
+| `app/stages.py` | Memicu tool di `tools/` sebagai subprocess & men-stream log |
+| `app/main.py` | Web UI: halaman Operasi & Riwayat |
+| `tools/jalankan_batch.py` | Tahap 1 — pendaftaran batch |
+| `tools/konfirmasi_hadir.py` | Tahap 2 — konfirmasi kehadiran |
+| `tools/pelayanan.py` | Tahap 3 — isi form skrining (pakai `pelayanan_core.py`) |
 
 ## Setup (Windows / PowerShell)
 
-Mesin ini memakai **Python 3.14**, sehingga dependency dipasang dari wheel terbaru
-(lihat `requirements.txt`). Dari folder project:
+Mesin ini memakai **Python 3.14**, jadi dependency dipasang dari wheel terbaru.
 
 ```powershell
-# 1. (venv sudah ada di folder ini; bila membuat ulang:)
-#    py -3.14 -m venv venv
+# 1. (venv sudah ada; bila membuat ulang:)  py -3.14 -m venv venv
 
-# 2. Install dependency (pakai wheel, jangan compile dari source)
+# 2. Dependency (wheel saja, jangan compile dari source)
 venv\Scripts\python.exe -m pip install --only-binary=:all: -r requirements.txt
 
-# 3. Unduh browser Chromium untuk Playwright
-venv\Scripts\python.exe -m playwright install chromium
+# 3. Build CSS (wajib setelah mengubah template)
+npm install
+npm run build:css
 
-# 4. (opsional) salin kredensial ke .env
-copy .env.example .env
-
-# 5. Jalankan aplikasi
+# 4. Jalankan aplikasi
 venv\Scripts\python.exe -m uvicorn app.main:app --reload
 ```
 
-Buka http://localhost:8000
+Buka http://localhost:8000 → langsung ke halaman **Operasi**.
 
-## File Excel Contoh (untuk uji coba)
+Playwright **tidak** perlu `playwright install`: bot menempel ke Chrome yang
+sudah terpasang di komputer, tidak meluncurkan Chromium sendiri.
 
-Hasilkan 4 file dummy berformat berbeda per kelompok usia:
+## Cara Menjalankan
 
-```powershell
-venv\Scripts\python.exe tools\buat_contoh_excel.py
-```
+Lihat **`CARA_PAKAI.md`** (lengkap per tahap) atau **`MULAI.md`** (ringkas harian).
+Intinya tiap kali mau jalan:
 
-File muncul di `contoh_excel/`. Saat upload, pilih kelompok & **Baris Header**:
+1. `1_mulai_chrome.bat` — Chrome dengan port debugging 9222
+2. Login manual + CAPTCHA, buka **CKG Umum › Cari/Daftarkan Individu**
+3. **Tutup** file Excel (skrip menulis-balik ke file itu)
+4. `4_buka_aplikasi.bat` (web UI) atau `.bat` per tahap
 
-| File | Kelompok | Baris Header | Keunikan format |
-|------|----------|--------------|------------------|
-| `contoh_bayi.xlsx`   | bayi   | **1** | ada baris judul di atas header |
-| `contoh_balita.xlsx` | balita | 0 | tanggal `dd/mm/YYYY` |
-| `contoh_dewasa.xlsx` | dewasa | 0 | JK ditulis "Laki-laki"/"Perempuan" |
-| `contoh_lansia.xlsx` | lansia | 0 | tanggal `dd-mm-YYYY` |
+## Anti-dobel
 
-Beberapa baris sengaja dibuat tidak valid agar kolom **Status Validasi** di preview terlihat bekerja.
+Baris yang **No. Tiket**-nya sudah terisi dilewati. Begitu juga baris berstatus
+terminal: `SUDAH CKG`, `DATA TIDAK VALID`, `GAGAL DUKCAPIL` — mengulanginya tidak
+akan berhasil karena masalahnya di data sumber, bukan di koneksi.
 
-## Fitur
+Untuk memaksa satu baris diproses ulang (mis. setelah data Dukcapil dibetulkan):
+**kosongkan sel `Status Daftar`** baris itu.
 
-- **Database SQLite** (`data/ckg.db`): data peserta & status submit persisten lintas restart.
-- **Deteksi duplikat NIK**: NIK yang sudah ada (di file yang sama maupun di DB) dilewati saat upload.
-- **Retry**: tombol "Ulangi yang Gagal" di dashboard memproses ulang peserta berstatus `gagal`.
-- **OTP/2FA**: isi "Tunggu OTP (detik)" + matikan headless → bot memberi jeda agar Anda
-  memasukkan kode OTP manual di jendela browser.
-- **Anti session-timeout**: sebelum tiap submit, bot memastikan sesi masih login; bila
-  ter-logout, otomatis re-login.
-- **Rate limiting**: `delay_ms` (default 800ms) memberi jeda antar aksi.
+## Yang Perlu Disesuaikan
 
-## Yang HARUS Disesuaikan Sebelum Produksi
+### `readers.py` → `MAPPING_*`
 
-### 1. `readers.py` → `MAPPING_*` (kolom Excel Anda)
-
-Sisi **kiri** = field standar (jangan diubah), sisi **kanan** = nama header di Excel Anda.
+Sisi **kiri** = field standar (jangan diubah), sisi **kanan** = nama header di
+Excel Anda.
 
 ```python
 MAPPING_IDENTITAS_UMUM = {
-    "nik": "NIK",                 # <- ganti "NIK" dgn nama kolom di file Anda
+    "nik": "NIK",                 # <- ganti dgn nama kolom di file Anda
     "nama": "Nama",
     "tgl_lahir": "Tanggal Lahir",
     ...
 }
 ```
 
-Cara cepat memastikan benar: jalankan upload + preview pada file asli (data sedikit dulu).
-Jika kolom NIK/Nama tampil kosong, berarti nama header di MAPPING belum cocok.
+Cek cepat tanpa menyentuh portal:
 
-### 2. `selectors.py` (selector & URL portal)
+```powershell
+venv\Scripts\python.exe tools\cek_data.py --excel data\input\template_pendaftaran.xlsx
+venv\Scripts\python.exe test_readers.py
+```
 
-Semua selector masih placeholder (`#nik`, dll). Cara mengisinya:
+### `selectors.py`
 
-1. Buka portal CKG di Chrome, **login** manual.
-2. Buka halaman form pendaftaran / pelayanan.
-3. Klik kanan pada sebuah field → **Inspect**.
-4. Pada elemen yang ter-highlight, cari atribut `id`, `name`, atau `data-*`.
-   - Bila ada `id="nik_peserta"` → selector = `#nik_peserta`
-   - Bila ada `name="nik"` → selector = `[name='nik']`
-   - Hindari XPath panjang berbasis posisi (mudah rusak saat UI berubah).
-5. Tempel ke `selectors.py` menggantikan placeholder.
-6. Isi juga `URL_LOGIN` dan `URL_FORM_PENDAFTARAN`.
-7. `indikator_sukses` = elemen yang muncul SETELAH aksi berhasil (mis. `.alert-success`).
-8. `indikator_perlu_login` = elemen yang HANYA ada di halaman login (mis. `#username`);
-   dipakai untuk mendeteksi session-timeout.
-
-Prioritas selector yang stabil: **id > name > data-\* > CSS path**.
-
-### 3. `ckg_bot.py` → urutan langkah
-
-Sesuaikan alur `submit_peserta()` bila portal punya langkah berbeda (mis. cari peserta
-dulu by NIK sebelum isi pelayanan, atau wizard multi-step).
+Berbasis **teks label / role**, bukan `id`/`class` — portal ini SPA Vue tanpa id
+stabil. Kalau teks di portal berubah, ganti string di sini.
 
 ## Catatan Penting
 
-- **Legalitas & ToS**: pastikan automation diizinkan pengelola portal. Bila tersedia,
-  integrasi API resmi (SatuSehat) lebih stabil & aman daripada RPA.
-- **Data pribadi**: NIK & data kesehatan wajib dikelola sesuai UU PDP. `data/ckg.db`,
-  file Excel, log, dan `.env` sudah masuk `.gitignore` — jangan commit.
-- **Mulai kecil**: uji dengan 2-3 data dummy & `headless=false` agar bisa melihat proses,
-  sebelum batch besar.
-```
+- **Legalitas & ToS**: pastikan otomasi diizinkan pengelola portal. Bila tersedia,
+  integrasi API resmi (SATUSEHAT) lebih stabil & aman daripada RPA.
+- **Data pribadi**: NIK & data kesehatan wajib dikelola sesuai UU PDP.
+  `data/`, log, dan screenshot sudah masuk `.gitignore` — jangan commit.
+- **Mulai kecil**: uji `trial_daftar.py --baris 1` sebelum batch besar.
+- **Tahap Pelayanan default DRY-RUN**: form diisi tapi tidak dikirim. Tambahkan
+  `--submit` bila sudah yakin.

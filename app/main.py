@@ -1,29 +1,24 @@
 """
 Aplikasi web CKG Automation.
 
+Pemicu untuk tool CDP di tools/ — petugas login MANUAL di Chrome (port 9222),
+aplikasi ini hanya menjalankan tahapannya dan mencatat hasilnya.
+
 Fitur:
-  - Upload file Excel per kelompok usia
-  - Preview hasil normalisasi (cek data sebelum submit)
-  - Simpan peserta ke DB (SQLite, persisten)
-  - Mulai proses automation + retry baris gagal
-  - Dashboard progress real-time
-  - Riwayat run (audit trail) + drill-down data peserta
-  - Unduh log hasil
+  - Operasi: jalankan tahap Pendaftaran / Konfirmasi Hadir / Pelayanan
+  - Riwayat run (audit trail) + drill-down
 """
 import glob
 import logging
 import os
-import shutil
 from contextlib import asynccontextmanager
 
-from fastapi import FastAPI, Request, UploadFile, File, Form
-from fastapi.responses import HTMLResponse, FileResponse, JSONResponse, RedirectResponse
+from fastapi import FastAPI, Request, Form
+from fastapi.responses import HTMLResponse, JSONResponse, RedirectResponse
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
 
-from .readers import baca_excel, validasi
-from .schema import KelompokUsia, StatusSubmit
-from .runner import jalankan, simpan_log, STATE, LOG_PATH
+from .schema import KelompokUsia
 from .stages import STAGE, mulai_stage, stop_stage, buka_chrome
 from . import db
 
@@ -125,109 +120,10 @@ def versi_aset(nama: str) -> int:
 
 templates.env.globals["versi_aset"] = versi_aset
 
-INPUT_DIR = "data/input"
 
-# Batas baris yang dirender di halaman Preview. Excel bisa berisi ribuan
-# peserta; merender semuanya membuat halaman berat tanpa memberi informasi
-# tambahan. Baris bermasalah selalu ditampilkan lebih dulu karena itu yang
-# perlu ditindak.
-PREVIEW_MAKS = 100
-
-
-@app.get("/", response_class=HTMLResponse)
-def beranda(request: Request):
-    return templates.TemplateResponse(request, "index.html", {
-        "kelompok": [k.value for k in KelompokUsia],
-        "jumlah_siap": db.jumlah_belum(),
-    })
-
-
-@app.post("/upload", response_class=HTMLResponse)
-async def upload(request: Request,
-                 file: UploadFile = File(...),
-                 kelompok: str = Form(...),
-                 header_row: int = Form(0)):
-    os.makedirs(INPUT_DIR, exist_ok=True)
-    dest = os.path.join(INPUT_DIR, file.filename)
-    with open(dest, "wb") as f:
-        shutil.copyfileobj(file.file, f)
-
-    try:
-        peserta = baca_excel(dest, KelompokUsia(kelompok), header_row=header_row)
-    except Exception as e:
-        return templates.TemplateResponse(request, "index.html", {
-            "kelompok": [k.value for k in KelompokUsia],
-            "jumlah_siap": db.jumlah_belum(),
-            "error": f"Gagal baca Excel: {e}",
-        })
-
-    # validasi untuk preview
-    preview = []
-    for p in peserta:
-        err = validasi(p)
-        preview.append({"peserta": p, "errors": err})
-
-    # simpan ke DB (deteksi duplikat NIK terhadap data yang sudah ada)
-    hasil = db.simpan_batch(peserta, file.filename, KelompokUsia(kelompok))
-
-    valid = sum(1 for x in preview if not x["errors"])
-    # Baris bermasalah dulu — itu yang butuh keputusan operator.
-    terurut = sorted(preview, key=lambda x: not x["errors"])
-
-    return templates.TemplateResponse(request, "preview.html", {
-        "preview": terurut[:PREVIEW_MAKS],
-        "ditampilkan": min(len(terurut), PREVIEW_MAKS),
-        "kelompok": kelompok,
-        "nama_file": file.filename,
-        "total": len(peserta),
-        "valid": valid,
-        "disimpan": hasil["disimpan"],
-        "duplikat": hasil["duplikat"],
-        "jumlah_siap": db.jumlah_belum(),
-    })
-
-
-@app.post("/mulai")
-def mulai(headless: bool = Form(True),
-          username: str = Form(...),
-          password: str = Form(...),
-          delay_ms: int = Form(800),
-          otp_wait_s: int = Form(0)):
-    ok, pesan = jalankan(username, password, headless=headless,
-                         delay_ms=delay_ms, otp_wait_s=otp_wait_s,
-                         statuses=[StatusSubmit.BELUM.value])
-    return JSONResponse({"ok": ok, "pesan": pesan})
-
-
-@app.post("/retry")
-def retry(headless: bool = Form(True),
-          username: str = Form(...),
-          password: str = Form(...),
-          delay_ms: int = Form(800),
-          otp_wait_s: int = Form(0)):
-    """Ulangi submit untuk peserta yang berstatus GAGAL."""
-    ok, pesan = jalankan(username, password, headless=headless,
-                         delay_ms=delay_ms, otp_wait_s=otp_wait_s,
-                         statuses=[StatusSubmit.GAGAL.value])
-    return JSONResponse({"ok": ok, "pesan": pesan})
-
-
-@app.get("/status")
-def status():
-    return JSONResponse(STATE.snapshot())
-
-
-@app.get("/dashboard", response_class=HTMLResponse)
-def dashboard(request: Request):
-    return templates.TemplateResponse(request, "dashboard.html", {
-        "notif": request.query_params.get("notif"),
-    })
-
-
-@app.post("/reset")
-def reset():
-    db.hapus_belum()
-    return RedirectResponse("/", status_code=303)
+@app.get("/")
+def beranda():
+    return RedirectResponse("/operasi", status_code=303)
 
 
 # ----------------------------------------------------------------------------
@@ -328,10 +224,9 @@ def stage_stop():
 
 
 # ----------------------------------------------------------------------------
-# Riwayat (audit trail) & drill-down peserta
+# Riwayat (audit trail)
 # ----------------------------------------------------------------------------
 RUN_PER_HALAMAN = 20
-PESERTA_PER_HALAMAN = 25
 
 
 def _paginasi(total: int, halaman: int, per_halaman: int) -> dict:
@@ -348,7 +243,7 @@ def riwayat(request: Request, halaman: int = 1, jenis: str = ""):
     rows, _ = db.daftar_run(limit=p["per_halaman"], offset=p["offset"], jenis=jenis)
     return templates.TemplateResponse(request, "riwayat.html", {
         "runs": rows, "p": p, "jenis": jenis,
-        "jenis_pilihan": ["daftar", "daftar-login", "hadir", "pelayanan"],
+        "jenis_pilihan": ["daftar", "hadir", "pelayanan"],
     })
 
 
@@ -360,26 +255,3 @@ def riwayat_detail(request: Request, run_id: int):
     return templates.TemplateResponse(request, "riwayat_detail.html", {"run": run})
 
 
-@app.get("/peserta", response_class=HTMLResponse)
-def peserta(request: Request, q: str = "", status: str = "", halaman: int = 1):
-    total = db.cari_peserta(q=q, status=status, limit=1, offset=0)[1]
-    p = _paginasi(total, halaman, PESERTA_PER_HALAMAN)
-    rows, _ = db.cari_peserta(q=q, status=status,
-                              limit=p["per_halaman"], offset=p["offset"])
-    return templates.TemplateResponse(request, "peserta.html", {
-        "rows": rows, "p": p, "q": q, "status": status,
-        "status_pilihan": [s.value for s in StatusSubmit],
-    })
-
-
-@app.get("/unduh-log")
-def unduh_log():
-    # regenerasi log dari DB agar selalu mutakhir
-    try:
-        simpan_log()
-    except Exception:
-        pass
-    if os.path.exists(LOG_PATH):
-        return FileResponse(LOG_PATH, filename="log_submit.xlsx")
-    # Hindari dead-end JSON mentah: kembalikan pengguna ke Dashboard dgn notif.
-    return RedirectResponse("/dashboard?notif=log-kosong", status_code=303)

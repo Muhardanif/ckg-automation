@@ -93,7 +93,7 @@ async def jalankan(args):
         f"(baris data {mulai_idx + 1}..{akhir_idx}).")
 
     # 3) sambung ke Chrome (sekali)
-    bot = CKGBot(headless=False, delay_ms=args.delay, cdp_url=args.cdp)
+    bot = CKGBot(delay_ms=args.delay, cdp_url=args.cdp)
     try:
         await bot.connect_to_browser()
     except Exception as e:

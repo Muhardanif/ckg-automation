@@ -1,8 +1,8 @@
 """
 Runner tahap CDP (Konfirmasi Hadir & Pelayanan) untuk web UI.
 
-Berbeda dari runner.py (pendaftaran, login in-process), tahap ini memakai tool
-CLI di tools/ yg menyetir Chrome via CDP (port 9222, login manual). Web UI cukup
+Semua tahap memakai tool CLI di tools/ yg menyetir Chrome via CDP
+(port 9222, login manual oleh petugas). Web UI cukup
 MEMICU tool tsb sebagai subprocess lalu men-stream stdout-nya ke halaman (log live).
 Hanya satu proses tahap yg boleh jalan pada satu waktu.
 """

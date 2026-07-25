@@ -745,7 +745,7 @@ async def main():
         iso = iso or iso_x
         out(fh, f"[DIAG] Dari Excel: nama={nama!r}, Waktu Hadir={iso_x!r}")
 
-    bot = CKGBot(headless=False, cdp_url=S.CDP_URL)
+    bot = CKGBot(cdp_url=S.CDP_URL)
     try:
         await bot.connect_to_browser()
         page = bot._page

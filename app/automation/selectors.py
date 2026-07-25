@@ -1,21 +1,10 @@
 """
-Mapping field -> selector elemen di portal CKG.
+Mapping field -> selector elemen di portal SATUSEHAT / Sehat Indonesiaku.
 
->>> PENTING <<<
-Nilai selector di bawah masih PLACEHOLDER. Anda harus menggantinya dengan
-selector asli dari portal CKG. Cara mendapatkannya:
-  1. Buka portal CKG di Chrome, login.
-  2. Buka halaman form pendaftaran / pelayanan.
-  3. Klik kanan pada field -> Inspect.
-  4. Salin atribut id / name / atau buat CSS selector / XPath.
-
-Gunakan selector yang stabil. Prioritas: id > name > atribut data-* > CSS path.
-Hindari XPath panjang berbasis posisi (mudah rusak saat UI berubah).
+Pendekatan: berbasis TEKS LABEL / ROLE, bukan id/class — portal ini SPA Vue
+yang tidak memberi id stabil pada field-nya. Bila teks di portal berubah,
+ganti string di sini, bukan di ckg_bot.py.
 """
-
-# URL portal (ganti dengan URL asli)
-URL_LOGIN = "https://portal-ckg.contoh.go.id/login"
-URL_FORM_PENDAFTARAN = "https://portal-ckg.contoh.go.id/pendaftaran/baru"
 
 # ===========================================================================
 # PORTAL SATUSEHAT / SEHAT INDONESIAKU  (mode connect_over_cdp)
@@ -140,76 +129,4 @@ KONFIRMASI = {
     # dialog sukses 'Berhasil Hadir' (No. Tiket ...) -> tombol 'Tutup' WAJIB
     # diklik agar dialog menutup sebelum lanjut ke peserta berikutnya.
     "btn_tutup": r"^\s*Tutup\s*$",
-}
-
-# --- Halaman login ---
-LOGIN = {
-    "username": "#username",          # ganti
-    "password": "#password",          # ganti
-    "tombol_login": "button[type=submit]",
-    "indikator_sukses": ".dashboard", # elemen yang muncul setelah login berhasil
-    # Elemen yang HANYA muncul saat belum/ sudah ter-logout (mis. field username
-    # di halaman login). Dipakai untuk deteksi session-timeout & auto re-login.
-    "indikator_perlu_login": "#username",
-}
-
-# --- Form pendaftaran (identitas) ---
-PENDAFTARAN = {
-    "nik": "#nik",
-    "nama": "#nama",
-    "tgl_lahir": "#tanggal_lahir",
-    "jenis_kelamin": "#jenis_kelamin",   # bila dropdown, lihat util select
-    "no_hp": "#no_hp",
-    "alamat": "#alamat",
-    "tombol_simpan": "#btn-simpan-pendaftaran",
-    "indikator_sukses": ".alert-success",
-}
-
-# --- Form pelayanan / hasil pemeriksaan, per kelompok usia ---
-# Kunci dict = field standar (lihat schema.FIELD_PEMERIKSAAN)
-PELAYANAN = {
-    "dewasa": {
-        "berat_badan": "#bb",
-        "tinggi_badan": "#tb",
-        "lingkar_perut": "#lingkar_perut",
-        "tekanan_darah": "#tekanan_darah",
-        "gula_darah": "#gula_darah",
-        "kolesterol": "#kolesterol",
-        "asam_urat": "#asam_urat",
-        "skrining_jiwa": "#skrining_jiwa",
-        "iva_hpv": "#iva_hpv",
-        "tombol_simpan": "#btn-simpan-pelayanan",
-        "indikator_sukses": ".alert-success",
-    },
-    "lansia": {
-        "berat_badan": "#bb",
-        "tinggi_badan": "#tb",
-        "tekanan_darah": "#tekanan_darah",
-        "gula_darah": "#gula_darah",
-        "kolesterol": "#kolesterol",
-        "fungsi_kognitif": "#fungsi_kognitif",
-        "skrining_jiwa": "#skrining_jiwa",
-        "kemandirian": "#kemandirian",
-        "tombol_simpan": "#btn-simpan-pelayanan",
-        "indikator_sukses": ".alert-success",
-    },
-    "balita": {
-        "berat_badan": "#bb",
-        "tinggi_badan": "#tb",
-        "lingkar_kepala": "#lingkar_kepala",
-        "status_gizi": "#status_gizi",
-        "imunisasi": "#imunisasi",
-        "perkembangan": "#perkembangan",
-        "tombol_simpan": "#btn-simpan-pelayanan",
-        "indikator_sukses": ".alert-success",
-    },
-    "bayi": {
-        "berat_badan": "#bb",
-        "panjang_badan": "#pb",
-        "lingkar_kepala": "#lingkar_kepala",
-        "skrining_hipotiroid": "#skrining_hipotiroid",
-        "imunisasi": "#imunisasi",
-        "tombol_simpan": "#btn-simpan-pelayanan",
-        "indikator_sukses": ".alert-success",
-    },
 }
