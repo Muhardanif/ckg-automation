@@ -11,7 +11,7 @@ import threading
 from datetime import datetime
 from typing import List, Dict, Optional
 
-import pandas as pd
+import openpyxl
 
 from .automation.ckg_bot import CKGBot
 from .schema import StatusSubmit
@@ -68,8 +68,16 @@ def simpan_log():
         for k, v in pem.items():
             d[f"pem_{k}"] = v
         rows.append(d)
-    df = pd.DataFrame(rows)
-    df.to_excel(LOG_PATH, index=False)
+
+    # Kolom = gabungan key semua baris, urut kemunculan pertama (field
+    # pem_* berbeda antar kelompok usia, jadi tidak semua baris punya key sama).
+    kolom = list(dict.fromkeys(k for d in rows for k in d))
+    wb = openpyxl.Workbook(write_only=True)
+    ws = wb.create_sheet("Log")
+    ws.append(kolom)
+    for d in rows:
+        ws.append([d.get(k) for k in kolom])
+    wb.save(LOG_PATH)
 
 
 async def _proses_async(ids: List[int], username: str, password: str,

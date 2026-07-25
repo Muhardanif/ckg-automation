@@ -11,8 +11,8 @@ di file Excel Anda yang sebenarnya. Kiri = field standar, kanan = nama kolom
 di Excel Anda.
 """
 import os
-import pandas as pd
-from datetime import datetime, timedelta
+import openpyxl
+from datetime import date, datetime, timedelta
 from typing import List, Optional
 
 from .schema import (
@@ -90,22 +90,37 @@ MAPPING_PEMERIKSAAN = {
 
 
 def _bersihkan(nilai):
-    """Bersihkan nilai sel: NaN -> None, strip spasi, float bulat -> int."""
-    if pd.isna(nilai):
+    """Bersihkan nilai sel: kosong -> None, strip spasi, float bulat -> int."""
+    if nilai is None:
         return None
     if isinstance(nilai, str):
-        return nilai.strip()
-    # angka bulat dari Excel (mis. 70.0) -> "70" agar rapi
+        # sel berisi spasi saja dianggap kosong, agar nilai default tetap dipakai
+        return nilai.strip() or None
+    if isinstance(nilai, bool):
+        return nilai                 # TRUE/FALSE jangan berubah jadi "1"/"0"
+    # Angka bulat dari Excel -> teks rapi ("70", bukan 70 atau "70.0").
+    # openpyxl mengembalikan int/float tergantung cara sel disimpan; disamakan
+    # di sini supaya nilai yang masuk DB & form portal tidak campur tipe.
+    if isinstance(nilai, int):
+        return str(nilai)
     if isinstance(nilai, float) and nilai.is_integer():
         return str(int(nilai))
     return nilai
+
+
+def _teks(nilai):
+    """Untuk kolom yang WAJIB teks (NIK & nomor telepon): sel bertipe angka di
+    Excel dikembalikan sebagai string agar 16 digit / 0 di depan tidak rusak."""
+    n = _bersihkan(nilai)
+    return None if n is None else str(n)
 
 
 def _format_tanggal(nilai):
     """Normalisasi tanggal ke ISO YYYY-MM-DD."""
     if nilai is None:
         return None
-    if isinstance(nilai, (datetime, pd.Timestamp)):
+    # openpyxl mengembalikan datetime (atau date) untuk sel berformat tanggal
+    if isinstance(nilai, (datetime, date)):
         return nilai.strftime("%Y-%m-%d")
     # coba beberapa format umum Indonesia
     for fmt in ("%d/%m/%Y", "%d-%m-%Y", "%Y-%m-%d", "%d %b %Y"):
@@ -146,20 +161,26 @@ def baca_excel(path: str, kelompok: KelompokUsia,
                  beberapa baris judul di atas, sesuaikan angkanya.
     sheet_name : nama/indeks sheet yang dibaca
     """
-    # Paksa STRING hanya untuk kolom yang rawan (NIK & nomor telepon) agar 16
-    # digit / 0 di depan tidak rusak. Kolom lain dibiarkan apa adanya supaya
-    # sel TANGGAL terbaca sebagai tanggal (bukan nomor seri Excel).
-    kolom_teks = [MAPPING_IDENTITAS_UMUM[k] for k in ("nik", "no_hp", "no_wa")]
-    dtype_map = {c: str for c in kolom_teks}
-    df = pd.read_excel(path, sheet_name=sheet_name, header=header_row,
-                       dtype=dtype_map, engine="openpyxl")
-    df.columns = [str(c).strip() for c in df.columns]
+    wb = openpyxl.load_workbook(path, data_only=True, read_only=True)
+    try:
+        ws = (wb.worksheets[sheet_name] if isinstance(sheet_name, int)
+              else wb[sheet_name])
+        baris = ws.iter_rows(min_row=header_row + 1, values_only=True)
+        try:
+            header = [str(c).strip() if c is not None else ""
+                      for c in next(baris)]
+        except StopIteration:
+            return []                      # sheet kosong
+        # Baris data dibaca sekaligus agar workbook bisa langsung ditutup.
+        data = [dict(zip(header, nilai)) for nilai in baris]
+    finally:
+        wb.close()
 
     map_pem = MAPPING_PEMERIKSAAN[kelompok]
     peserta_list: List[Peserta] = []
 
-    for idx, row in df.iterrows():
-        nik = _bersihkan(row.get(MAPPING_IDENTITAS_UMUM["nik"]))
+    for idx, row in enumerate(data):
+        nik = _teks(row.get(MAPPING_IDENTITAS_UMUM["nik"]))
         nama = _bersihkan(row.get(MAPPING_IDENTITAS_UMUM["nama"]))
 
         # lewati baris kosong
@@ -186,8 +207,8 @@ def baca_excel(path: str, kelompok: KelompokUsia,
             jenis_kelamin=_normalisasi_jk(_bersihkan(
                 row.get(MAPPING_IDENTITAS_UMUM["jenis_kelamin"]))),
             kelompok_usia=kelompok,
-            no_hp=_bersihkan(row.get(MAPPING_IDENTITAS_UMUM["no_hp"])),
-            no_wa=_bersihkan(row.get(MAPPING_IDENTITAS_UMUM["no_wa"])),
+            no_hp=_teks(row.get(MAPPING_IDENTITAS_UMUM["no_hp"])),
+            no_wa=_teks(row.get(MAPPING_IDENTITAS_UMUM["no_wa"])),
             alamat=_bersihkan(row.get(MAPPING_IDENTITAS_UMUM["alamat"])),
             pemeriksaan=pemeriksaan,
             status_pernikahan=pendukung["status_pernikahan"],
