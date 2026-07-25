@@ -6,7 +6,7 @@ Konfigurasi jawaban dibaca SAAT RUN dari workbook pemetaan
 hasil review user langsung berlaku tanpa ubah kode. Nilai per-peserta (angka
 klinis & Status Perkawinan) diambil dari Excel peserta bila kolomnya tersedia.
 
-ALUR per peserta (mengikuti pola yg terbukti di tools/diag_pelayanan.py):
+ALUR per peserta (mengikuti pola yg terbukti di tools/pelayanan_core.py):
   listing -> filter NIK (tanpa tanggal; fallback filter Nama + tanggal) -> cari
   -> cocokkan baris via NAMA -> klik 'Mulai' -> detail-pemeriksaan
   -> (opsional) 'Mulai Pemeriksaan' + modal tanggal (tulis tgl ke Excel)
@@ -42,9 +42,10 @@ from app.automation import selectors as S                        # noqa: E402
 from app.schema import KelompokUsia                              # noqa: E402
 from app.readers import baca_excel                               # noqa: E402
 from app.excel_hasil import (KOL_WAKTU_HADIR, KOL_STATUS_HADIR,  # noqa: E402
+                             cari_kolom, simpan_workbook, tgl_iso,  # noqa: E402
                              STATUS_HADIR_TERMINAL)
 
-import diag_pelayanan as dp                                      # noqa: E402 (modul tetangga)
+import pelayanan_core as dp                                     # noqa: E402 (modul tetangga)
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PEMETAAN = os.path.join(ROOT, "data", "output", "PEMETAAN_PELAYANAN_FULL.xlsx")
@@ -776,7 +777,7 @@ def _tentukan_tabs(status, waktu_mulai, waktu_selesai):
 
 def _waktu_hadir_iso(p):
     v = getattr(p, "tanggal_pemeriksaan", None)
-    return dp._tgl_iso(v) if v else None
+    return tgl_iso(v) if v else None
 
 
 def _peserta_values(p):
@@ -787,32 +788,6 @@ def _peserta_values(p):
         vals[("perkawinan",)] = PERNIKAHAN[sp]
     # angka klinis diisi belakangan dari kolom Excel (lihat jalankan()).
     return vals
-
-
-def _cari_kolom(ws, hdr, nama):
-    for c in range(1, ws.max_column + 1):
-        v = ws.cell(row=hdr, column=c).value
-        if v is not None and str(v).strip() == nama:
-            return c
-    return None
-
-
-def _ensure_kolom(ws, hdr, nama):
-    c = _cari_kolom(ws, hdr, nama)
-    if c:
-        return c
-    c = ws.max_column + 1
-    ws.cell(row=hdr, column=c, value=nama)
-    return c
-
-
-def _simpan(wb, path):
-    try:
-        wb.save(path)
-        return True
-    except PermissionError:
-        log(f"GAGAL simpan '{path}': Excel sedang terbuka. TUTUP lalu jalankan lagi.")
-        return False
 
 
 async def jalankan(args):
@@ -827,15 +802,15 @@ async def jalankan(args):
     wb = openpyxl.load_workbook(args.excel)
     ws = wb.worksheets[0]
     hdr = args.header_row + 1
-    c_hadir = _cari_kolom(ws, hdr, KOL_STATUS_HADIR)
-    c_waktu_hadir = _cari_kolom(ws, hdr, KOL_WAKTU_HADIR)
-    c_status = _ensure_kolom(ws, hdr, KOL_STATUS_LAYANAN)
-    c_waktu = _ensure_kolom(ws, hdr, KOL_WAKTU_LAYANAN)
-    c_tgl = _ensure_kolom(ws, hdr, KOL_TGL_PERIKSA)
-    c_mulai = _ensure_kolom(ws, hdr, KOL_WAKTU_MULAI)
-    c_selesai = _ensure_kolom(ws, hdr, KOL_WAKTU_SELESAI)
+    c_hadir = cari_kolom(ws, hdr, KOL_STATUS_HADIR)
+    c_waktu_hadir = cari_kolom(ws, hdr, KOL_WAKTU_HADIR)
+    c_status = cari_kolom(ws, hdr, KOL_STATUS_LAYANAN, buat=True)
+    c_waktu = cari_kolom(ws, hdr, KOL_WAKTU_LAYANAN, buat=True)
+    c_tgl = cari_kolom(ws, hdr, KOL_TGL_PERIKSA, buat=True)
+    c_mulai = cari_kolom(ws, hdr, KOL_WAKTU_MULAI, buat=True)
+    c_selesai = cari_kolom(ws, hdr, KOL_WAKTU_SELESAI, buat=True)
     num_cols = _excel_num_cols(ws, hdr)
-    if not _simpan(wb, args.excel):
+    if not simpan_workbook(wb, args.excel, "PELAYANAN"):
         return 2
 
     mulai_idx = max(args.mulai - 1, 0)
@@ -904,7 +879,7 @@ async def jalankan(args):
             tabs, auto_mulai = _tentukan_tabs(st, wmulai, wselesai), True
         # filter tanggal listing dari 'Waktu Hadir' (override --tanggal-filter bila ada)
         wh = ws.cell(row=row, column=c_waktu_hadir).value if c_waktu_hadir else None
-        tgl_filter = args.tanggal_filter or dp._tgl_iso(wh)
+        tgl_filter = args.tanggal_filter or tgl_iso(wh)
         log(f"PROSES {label} ... (tab kandidat: {tabs}; tgl filter: {tgl_filter})")
         try:
             r = await proses_peserta(page, fh, bot, p, forms, args, pvals,
@@ -935,7 +910,7 @@ async def jalankan(args):
                 await page.goto(URL_PELAYANAN)
             except Exception:
                 pass
-        _simpan(wb, args.excel)
+        simpan_workbook(wb, args.excel, "PELAYANAN")
 
     await bot.stop()
     log("=" * 55)

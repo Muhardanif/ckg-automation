@@ -18,6 +18,7 @@ from app.readers import (
     baca_excel, validasi, cek_konsistensi_nik,
     koreksi_tgl_dari_nik, koreksi_jk_dari_nik,
 )
+from app.excel_hasil import cari_kolom, simpan_workbook, tgl_iso
 from app.schema import Peserta, KelompokUsia
 
 # NIK contoh: ...DDMMYY... digit 7-12. Perempuan = DD + 40.
@@ -168,6 +169,36 @@ def test_baca_excel():
     path2 = os.path.join(tempfile.mkdtemp(), "kosong.xlsx")
     wb2.save(path2)
     assert baca_excel(path2, KelompokUsia.DEWASA, header_row=5) == []
+
+
+def test_tgl_iso():
+    assert tgl_iso(None) is None
+    assert tgl_iso(datetime(2026, 6, 12, 10, 30)) == "2026-06-12"
+    assert tgl_iso("2026-06-12T10:30:00") == "2026-06-12"
+    assert tgl_iso("2026-06-12 10:30") == "2026-06-12"
+    assert tgl_iso("bukan tanggal") is None
+
+
+def test_cari_kolom_dan_simpan():
+    """Helper bersama yang dipakai ketiga tool tahap (dulu disalin 3x)."""
+    wb = openpyxl.Workbook()
+    ws = wb.active
+    ws.append(["NIK", " Nama ", "No. Tiket"])
+
+    assert cari_kolom(ws, 1, "NIK") == 1
+    assert cari_kolom(ws, 1, "Nama") == 2          # header ber-spasi tetap cocok
+    assert cari_kolom(ws, 1, "Status Daftar") is None
+    # buat=True menambah kolom baru di ujung, lalu ketemu di pencarian berikutnya
+    baru = cari_kolom(ws, 1, "Status Daftar", buat=True)
+    assert baru == 4
+    assert cari_kolom(ws, 1, "Status Daftar") == 4
+    assert cari_kolom(ws, 1, "Status Daftar", buat=True) == 4   # tidak dobel
+
+    path = os.path.join(tempfile.mkdtemp(), "simpan.xlsx")
+    assert simpan_workbook(wb, path, "UJI") is True
+    assert os.path.exists(path)
+    # tak bisa ditulis -> False, bukan exception (kasus nyata: dibuka di Excel)
+    assert simpan_workbook(wb, tempfile.mkdtemp(), "UJI") is False
 
 
 if __name__ == "__main__":

@@ -34,37 +34,12 @@ from app.schema import KelompokUsia                       # noqa: E402
 from app.readers import (baca_excel, validasi, cek_konsistensi_nik,   # noqa: E402
                          koreksi_tgl_dari_nik, koreksi_jk_dari_nik)
 from app.excel_hasil import (KOL_TIKET, KOL_STATUS, KOL_WAKTU,       # noqa: E402
+                             cari_kolom, simpan_workbook,       # noqa: E402
                              STATUS_TERMINAL, warnai_baris)
 
 
 def log(msg):
     print(f"[BATCH] {msg}", flush=True)
-
-
-def _ensure_kolom(ws, header_row_1based, nama):
-    """Cari kolom dgn header `nama` di baris header; buat baru bila belum ada.
-    Kembalikan index kolom (1-based)."""
-    last_col = ws.max_column
-    for c in range(1, last_col + 1):
-        v = ws.cell(row=header_row_1based, column=c).value
-        if v is not None and str(v).strip() == nama:
-            return c
-    # buat kolom baru di ujung
-    col = last_col + 1
-    ws.cell(row=header_row_1based, column=col, value=nama)
-    return col
-
-
-def _simpan(wb, path):
-    """Simpan workbook; beri pesan jelas bila file terkunci (masih dibuka Excel)."""
-    try:
-        wb.save(path)
-        return True
-    except PermissionError:
-        log(f"GAGAL menyimpan '{path}': file sedang dibuka di Excel. "
-            f"TUTUP Excel lalu jalankan lagi (baris yang sudah sukses tidak "
-            f"akan diulang).")
-        return False
 
 
 async def _reset_ke_list(bot, page):
@@ -93,11 +68,11 @@ async def jalankan(args):
     wb = openpyxl.load_workbook(args.excel)
     ws = wb.worksheets[0]
     header_row_1b = args.header_row + 1
-    c_tiket = _ensure_kolom(ws, header_row_1b, KOL_TIKET)
-    c_status = _ensure_kolom(ws, header_row_1b, KOL_STATUS)
-    c_waktu = _ensure_kolom(ws, header_row_1b, KOL_WAKTU)
+    c_tiket = cari_kolom(ws, header_row_1b, KOL_TIKET, buat=True)
+    c_status = cari_kolom(ws, header_row_1b, KOL_STATUS, buat=True)
+    c_waktu = cari_kolom(ws, header_row_1b, KOL_WAKTU, buat=True)
     # cek bisa tulis ke file (gagal cepat bila Excel masih terbuka)
-    if not _simpan(wb, args.excel):
+    if not simpan_workbook(wb, args.excel, "BATCH"):
         return 2
 
     def _tandai(row, status, no_tiket=None):
@@ -155,7 +130,7 @@ async def jalankan(args):
             pesan = "ERROR data: " + "; ".join(err)
             log(f"LEWATI {label}: {pesan}")
             _tandai(row, pesan)
-            _simpan(wb, args.excel)
+            simpan_workbook(wb, args.excel, "BATCH")
             n_lewat += 1
             continue
 
@@ -184,7 +159,7 @@ async def jalankan(args):
             pesan = "DILEWATI (cek data): " + "; ".join(warn)
             log(f"LEWATI {label}: {pesan} [pakai --paksa utk tetap coba]")
             _tandai(row, pesan)
-            _simpan(wb, args.excel)
+            simpan_workbook(wb, args.excel, "BATCH")
             n_lewat += 1
             continue
         if warn:
@@ -222,7 +197,7 @@ async def jalankan(args):
             _tandai(row, pesan)
             log(f"GAGAL {label}: {type(e).__name__}: {str(e)[:200]}")
             n_gagal += 1
-        _simpan(wb, args.excel)
+        simpan_workbook(wb, args.excel, "BATCH")
 
     await bot.stop()
     log("=" * 55)

@@ -41,7 +41,37 @@ STATUS_HADIR = "HADIR"
 STATUS_HADIR_TERMINAL = (STATUS_HADIR, "SUDAH HADIR")
 
 
-def _cari_kolom(ws, header_row_1based, nama, buat=False):
+def simpan_workbook(wb, path, prefix="EXCEL"):
+    """Simpan workbook; pesan jelas bila file terkunci (masih dibuka di Excel).
+
+    Kembalikan True bila tersimpan. Dipakai semua tool tahap (pendaftaran,
+    konfirmasi hadir, pelayanan) supaya gejala 'file terkunci' sama di mana pun,
+    bukan bergantung salinan mana yang kebetulan dipanggil.
+    """
+    try:
+        wb.save(path)
+        return True
+    except PermissionError:
+        print(f"[{prefix}] GAGAL menyimpan '{path}': file sedang dibuka di "
+              f"Excel. TUTUP Excel lalu jalankan lagi (baris yang sudah "
+              f"selesai tidak akan diulang).", flush=True)
+        return False
+
+
+def tgl_iso(val):
+    """Ambil tanggal ISO 'YYYY-MM-DD' dari sel waktu ('Waktu Daftar'/'Waktu
+    Hadir'). Menerima datetime atau string ISO. None bila tak bisa diuraikan."""
+    if val is None:
+        return None
+    if isinstance(val, datetime):
+        return val.date().isoformat()
+    s = str(val).strip()
+    if len(s) >= 10 and s[4] == "-" and s[7] == "-":
+        return s[:10]
+    return None
+
+
+def cari_kolom(ws, header_row_1based, nama, buat=False):
     """Index kolom (1-based) dgn header `nama`; buat di ujung bila `buat`."""
     for c in range(1, ws.max_column + 1):
         v = ws.cell(row=header_row_1based, column=c).value
@@ -60,7 +90,7 @@ def baca_tiket(excel_path, baris_openpyxl, header_row=0):
     try:
         wb = openpyxl.load_workbook(excel_path, read_only=True, data_only=True)
         ws = wb.worksheets[0]
-        col = _cari_kolom(ws, header_row + 1, KOL_TIKET, buat=False)
+        col = cari_kolom(ws, header_row + 1, KOL_TIKET, buat=False)
         if col is None:
             return ""
         v = ws.cell(row=baris_openpyxl, column=col).value
@@ -81,9 +111,9 @@ def pastikan_kolom_hasil(excel_path, header_row=0):
         return False, f"gagal membuka: {type(e).__name__}: {e}"
     ws = wb.worksheets[0]
     hdr = header_row + 1
-    _cari_kolom(ws, hdr, KOL_TIKET, buat=True)
-    _cari_kolom(ws, hdr, KOL_STATUS, buat=True)
-    _cari_kolom(ws, hdr, KOL_WAKTU, buat=True)
+    cari_kolom(ws, hdr, KOL_TIKET, buat=True)
+    cari_kolom(ws, hdr, KOL_STATUS, buat=True)
+    cari_kolom(ws, hdr, KOL_WAKTU, buat=True)
     try:
         wb.save(excel_path)
         return True, "ok"
@@ -151,9 +181,9 @@ def tulis_hasil(excel_path, baris_openpyxl, no_tiket=None, status=None,
         return False, f"gagal membuka: {type(e).__name__}: {e}"
     ws = wb.worksheets[0]
     hdr = header_row + 1
-    ct = _cari_kolom(ws, hdr, KOL_TIKET, buat=True)
-    cs = _cari_kolom(ws, hdr, KOL_STATUS, buat=True)
-    cw = _cari_kolom(ws, hdr, KOL_WAKTU, buat=True)
+    ct = cari_kolom(ws, hdr, KOL_TIKET, buat=True)
+    cs = cari_kolom(ws, hdr, KOL_STATUS, buat=True)
+    cw = cari_kolom(ws, hdr, KOL_WAKTU, buat=True)
     if no_tiket is not None:
         ws.cell(row=baris_openpyxl, column=ct, value=no_tiket)
     if status is not None:

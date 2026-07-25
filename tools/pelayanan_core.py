@@ -1,10 +1,13 @@
 """
-DIAGNOSTIK halaman PELAYANAN (/ckg-pelayanan, mode CDP).
+Inti navigasi halaman PELAYANAN (/ckg-pelayanan, mode CDP).
 
-Tujuan: memetakan struktur halaman daftar pelayanan DAN form input hasil
-pemeriksaan (di balik tombol 'Mulai'), agar selector + daftar field di
-`app/automation/selectors.py` (PELAYANAN) dan `app/schema.py` (FIELD_PEMERIKSAAN)
-bisa disesuaikan dengan portal asli (bukan placeholder).
+DIPAKAI PRODUKSI: tools/pelayanan.py meng-import modul ini (`import
+pelayanan_core as dp`) untuk semua navigasi halaman pelayanan — buka form,
+cari peserta, set filter tanggal, klik 'Mulai'. Jangan dihapus.
+
+Dijalankan langsung, modul ini berfungsi sebagai alat diagnostik: memetakan
+struktur halaman daftar pelayanan DAN form input hasil pemeriksaan (di balik
+tombol 'Mulai'), lalu men-dump field-nya ke data/output/.
 
 Tanggal: secara default TIDAK disentuh (rentang bawaan UI biasanya sudah
 mencakup tanggal hadir). Pakai --set-tanggal untuk memaksa set dari 'Waktu Hadir'
@@ -21,7 +24,7 @@ PERSIAPAN: Chrome jalan dgn --remote-debugging-port=9222 (1_mulai_chrome.bat),
 sudah login portal SATUSEHAT.
 
 PAKAI:
-  venv\\Scripts\\python.exe tools\\diag_pelayanan.py --excel data\\input\\template_pendaftaran.xlsx --nik 3525084710630003
+  venv\\Scripts\\python.exe tools\\pelayanan_core.py --excel data\\input\\template_pendaftaran.xlsx --nik 3525084710630003
   # opsi: --pakai nama (cari via Nama), --set-tanggal, --no-mulai
 """
 import argparse
@@ -36,7 +39,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import openpyxl                                             # noqa: E402
 from app.automation import selectors as S                  # noqa: E402
 from app.automation.ckg_bot import CKGBot                   # noqa: E402
-from app.excel_hasil import KOL_WAKTU_HADIR                 # noqa: E402
+from app.excel_hasil import KOL_WAKTU_HADIR, tgl_iso        # noqa: E402
 
 URL_PELAYANAN = "https://sehatindonesiaku.kemkes.go.id/ckg-pelayanan"
 
@@ -157,17 +160,6 @@ def out(fh, msg=""):
         print(msg.encode("ascii", "replace").decode("ascii"), flush=True)
 
 
-def _tgl_iso(val):
-    if val is None:
-        return None
-    if isinstance(val, datetime):
-        return val.date().isoformat()
-    s = str(val).strip()
-    if len(s) >= 10 and s[4] == "-" and s[7] == "-":
-        return s[:10]
-    return None
-
-
 def _info_dari_excel(excel, nik, header_row=0):
     """Cari baris ber-NIK, kembalikan (iso_waktu_hadir, nama). (None, None) bila gagal."""
     try:
@@ -193,7 +185,7 @@ def _info_dari_excel(excel, nik, header_row=0):
     for r in range(hdr + 1, ws.max_row + 1):
         v = ws.cell(row=r, column=c_nik).value
         if v is not None and str(v).strip() == str(nik):
-            iso = _tgl_iso(ws.cell(row=r, column=c_hadir).value) if c_hadir else None
+            iso = tgl_iso(ws.cell(row=r, column=c_hadir).value) if c_hadir else None
             nama = ws.cell(row=r, column=c_nama).value if c_nama else None
             wb.close()
             return iso, (str(nama).strip() if nama else None)

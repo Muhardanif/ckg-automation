@@ -41,6 +41,7 @@ from app.automation import selectors as S                        # noqa: E402
 from app.schema import KelompokUsia                              # noqa: E402
 from app.readers import baca_excel, validasi                     # noqa: E402
 from app.excel_hasil import (KOL_STATUS, KOL_WAKTU,              # noqa: E402
+                             cari_kolom, simpan_workbook, tgl_iso,              # noqa: E402
                              KOL_STATUS_HADIR, KOL_WAKTU_HADIR,
                              STATUS_HADIR, STATUS_HADIR_TERMINAL)
 
@@ -50,52 +51,6 @@ STATUS_DAFTAR_SUKSES = "SUKSES"
 
 def log(msg):
     print(f"[HADIR] {msg}", flush=True)
-
-
-def _tgl_iso(val):
-    """Ambil tanggal ISO 'YYYY-MM-DD' dari sel 'Waktu Daftar'.
-    Menerima datetime, atau string ISO ('2026-06-12T10:30:00') / 'YYYY-MM-DD ...'.
-    Kembalikan None bila tak bisa diuraikan."""
-    if val is None:
-        return None
-    if isinstance(val, datetime):
-        return val.date().isoformat()
-    s = str(val).strip()
-    if len(s) >= 10 and s[4] == "-" and s[7] == "-":
-        return s[:10]
-    return None
-
-
-def _ensure_kolom(ws, header_row_1based, nama):
-    """Index kolom (1-based) dgn header `nama`; buat baru bila belum ada."""
-    last_col = ws.max_column
-    for c in range(1, last_col + 1):
-        v = ws.cell(row=header_row_1based, column=c).value
-        if v is not None and str(v).strip() == nama:
-            return c
-    col = last_col + 1
-    ws.cell(row=header_row_1based, column=col, value=nama)
-    return col
-
-
-def _cari_kolom(ws, header_row_1based, nama):
-    """Index kolom (1-based) dgn header `nama`, atau None bila tak ada."""
-    for c in range(1, ws.max_column + 1):
-        v = ws.cell(row=header_row_1based, column=c).value
-        if v is not None and str(v).strip() == nama:
-            return c
-    return None
-
-
-def _simpan(wb, path):
-    try:
-        wb.save(path)
-        return True
-    except PermissionError:
-        log(f"GAGAL menyimpan '{path}': file sedang dibuka di Excel. "
-            f"TUTUP Excel lalu jalankan lagi (baris yang sudah hadir tidak "
-            f"akan diulang).")
-        return False
 
 
 async def jalankan(args):
@@ -108,15 +63,15 @@ async def jalankan(args):
     wb = openpyxl.load_workbook(args.excel)
     ws = wb.worksheets[0]
     hdr = args.header_row + 1
-    c_status_daftar = _cari_kolom(ws, hdr, KOL_STATUS)   # 'Status Daftar'
+    c_status_daftar = cari_kolom(ws, hdr, KOL_STATUS)   # 'Status Daftar'
     if c_status_daftar is None:
         raise SystemExit(
             f"Kolom '{KOL_STATUS}' tak ada di Excel. Jalankan pendaftaran dulu "
             f"(kolom itu dibuat oleh tools/jalankan_batch.py).")
-    c_waktu_daftar = _cari_kolom(ws, hdr, KOL_WAKTU)     # 'Waktu Daftar' (utk tgl filter)
-    c_hadir = _ensure_kolom(ws, hdr, KOL_STATUS_HADIR)
-    c_waktu = _ensure_kolom(ws, hdr, KOL_WAKTU_HADIR)
-    if not _simpan(wb, args.excel):     # gagal cepat bila Excel masih terbuka
+    c_waktu_daftar = cari_kolom(ws, hdr, KOL_WAKTU)     # 'Waktu Daftar' (utk tgl filter)
+    c_hadir = cari_kolom(ws, hdr, KOL_STATUS_HADIR, buat=True)
+    c_waktu = cari_kolom(ws, hdr, KOL_WAKTU_HADIR, buat=True)
+    if not simpan_workbook(wb, args.excel, "HADIR"):     # gagal cepat bila Excel masih terbuka
         return 2
 
     # 2) tentukan rentang baris
@@ -158,7 +113,7 @@ async def jalankan(args):
         if args.tanggal:
             tgl_filter = args.tanggal
         elif c_waktu_daftar is not None:
-            tgl_filter = _tgl_iso(ws.cell(row=row, column=c_waktu_daftar).value)
+            tgl_filter = tgl_iso(ws.cell(row=row, column=c_waktu_daftar).value)
         else:
             tgl_filter = None
 
@@ -177,7 +132,7 @@ async def jalankan(args):
             ws.cell(row=row, column=c_hadir, value=pesan)
             ws.cell(row=row, column=c_waktu,
                     value=datetime.now().isoformat(timespec="seconds"))
-            _simpan(wb, args.excel)
+            simpan_workbook(wb, args.excel, "HADIR")
             n_lewat += 1
             continue
 
@@ -217,7 +172,7 @@ async def jalankan(args):
                 await bot._page.wait_for_load_state("networkidle")
             except Exception:
                 pass
-        _simpan(wb, args.excel)
+        simpan_workbook(wb, args.excel, "HADIR")
 
     await bot.stop()
     log("=" * 55)

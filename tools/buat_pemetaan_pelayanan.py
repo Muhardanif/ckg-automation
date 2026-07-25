@@ -1,7 +1,7 @@
 """
 Generator PEMETAAN_PELAYANAN.xlsx — dokumen kerja pemetaan form Step 3 (Pelayanan).
 
-Sumber: enumerasi form dari tools/diag_pelayanan.py untuk peserta LANSIA PEREMPUAN
+Sumber: enumerasi form dari tools/pelayanan_core.py untuk peserta LANSIA PEREMPUAN
 (SUMIATI). Dua sheet:
   1) 'Daftar Form'  : semua form yg muncul di detail-pemeriksaan, dikategorikan
      (Anamnesis 0/9 vs Pemeriksaan klinis). Kolom 'Otomasi?' & 'Sumber nilai'
