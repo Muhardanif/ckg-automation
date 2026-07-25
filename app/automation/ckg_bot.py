@@ -14,6 +14,7 @@ perlu diubah hanya detail selektor & urutan langkah jika portal berbeda.
 import asyncio
 import os
 import re
+import time
 from datetime import datetime
 from typing import Optional
 
@@ -80,6 +81,7 @@ class CKGBot:
         self.password = password
         self.headless = headless
         self.delay_ms = delay_ms       # jeda antar aksi (hindari deteksi bot)
+        self.jeda_n = 0                # berapa kali _jeda() dipanggil (utk kalibrasi)
         self.otp_wait_s = otp_wait_s    # detik menunggu input OTP/2FA manual (0 = nonaktif)
         self.cdp_url = cdp_url or S.CDP_URL
         self._pw = None
@@ -140,6 +142,9 @@ class CKGBot:
                 await self._pw.stop()
 
     async def _jeda(self):
+        # Dihitung agar porsi waktu yang murni jeda tetap terlihat: itu satu-
+        # satunya bagian yang bisa dipangkas tanpa menunggu portal (--delay).
+        self.jeda_n += 1
         await self._page.wait_for_timeout(self.delay_ms)
 
     async def _settle(self, timeout_ms: int = 2000):
@@ -1009,6 +1014,8 @@ class CKGBot:
                 on_step(nama, info)
 
         langkah = "mulai"
+        self.jeda_n = 0
+        mulai = time.monotonic()
         try:
             # --- pastikan di halaman /ckg-pendaftaran-individu (auto-navigasi,
             #     konsisten dgn konfirmasi hadir & pelayanan) ---
@@ -1220,6 +1227,12 @@ class CKGBot:
                 raise RuntimeError(
                     f"Pendaftaran tampak selesai tetapi No. Tiket tidak terbaca. "
                     f"Cek screenshot: {shot}")
+
+            total = time.monotonic() - mulai
+            jeda_s = self.jeda_n * self.delay_ms / 1000
+            log("waktu", f"{total:.1f}s total, {jeda_s:.1f}s di antaranya jeda "
+                         f"({self.jeda_n}x {self.delay_ms}ms = "
+                         f"{jeda_s / total * 100:.0f}%)")
             return no_tiket
 
         except LewatiPesertaError:
