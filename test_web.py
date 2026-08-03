@@ -93,6 +93,35 @@ def test_hitung_ringkasan_tool():
     assert stages._hitung([]) == (0, 0, "")
 
 
+def test_url_tab_saat_page_url_kosong():
+    """Playwright kadang melaporkan page.url = '' untuk tab yang sudah terbuka
+    sebelum connect_over_cdp (intermiten — tergantung keadaan tab saat menempel).
+    Kalau tak ditangani, pencocokan tab portal meleset dan bot menyetir tab
+    pertama yang kebetulan ada. Uji dgn page palsu supaya tak bergantung Chrome."""
+    import asyncio
+    from app.automation.ckg_bot import _url_tab
+
+    class Palsu:
+        def __init__(self, url, href=None, meledak=False):
+            self.url, self._href, self._meledak = url, href, meledak
+
+        async def evaluate(self, _):
+            if self._meledak:
+                raise RuntimeError("target closed")
+            return self._href
+
+    jalan = lambda pg: asyncio.run(_url_tab(pg))
+
+    # jalur normal: page.url dipakai apa adanya, tanpa evaluate()
+    assert jalan(Palsu("https://x.kemkes.go.id/ckg")) == "https://x.kemkes.go.id/ckg"
+    # page.url kosong -> tanya halamannya
+    assert jalan(Palsu("", "https://x.kemkes.go.id/ckg")) == "https://x.kemkes.go.id/ckg"
+    # tab mati saat ditanya: kembalikan "", jangan melempar & membunuh seluruh run
+    assert jalan(Palsu("", meledak=True)) == ""
+    # evaluate mengembalikan None (tab kosong) -> "" , bukan None
+    assert jalan(Palsu("", None)) == ""
+
+
 def test_kursor_log():
     """snapshot(sejak) hanya mengirim baris baru, dan tetap benar setelah deque
     membuang baris tertua. Simulasikan juga rakit-ulang di sisi klien."""
