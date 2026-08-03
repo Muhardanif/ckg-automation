@@ -37,7 +37,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 import openpyxl                                                  # noqa: E402
 
-from app.automation.ckg_bot import CKGBot                        # noqa: E402
+from app.automation.ckg_bot import CKGBot, _url_tab              # noqa: E402
 from app.automation import selectors as S                        # noqa: E402
 from app.schema import KelompokUsia                              # noqa: E402
 from app.readers import baca_excel                               # noqa: E402
@@ -832,6 +832,18 @@ async def jalankan(args):
         log(f"GAGAL connect Chrome: {e}. Pastikan port 9222 + login.")
         return 1
     page = bot._page
+    # Pastikan tab ADA di listing pelayanan sebelum peserta pertama. Dulu tool
+    # ini mengandalkan operator sudah membukanya sendiri: goto(URL_PELAYANAN)
+    # cuma ada di penangan error & helper SETELAH pencarian pertama. Padahal
+    # tahap 2 (konfirmasi_hadir) selalu meninggalkan tab di
+    # /ckg-pendaftaran-individu — halaman itu juga punya filter Nama/NIK,
+    # jadi tool sempat "bekerja" di halaman salah lalu gagal dgn pesan
+    # menyesatkan (searchNik timeout), dan status peserta ikut tertimpa GAGAL.
+    url_kini = await _url_tab(page)        # page.url bisa kosong lewat CDP
+    if not url_kini.startswith(URL_PELAYANAN):
+        log(f"Tab ada di {url_kini[:60] or '(kosong)'} -> pindah ke listing pelayanan.")
+        await page.goto(URL_PELAYANAN)
+        await page.wait_for_load_state("networkidle")
     fh = io.StringIO()                     # diag helpers butuh file handle utk out()
 
     n_ok = n_gagal = n_lewat = 0
