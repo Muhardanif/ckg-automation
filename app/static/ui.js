@@ -26,7 +26,8 @@
   var GAGAL_SEBELUM_LAPOR = 2; // 1 kegagalan bisa sekadar reload server
 
   /**
-   * @param {string} url            endpoint JSON
+   * @param {string|function():string} url  endpoint JSON. Boleh fungsi, supaya
+   *        pemanggil bisa menyusun kursor (mis. '?sejak=N') tiap putaran.
    * @param {function(Object)} saatData  dipanggil dengan payload
    * @param {Object} opsi          { jeda, elemenKoneksi }
    */
@@ -64,7 +65,7 @@
       // Tab tersembunyi: tak ada yang membaca. Cek lagi nanti.
       if (document.hidden) { jadwalkan(jedaDasar); return; }
 
-      fetch(url, { cache: 'no-store' })
+      fetch(typeof url === 'function' ? url() : url, { cache: 'no-store' })
         .then(function (r) {
           if (!r.ok) throw new Error('HTTP ' + r.status);
           return r.json();

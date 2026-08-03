@@ -17,6 +17,7 @@ PERSIAPAN (sama seperti trial):
 PAKAI:
   venv\\Scripts\\python.exe tools\\jalankan_batch.py --excel data/input/template_pendaftaran.xlsx
   # opsi: --mulai 1 --jumlah 50 --kelompok dewasa --paksa
+  # uji 1 NIK saja: --nik 3515xxxxxxxxxxxx
 """
 import argparse
 import asyncio
@@ -89,8 +90,13 @@ async def jalankan(args):
     mulai_idx = max(args.mulai - 1, 0)
     akhir_idx = len(ps) if args.jumlah <= 0 else min(mulai_idx + args.jumlah, len(ps))
     target = ps[mulai_idx:akhir_idx]
+    if args.nik:
+        target = [p for p in target if (p.nik or "") == args.nik]
+        if not target:
+            raise SystemExit(f"NIK {args.nik} tak ada di rentang baris itu.")
     log(f"Total {len(ps)} baris; memproses {len(target)} "
-        f"(baris data {mulai_idx + 1}..{akhir_idx}).")
+        f"(baris data {mulai_idx + 1}..{akhir_idx}"
+        f"{'; filter NIK '+args.nik if args.nik else ''}).")
 
     # 3) sambung ke Chrome (sekali)
     bot = CKGBot(delay_ms=args.delay, cdp_url=args.cdp)
@@ -219,6 +225,8 @@ def main():
                     help="Mulai dari baris data ke-berapa (1-based). Default 1.")
     ap.add_argument("--jumlah", type=int, default=0,
                     help="Berapa baris diproses (0 = semua sampai akhir).")
+    ap.add_argument("--nik", default="",
+                    help="Daftarkan hanya NIK ini (untuk uji 1 peserta).")
     ap.add_argument("--delay", type=int, default=800,
                     help="Jeda antar-aksi (ms). Naikkan bila koneksi lambat.")
     ap.add_argument("--paksa", action="store_true",

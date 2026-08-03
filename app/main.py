@@ -47,8 +47,11 @@ def _peringatkan_css_basi() -> None:
         log.warning("app/static/app.css tidak ada. Jalankan: npm run build:css")
         return
     umur_css = os.path.getmtime(css)
+    # Semua yang di-@source / di-@import theme.css harus ikut dipantau. ui.js
+    # ikut di sini karena markup modal konfirmasi lahir di sana, bukan di template.
     sumber = glob.glob(os.path.join(BASE, "templates", "*.html"))
-    sumber.append(os.path.join(ROOT, "design-system", "theme.css"))
+    sumber.append(os.path.join(BASE, "static", "ui.js"))
+    sumber += glob.glob(os.path.join(ROOT, "design-system", "*.css"))
     lebih_baru = [os.path.basename(p) for p in sumber
                   if os.path.exists(p) and os.path.getmtime(p) > umur_css]
     if lebih_baru:
@@ -132,6 +135,13 @@ def beranda():
 EXCEL_DEFAULT = "data/input/template_pendaftaran.xlsx"
 
 
+def _path(s: str) -> str:
+    """Rapikan path yang ditempel operator. "Copy as path" di Windows Explorer
+    menyertakan tanda kutip; tanpa dibuang, kutipnya ikut jadi bagian nama file
+    (Popen tanpa shell) dan openpyxl gagal dgn pesan yang membingungkan."""
+    return s.strip().strip('"')
+
+
 @app.get("/operasi", response_class=HTMLResponse)
 def operasi(request: Request):
     return templates.TemplateResponse(request, "operasi.html", {
@@ -149,9 +159,13 @@ def stage_chrome():
 @app.post("/stage/daftar")
 def stage_daftar(excel: str = Form(EXCEL_DEFAULT),
                  kelompok: str = Form("lansia"),
+                 nik: str = Form(""),
                  paksa: str = Form("false"),
                  koreksi_nik: str = Form("true")):
+    excel = _path(excel)
     args = ["tools/jalankan_batch.py", "--excel", excel, "--kelompok", kelompok]
+    if nik.strip():
+        args += ["--nik", nik.strip()]
     if paksa == "true":
         args += ["--paksa"]
     if koreksi_nik != "true":
@@ -159,6 +173,7 @@ def stage_daftar(excel: str = Form(EXCEL_DEFAULT),
     ok, pesan = mulai_stage(
         "Pendaftaran (Batch)", args, jenis="daftar",
         parameter={"excel": excel, "kelompok": kelompok,
+                   "nik": nik.strip() or "semua",
                    "paksa": paksa == "true", "koreksi_nik": koreksi_nik == "true"})
     return JSONResponse({"ok": ok, "pesan": pesan})
 
@@ -168,6 +183,7 @@ def stage_hadir(excel: str = Form(EXCEL_DEFAULT),
                 kelompok: str = Form("lansia"),
                 nik: str = Form(""),
                 tanggal: str = Form("")):
+    excel = _path(excel)
     args = ["tools/konfirmasi_hadir.py", "--excel", excel, "--kelompok", kelompok]
     if nik.strip():
         args += ["--nik", nik.strip()]
@@ -189,6 +205,7 @@ def stage_pelayanan(excel: str = Form(EXCEL_DEFAULT),
                     mulai_pemeriksaan: str = Form("false"),
                     nik: str = Form(""),
                     tab: str = Form("")):
+    excel = _path(excel)
     args = ["tools/pelayanan.py", "--excel", excel, "--kelompok", kelompok]
     args += ["--submit"] if mode == "submit" else ["--dry-run"]
     if resume == "true":
@@ -214,13 +231,17 @@ def stage_pelayanan(excel: str = Form(EXCEL_DEFAULT),
 
 
 @app.get("/stage/status")
-def stage_status():
-    return JSONResponse(STAGE.snapshot())
+def stage_status(sejak: int = 0):
+    # `sejak` = kursor: indeks absolut baris log pertama yang belum dipegang
+    # klien. Tanpa ini tiap poll 1,5 detik mengangkut ulang seluruh buffer.
+    return JSONResponse(STAGE.snapshot(max(sejak, 0)))
 
 
 @app.post("/stage/stop")
 def stage_stop():
-    return JSONResponse({"ok": stop_stage()})
+    ok = stop_stage()
+    return JSONResponse({"ok": ok, "pesan": "Perintah hentikan dikirim."
+                         if ok else "Tidak ada proses yang berjalan."})
 
 
 # ----------------------------------------------------------------------------

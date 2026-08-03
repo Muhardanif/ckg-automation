@@ -10,10 +10,10 @@ from datetime import datetime
 from typing import List, Optional
 
 from sqlalchemy import (
-    create_engine, String, Integer, DateTime, ForeignKey, JSON, func, select
+    create_engine, String, Integer, DateTime, JSON, func, select
 )
 from sqlalchemy.orm import (
-    DeclarativeBase, Mapped, mapped_column, relationship, sessionmaker, Session
+    DeclarativeBase, Mapped, mapped_column, sessionmaker, Session
 )
 
 

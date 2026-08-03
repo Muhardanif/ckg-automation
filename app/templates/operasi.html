@@ -6,15 +6,10 @@
 {# Judul + satu kalimat. Syarat "sebelum mulai" TIDAK ditaruh di sini: ia
    instruksi untuk tombol Buka Chrome, jadi tempatnya di kartu Persiapan,
    bersebelahan dengan tombolnya. #}
-<div class="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 mb-5">
-  <div>
-    <h1 class="text-3xl font-bold">Operasi</h1>
-    <p class="text-sm text-base-content/70 mt-1">
-      Tiga tahap yang menyetir Chrome yang sudah Anda buka.
-    </p>
-  </div>
-  <p class="text-sm text-base-content/70">
-    Tanpa Chrome? <a href="/" class="link link-primary">Upload &amp; Daftar</a>
+<div class="mb-5">
+  <h1 class="text-3xl font-bold">Operasi</h1>
+  <p class="text-sm text-base-content/70 mt-1">
+    Tiga tahap yang menyetir Chrome yang sudah Anda buka.
   </p>
 </div>
 
@@ -77,7 +72,7 @@
          mana milik centangan mana. #}
       {% call ui.option_group() %}
         <div class="space-y-2">
-          {{ ui.checkbox("paksa", "Paksa — daftar ulang walau sudah ada No. Tiket") }}
+          {{ ui.checkbox("paksa", "Paksa — tetap daftarkan walau NIK tak cocok Tgl Lahir/Jenis Kelamin") }}
           {{ ui.checkbox("koreksi_nik",
              "Koreksi Tgl Lahir & Jenis Kelamin dari NIK — dibetulkan, bukan dilewati",
              checked=True) }}
@@ -190,10 +185,12 @@
         {{ ui.empty_state("Belum ada proses dijalankan",
              "Log langsung dari tool akan muncul di sini begitu salah satu tahap dijalankan.") }}
       </div>
-      <pre id="log" hidden
+      {# TANPA aria-live: isinya diganti utuh tiap poll, jadi live region akan
+         membacakan ulang seluruh 600 baris tiap 1,5 detik dan menenggelamkan
+         #st_pesan yang justru berisi statusnya. #}
+      <pre id="log" hidden tabindex="0"
            class="bg-neutral text-neutral-content text-xs rounded-box p-3 h-80 xl:h-auto
-                  xl:flex-1 xl:min-h-0 overflow-auto whitespace-pre-wrap"
-           aria-live="polite"></pre>
+                  xl:flex-1 xl:min-h-0 overflow-auto whitespace-pre-wrap"></pre>
     {% endcall %}
   </div>
 </div>
@@ -204,6 +201,12 @@
 <script>
 const $ = id => document.getElementById(id);
 let poller = null;
+
+// Kursor log: `punya` = jumlah baris yang sudah dipegang klien (indeks absolut
+// di server), `barisLog` = isinya. MAX_LOG harus sama dgn stages.MAX_LOG.
+const MAX_LOG = 600;
+let punya = 0;
+let barisLog = [];
 
 function params() {
   const fd = new FormData();
@@ -220,10 +223,19 @@ function konteks() {
     'Peserta: ' + (nik ? 'hanya NIK ' + nik : 'semua peserta di file')
   ];
 }
+// Halaman ini hanya bicara lewat #st_pesan. Tanpa catch, server mati atau
+// balasan 500 (HTML, bukan JSON) berakhir sbg unhandled rejection: operator
+// menekan tombol dan TIDAK ADA yang berubah — tak bisa dibedakan dari run yang
+// benar-benar mulai.
 async function post(url, fd) {
-  const r = await fetch(url, { method: 'POST', body: fd });
-  const d = await r.json();
-  if (d.pesan) $('st_pesan').textContent = d.pesan;
+  try {
+    const r = await fetch(url, { method: 'POST', body: fd });
+    if (!r.ok) throw new Error('server balas ' + r.status);
+    const d = await r.json();
+    $('st_pesan').textContent = d.pesan || (d.ok ? 'Berhasil.' : 'Gagal.');
+  } catch (e) {
+    $('st_pesan').textContent = 'Gagal menghubungi server: ' + e.message;
+  }
   if (poller) poller.segarkan();
 }
 
@@ -234,8 +246,13 @@ async function jalankanDaftar() {
     judul: 'Jalankan Pendaftaran batch?',
     pesan: 'Peserta akan didaftarkan ke portal CKG satu per satu. Pastikan Chrome sudah login dan file Excel sudah ditutup.',
     rincian: konteks().concat([
-      $('paksa').checked ? 'Paksa: ya — baris ber-No. Tiket akan didaftar ulang'
-                         : 'Paksa: tidak — baris ber-No. Tiket dilewati'
+      $('paksa').checked ? 'Paksa: ya — baris dgn NIK tak cocok tetap dikirim ke portal'
+                         : 'Paksa: tidak — baris dgn NIK tak cocok dilewati',
+      // Aktif secara default DAN mengubah data yang dikirim; wajib disebut di
+      // sini, kalau tidak operator tak pernah tahu tanggal lahirnya ditimpa.
+      $('koreksi_nik').checked
+        ? 'Tgl Lahir & Jenis Kelamin akan DITIMPA dgn nilai dari NIK bila berbeda'
+        : 'Tgl Lahir & Jenis Kelamin dipakai apa adanya dari Excel'
     ]),
     tombol: 'Jalankan'
   });
@@ -265,8 +282,13 @@ async function jalankanPelayanan() {
   const rincian = konteks().concat([
     kirim ? 'Mode: KIRIM SUNGGUHAN ke portal' : 'Mode: uji coba, tidak ada yang dikirim',
     $('resume').checked ? 'Melanjutkan peserta yang belum selesai' : 'Mengulang dari awal',
-    kunci ? 'Selesaikan + Konfirmasi: YA' : 'Selesaikan + Konfirmasi: tidak'
+    kunci ? 'Selesaikan + Konfirmasi: YA' : 'Selesaikan + Konfirmasi: tidak',
+    'Tab portal: ' + ($('tab').value || 'auto (dari Excel)')
   ]);
+  // Mengubah status peserta di portal, jadi ikut disebut — tapi hanya saat
+  // dicentang, supaya daftar rincian tidak penuh baris "tidak".
+  if ($('mulai_pemeriksaan').checked)
+    rincian.push('Memaksa “Mulai Pemeriksaan” — status peserta di portal berubah');
 
   // Hanya kombinasi submit+selesaikan yang ireversibel. Beban konfirmasi
   // dinaikkan hanya di situ, supaya operator tidak belajar menekan "Ya" refleks.
@@ -323,18 +345,35 @@ function gambar(s) {
   document.querySelectorAll('.run-btn').forEach(b => { b.disabled = !!s.running; });
   $('btnHentikan').disabled = !s.running;
 
-  const baris = s.log || [];
+  // Server hanya mengirim baris BARU (kursor ?sejak=). Rakit ulang di sini.
+  // s.log_n < punya berarti log dikosongkan di server (tahap baru dimulai),
+  // jadi buang yang lama; s.log_mulai != punya berarti ada lompatan (klien
+  // tertinggal lebih jauh dari buffer 600 baris) → pakai apa yang dikirim.
+  const kirim = s.log || [];
+  if (s.log_n < punya) { barisLog = []; punya = 0; }
+  barisLog = (s.log_mulai === punya) ? barisLog.concat(kirim) : kirim.slice();
+  punya = s.log_mulai + kirim.length;
+  if (barisLog.length > MAX_LOG) barisLog = barisLog.slice(-MAX_LOG);
+
+  const baris = barisLog;
   const log = $('log');
   const kosong = $('log_kosong');
   log.hidden = baris.length === 0;
   kosong.hidden = baris.length > 0;
   if (baris.length) {
-    const diBawah = log.scrollTop + log.clientHeight >= log.scrollHeight - 20;
-    log.textContent = baris.join('\n');
-    if (diBawah) log.scrollTop = log.scrollHeight;
+    // Hanya tulis ulang bila isinya benar-benar berubah: mengganti textContent
+    // menghapus seleksi teks operator, dan log-nya justru dibaca saat ada baris
+    // GAGAL yang ingin disalin.
+    const teks = baris.join('\n');
+    if (teks !== log.textContent) {
+      const diBawah = log.scrollTop + log.clientHeight >= log.scrollHeight - 20;
+      log.textContent = teks;
+      if (diBawah) log.scrollTop = log.scrollHeight;
+    }
   }
 }
 
-poller = ckg.mulaiPolling('/stage/status', gambar, { elemenKoneksi: 'koneksi' });
+poller = ckg.mulaiPolling(() => '/stage/status?sejak=' + punya, gambar,
+                          { elemenKoneksi: 'koneksi' });
 </script>
 {% endblock %}
