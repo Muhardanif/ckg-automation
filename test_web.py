@@ -44,7 +44,9 @@ def test_nik_sampai_ke_argv():
     Endpoint dipanggil langsung, bukan lewat HTTP (httpx tidak terpasang), jadi
     cek ini menangkap parameter yang hilang dari signature — bukan Form() yang
     lupa dipasang."""
-    umum = dict(excel="x.xlsx", kelompok="lansia", nik="  " + NIK + "  ")
+    # Endpoint dipanggil langsung: setiap parameter harus disebut, kalau tidak
+    # yang tersisa adalah objek Form() bawaan FastAPI, bukan string.
+    umum = dict(excel="x.xlsx", kelompok="lansia", nik="  " + NIK + "  ", delay="")
     for panggil, skrip in (
             (lambda: main.stage_daftar(paksa="false", koreksi_nik="true", **umum),
              "tools/jalankan_batch.py"),
@@ -66,9 +68,36 @@ def test_nik_sampai_ke_argv():
     # NIK kosong = semua peserta; jangan kirim '--nik ""' (tak ada yang cocok)
     d = _rekam_argv(lambda: main.stage_daftar(excel="x.xlsx", kelompok="lansia",
                                               nik="   ", paksa="false",
-                                              koreksi_nik="true"))
+                                              koreksi_nik="true", delay=""))
     assert "--nik" not in d["args"], d["args"]
     assert d["parameter"]["nik"] == "semua"
+
+
+def test_delay_sampai_ke_argv():
+    """Field Jeda dipakai ketiga tahap, seperti NIK. Kosong TIDAK boleh jadi
+    '--delay ""' (argparse mati) dan tidak boleh diseragamkan: bawaan tiap tool
+    berbeda (800/800/600 ms). Nilai ngawur dibuang, tapi audit trail harus
+    mencatat yang BENAR-BENAR dipakai — kalau tidak riwayat mengklaim 4000 ms
+    untuk run yang sebenarnya berjalan di bawaan."""
+    umum = dict(excel="x.xlsx", kelompok="lansia", nik="")
+    panggil = {
+        "daftar": lambda d: main.stage_daftar(paksa="false", koreksi_nik="true",
+                                              delay=d, **umum),
+        "hadir": lambda d: main.stage_hadir(tanggal="", delay=d, **umum),
+        "pelayanan": lambda d: main.stage_pelayanan(
+            mode="dry", resume="false", selesaikan="false",
+            mulai_pemeriksaan="false", tab="", delay=d, **umum),
+    }
+    for nama, fn in panggil.items():
+        d = _rekam_argv(lambda: fn(" 300 "))
+        assert "--delay" in d["args"], f"{nama}: jeda dibuang diam-diam -> {d['args']}"
+        assert d["args"][d["args"].index("--delay") + 1] == "300", d["args"]
+        assert d["parameter"]["delay"] == "300", d["parameter"]
+
+        for buruk in ("", "   ", "cepat", "-100", "99999", "300.5"):
+            d = _rekam_argv(lambda: fn(buruk))
+            assert "--delay" not in d["args"], f"{nama}: {buruk!r} -> {d['args']}"
+            assert d["parameter"]["delay"] == "bawaan", d["parameter"]
 
 
 def test_hitung_ringkasan_tool():

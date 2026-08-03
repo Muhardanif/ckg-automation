@@ -56,6 +56,12 @@
         {% endcall %}
         {{ ui.field("nik", "NIK", id="nik", placeholder="kosong = semua",
            help="Isi untuk memproses satu peserta saja.") }}
+        {# type=number: keyboard angka di layar sentuh + rem batas atas tanpa JS.
+           Kosong = tiap tahap memakai bawaannya sendiri, yang tidak sama. #}
+        {{ ui.field("delay", "Jeda antar-aksi (ms)", type="number", id="delay",
+           placeholder="kosong = bawaan",
+           help="Turunkan untuk mempercepat, naikkan bila portal sering gagal merespons.",
+           attrs='min="0" max="10000" step="100" inputmode="numeric"') }}
       </div>
     {% endcall %}
 
@@ -213,14 +219,17 @@ function params() {
   fd.set('excel', $('excel').value);
   fd.set('kelompok', $('kelompok').value);
   fd.set('nik', $('nik').value);
+  fd.set('delay', $('delay').value);
   return fd;
 }
 function konteks() {
   const nik = $('nik').value.trim();
+  const delay = $('delay').value.trim();
   return [
     'File Excel: ' + $('excel').value,
     'Kelompok: ' + $('kelompok').value,
-    'Peserta: ' + (nik ? 'hanya NIK ' + nik : 'semua peserta di file')
+    'Peserta: ' + (nik ? 'hanya NIK ' + nik : 'semua peserta di file'),
+    'Jeda antar-aksi: ' + (delay ? delay + ' ms' : 'bawaan tahap')
   ];
 }
 // Halaman ini hanya bicara lewat #st_pesan. Tanpa catch, server mati atau

@@ -142,6 +142,20 @@ def _path(s: str) -> str:
     return s.strip().strip('"')
 
 
+def _delay(s: str) -> str:
+    """Jeda antar-aksi (ms) untuk ketiga tahap. Kembalikan "" bila kosong atau
+    di luar akal — pemanggil lalu TIDAK mengirim --delay sama sekali, sehingga
+    tiap tool memakai bawaannya sendiri (800 ms daftar & hadir, 600 ms
+    pelayanan). Sengaja tidak diseragamkan dari UI: bawaan itu berbeda karena
+    halaman portalnya memang berbeda berat.
+
+    Nilai ngawur dibuang di sini, bukan diteruskan: argparse akan menolaknya
+    dan tahap mati saat start dgn pesan yang tak terbaca di log. Yang dipakai
+    ikut ditulis ke audit trail supaya riwayat tak berbohong."""
+    s = s.strip()
+    return s if s.isdigit() and int(s) <= 10000 else ""
+
+
 @app.get("/operasi", response_class=HTMLResponse)
 def operasi(request: Request):
     return templates.TemplateResponse(request, "operasi.html", {
@@ -161,8 +175,10 @@ def stage_daftar(excel: str = Form(EXCEL_DEFAULT),
                  kelompok: str = Form("lansia"),
                  nik: str = Form(""),
                  paksa: str = Form("false"),
-                 koreksi_nik: str = Form("true")):
+                 koreksi_nik: str = Form("true"),
+                 delay: str = Form("")):
     excel = _path(excel)
+    delay = _delay(delay)
     args = ["tools/jalankan_batch.py", "--excel", excel, "--kelompok", kelompok]
     if nik.strip():
         args += ["--nik", nik.strip()]
@@ -170,10 +186,12 @@ def stage_daftar(excel: str = Form(EXCEL_DEFAULT),
         args += ["--paksa"]
     if koreksi_nik != "true":
         args += ["--no-koreksi-tgl", "--no-koreksi-jk"]
+    if delay:
+        args += ["--delay", delay]
     ok, pesan = mulai_stage(
         "Pendaftaran (Batch)", args, jenis="daftar",
         parameter={"excel": excel, "kelompok": kelompok,
-                   "nik": nik.strip() or "semua",
+                   "nik": nik.strip() or "semua", "delay": delay or "bawaan",
                    "paksa": paksa == "true", "koreksi_nik": koreksi_nik == "true"})
     return JSONResponse({"ok": ok, "pesan": pesan})
 
@@ -182,17 +200,22 @@ def stage_daftar(excel: str = Form(EXCEL_DEFAULT),
 def stage_hadir(excel: str = Form(EXCEL_DEFAULT),
                 kelompok: str = Form("lansia"),
                 nik: str = Form(""),
-                tanggal: str = Form("")):
+                tanggal: str = Form(""),
+                delay: str = Form("")):
     excel = _path(excel)
+    delay = _delay(delay)
     args = ["tools/konfirmasi_hadir.py", "--excel", excel, "--kelompok", kelompok]
     if nik.strip():
         args += ["--nik", nik.strip()]
     if tanggal.strip():
         args += ["--tanggal", tanggal.strip()]
+    if delay:
+        args += ["--delay", delay]
     ok, pesan = mulai_stage(
         "Konfirmasi Hadir", args, jenis="hadir",
         parameter={"excel": excel, "kelompok": kelompok,
-                   "nik": nik.strip() or "semua", "tanggal": tanggal.strip()})
+                   "nik": nik.strip() or "semua", "tanggal": tanggal.strip(),
+                   "delay": delay or "bawaan"})
     return JSONResponse({"ok": ok, "pesan": pesan})
 
 
@@ -204,8 +227,10 @@ def stage_pelayanan(excel: str = Form(EXCEL_DEFAULT),
                     selesaikan: str = Form("false"),
                     mulai_pemeriksaan: str = Form("false"),
                     nik: str = Form(""),
-                    tab: str = Form("")):
+                    tab: str = Form(""),
+                    delay: str = Form("")):
     excel = _path(excel)
+    delay = _delay(delay)
     args = ["tools/pelayanan.py", "--excel", excel, "--kelompok", kelompok]
     args += ["--submit"] if mode == "submit" else ["--dry-run"]
     if resume == "true":
@@ -218,12 +243,14 @@ def stage_pelayanan(excel: str = Form(EXCEL_DEFAULT),
         args += ["--nik", nik.strip()]
     if tab.strip():
         args += ["--tab", tab.strip()]
+    if delay:
+        args += ["--delay", delay]
     # `selesaikan` mengunci data peserta secara final — parameter paling
     # penting untuk dicatat di audit trail.
     ok, pesan = mulai_stage(
         "Pelayanan", args, jenis="pelayanan",
         parameter={"excel": excel, "kelompok": kelompok, "mode": mode,
-                   "resume": resume == "true",
+                   "delay": delay or "bawaan", "resume": resume == "true",
                    "selesaikan": selesaikan == "true",
                    "mulai_pemeriksaan": mulai_pemeriksaan == "true",
                    "nik": nik.strip() or "semua", "tab": tab.strip() or "auto"})
