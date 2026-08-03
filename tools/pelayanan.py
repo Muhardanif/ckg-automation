@@ -122,6 +122,14 @@ LUAR_SCOPE = [
     "poct", "fungsi ginjal", "kerusakan ginjal", "lanjutan kanker usus",
     # lab/prosedur ginekologi perempuan (NUR): HPV-DNA & inspekulo IVA.
     "hpv", "inspekulo",
+    # SKILAS 6a-9: form TINDAK LANJUT yg muncul hanya bila skrining SKILAS awal
+    # positif (mini cog-clock draw, AD-8 INA, SPPB, MNA-SF, gejala depresi
+    # lanjutan). Diisi NAKES, bukan bot — keputusan user 2026-08-03. Dicocokkan
+    # lewat 2 frasa, bukan 5 nama panjang: kartu SKILAS yg IN-SCOPE (1-5) selalu
+    # memuat kata "skilas" dan tak pernah "tindak lanjut"/"pemeriksaan lanjutan",
+    # jadi tak ada risiko ikut ter-exempt. ("lanjutan kanker usus" di atas sudah
+    # tercakup frasa ini, dibiarkan agar niat aslinya tetap terbaca.)
+    "tindak lanjut", "pemeriksaan lanjutan",
 ]
 
 # Status Perkawinan: vocab Excel/Peserta -> opsi portal.
@@ -647,6 +655,17 @@ async def proses_peserta(page, fh, bot, p, forms, args, pvals, tabs, auto_mulai,
     if do_mulai:
         tombol_mulai = page.get_by_role("button", name=re.compile(r"^\s*Mulai Pemeriksaan\s*$", re.I))
         if await tombol_mulai.count() > 0:
+            # DRY-RUN TIDAK BOLEH MENGKLIK INI. Dulu `not args.dry_run` cuma
+            # menjaga penulisan Excel, sedangkan kliknya tetap jalan — dry-run
+            # memindahkan peserta 'Belum Pemeriksaan' -> 'Sedang Pemeriksaan'
+            # di portal, padahal tool menjanjikan "tak mengubah server".
+            # Konsekuensinya form belum bisa diinspeksi utk peserta yang belum
+            # dimulai; itu lebih baik daripada mengubah state diam-diam.
+            if args.dry_run:
+                log("  (DRY-RUN: 'Mulai Pemeriksaan' TIDAK diklik — peserta "
+                    "tetap di 'Belum Pemeriksaan'. Form belum bisa diperiksa; "
+                    "pakai --submit bila memang ingin memulai.)")
+                return res
             await dp._klik_teks(page, fh, "Mulai Pemeriksaan")
             tgl_iso = args.tanggal_periksa or _waktu_hadir_iso(p) or date.today().isoformat()
             ok_mulai = await dp._lewati_modal_mulai(page, fh, tgl_iso)
