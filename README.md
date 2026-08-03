@@ -67,13 +67,12 @@ sudah terpasang di komputer, tidak meluncurkan Chromium sendiri.
 
 ## Cara Menjalankan
 
-Lihat **`CARA_PAKAI.md`** (lengkap per tahap) atau **`MULAI.md`** (ringkas harian).
-Intinya tiap kali mau jalan:
+Panduan operator: **`MULAI.md`**. Intinya tiap kali mau jalan:
 
-1. `1_mulai_chrome.bat` — Chrome dengan port debugging 9222
-2. Login manual + CAPTCHA, buka **CKG Umum › Cari/Daftarkan Individu**
+1. `4_buka_aplikasi.bat` — web UI di http://127.0.0.1:8000/operasi
+2. Tombol **Buka Chrome (port 9222)**, login manual + CAPTCHA, buka menu CKG
 3. **Tutup** file Excel (skrip menulis-balik ke file itu)
-4. `4_buka_aplikasi.bat` (web UI) atau `.bat` per tahap
+4. Jalankan tahap 1 → 2 → 3 dari halaman Operasi
 
 ## Anti-dobel
 

@@ -1,73 +1,105 @@
 # Cara Memulai / Melanjutkan Pendaftaran CKG
 
-Panduan singkat untuk menjalankan otomasi pendaftaran CKG (mode tempel ke Chrome
-yang login manual). Lakukan langkah ini tiap kali mau menjalankan/ melanjutkan.
+Semua tahap dijalankan dari **aplikasi web** (halaman Operasi). Bot menempel ke
+Chrome yang **login manual** — jadi Chrome-nya harus dibuka & di-login dulu.
 
-## A. Menyiapkan & menjalankan pendaftaran (wajib tiap hari)
+Tiga tahap, urut: **Pendaftaran → Konfirmasi Hadir → Pelayanan**.
 
-1. **Buka Chrome khusus otomasi** — klik dua kali:
-   ```
-   1_mulai_chrome.bat
-   ```
-   (Membuka Chrome dengan remote-debugging port 9222 & profil `C:\chrome-ckg-debug`.)
+---
 
-2. **Login manual** di jendela Chrome itu ke https://sehatindonesiaku.kemkes.go.id
-   (termasuk CAPTCHA), lalu buka menu **CKG Umum › Cari/Daftarkan Individu**.
-   Biarkan halaman ini terbuka.
+## 1. Buka aplikasi
 
-3. **Tutup file Excel** `data\input\template_pendaftaran.xlsx` di aplikasi Excel
-   (skrip menulis-balik No. Tiket ke file ini; kalau terbuka, gagal disimpan).
+Klik dua kali **`4_buka_aplikasi.bat`**.
 
-4. **Jalankan batch** — klik dua kali:
-   ```
-   2_jalankan_batch.bat
-   ```
-   Skrip akan: melewati baris yang **sudah** punya No. Tiket, lalu mendaftarkan
-   sisanya, dan menulis **No. Tiket / Status Daftar / Waktu Daftar** ke Excel.
+Browser terbuka ke <http://127.0.0.1:8000/operasi>. **Biarkan jendela hitam
+(server) tetap terbuka** selama memakai aplikasi; Ctrl+C untuk berhenti.
 
-## B2. Konfirmasi Hadir (tahap setelah pendaftaran)
+## 2. Persiapan (kartu paling atas)
 
-Mengonfirmasi kehadiran peserta yang **sudah terdaftar** (Status Daftar = SUKSES).
-Dilakukan di **hari pemeriksaan**.
+1. Klik **Buka Chrome (port 9222)** — jendela Chrome khusus otomasi terbuka
+   (profil `C:\chrome-ckg-debug`).
+2. Di jendela itu: **login manual** ke <https://sehatindonesiaku.kemkes.go.id>
+   (termasuk CAPTCHA), lalu buka menu CKG:
+   - tahap 1 & 2 → **CKG Umum › Cari/Daftarkan Individu**
+   - tahap 3 → halaman **Pelayanan**
+3. **Tutup file Excel** `data\input\template_pendaftaran.xlsx`. Skrip
+   menulis-balik ke file ini; kalau terbuka, gagal simpan.
 
-1. Buka Chrome otomasi (`1_mulai_chrome.bat`), **login**, lalu buka
-   **CKG Umum › Cari/Daftarkan Individu** (halaman `ckg-pendaftaran-individu`).
-2. **Tutup** file Excel `data\input\template_pendaftaran.xlsx`.
-3. **Uji 1 peserta dulu** (disarankan), ganti NIK dengan salah satu peserta SUKSES:
-   ```
-   venv\Scripts\python.exe tools\konfirmasi_hadir.py --excel data\input\template_pendaftaran.xlsx --nik 3515xxxxxxxxxxxx
-   ```
-4. Bila sukses, jalankan semua — klik dua kali **`3_konfirmasi_hadir.bat`**.
+Parameter di kartu ini dipakai **ketiga tahap**:
 
-Skrip per baris **Status Daftar = SUKSES**: **set filter tanggal** = `Waktu Daftar`
-baris itu → pilih dropdown filter **NIK** → ketik NIK → klik **Konfirmasi Hadir** →
-di popup *Tandai Hadir* centang persetujuan → klik **Hadir** → **Tutup** dialog →
-tulis **Status Hadir / Waktu Hadir** ke Excel. Baris yang sudah **HADIR** (atau
-portal **SUDAH HADIR**) otomatis dilewati saat diulang. Override tanggal semua
-baris: tambahkan `--tanggal YYYY-MM-DD`.
+| Field | Isi |
+|-------|-----|
+| **File Excel** | bawaan `data/input/template_pendaftaran.xlsx` |
+| **Kelompok usia** | mis. `lansia` — menentukan field & form yang dipakai |
+| **NIK** | kosong = semua baris; diisi = **satu peserta saja** (dipakai untuk uji coba) |
+| **Jeda antar-aksi (ms)** | kosong = bawaan (800 daftar/hadir, 600 pelayanan). Turunkan = lebih cepat, naikkan bila portal sering gagal merespons |
 
-## C. Tool lain (jalankan dari terminal di folder ini)
+> Jalankan satu tahap pada satu waktu — aplikasi menolak tahap kedua selama ada
+> proses berjalan. Log live & tombol **Hentikan** ada di kolom kanan.
 
-- **Pra-cek data sebelum jalan** (cek NIK vs Tgl Lahir/JK, field wajib):
-  ```
-  venv\Scripts\python.exe tools\cek_data.py --excel data\input\template_pendaftaran.xlsx
-  ```
-- **Uji SATU peserta saja** (tidak menulis flag, tidak loop — untuk debug):
-  ```
-  venv\Scripts\python.exe tools\trial_daftar.py --excel data\input\template_pendaftaran.xlsx --baris 1
-  ```
-- **Batch sebagian** (mis. 10 baris mulai baris ke-5):
-  ```
-  venv\Scripts\python.exe tools\jalankan_batch.py --excel data\input\template_pendaftaran.xlsx --mulai 5 --jumlah 10
-  ```
+## 3. Tahap 1 — Pendaftaran
+
+Tombol **Jalankan Pendaftaran**. Baris yang **sudah punya No. Tiket dilewati**
+(anti-dobel). Hasil → kolom **No. Tiket / Status Daftar / Waktu Daftar**
+(`SUKSES`, `SUDAH CKG`, `DATA TIDAK VALID`, atau `GAGAL: …`).
+
+Opsi:
+- **Paksa** — tetap daftarkan walau NIK tak cocok Tgl Lahir/Jenis Kelamin.
+- **Koreksi Tgl Lahir & Jenis Kelamin dari NIK** (aktif bawaan) — dibetulkan
+  otomatis dari NIK, bukan dilewati.
+
+## 4. Tahap 2 — Konfirmasi Hadir
+
+Dikerjakan **di hari pemeriksaan**. Tombol **Jalankan Konfirmasi Hadir**. Hanya
+baris **Status Daftar = SUKSES**; yang sudah `HADIR` dilewati saat diulang.
+
+Per baris: set filter tanggal = `Waktu Daftar` baris itu → cari NIK → klik
+**Konfirmasi Hadir** → centang persetujuan → **Hadir**. Hasil → kolom
+**Status Hadir / Waktu Hadir**.
+
+## 5. Tahap 3 — Pelayanan (isi form skrining)
+
+**Selalu jalankan mode uji coba dulu**, dan pertama kali cukup **satu peserta**
+(isi field NIK) untuk memeriksa pemetaan jawaban.
+
+- **Mode**: *Uji coba* (isi form, tidak mengirim) / *Kirim sungguhan ke portal*.
+- **Lanjutkan peserta yang belum selesai** (aktif bawaan) — teruskan yang
+  terputus di tengah.
+- **Paksa "Mulai Pemeriksaan"** — hanya bila peserta masih di tab *Belum
+  Pemeriksaan* dan pemeriksaannya belum dimulai. Mode uji coba **tidak** memulai
+  pemeriksaan.
+- **Selesaikan + Konfirmasi — mengunci data.** Tidak bisa diedit lagi setelah
+  ini. Baru centang kalau semua form sudah dipastikan benar.
+- **Tab portal**: *Auto* mengikuti status di Excel; pilih manual bila perlu.
+
+Hasil → kolom **Status Layanan / Waktu Layanan / Tanggal Pemeriksaan /
+Waktu Mulai Periksa / Waktu Selesai Periksa**. `Status Layanan = SELESAI`
+dilewati saat diulang.
+
+## 6. Riwayat
+
+Menu **Riwayat**: catatan tiap proses yang pernah dijalankan (parameter, waktu,
+sukses/gagal, log). Berguna untuk mengecek apa yang dipakai run kemarin.
+
+---
+
+## Kalau perlu terminal (opsi yang belum ada di UI)
+
+```
+venv\Scripts\python.exe tools\cek_data.py --excel data\input\template_pendaftaran.xlsx
+venv\Scripts\python.exe tools\jalankan_batch.py --excel … --mulai 5 --jumlah 10
+venv\Scripts\python.exe tools\konfirmasi_hadir.py --excel … --tanggal 2026-06-12
+venv\Scripts\python.exe tools\pelayanan.py --excel … --forms "Merokok"
+```
+
+`1_mulai_chrome.bat` / `2_jalankan_batch.bat` / `3_konfirmasi_hadir.bat` masih
+ada dan mengerjakan hal yang sama tanpa UI.
 
 ## Catatan penting
-- **Format Tanggal Lahir di Excel: `YYYY-MM-DD`** (mis. `1964-04-08`) supaya tidak
-  tertukar hari/bulan. Tanggal lahir HARUS cocok dgn NIK (portal validasi Dukcapil).
-- Kolom alamat **Provinsi / Kabupaten-Kota / Kecamatan / Kelurahan** harus ditulis
-  **persis** seperti nama di portal (mis. `Kab. Gresik`, bukan `Kabupaten Gresik`).
-- Baris yang kolom **No. Tiket**-nya sudah terisi otomatis **dilewati** (anti-dobel) —
-  berlaku untuk `jalankan_batch.py` MAUPUN `trial_daftar.py`.
-- Saat sukses, **No. Tiket / Status / Waktu ditulis-balik** ke Excel oleh kedua skrip.
-- Beda keduanya: `jalankan_batch.py` memproses **semua baris** otomatis; `trial_daftar.py`
-  hanya **1 baris** (`--baris N`) untuk uji/debug. Override anti-dobel: `--paksa`.
+
+- **Tanggal Lahir di Excel: `YYYY-MM-DD`** (mis. `1964-04-08`) dan **cocok
+  dengan NIK** — portal memvalidasi ke Dukcapil.
+- Kolom **Provinsi / Kabupaten-Kota / Kecamatan / Kelurahan** ditulis **persis**
+  seperti di portal (mis. `Kab. Gresik`, bukan `Kabupaten Gresik`).
+- Excel adalah sumber kebenaran hasil. Semua status ditulis-balik ke file yang
+  sama; jangan buka file itu selagi proses jalan.
