@@ -73,6 +73,25 @@ class TidakDitemukanError(LewatiPesertaError):
     status_prefix = "TIDAK DITEMUKAN"
 
 
+async def _url_tab(pg) -> str:
+    """URL sebuah tab, tahan terhadap page.url kosong.
+
+    Tab yang sudah terbuka SEBELUM connect_over_cdp sering melaporkan
+    `page.url` = "" (Playwright tak pernah menyaksikan navigasi frame-nya;
+    CDP /json/list tetap melaporkan URL yang benar). Akibatnya pencocokan
+    tab portal SELALU meleset dan bot diam-diam menyetir tab pertama yang
+    kebetulan ada — tak terasa saat cuma 1 tab terbuka, salah tab begitu
+    petugas membuka dua. Kalau kosong, tanyakan langsung ke halamannya.
+    """
+    u = pg.url or ""
+    if u:
+        return u
+    try:
+        return await pg.evaluate("location.href") or ""
+    except Exception:
+        return ""
+
+
 class CKGBot:
     def __init__(self, delay_ms: int = 800, cdp_url: Optional[str] = None):
         # Tanpa username/password/headless: login (termasuk CAPTCHA) dilakukan
@@ -105,21 +124,23 @@ class CKGBot:
                 "--remote-debugging-port=9222 dan minimal satu tab terbuka.")
         context = self._browser.contexts[0]
 
-        page = None
+        page, url_page = None, ""
         for pg in context.pages:
-            if url_contains in (pg.url or ""):
-                page = pg
+            u = await _url_tab(pg)
+            if url_contains in u:
+                page, url_page = pg, u
                 break
         if page is None:
             if context.pages:
                 page = context.pages[0]
+                url_page = await _url_tab(page)
                 print(f"[CKGBot] PERINGATAN: tidak menemukan tab ber-URL "
-                      f"'{url_contains}'. Memakai tab pertama: {page.url}")
+                      f"'{url_contains}'. Memakai tab pertama: {url_page}")
             else:
                 page = await context.new_page()
         self._page = page
         await page.bring_to_front()
-        print(f"[CKGBot] Terhubung ke Chrome. Tab aktif: {page.url}")
+        print(f"[CKGBot] Terhubung ke Chrome. Tab aktif: {url_page or page.url}")
         return page
 
     async def stop(self):
@@ -162,7 +183,6 @@ class CKGBot:
 
     async def _klik_tombol(self, nama: str, timeout: int = 15000):
         """Klik tombol berdasarkan accessible name (teks tombol)."""
-        # TODO verifikasi selector: pastikan teks tombol cocok di portal.
         btn = self._page.get_by_role("button", name=nama)
         await btn.first.wait_for(state="visible", timeout=timeout)
         await btn.first.click()
@@ -183,7 +203,6 @@ class CKGBot:
         """
         if nilai is None or nilai == "":
             return
-        # TODO verifikasi selector: field harus terkait label via <label for> / aria.
         field = self._page.get_by_label(label_text).first
         if hanya_jika_kosong:
             try:
@@ -234,7 +253,6 @@ class CKGBot:
         """
         if nilai is None or nilai == "":
             return
-        # TODO verifikasi selector: pastikan label terhubung ke input-nya.
         field = self._page.get_by_label(label_text).first
         try:
             await field.click(timeout=timeout)
@@ -908,7 +926,7 @@ class CKGBot:
             # --- buka formulir ---
             langkah = "klik 'Daftar Baru'"
             log(langkah)
-            await self._klik_tombol(L["btn_daftar_baru"])   # TODO verifikasi selector
+            await self._klik_tombol(L["btn_daftar_baru"])
             await page.wait_for_load_state("networkidle")
             await self._jeda()
 
@@ -959,7 +977,7 @@ class CKGBot:
 
             langkah = "klik 'Selanjutnya' (Step 1)"
             log(langkah)
-            await self._klik_tombol(L["btn_selanjutnya"])    # TODO verifikasi selector
+            await self._klik_tombol(L["btn_selanjutnya"])
             await page.wait_for_load_state("networkidle")
             await self._jeda()
 
@@ -1035,7 +1053,7 @@ class CKGBot:
 
             langkah = "klik 'Selanjutnya' (Step 2)"
             log(langkah)
-            await self._klik_tombol(L["btn_selanjutnya"])    # TODO verifikasi selector
+            await self._klik_tombol(L["btn_selanjutnya"])
             await page.wait_for_load_state("networkidle")
             await self._jeda()
 

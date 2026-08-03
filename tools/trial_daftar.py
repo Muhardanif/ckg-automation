@@ -61,10 +61,16 @@ def buat_peserta_dummy(nik: str) -> Peserta:
         jenis_kelamin="L",
         kelompok_usia=KelompokUsia.DEWASA,
         no_wa="81234567890",                 # tanpa 0/+62 di depan (portal sudah +62)
-        # --- data pendukung (Step 2). Teks HARUS sama dgn opsi dropdown portal. ---
-        status_pernikahan="Belum Kawin",     # TODO sesuaikan dgn opsi dropdown portal
-        disabilitas="Tidak ada",             # TODO sesuaikan
-        pekerjaan="Lainnya",                 # TODO sesuaikan
+        # --- data pendukung (Step 2). Teks HARUS sama PERSIS dgn opsi dropdown
+        # portal (dropdown Vue dicocokkan per teks). Dua nilai di bawah diambil
+        # dari baris yang BENAR-BENAR lolos daftar di produksi; nilai lama
+        # ("Belum Kawin", "Tidak ada") bukan opsi portal dan akan menggantung. ---
+        status_pernikahan="Belum Menikah",   # terbukti: 28 baris SUKSES
+        disabilitas="Tidak memiliki disabilitas",  # terbukti: 67 baris SUKSES
+        # "Lainnya" = nilai default readers.py utk sel Pekerjaan kosong, tapi
+        # BELUM pernah benar-benar terkirim (semua baris SUKSES mengisi pekerjaan
+        # asli, mis. "PEGAWAI SWASTA"/"Pelajar"). Ganti bila trial menggantung.
+        pekerjaan="Lainnya",
         alamat_domisili=None,                # dilewati dulu (kemungkinan cascading)
         detail_alamat="Jl. Uji Coba No. 1 RT 001 RW 002",
         tanggal_pemeriksaan=date.today().isoformat(),
@@ -116,7 +122,8 @@ async def jalankan(peserta: Peserta, args):
         log("=" * 50)
         log(f"BERHENTI karena gagal: {e}")
         log("Buka screenshot 'ERROR_*.png' untuk melihat kondisi halaman saat gagal.")
-        log("Cek juga komentar '# TODO verifikasi selector' di ckg_bot.py /selectors.py")
+        log("Bila yang gagal adalah dropdown/label: cocokkan teksnya di "
+            "app/automation/selectors.py (harus sama PERSIS dgn portal).")
         log("=" * 50)
         _flag_excel(args, peserta, status=f"GAGAL: {str(e)[:200]}")
         return 2

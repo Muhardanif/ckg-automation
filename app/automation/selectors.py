@@ -15,21 +15,22 @@ CDP_URL = "http://localhost:9222"
 URL_CKG_BERISI = "kemkes.go.id"
 
 # Pendekatan selector: berbasis TEKS LABEL / ROLE (tahan-banting), bukan id/class.
-# Ganti string di bawah bila teks di portal berbeda. Tiap pemakaian diberi
-# komentar "# TODO verifikasi selector" di ckg_bot.py.
+# Ganti string di bawah bila teks di portal berbeda.
+#
+# Jalur pendaftaran manual (Daftar Baru -> Step 1 -> Step 2 -> No. Tiket) TERBUKTI
+# di produksi: 70+ peserta berhasil didaftarkan lewat jalur ini, jadi teks tombol
+# & label di bawah bukan lagi tebakan. Penanda "TODO verifikasi selector" yang dulu
+# menempel di tiap pemakaian sudah dicabut 2026-08-03 (dibuktikan kolom 'No. Tiket'
+# di Excel peserta). Entri untuk jalur "tanpa NIK" (btn_daftarkan_tanpa_nik,
+# chk_tidak_punya_nik) dan btn_cek_nik DIHAPUS: tak pernah dirujuk kode mana pun
+# dan alurnya tak pernah dibangun. Tambahkan lagi bila jalur itu memang digarap.
 SATUSEHAT = {
     # tombol
     "btn_daftar_baru":   "Daftar Baru",
-    "btn_cek_nik":       "Cek NIK",          # TIDAK dipakai di jalur manual
     "btn_selanjutnya":   "Selanjutnya",
     "btn_lanjutkan":     "Lanjutkan",      # popup "Data peserta valid" setelah Step 1
     "btn_daftarkan_nik": "Daftarkan dengan NIK",
-    "btn_daftarkan_tanpa_nik": "Daftarkan tanpa NIK",  # TODO verifikasi nama persis
     "btn_tutup":         "Tutup",
-
-    # checkbox bypass Dukcapil: dicocokkan dgn regex "Tidak ... NIK"
-    # (teks asli mungkin "Tidak punya NIK" / "Tidak ada NIK" / "Tidak memiliki NIK")
-    "chk_tidak_punya_nik": r"Tidak.*NIK",    # TODO verifikasi teks & efek bypass
 
     # placeholder dropdown (untuk membuka dropdown custom Vue)
     "ph_jk": "Pilih jenis kelamin",
