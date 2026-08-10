@@ -115,7 +115,6 @@
    *   rincian  {string[]} daftar parameter yang akan dipakai (opsional)
    *   varian   {'primary'|'warning'|'error'}
    *   tombol   {string}   label tombol konfirmasi
-   *   ketik    {string}   bila diisi, operator harus mengetik kata ini persis
    */
   function konfirmasiAksi(o) {
     return new Promise(function (selesai) {
@@ -133,32 +132,10 @@
         kotak.appendChild(ul);
       }
 
-      var input = null;
-      if (o.ketik) {
-        // Class `label` DaisyUI = teks bantuan (pudar, nowrap). Untuk label
-        // field pakai utility biasa. `input-bordered` sudah dihapus di v5.
-        var label = el('label', 'block text-sm font-medium mt-3 mb-1');
-        label.htmlFor = 'konfirmasiKetik';
-        label.textContent = 'Ketik ' + o.ketik + ' untuk melanjutkan:';
-        input = el('input', 'input w-full');
-        input.id = 'konfirmasiKetik';
-        input.setAttribute('autocomplete', 'off');
-        kotak.appendChild(label);
-        kotak.appendChild(input);
-      }
-
       var aksi = el('div', 'modal-action');
       var batal = el('button', 'btn btn-ghost', 'Batal');
       var ya = el('button', 'btn btn-' + (o.varian || 'primary'),
                   o.tombol || 'Lanjutkan');
-      if (o.ketik) ya.disabled = true;
-
-      // Aksi ireversibel: tombol baru hidup setelah kata konfirmasi cocok.
-      if (input) {
-        input.addEventListener('input', function () {
-          ya.disabled = input.value.trim() !== o.ketik;
-        });
-      }
 
       function tutup(hasil) {
         dlg.close();
@@ -183,7 +160,7 @@
       dlg.appendChild(latar);
       document.body.appendChild(dlg);
       dlg.showModal();
-      (input || batal).focus();
+      batal.focus();
     });
   }
 

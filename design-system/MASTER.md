@@ -407,7 +407,7 @@ Pakai `ckg.konfirmasiAksi()`, bukan `confirm()` bawaan (bisa di-Enter tanpa diba
 |------------|--------|-------------------|
 | Tak ada / bisa diulang | Uji coba Pelayanan, Buka Chrome | Modal biasa, `varian: 'primary'` |
 | Mengubah data di portal | Kirim sungguhan, Konfirmasi Hadir | Modal `varian: 'warning'` + rincian parameter |
-| **Ireversibel** | SUBMIT + SELESAIKAN, Kosongkan antrian | `varian: 'error'` + **`ketik: 'KUNCI'`** |
+| **Ireversibel** | SUBMIT + SELESAIKAN, Kosongkan antrian | Modal `varian: 'error'` + rincian + label tombol eksplisit ("Kunci data sekarang") |
 
 Selalu sertakan `rincian: [...]` berisi parameter yang akan dipakai — operator
 harus melihat *apa* yang akan terjadi, bukan hanya *bahwa* sesuatu akan terjadi.
@@ -433,7 +433,7 @@ startup (`db.tandai_run_tergantung`) supaya Riwayat tidak berbohong.
 - [ ] Diuji di **kedua tema** (`ckg` dan `ckg-dark`), bukan hanya terang.
 - [ ] Semua field punya label terlihat + `for/id`; field wajib ditandai.
 - [ ] Tombol async di-disable + spinner; tidak bisa double-submit.
-- [ ] Aksi ireversibel memakai `konfirmasiAksi({ ketik: … })`.
+- [ ] Aksi ireversibel memakai `konfirmasiAksi({ varian: 'error', … })` dengan label tombol yang menyebut akibatnya.
 - [ ] Tak ada `catch {}` kosong pada fetch; status koneksi terlihat.
 - [ ] Daftar kosong punya empty state; angka async punya skeleton.
 - [ ] Target sentuh ≥ 44px; checkbox/radio diberi area klik cukup.
