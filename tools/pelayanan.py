@@ -14,9 +14,12 @@ ALUR per peserta (mengikuti pola yg terbukti di tools/pelayanan_core.py):
      -> goto detail_url (BUKAN tombol 'Kembali' yg sering balik ke detail kosong)
   -> (opsional) 'Selesaikan Layanan'.
 
-KESELAMATAN: default DRY-RUN — form DIISI tapi TIDAK di-Kirim (tak mengubah
-server). Pakai --submit utk benar-benar mengirim tiap form, --selesaikan utk
-klik 'Selesaikan Layanan'. Uji dulu dgn --nik <satu peserta> --dry-run.
+DEFAULT = KIRIM SUNGGUHAN + KUNCI: tiap form benar-benar dikirim, lalu
+'Selesaikan Layanan' diklik sehingga data peserta TERKUNCI final (tak bisa
+diubah lagi, termasuk oleh admin). Pakai --dry-run utk uji coba (form diisi,
+tak dikirim), atau --no-selesaikan utk mengirim tanpa mengunci.
+Saat mengubah pemetaan jawaban, uji dulu dgn --nik <satu peserta> --dry-run:
+jawaban keliru yg terlanjur terkunci tak bisa dibetulkan lagi.
 
 PERSIAPAN: Chrome --remote-debugging-port=9222 (1_mulai_chrome.bat), login,
 buka CKG Umum. TUTUP Excel (skrip menulis balik status).
@@ -59,8 +62,9 @@ KOL_WAKTU_MULAI = "Waktu Mulai Periksa"      # timestamp saat klik 'Mulai Pemeri
 KOL_WAKTU_SELESAI = "Waktu Selesai Periksa"  # timestamp saat 'Selesaikan Layanan' sukses
 STATUS_LAYANAN_OK = "SELESAI"
 STATUS_LAYANAN_DRY = "DRAFT (dry-run)"
-# Transaksi pelayanan sudah selesai di portal (Pemeriksaan Mandiri 'Lengkap' +
-# Pelayanan 'Selesai Pemeriksaan') → terminal: dicatat & dilewati, tak diproses.
+# Transaksi pelayanan TERKUNCI di portal (kolom 'Pelayanan' = 'Selesai
+# Pemeriksaan') → terminal: dicatat & dilewati, tak diproses. Kolom 'Pemeriksaan
+# Mandiri' tak ikut disyaratkan — lihat _baris_transaksi_selesai().
 STATUS_SUDAH_SELESAI = "SUDAH SELESAI"
 
 EXCEL = "(dari Excel/alat)"
@@ -281,8 +285,14 @@ JS_STATUS_KARTU = r"""()=>{
 
 
 async def _peta_status(page):
-    """Baca status semua kartu form di detail → list (nama_lower, done)."""
+    """Baca status semua kartu form di detail → list (nama_lower, done).
+
+    Tunggu daftar kartu stabil dulu: potret setengah-render membuat kartu yg
+    belum muncul dicatat 'tak ada pd peserta ini' (tak-berlaku) sehingga form
+    tak pernah diisi, lalu gate 'Selesaikan Layanan' menolak & peserta mandek
+    di status MULAI."""
     try:
+        await dp._tunggu_kartu_stabil(page)
         rows = await page.evaluate(JS_STATUS_KARTU)
     except Exception:
         return []
@@ -568,13 +578,13 @@ async def _cari_di_tabs(page, fh, bot, nama, tabs, aksi, tgl_filter, nik=None,
         # bila pindah tab mengosongkan pencarian, ulangi cari sekali (cocok via NAMA)
         if await page.locator("tbody tr").filter(has_text=nama).count() == 0:
             await dp._cari(page, fh, kata, match_text=nama, tries=6)
-        # ATURAN user: bila baris menandakan transaksi SUDAH SELESAI (Pemeriksaan
-        # Mandiri 'Lengkap' + Pelayanan 'Selesai Pemeriksaan'), JANGAN klik
-        # 'Mulai' — cukup catat di log & lewati. (Tetap diproses saat dry-run /
-        # debug agar bisa cek format.)
+        # ATURAN user: bila baris menandakan transaksi sudah TERKUNCI (kolom
+        # 'Pelayanan' = 'Selesai Pemeriksaan'), JANGAN klik 'Mulai' — cukup
+        # catat di log & lewati. (Tetap diproses saat dry-run / debug agar bisa
+        # cek format.)
         if lewati_selesai and await dp._baris_transaksi_selesai(page, nama):
-            log(f"  TRANSAKSI SUDAH SELESAI di tab '{tab}' (Pemeriksaan Mandiri "
-                f"'Lengkap' & Pelayanan 'Selesai Pemeriksaan'). Tidak klik 'Mulai'.")
+            log(f"  TRANSAKSI TERKUNCI di tab '{tab}' (kolom Pelayanan = "
+                f"'Selesai Pemeriksaan'). Tidak klik 'Mulai'.")
             return dp.SUDAH_SELESAI
         if await dp._klik_mulai(page, fh, nama, aksi=aksi):
             return tab
@@ -774,6 +784,22 @@ async def proses_peserta(page, fh, bot, p, forms, args, pvals, tabs, auto_mulai,
     return res
 
 
+def _peserta_terkunci(status):
+    """True bila kolom 'Status Layanan' menandakan baris sudah TERKUNCI di
+    portal: 'SELESAI' (kita yg mengunci) atau 'SUDAH SELESAI' (sudah terkunci
+    sebelum kita datang). Tak ada lagi yg bisa dikerjakan pd baris itu.
+
+    Dulu --resume sengaja MENGABAIKAN aturan ini, alasannya "melengkapi form yg
+    belum terisi". Itu keliru: baris terkunci tak menerima isian apa pun lagi,
+    jadi yg terjadi hanyalah tiap peserta yg sudah tuntas di-search ulang satu
+    per satu (belasan detik masing-masing) lalu statusnya ditimpa 'SUDAH
+    SELESAI' — hilang rinciannya, tanpa satu pun form bertambah. Manfaat
+    --resume yg sesungguhnya ada di DALAM peserta: melewati form & pertanyaan
+    yg sudah terisi, dan itu tetap jalan."""
+    return str(status or "").strip().startswith(
+        (STATUS_LAYANAN_OK, STATUS_SUDAH_SELESAI))
+
+
 def _tentukan_tabs(status, waktu_mulai, waktu_selesai):
     """Urutan tab listing dari kolom Excel (aturan user):
       - Waktu Mulai KOSONG                          → Belum Pemeriksaan (belum klik mulai)
@@ -876,14 +902,11 @@ async def jalankan(args):
                 log(f"LEWATI {label}: belum HADIR ({sh!r}).")
                 n_lewat += 1
                 continue
-        # Status Layanan = SELESAI -> sudah tuntas, TAK PERLU di-search lagi (skip).
-        # (dry-run tetap boleh memproses utk inspeksi.)
+        # Anti-dobel: baris yg sudah terkunci di portal TAK PERLU di-search lagi,
+        # termasuk saat --resume (lihat _peserta_terkunci). Dry-run tetap boleh
+        # memprosesnya utk inspeksi format.
         st = ws.cell(row=row, column=c_status).value
-        # Anti-dobel: status SELESAI → skip. TAPI saat --resume kita SENGAJA proses
-        # ulang peserta SELESAI utk melengkapi form yg belum terisi (tak isi ulang
-        # yg sudah hijau). (dry-run juga selalu boleh memproses utk inspeksi.)
-        if (st and str(st).strip().startswith((STATUS_LAYANAN_OK, STATUS_SUDAH_SELESAI))
-                and not args.dry_run and not args.resume):
+        if _peserta_terkunci(st) and not args.dry_run:
             log(f"LEWATI {label}: Status Layanan sudah SELESAI ({st}).")
             n_lewat += 1
             continue
@@ -975,13 +998,17 @@ def main():
                     help="Paksa jalur lama: filter 'Nama' + tanggal (lewati jalur cepat NIK). "
                          "Default: cari via NIK dulu (tanpa tanggal), Nama jadi fallback.")
     ap.add_argument("--forms", default="", help="Batasi form (substring, pisah koma).")
-    ap.add_argument("--submit", dest="dry_run", action="store_false",
-                    help="BENAR-BENAR kirim tiap form (default: dry-run, tak mengirim).")
-    ap.add_argument("--dry-run", dest="dry_run", action="store_true", default=True)
-    ap.add_argument("--selesaikan", action="store_true",
-                    help="Klik 'Selesaikan Layanan' + 'Konfirmasi' di akhir (hanya bila "
-                         "--submit). PERHATIAN: ini MENGUNCI data peserta (final, jadi "
-                         "rapor yg dikirim ke WA/SATUSEHAT) & tak bisa diubah lagi.")
+    ap.add_argument("--submit", dest="dry_run", action="store_false", default=False,
+                    help="BENAR-BENAR kirim tiap form. INI DEFAULT — pakai --dry-run "
+                         "utk uji coba tanpa mengirim.")
+    ap.add_argument("--dry-run", dest="dry_run", action="store_true",
+                    help="Uji coba: form DIISI tapi TIDAK dikirim (server tak berubah).")
+    ap.add_argument("--selesaikan", action=argparse.BooleanOptionalAction, default=True,
+                    help="Klik 'Selesaikan Layanan' + 'Konfirmasi' di akhir (hanya "
+                         "berlaku bersama --submit). INI DEFAULT. PERHATIAN: MENGUNCI "
+                         "data peserta — final, jadi rapor yg dikirim ke WA/SATUSEHAT, "
+                         "tak bisa diubah lagi termasuk oleh admin. Pakai "
+                         "--no-selesaikan utk mengirim tanpa mengunci.")
     ap.add_argument("--paksa-selesai", dest="paksa_selesai", action="store_true",
                     help="Tetap klik 'Selesaikan Layanan' walau ada form belum selesai "
                          "di luar out-of-scope (LEWATI pengaman). Pakai HANYA bila yakin "
@@ -989,7 +1016,7 @@ def main():
     ap.add_argument("--resume", action="store_true",
                     help="Mode lanjut/resend: LEWATI pertanyaan yg sudah terisi (tak "
                          "ditimpa), isi hanya yg kosong, & tak Kirim ulang form yg utuh. "
-                         "Memproses juga peserta ber-status SELESAI.")
+                         "Peserta yg sudah terkunci di portal tetap dilewati.")
     ap.add_argument("--delay", type=int, default=600)
     ap.add_argument("--cdp", default=S.CDP_URL)
     args = ap.parse_args()

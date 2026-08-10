@@ -222,9 +222,9 @@ def stage_hadir(excel: str = Form(EXCEL_DEFAULT),
 @app.post("/stage/pelayanan")
 def stage_pelayanan(excel: str = Form(EXCEL_DEFAULT),
                     kelompok: str = Form("lansia"),
-                    mode: str = Form("dry"),            # 'dry' | 'submit'
+                    mode: str = Form("submit"),         # 'submit' | 'dry'
                     resume: str = Form("false"),
-                    selesaikan: str = Form("false"),
+                    selesaikan: str = Form("true"),
                     mulai_pemeriksaan: str = Form("false"),
                     nik: str = Form(""),
                     tab: str = Form(""),
@@ -235,8 +235,10 @@ def stage_pelayanan(excel: str = Form(EXCEL_DEFAULT),
     args += ["--submit"] if mode == "submit" else ["--dry-run"]
     if resume == "true":
         args += ["--resume"]
-    if selesaikan == "true":
-        args += ["--selesaikan"]
+    # Kirim SELALU eksplisit: bawaan tool sudah --selesaikan, jadi centang yang
+    # dilepas harus jadi --no-selesaikan. Kalau hanya "tambah saat true", melepas
+    # centang tak berpengaruh dan data tetap terkunci — diam-diam, final.
+    args += ["--selesaikan"] if selesaikan == "true" else ["--no-selesaikan"]
     if mulai_pemeriksaan == "true":
         args += ["--mulai-pemeriksaan"]
     if nik.strip():

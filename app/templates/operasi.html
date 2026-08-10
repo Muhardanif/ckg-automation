@@ -106,16 +106,18 @@
     {% call ui.card(body_classes="gap-4") %}
       {{ ui.step_title(3, "Pelayanan (isi form skrining)") }}
       <p class="text-sm text-base-content/70 max-w-prose">
-        Mengisi form skrining tiap peserta di portal. Jalankan uji coba lebih dulu
-        untuk memeriksa pemetaan jawaban sebelum mengirim sungguhan.
+        Mengisi form skrining tiap peserta di portal. Bawaannya mengirim sungguhan
+        <strong>dan mengunci</strong> data tiap peserta. Pilih “Uji coba” untuk memeriksa
+        pemetaan jawaban, atau lepas centang “Selesaikan + Konfirmasi” untuk mengirim
+        tanpa mengunci.
       </p>
 
       <fieldset>
         <legend class="text-sm font-medium mb-2">Mode</legend>
         {% call ui.option_group() %}
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2">
-            {{ ui.radio("mode", "dry", "Uji coba — isi form tanpa mengirim", checked=True) }}
-            {{ ui.radio("mode", "submit", "Kirim sungguhan ke portal") }}
+            {{ ui.radio("mode", "submit", "Kirim sungguhan ke portal", checked=True) }}
+            {{ ui.radio("mode", "dry", "Uji coba — isi form tanpa mengirim") }}
           </div>
         {% endcall %}
       </fieldset>
@@ -127,7 +129,7 @@
             {{ ui.checkbox("resume", "Lanjutkan peserta yang belum selesai", checked=True) }}
             {{ ui.checkbox("mulai_pemeriksaan", 'Paksa “Mulai Pemeriksaan”') }}
             <div class="sm:col-span-2">
-              {{ ui.checkbox("selesaikan", 'Selesaikan + Konfirmasi <span class="text-error font-semibold">(mengunci data)</span>', html=True) }}
+              {{ ui.checkbox("selesaikan", 'Selesaikan + Konfirmasi <span class="text-error font-semibold">(mengunci data)</span>', html=True, checked=True) }}
             </div>
           </div>
         {% endcall %}

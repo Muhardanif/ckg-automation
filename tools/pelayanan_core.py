@@ -349,10 +349,16 @@ SUDAH_SELESAI = object()
 
 
 async def _baris_transaksi_selesai(page, term):
-    """True bila baris listing utk `term` menandakan transaksi SUDAH SELESAI:
-    kolom 'Pemeriksaan Mandiri' = 'Lengkap' (BUKAN 'Belum Lengkap') DAN kolom
-    'Pelayanan' = 'Selesai Pemeriksaan' (dua label hijau). HANYA membaca isi
-    baris, tidak mengklik apa pun."""
+    """True bila kolom 'Pelayanan' pd baris listing utk `term` = 'Selesai
+    Pemeriksaan', yaitu transaksi sudah TERKUNCI. HANYA membaca isi baris,
+    tidak mengklik apa pun.
+
+    Dulu ini juga mensyaratkan kolom 'Pemeriksaan Mandiri' = 'Lengkap'. Itu
+    membuat baris yg terkunci TAPI tak lengkap (mis. petugas menekan
+    'Selesaikan Layanan' manual saat masih ada form kosong) lolos dari guard:
+    tool lalu mencari tombol aksi yg memang sudah tak ada di baris terkunci,
+    gagal, dan menimpa status Excel dgn 'GAGAL'. Terkunci tetap terkunci,
+    lengkap atau tidak — tak ada lagi yg bisa dikerjakan pd baris itu."""
     rows = page.locator("tbody tr").filter(has_text=str(term))
     if await rows.count() == 0:
         return False
@@ -360,9 +366,7 @@ async def _baris_transaksi_selesai(page, term):
         teks = (await rows.first.inner_text()).lower()
     except Exception:
         return False
-    mandiri_lengkap = ("lengkap" in teks) and ("belum lengkap" not in teks)
-    pelayanan_selesai = "selesai pemeriksaan" in teks
-    return mandiri_lengkap and pelayanan_selesai
+    return "selesai pemeriksaan" in teks
 
 
 async def _klik_mulai(page, fh, term, aksi="Mulai"):
@@ -560,6 +564,29 @@ def _baca_ya_forms(path):
     return hasil
 
 
+async def _tunggu_kartu_stabil(page, timeout_ms=15000):
+    """Tunggu daftar kartu 'Input Data' BERHENTI bertambah, lalu kembalikan
+    jumlahnya.
+
+    Dipakai sebelum memotret status semua kartu. 'Ada minimal 1 tombol' tidak
+    cukup: baris Pemeriksaan Mandiri render lebih dulu, kartu Nakes menyusul.
+    Potret di sela itu mencatat kartu Nakes sbg 'tak ada pd peserta ini' —
+    form-nya lalu dianggap tak berlaku & tak pernah diisi."""
+    # ponytail: heuristik "3 pembacaan sama = selesai" — render yg MANDEK >1,5
+    # dtk masih bisa lolos. Pengaman lapis kedua: _buka_form mengulang pindaian.
+    # Naikkan ke menunggu event jaringan bila masih ada peserta mandek di MULAI.
+    btns = page.get_by_role("button", name=re.compile(r"Input Data", re.I))
+    prev, sama = -1, 0
+    for _ in range(max(timeout_ms // 500, 1)):
+        n = await btns.count()
+        sama = sama + 1 if n > 0 and n == prev else 0
+        if sama >= 2:                       # 3 pembacaan sama berturut-turut
+            return n
+        prev = n
+        await page.wait_for_timeout(500)
+    return prev
+
+
 async def _buka_form(page, fh, judul):
     """Buka satu form: klik tombol 'Input Data' pada kartu yg memuat `judul`.
 
@@ -570,29 +597,37 @@ async def _buka_form(page, fh, judul):
     judul, lalu pilih tombol dgn leluhur tersempit (= kartu tunggal, bukan grup)."""
     frag = _frag(judul).lower()
     btns = page.get_by_role("button", name=re.compile(r"Input Data", re.I))
-    # tunggu kartu 'Input Data' render (detail kadang lambat usai kembali dari form)
-    nb = 0
-    for _ in range(20):                     # ~10 detik
+    # Halaman detail render BERTAHAP: baris Pemeriksaan Mandiri muncul duluan,
+    # kartu Nakes menyusul. Menunggu 'ada minimal 1 tombol' lalu memindai SEKALI
+    # membuat kartu yg belum render terbaca 'tak ada' -> form dilewati PERMANEN
+    # (tak ada retry) -> gate 'Selesaikan Layanan' menolak -> peserta mandek di
+    # status MULAI. Jadi pindaian diulang sampai kartu ini ketemu. Kartu yg sudah
+    # render lolos di putaran pertama, jadi tak ada biaya utk kasus normal.
+    best_i, best_len, putaran = -1, 10 ** 9, 0
+    for putaran in range(1, 7):             # ~5 detik + waktu pindai
         nb = await btns.count()
-        if nb > 0:
+        best_i, best_len = -1, 10 ** 9
+        for i in range(nb):
+            b = btns.nth(i)
+            for lvl in range(2, 9):
+                try:
+                    anc = b.locator(f"xpath=ancestor::*[{lvl}]")
+                    t = (await anc.inner_text()).replace("\n", " ").strip()
+                except Exception:
+                    break
+                if frag and frag in t.lower():
+                    if len(t) < best_len:   # leluhur terkecil utk tombol ini
+                        best_len, best_i = len(t), i
+                    break                   # naik lebih tinggi hanya memperbesar
+        if best_i >= 0 and best_len <= 200:  # >200 = leluhur grup, bukan kartu tunggal
+            if putaran > 1:
+                out(fh, f"[DIAG] Kartu {judul!r} baru render di pindaian ke-{putaran}.")
             break
-        await page.wait_for_timeout(500)
-    best_i, best_len = -1, 10 ** 9
-    for i in range(nb):
-        b = btns.nth(i)
-        for lvl in range(2, 9):
-            try:
-                anc = b.locator(f"xpath=ancestor::*[{lvl}]")
-                t = (await anc.inner_text()).replace("\n", " ").strip()
-            except Exception:
-                break
-            if frag and frag in t.lower():
-                if len(t) < best_len:   # leluhur terkecil utk tombol ini
-                    best_len, best_i = len(t), i
-                break                   # naik lebih tinggi hanya memperbesar
-    if best_i < 0 or best_len > 200:    # >200 = leluhur grup, bukan kartu tunggal
+        await page.wait_for_timeout(800)
+    if best_i < 0 or best_len > 200:
         out(fh, f"[DIAG] Tombol 'Input Data' utk {judul!r} (frag={frag!r}) "
-                f"tak ditemukan sbg kartu tunggal (min_len={best_len}).")
+                f"tak ditemukan sbg kartu tunggal (min_len={best_len}, "
+                f"pindaian={putaran}).")
         return False
     try:
         await btns.nth(best_i).click(timeout=8000)

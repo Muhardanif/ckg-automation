@@ -10,12 +10,15 @@ Dua hal yang pernah menggigit dan tidak kelihatan dari layar:
 JALANKAN:  venv\\Scripts\\python.exe test_web.py
 Tanpa framework — cukup assert. Keluar kode 0 = semua lolos.
 """
+import inspect
+import os
 import threading
 
 from app import main, stages
 from app.stages import STAGE
 
 NIK = "3515060804640002"
+ROOT = os.path.dirname(os.path.abspath(__file__))
 
 
 def _rekam_argv(fn):
@@ -71,6 +74,40 @@ def test_nik_sampai_ke_argv():
                                               koreksi_nik="true", delay=""))
     assert "--nik" not in d["args"], d["args"]
     assert d["parameter"]["nik"] == "semua"
+
+
+def test_bawaan_pelayanan_kirim_sungguhan_dan_mengunci():
+    """Permintaan operator: tahap Pelayanan bawaannya MENGIRIM sungguhan lalu
+    MENGUNCI data. Dua tempat menentukan itu dan gampang lepas satu sama lain —
+    Form() di endpoint (dipakai pemanggil yg tak menyertakan field) dan kontrol
+    terpilih di halaman Operasi (dipakai operator). Kalau salah satu balik ke
+    'dry', petugas menekan Jalankan, log terlihat normal, tapi tak ada satu pun
+    jawaban sampai ke portal — gagal senyap yg baru ketahuan besoknya."""
+    tanda = inspect.signature(main.stage_pelayanan).parameters
+    assert tanda["mode"].default.default == "submit"
+    assert tanda["selesaikan"].default.default == "true"
+
+    with open(os.path.join(ROOT, "app", "templates", "operasi.html"),
+              encoding="utf-8") as f:
+        html = f.read()
+    assert 'ui.radio("mode", "submit", "Kirim sungguhan ke portal", checked=True)' in html
+    assert 'ui.radio("mode", "dry", "Uji coba — isi form tanpa mengirim") }}' in html
+    assert 'ui.checkbox("selesaikan"' in html and "html=True, checked=True) }}" in html
+
+
+def test_melepas_centang_selesaikan_mengirim_no_selesaikan():
+    """Bawaan tool sekarang --selesaikan, jadi centang yg DILEPAS wajib jadi
+    '--no-selesaikan' di argv. Kalau endpoint cuma "tambah flag saat true",
+    melepas centang tak berpengaruh sama sekali: operator memilih 'kirim tanpa
+    mengunci', modalnya pun bilang begitu, tapi data tetap terkunci final."""
+    umum = dict(excel="x.xlsx", kelompok="lansia", nik="", delay="", tab="",
+                mode="submit", resume="false", mulai_pemeriksaan="false")
+    for nilai, wajib, terlarang in (("true", "--selesaikan", "--no-selesaikan"),
+                                    ("false", "--no-selesaikan", "--selesaikan")):
+        d = _rekam_argv(lambda: main.stage_pelayanan(selesaikan=nilai, **umum))
+        assert wajib in d["args"], f"selesaikan={nilai} -> {d['args']}"
+        assert terlarang not in d["args"], f"selesaikan={nilai} -> {d['args']}"
+        assert d["parameter"]["selesaikan"] is (nilai == "true"), d["parameter"]
 
 
 def test_delay_sampai_ke_argv():
