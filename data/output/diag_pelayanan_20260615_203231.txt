@@ -1,0 +1,186 @@
+[DIAG] Dari Excel: nama='SUMIATI', Waktu Hadir='2026-06-12'
+[DIAG] Navigasi ke https://sehatindonesiaku.kemkes.go.id/ckg-pelayanan (dari https://sehatindonesiaku.kemkes.go.id/ckg-pelayanan/detail-pemeriksaan?_d=eyJlIjoiRCtRR0huaXZPek04bEoycGEwUklRWTVBWEVySmFMMEdPa3dPTUJpRTQwdTkxQTZpTkVlZWMvUnZhWGFwYmw4L1U3YXkzK3RJMVBRejRMKzIwQlVPMjBhL21kbEIyckhFREpnYWhZM2MiLCJpdiI6ImZhM3ozNGR1U1VaMmQwYWMiLCJlayI6ImdPdHIzbmN6MVZVUGQ2aVN0ajJGTmhHb1Nyd2hNMkxudnNzcnZWR3pQY0E4T0VPaHpoTHJOdmFLbnhOK2xWL1BjSVg2LzRPMVR5MXhISGRaanJ4bDYvUkJWeVUwbFlvbGM4TEVwSDhIdmtMMFZ3d1lUd0lJSTg5TEtZNzNWZ1NuNFJnSytHZXBad3RYenQ1Y3RWd3Q3UUdsdXNUZkw4MDVkSWVTM05aeks4Nm5namlBQzl4ZXcyb09oTDMzVWdQQ1JxOTBPZFU2ZzZGOXpvNzBvR3J0N2ZUaHQ5aXV4TkcxeW1EUmpzR3dmUWIwK0JBQXk4Zml4Yk55U3VJSzYwbkE5K1hrc3k4R0d3VXZjTXJ2WEROV0txbzZwQ2VZa2QxeWs4YnlkcjM3a1YwKzF4Sisra2YrdDN1a0Y0RXVZaGdaNzVCMEl5OFM4dVoyWlpIY0gxT3o0Zz09IiwiayI6ImcwQ1R2VVF5QmEifQ%253D%253D-98sec11-rowfrm000088)
+[DIAG] Tab aktif: https://sehatindonesiaku.kemkes.go.id/ckg-pelayanan
+======================================================================
+[DIAG] Tanggal tidak disentuh (pakai rentang bawaan UI).
+[DIAG] Pindah tab -> Sedang Pemeriksaan.
+[LISTING] Dropdown custom / cursor-pointer:
+   - 'Nama'
+   - 'Belum Pemeriksaan'
+   - 'Sedang Pemeriksaan 67'
+   - 'Selesai Pemeriksaan'
+[LISTING] Tombol terlihat:
+   - 'CKG Umum'
+   - 'CKG Sekolah'
+   - 'Tatalaksana'
+   - 'Klaster 2'
+   - 'Klaster 4'
+   - 'Keluar'
+   - 'Pandu Rizki MaulidiahPuskesmas Driyorejo'
+   - 'Mulai'
+[LISTING] Tabel #0: headers = ['No', 'Nama', 'Tanggal Lahir', 'Nomor Tiket', 'Nama Wali', 'Unit Pelayanan', 'Pemeriksaan Mandiri', 'Pelayanan', 'Pemeriksaan', 'Rapor']
+      row: ['1', 'AGIL IPUNG HIDAYAT', '08 Mei 2003', 'EEL-4ZC', '-', 'Puskesmas Driyorejo', 'Belum lengkap', 'Sedang Pemeriksaan', 'Mulai', 'Lihat']
+      row: ['2', 'ALI YUWAFI', '04 Jul 1996', 'KXX-MP2', '-', 'Puskesmas Driyorejo', 'Lengkap', 'Sedang Pemeriksaan', 'Mulai', 'Lihat']
+      row: ['3', 'AMIDA NUR DWI YANTI', '15 Sep 2004', 'PS7-WZL', '-', 'Puskesmas Driyorejo', 'Belum lengkap', 'Sedang Pemeriksaan', 'Mulai', 'Lihat']
+======================================================================
+[DIAG] Opsi dropdown terlihat: ['Nama', 'Belum Pemeriksaan', 'Sedang Pemeriksaan 67', 'Selesai Pemeriksaan', '<', '1', '2', '3', '…', '7', '>']
+[DIAG] Dropdown filter -> Nama.
+[DIAG] (cari) hasil 'SUMIATI' muncul.
+[DIAG] Baris cocok 'SUMIATI': 1.
+[DIAG] Tombol di baris: ['Mulai']
+[DIAG] Klik aksi baris 'Mulai'.
+======================================================================
+[DETAIL] URL: https://sehatindonesiaku.kemkes.go.id/ckg-pelayanan/detail-pemeriksaan?_d=eyJlIjoiM3M2cFo1Yzlma0wrNWg2bFk1eSt4aGI1NG1iRW95OTF1Zmh1b2NBR3FaMTFkMGFKWSttNmt3WFlSNHpJUHFwMnhJNWhMM2I0RnVaSFptWWtkTWhBQ0hVU0JEdUlmQjZFcVF3akU0YVAiLCJpdiI6IkFPZTQvcWRVeGZmNkttNzMiLCJlayI6IkVTUFltOXhmR3U2eUN1dmViM1FMYlpmRGNsT3hydjZWOHA4REF5bVBpcndQVE1ESmdiVDF1alMxVmMvYXlNRlBxTjRDUkVPODFicFlDNjRJamJHYi9SWlg3c3VSUWVPY1NWSFJSRjVENjhiNVdTL3NDTVdDYXhvSTZ2VGtPNWxkSFIzTHlnLy9OczdzcU84QVFLZStFQVBEbHZPOXI1elBxbXN6ZGtIa1dsMFlQMk55M3VCNUdrSHhyaDFZeENodjBBQWYrOTY0OW53SjcrdUlKY25taE1YRThra2RXdE9LT1RPb0hrZW01akcrUUcxNElDd0RBTTdpWjJ2RDBaSWtsQlVha1VqYytPZTBYbEFibHVtUEZzcktTaUJOVnM1QlpLQW5sZTNrUzlKS2FaelVDa0lFTnR3RDJteXVybUxjdWlDdDJUNDhxcGtaNXlvSlBHc3Rmdz09IiwiayI6InVhcGVpcmw4bUgifQ%253D%253D
+[DETAIL] INPUT (label | id | name | type | value | placeholder):
+   - 'Ya'                                     | id='hasil-lab-0-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-0-1' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-0-2' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-1-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-1-1' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-1-2' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-1-3' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-1-4' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-1-5' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-1-6' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-1-7' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-1-8' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-1-9' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-2-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-2-1' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-3-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-3-1' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-3-2' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-4-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-5-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-5-1' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-6-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-7-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-8-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-8-1' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-8-2' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-8-3' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-8-4' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-9-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-10-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-11-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-11-1' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-12-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-13-0' name='' type='checkbox' checked=True value='on' ph=''
+[DETAIL] SELECT (label | id | name | options):
+[DETAIL] TEXTAREA:
+[DETAIL] Dropdown custom (Vue):
+   - 'Kirim Rapor (0/3)'
+[DETAIL] Heading/tab/section:
+[DETAIL] Tombol:
+   - 'CKG Umum'
+   - 'CKG Sekolah'
+   - 'Tatalaksana'
+   - 'Klaster 2'
+   - 'Klaster 4'
+   - 'Keluar'
+   - 'Pandu Rizki MaulidiahPuskesmas Driyorejo'
+   - 'Tanggal Pemeriksaan'
+   - 'Selesaikan Layanan'
+   - 'Detail Data'
+   - 'Jumlah Pemeriksaan (0/9)'
+   - 'Input Data'
+   - 'Panduan Pemeriksaan'
+   - 'Skrining Gizi, Tekanan Darah, dan Gula Darah Perempuan => 40 Tahun'
+   - 'Skrining Geriatri (Usia >=60 thn/lansia)'
+   - 'Tuberkulosis - Skrining Nakes Dewasa & Lansia'
+   - 'Layanan Penyakit Tropis Terabaikan'
+   - 'Skrining Telinga dan Mata (=>40 tahun)'
+   - 'Skrining Gigi - Dewasa >=25 tahun'
+   - 'Pemeriksaan PPOK (Skrining PUMA)'
+   - 'Pemeriksaan Kadar CO (Tatalaksana Merokok)'
+   - 'Skrining Laboratorium =>40 thn Perempuan Fungsi Ginjal, Hati, Profil Lipid'
+   - 'Skrining Jantung (Pemeriksaan EKG - hanya penyandang HT & DM)'
+   - 'Skrining Kanker Payudara'
+   - 'Skrining Kanker Leher Rahim'
+   - 'Skrining Kanker Paru (Usia=>45 tahun)'
+   - 'Skrining Kanker Usus (TL APCS)'
+[PEMERIKSAAN] Daftar form (tombol -> judul kartu terdekat):
+   - [Input Data] 'Demografi LansiaInput Data'
+   - [Input Data] 'Faktor Risiko Kanker UsusInput Data'
+   - [Input Data] 'Faktor Risiko TB - Dewasa & LansiaInput Data'
+   - [Input Data] 'HatiInput Data'
+   - [Input Data] 'Kanker Leher RahimInput Data'
+   - [Input Data] 'Kesehatan JiwaInput Data'
+   - [Input Data] 'Penapisan Risiko Kanker ParuInput Data'
+   - [Input Data] 'Perilaku MerokokInput Data'
+   - [Input Data] 'Tingkat Aktivitas Fisik (sedang dan berat)Input Data'
+   - [Input Data] 'Gizi (BB - TB - Lingkar Perut) PerempuanYa Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Pemeriksaan Gula Darah Dewasa LansiaYa Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Tekanan Darah Dewasa LansiaYa Dalam Pemeriksaan Input Data'
+   - [Input Data] '1. SKILAS Penurunan Kognitif - LansiaYa Dalam Pemeriksaan Input Data'
+   - [Input Data] '2. SKILAS Mobilisasi - LansiaYa Dalam Pemeriksaan Input Data'
+   - [Input Data] '3. SKILAS MalnutrisiYa Dalam Pemeriksaan Input Data'
+   - [Input Data] '4. SKILAS Pemeriksaan Gejala Depresi - LansiaYa Dalam Pemeriksaan Input Data'
+   - [Input Data] '5. Pemeriksaan Gangguan Fungsional/Barthel Index - LansiaYa Dalam Pemeriksaan Input Data'
+   - [Input Data] '6a. Penurunan Kognitif - Tindak Lanjut (Mini Cog-Clock Draw)Ya Dalam Pemeriksaan Input Data'
+   - [Input Data] '6b. Penurunan Kognitif - Tindak Lanjut (AD-8 INA)Ya Dalam Pemeriksaan Input Data'
+   - [Input Data] '7. Mobilisasi - Pemeriksaan Lanjutan (SPPB)Ya Dalam Pemeriksaan Input Data'
+   - [Input Data] '8. Skrining Malnutrisi - Pemeriksaan Lanjutan (MNA-SF)Ya Dalam Pemeriksaan Input Data'
+   - [Input Data] '9. Pemeriksaan Gejala Depresi - Pemeriksaan LanjutanYa Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Faktor Risiko dan Skrining X-Ray TB (Dewasa & Lansia)Ya Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Pemeriksaan Tuberkulosis (Dewasa & Lansia)Ya Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Pemeriksaan Penyakit Frambusia (untuk daerah endemis atau berisiko frambusia)Ya Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Pemeriksaan Penyakit KustaYa Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Pemeriksaan Penyakit SkabiesYa Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Skrining Telinga dan Mata (=>40 tahun)Ya Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Skrining Karies dan Gigi HilangYa Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Skrining Penyakit PeriodontalYa Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Pemeriksaan PPOK (Skrining PUMA)Ya Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Pemeriksaan Kadar CO (Hanya Diisi Apabila Merokok atau Terpapar Asap Rokok)Ya Dalam Pemeriksaan Input Data'
+   - [Input Data] 'POCT Lipid Panel (Khusus usia >=40 thn dan penyandang HT dan/atau DM)Ya Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Pemeriksaan Fibrosis/Sirosis HatiYa Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Pemeriksaan HepatitisYa Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Skrining Fungsi Ginjal Perempuan (hanya untuk =>40 tahun dengan risiko HT DM)Ya Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Skrining Kerusakan Ginjal (hanya untuk =>40 tahun dengan risiko HT DM)Ya Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Hasil Pemeriksaan - Skrining JantungYa Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Skrining Kanker PayudaraYa Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Hasil Pemeriksaan HPV-DNAYa Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Pemeriksaan Inspekulo dan IVAYa Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Skrining Kanker Paru (Usia =>45 thn)Ya Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Pemeriksaan Lanjutan Kanker UsusYa Dalam Pemeriksaan Input Data'
+[DIAG] Membuka form pemeriksaan: 'Tingkat Aktivitas Fisik'
+======================================================================
+[FORM:Tingkat Aktivitas Fisik] URL: https://form.kemkes.go.id/v2/skrining-form/8Y8v4G9hRLBc6C4Ra0GlZJEC71FiE1oIL2vGqCXlIn0oeE--acRkA49UzECnBmcYZaLII_DuQeWuPuebxvAoC8LyYCTlg1Z3RG5uV2M%3D?ctx=CEqgKGGFIL-tkAr3UbF5BFZCrQ7nGFoq19Q7dE2Y6if3UMCDjzM%3D&redirectUrl=https%3A%2F%2Fsehatindonesiaku.kemkes.go.id%2Fckg-pelayanan%2Fdetail-pemeriksaan%3F_d%3DeyJlIjoiM3M2cFo1Yzlma0wrNWg2bFk1eSt4aGI1NG1iRW95OTF1Zmh1b2NBR3FaMTFkMGFKWSttNmt3WFlSNHpJUHFwMnhJNWhMM2I0RnVaSFptWWtkTWhBQ0hVU0JEdUlmQjZFcVF3akU0YVAiLCJpdiI6IkFPZTQvcWRVeGZmNkttNzMiLCJlayI6IkVTUFltOXhmR3U2eUN1dmViM1FMYlpmRGNsT3hydjZWOHA4REF5bVBpcndQVE1ESmdiVDF1alMxVmMvYXlNRlBxTjRDUkVPODFicFlDNjRJamJHYi9SWlg3c3VSUWVPY1NWSFJSRjVENjhiNVdTL3NDTVdDYXhvSTZ2VGtPNWxkSFIzTHlnLy9OczdzcU84QVFLZStFQVBEbHZPOXI1elBxbXN6ZGtIa1dsMFlQMk55M3VCNUdrSHhyaDFZeENodjBBQWYrOTY0OW53SjcrdUlKY25taE1YRThra2RXdE9LT1RPb0hrZW01akcrUUcxNElDd0RBTTdpWjJ2RDBaSWtsQlVha1VqYytPZTBYbEFibHVtUEZzcktTaUJOVnM1QlpLQW5sZTNrUzlKS2FaelVDa0lFTnR3RDJteXVybUxjdWlDdDJUNDhxcGtaNXlvSlBHc3Rmdz09IiwiayI6InVhcGVpcmw4bUgifQ%25253D%25253D-98sec11-rowfrm000169&mitra=bhaUMYsBreOGr3zXM1uLWYClisbs6QJ0FMFgOc3G6DZ-PPiLOzubGA3c84EqfYssC711m6taw4UCOMqxzUVVqgVR-5bPrMp5uj1Mw-QSqpRz50E1RqWcCeZvOaPYkqQkAqLIre1SJBNx2lmCQA_zfLsxH7WniUHdVTAA5mWf2xUQVRRFygEP9mBcefajWx-lXqMPZLKMJPSc_sTIyAUTKU5uQDJaOu98FMmqXf1-WY5gO_LnHa7uvohzm0rMd9e-slnKe6hw1ny6KHpO2BRMww37hiw_z-_nfQDf36zDEYMnDxMI_OZhSgZodurHI0aWMXod_OzQkiIKcr0A3JkdYPZd73g1Osr78hWN8xAMZy1vJshMfSGFKJ892kbqBTnCQxWtxsAvsshc
+[FORM:Tingkat Aktivitas Fisik] INPUT (label | id | name | type | value | placeholder):
+   - ''                                       | id='sq_100i_0' name='' type='text' checked=False value='' ph='Aktivitas fisik intensitas sedang adalah aktivitas yang akan meningkatkan pernafasan dan denyut jantung, anda masih bisa berbicara namun kesulitan bernyanyi'
+   - ''                                       | id='sq_103i_0' name='' type='text' checked=False value='' ph='Aktivitas fisik intensitas sedang adalah aktivitas yang akan meningkatkan pernafasan dan denyut jantung, anda masih bisa berbicara namun kesulitan bernyanyi'
+   - ''                                       | id='sq_106i_0' name='' type='text' checked=False value='' ph='Aktivitas fisik intensitas sedang adalah aktivitas yang akan meningkatkan pernafasan dan denyut jantung, anda masih bisa berbicara namun kesulitan bernyanyi'
+   - ''                                       | id='sq_109i_0' name='' type='text' checked=False value='' ph='Aktivitas fisik intensitas sedang adalah aktivitas yang akan meningkatkan pernafasan dan denyut jantung, anda masih bisa berbicara namun kesulitan bernyanyi'
+   - ''                                       | id='sq_112i_0' name='' type='text' checked=False value='' ph='Aktivitas fisik intensitas berat adalah aktivitas yang membuat anda terengah-engah dan kesulitan berbicara'
+   - ''                                       | id='sq_115i_0' name='' type='text' checked=False value='' ph='Aktivitas fisik intensitas berat adalah aktivitas yang membuat anda terengah-engah dan kesulitan berbicara'
+   - ''                                       | id='' name='' type='button' checked=False value='Kirim' ph=''
+[FORM:Tingkat Aktivitas Fisik] SELECT (label | id | name | options):
+[FORM:Tingkat Aktivitas Fisik] TEXTAREA:
+[FORM:Tingkat Aktivitas Fisik] Dropdown custom (Vue):
+[FORM:Tingkat Aktivitas Fisik] Heading/tab/section:
+   - 'Tingkat Aktivitas Fisik (sedang dan berat)'
+[FORM:Tingkat Aktivitas Fisik] Tombol:
+   - 'Kembali ke Halaman Utama'
+----------------------------------------------------------------------
+[OPSI] Form 'Tingkat Aktivitas Fisik' — probe dropdown:
+[OPSI] dropdown text-input ditemukan: 6
+[OPSI] id='sq_100i_0' ph='Aktivitas fisik intensitas sedang adalah aktivitas yang akan meningkatkan pernafasan dan denyut jantung, anda masih bisa berbicara namun kesulitan bernyanyi'
+       opsi: ['Ya', 'Tidak']
+       boxHTML: <div class="sv-dropdown_select-wrapper"><div id="sq_100i" class="sd-input sd-dropdown sd-dropdown--empty" required="" role="combobox" aria-required="true" aria-label="Apakah Anda melakukan aktivitas fisik sedang pada kegiatan rumah tangga/domestik seperti membersihkan rumah/lingkungan (menyapu, menata perabotan), mencuci baju manual, memasak, mengasuh anak, atau mengangkat beban dengan berat &lt; 20 kg?" aria-invalid="false" aria-expanded="true" aria-controls="sq_100i_list" data-rendered="r"><div class="sd-dropdown__value"><input autocomplete="off" id="sq_100i_0" class="sd-dropdown__filter-string-input" role="combobox" aria-expanded="true" aria-labelledby="sq_100_ariaTitle" aria-controls="sq_100i_list" placeholder="Aktivitas fisik intensitas sedang adalah aktivitas yang akan meningkatkan pernafasan dan denyut jantung, anda masih bisa berbicara namun kesulitan bernyanyi" inputmode="text" type="text"></div><div class="sd-dropdown_clean-button" aria-hidden="true" style="display: none;"><svg class="sv-svg-icon sd-dropdown_clean-button-svg" role="img"><use xlink:href="#icon-cancel-24x24"></use><title>Clear</title></svg></div></div><div><div tabindex="-1" class="sv-popup sv-dropdown-popup sv-single-select-list sv-popup--dropdown sv-popup--bottom" style=""><div class="sv-popup__container" style="left: 480.4px; top: 300px; height: auto; width: 560px; min-width: 560px;"><div class="sv-popup__body-content"><div class="sv-popup__scrolling-content"><div class="sv-popup__content"><div cla
+[OPSI] id='sq_103i_0' ph='Aktivitas fisik intensitas sedang adalah aktivitas yang akan meningkatkan pernafasan dan denyut jantung, anda masih bisa berbicara namun kesulitan bernyanyi'
+       opsi: ['Ya', 'Tidak']
+       boxHTML: <div class="sv-dropdown_select-wrapper"><div id="sq_100i" class="sd-input sd-dropdown sd-dropdown--empty" required="" role="combobox" aria-required="true" aria-label="Apakah Anda melakukan aktivitas fisik sedang pada kegiatan rumah tangga/domestik seperti membersihkan rumah/lingkungan (menyapu, menata perabotan), mencuci baju manual, memasak, mengasuh anak, atau mengangkat beban dengan berat &lt; 20 kg?" aria-invalid="false" aria-expanded="false" aria-controls="sq_100i_list" data-rendered="r"><div class="sd-dropdown__value"><input autocomplete="off" id="sq_100i_0" class="sd-dropdown__filter-string-input" role="combobox" aria-expanded="false" aria-labelledby="sq_100_ariaTitle" aria-controls="sq_100i_list" placeholder="Aktivitas fisik intensitas sedang adalah aktivitas yang akan meningkatkan pernafasan dan denyut jantung, anda masih bisa berbicara namun kesulitan bernyanyi" inputmode="text" type="text" readonly=""></div><div class="sd-dropdown_clean-button" aria-hidden="true" style="display: none;"><svg class="sv-svg-icon sd-dropdown_clean-button-svg" role="img"><use xlink:href="#icon-cancel-24x24"></use><title>Clear</title></svg></div></div><div><div tabindex="-1" class="sv-popup sv-dropdown-popup sv-single-select-list sv-popup--dropdown sv-popup--bottom" style="display: none;"><div class="sv-popup__container" style="left: 0px; top: 0px; height: auto; width: auto; min-width: auto;"><div class="sv-popup__body-content"><div class="sv-popup__scrolling-content"><div class="sv-popu
+[OPSI] id='sq_106i_0' ph='Aktivitas fisik intensitas sedang adalah aktivitas yang akan meningkatkan pernafasan dan denyut jantung, anda masih bisa berbicara namun kesulitan bernyanyi'
+       opsi: ['Ya', 'Tidak']
+       boxHTML: <div class="sv-dropdown_select-wrapper"><div id="sq_100i" class="sd-input sd-dropdown sd-dropdown--empty" required="" role="combobox" aria-required="true" aria-label="Apakah Anda melakukan aktivitas fisik sedang pada kegiatan rumah tangga/domestik seperti membersihkan rumah/lingkungan (menyapu, menata perabotan), mencuci baju manual, memasak, mengasuh anak, atau mengangkat beban dengan berat &lt; 20 kg?" aria-invalid="false" aria-expanded="false" aria-controls="sq_100i_list" data-rendered="r"><div class="sd-dropdown__value"><input autocomplete="off" id="sq_100i_0" class="sd-dropdown__filter-string-input" role="combobox" aria-expanded="false" aria-labelledby="sq_100_ariaTitle" aria-controls="sq_100i_list" placeholder="Aktivitas fisik intensitas sedang adalah aktivitas yang akan meningkatkan pernafasan dan denyut jantung, anda masih bisa berbicara namun kesulitan bernyanyi" inputmode="text" type="text" readonly=""></div><div class="sd-dropdown_clean-button" aria-hidden="true" style="display: none;"><svg class="sv-svg-icon sd-dropdown_clean-button-svg" role="img"><use xlink:href="#icon-cancel-24x24"></use><title>Clear</title></svg></div></div><div><div tabindex="-1" class="sv-popup sv-dropdown-popup sv-single-select-list sv-popup--dropdown sv-popup--bottom" style="display: none;"><div class="sv-popup__container" style="left: 0px; top: 0px; height: auto; width: auto; min-width: auto;"><div class="sv-popup__body-content"><div class="sv-popup__scrolling-content"><div class="sv-popu
+[OPSI] id='sq_109i_0' ph='Aktivitas fisik intensitas sedang adalah aktivitas yang akan meningkatkan pernafasan dan denyut jantung, anda masih bisa berbicara namun kesulitan bernyanyi'
+       opsi: ['Ya', 'Tidak']
+       boxHTML: <div class="sv-dropdown_select-wrapper"><div id="sq_100i" class="sd-input sd-dropdown sd-dropdown--empty" required="" role="combobox" aria-required="true" aria-label="Apakah Anda melakukan aktivitas fisik sedang pada kegiatan rumah tangga/domestik seperti membersihkan rumah/lingkungan (menyapu, menata perabotan), mencuci baju manual, memasak, mengasuh anak, atau mengangkat beban dengan berat &lt; 20 kg?" aria-invalid="false" aria-expanded="false" aria-controls="sq_100i_list" data-rendered="r"><div class="sd-dropdown__value"><input autocomplete="off" id="sq_100i_0" class="sd-dropdown__filter-string-input" role="combobox" aria-expanded="false" aria-labelledby="sq_100_ariaTitle" aria-controls="sq_100i_list" placeholder="Aktivitas fisik intensitas sedang adalah aktivitas yang akan meningkatkan pernafasan dan denyut jantung, anda masih bisa berbicara namun kesulitan bernyanyi" inputmode="text" type="text" readonly=""></div><div class="sd-dropdown_clean-button" aria-hidden="true" style="display: none;"><svg class="sv-svg-icon sd-dropdown_clean-button-svg" role="img"><use xlink:href="#icon-cancel-24x24"></use><title>Clear</title></svg></div></div><div><div tabindex="-1" class="sv-popup sv-dropdown-popup sv-single-select-list sv-popup--dropdown sv-popup--bottom" style="display: none;"><div class="sv-popup__container" style="left: 0px; top: 0px; height: auto; width: auto; min-width: auto;"><div class="sv-popup__body-content"><div class="sv-popup__scrolling-content"><div class="sv-popu
+[OPSI] id='sq_112i_0' ph='Aktivitas fisik intensitas berat adalah aktivitas yang membuat anda terengah-engah dan kesulitan berbicara'
+       opsi: ['Ya', 'Tidak']
+       boxHTML: <div class="sv-dropdown_select-wrapper"><div id="sq_100i" class="sd-input sd-dropdown sd-dropdown--empty" required="" role="combobox" aria-required="true" aria-label="Apakah Anda melakukan aktivitas fisik sedang pada kegiatan rumah tangga/domestik seperti membersihkan rumah/lingkungan (menyapu, menata perabotan), mencuci baju manual, memasak, mengasuh anak, atau mengangkat beban dengan berat &lt; 20 kg?" aria-invalid="false" aria-expanded="false" aria-controls="sq_100i_list" data-rendered="r"><div class="sd-dropdown__value"><input autocomplete="off" id="sq_100i_0" class="sd-dropdown__filter-string-input" role="combobox" aria-expanded="false" aria-labelledby="sq_100_ariaTitle" aria-controls="sq_100i_list" placeholder="Aktivitas fisik intensitas sedang adalah aktivitas yang akan meningkatkan pernafasan dan denyut jantung, anda masih bisa berbicara namun kesulitan bernyanyi" inputmode="text" type="text" readonly=""></div><div class="sd-dropdown_clean-button" aria-hidden="true" style="display: none;"><svg class="sv-svg-icon sd-dropdown_clean-button-svg" role="img"><use xlink:href="#icon-cancel-24x24"></use><title>Clear</title></svg></div></div><div><div tabindex="-1" class="sv-popup sv-dropdown-popup sv-single-select-list sv-popup--dropdown sv-popup--bottom" style="display: none;"><div class="sv-popup__container" style="left: 0px; top: 0px; height: auto; width: auto; min-width: auto;"><div class="sv-popup__body-content"><div class="sv-popup__scrolling-content"><div class="sv-popu
+[OPSI] id='sq_115i_0' ph='Aktivitas fisik intensitas berat adalah aktivitas yang membuat anda terengah-engah dan kesulitan berbicara'
+       opsi: ['Ya', 'Tidak']
+       boxHTML: <div class="sv-dropdown_select-wrapper"><div id="sq_100i" class="sd-input sd-dropdown sd-dropdown--empty" required="" role="combobox" aria-required="true" aria-label="Apakah Anda melakukan aktivitas fisik sedang pada kegiatan rumah tangga/domestik seperti membersihkan rumah/lingkungan (menyapu, menata perabotan), mencuci baju manual, memasak, mengasuh anak, atau mengangkat beban dengan berat &lt; 20 kg?" aria-invalid="false" aria-expanded="false" aria-controls="sq_100i_list" data-rendered="r"><div class="sd-dropdown__value"><input autocomplete="off" id="sq_100i_0" class="sd-dropdown__filter-string-input" role="combobox" aria-expanded="false" aria-labelledby="sq_100_ariaTitle" aria-controls="sq_100i_list" placeholder="Aktivitas fisik intensitas sedang adalah aktivitas yang akan meningkatkan pernafasan dan denyut jantung, anda masih bisa berbicara namun kesulitan bernyanyi" inputmode="text" type="text" readonly=""></div><div class="sd-dropdown_clean-button" aria-hidden="true" style="display: none;"><svg class="sv-svg-icon sd-dropdown_clean-button-svg" role="img"><use xlink:href="#icon-cancel-24x24"></use><title>Clear</title></svg></div></div><div><div tabindex="-1" class="sv-popup sv-dropdown-popup sv-single-select-list sv-popup--dropdown sv-popup--bottom" style="display: none;"><div class="sv-popup__container" style="left: 0px; top: 0px; height: auto; width: auto; min-width: auto;"><div class="sv-popup__body-content"><div class="sv-popup__scrolling-content"><div class="sv-popu
+======================================================================
+[DIAG] Selesai. Dump: C:\Project Phyton\ckg-automation\data\output\diag_pelayanan_20260615_203231.txt

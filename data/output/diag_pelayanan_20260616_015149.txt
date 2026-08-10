@@ -1,0 +1,163 @@
+[DIAG] Dari Excel: nama='JUWARIYAH', Waktu Hadir='2026-06-12'
+[DIAG] Navigasi ke https://sehatindonesiaku.kemkes.go.id/ckg-pelayanan (dari https://sehatindonesiaku.kemkes.go.id/ckg-pelayanan/detail-pemeriksaan?_d=eyJlIjoiMDc0MmZ2ZjNlUE1wc3dhM0pGSWpubHhRWlIrR0FwTUo4eisxU1JnRE9iWDdMd3c0dHdOazFsc1lZVHNjL3FITmpQRk5jNVdPdUhHbURqY1BFTEU3VGVEbzQwaXBTMzRYMFZhTmF3cGoiLCJpdiI6IllDR3VSWE9QU3A2RkhKQ2YiLCJlayI6IkhUUzY5WVZaUGZDdXVqeTkwMDJBQVFBMHpPZWJKc3M2aFNXaUZSbXJQODEvTkxzdDBZYjduVXJ5dzhaM01pQlVhZmsvNWIwVHh0SlZyVUZZZEVyZXU2ZTNuZ1ZieERVZkVlSDBrZC9TRVhFUXJFYVhMTFR5bVRUSEZOT05OT3Z5bXduR091SkQzYWpsYWttZXprSU9laWNVKzlYa2VaVVlxRHBwNEEzVHE0QmdFQ0VkR1dxdkxKOTg2alpRZmVvR2NVRHJydjFsZ3JTUk94N3FFTlFYWTRPUGZ4MzIrSURXMVNZbW4zcE1lcVpSM01UTkh3c1hqVDl5aUlhWmRGSDFNZExRMjV2RzVURjJqK0Z2RHdMM29UbERTbEZST01sU2ZNNU10eWpiZDdISjdmNUJKaDdGTmxPejZEbEJ1NGJ5aHUwT2xObUVSL3BlWlQyTUdiWm5KZz09IiwiayI6IlpBT3hVb2R6Y28ifQ%253D%253D)
+[DIAG] Tab aktif: https://sehatindonesiaku.kemkes.go.id/ckg-pelayanan
+======================================================================
+[DIAG] Tanggal di-set (rentang 2026-06-12..2026-06-12).
+[DIAG] Pindah tab -> Selesai Pemeriksaan.
+[LISTING] Dropdown custom / cursor-pointer:
+   - 'Nama'
+   - 'Belum Pemeriksaan'
+   - 'Sedang Pemeriksaan'
+   - 'Selesai Pemeriksaan 98'
+[LISTING] Tombol terlihat:
+   - 'CKG Umum'
+   - 'CKG Sekolah'
+   - 'Tatalaksana'
+   - 'Klaster 2'
+   - 'Klaster 4'
+   - 'Keluar'
+   - 'Pandu Rizki MaulidiahPuskesmas Driyorejo'
+   - 'Mulai'
+   - 'Lihat'
+[LISTING] Tabel #0: headers = ['No', 'Nama', 'Tanggal Lahir', 'Nomor Tiket', 'Nama Wali', 'Unit Pelayanan', 'Pemeriksaan Mandiri', 'Pelayanan', 'Pemeriksaan', 'Rapor']
+      row: ['1', 'ABDURRAHMAN', '31 Des 1936', 'YAU-93Y', '-', 'Puskesmas Driyorejo', 'Lengkap', 'Selesai Pemeriksaan', 'Mulai', 'Lihat']
+      row: ['2', 'ADELIA MAULIDINA CHOIRUNNISA', '09 Mei 2003', 'ATB-B7J', '-', 'Puskesmas Driyorejo', 'Belum lengkap', 'Selesai Pemeriksaan', 'Mulai', 'Lihat']
+      row: ['3', 'AGUS SANTOSA', '14 Agt 1978', 'SJ4-RN3', '-', 'Puskesmas Driyorejo', 'Lengkap', 'Selesai Pemeriksaan', 'Mulai', 'Lihat']
+======================================================================
+[DIAG] Opsi dropdown terlihat: ['Nama', 'Belum Pemeriksaan', 'Sedang Pemeriksaan', 'Selesai Pemeriksaan 98', '<', '1', '2', '3', '…', '10', '>']
+[DIAG] Dropdown filter -> Nama.
+[DIAG] (cari) hasil 'JUWARIYAH' muncul.
+[DIAG] Baris cocok 'JUWARIYAH': 1.
+[DIAG] Tombol di baris: ['Mulai', 'Lihat']
+[DIAG] Klik aksi baris 'Mulai'.
+======================================================================
+[DETAIL] URL: https://sehatindonesiaku.kemkes.go.id/ckg-pelayanan/detail-pemeriksaan?_d=eyJlIjoiR0ZLa0NnZklCbk1DRlAzWlBUTHpUTGUvZlh3VDRHTDJVbCs3SnR4NEQ3ZTRPdllCQmQrVFVEeXhXSnh6U21Kb0xJNjR4cDJOTXB4aHFETE51UnVuSytESy9TcUttcS9KZ0EzOTFzcjYiLCJpdiI6IjhUN3FvOE5FRHB2U2tTWUMiLCJlayI6IlFjY2grSmhsM091NGtrN0xJWEdqWGlUTzUvZ29sblV6Rm9CaGNuTEUwejNZSHA4QS9hd29nU2lzV2FIK1BOTytURC8rOTNLcjNnYTlXK2s2c1BMd3cxaDhGbXZCWm40U3NXUS90RXdvU0lxbS9FbFhPUXVWeWVxeTJlNCsxbEVEY2wySUlhM0d1aCs1UjNPVXBWR0ZHZzdRQkNWY2RVVVZkbUtmVTRtNHhsYVpMbE1NRW1pNEo1VjB4Y051aXhrMmhYancxbTJSWkFDeFREN0FvNTF4akxSMmtJREEzbGpZVXVBcFVwVC84NnZMZHBySk00N0x5cXhVclgxWmg2RHFSSTdFOVBwUHRVQi94OHcxdVpaWExvY2RWZFFEeUtPRlVoaTh0azRrZVNybGk1MzlIeTJYTTBpVDRFakNXWXdidXNYYzBta2VLc0dOaCtGaTJEZVA3Zz09IiwiayI6IlpUcnpTNFZkVkkifQ%253D%253D
+[DETAIL] INPUT (label | id | name | type | value | placeholder):
+   - 'Ya'                                     | id='hasil-lab-0-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-0-1' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-0-2' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-1-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-1-1' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-2-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-2-1' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-2-2' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-3-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-4-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-4-1' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-5-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-6-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-7-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-7-1' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-7-2' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-7-3' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-7-4' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-8-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-9-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-9-1' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-10-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-11-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-12-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-12-1' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-12-2' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-13-0' name='' type='checkbox' checked=True value='on' ph=''
+[DETAIL] SELECT (label | id | name | options):
+[DETAIL] TEXTAREA:
+[DETAIL] Dropdown custom (Vue):
+   - 'Selesaikan Layanan'
+   - 'Kirim Rapor (0/3)'
+   - 'Lihat Rapor'
+[DETAIL] Heading/tab/section:
+[DETAIL] Tombol:
+   - 'CKG Umum'
+   - 'CKG Sekolah'
+   - 'Tatalaksana'
+   - 'Klaster 2'
+   - 'Klaster 4'
+   - 'Keluar'
+   - 'Pandu Rizki MaulidiahPuskesmas Driyorejo'
+   - 'Detail Data'
+   - 'Jumlah Pemeriksaan (8/9)'
+   - 'Input Data'
+   - 'Panduan Pemeriksaan'
+   - 'Skrining Gizi, Tekanan Darah, dan Gula Darah Perempuan => 40 Tahun'
+   - 'Tuberkulosis - Skrining Nakes Dewasa & Lansia'
+   - 'Layanan Penyakit Tropis Terabaikan'
+   - 'Skrining Telinga dan Mata (=>40 tahun)'
+   - 'Skrining Gigi - Dewasa >=25 tahun'
+   - 'Pemeriksaan PPOK (Skrining PUMA)'
+   - 'Pemeriksaan Kadar CO (Tatalaksana Merokok)'
+   - 'Skrining Laboratorium =>40 thn Perempuan Fungsi Ginjal, Hati, Profil Lipid'
+   - 'Skrining Kanker Payudara'
+   - 'Skrining Kanker Leher Rahim'
+   - 'Skrining Kanker Usus (TL APCS)'
+   - 'Skrining Kanker Paru (Usia=>45 tahun)'
+   - 'Pemeriksaan Calon Pengantin Perempuan'
+   - 'Skrining Jantung (Pemeriksaan EKG - hanya penyandang HT & DM)'
+[PEMERIKSAAN] Daftar form (tombol -> judul kartu terdekat):
+   - [Input Data] 'Demografi Dewasa PerempuanInput Data'
+   - [Input Data] 'Faktor Risiko Kanker UsusInput Data'
+   - [Input Data] 'Faktor Risiko TB - Dewasa & LansiaInput Data'
+   - [Input Data] 'HatiInput Data'
+   - [Input Data] 'Kanker Leher RahimInput Data'
+   - [Input Data] 'Kesehatan JiwaInput Data'
+   - [Input Data] 'Penapisan Risiko Kanker ParuInput Data'
+   - [Input Data] 'Perilaku MerokokInput Data'
+   - [Input Data] 'Tingkat Aktivitas Fisik (sedang dan berat)Input Data'
+   - [Input Data] 'Gizi (BB - TB - Lingkar Perut) PerempuanYa Selesai diperiksa Input Data'
+   - [Input Data] 'Pemeriksaan Gula Darah Dewasa LansiaYa Selesai diperiksa Input Data'
+   - [Input Data] 'Tekanan Darah Dewasa LansiaYa Selesai diperiksa Input Data'
+   - [Input Data] 'Faktor Risiko dan Skrining X-Ray TB (Dewasa & Lansia)Ya Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Pemeriksaan Tuberkulosis (Dewasa & Lansia)Ya Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Pemeriksaan Penyakit Frambusia (untuk daerah endemis atau berisiko frambusia)Ya Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Pemeriksaan Penyakit KustaYa Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Pemeriksaan Penyakit SkabiesYa Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Skrining Telinga dan Mata (=>40 tahun)Ya Selesai diperiksa Input Data'
+   - [Input Data] 'Skrining Karies dan Gigi HilangYa Selesai diperiksa Input Data'
+   - [Input Data] 'Skrining Penyakit PeriodontalYa Selesai diperiksa Input Data'
+   - [Input Data] 'Pemeriksaan PPOK (Skrining PUMA)Ya Selesai diperiksa Input Data'
+   - [Input Data] 'Pemeriksaan Kadar CO (Hanya Diisi Apabila Merokok atau Terpapar Asap Rokok)Ya Dalam Pemeriksaan Input Data'
+   - [Input Data] 'POCT Lipid Panel (Khusus usia >=40 thn dan penyandang HT dan/atau DM)Ya Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Pemeriksaan Fibrosis/Sirosis HatiYa Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Pemeriksaan HepatitisYa Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Skrining Fungsi Ginjal Perempuan (hanya untuk =>40 tahun dengan risiko HT DM)Ya Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Skrining Kerusakan Ginjal (hanya untuk =>40 tahun dengan risiko HT DM)Ya Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Skrining Kanker PayudaraYa Selesai diperiksa Input Data'
+   - [Input Data] 'Hasil Pemeriksaan HPV-DNAYa Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Pemeriksaan Inspekulo dan IVAYa Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Pemeriksaan Lanjutan Kanker UsusYa Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Skrining Kanker Paru (Usia =>45 thn)Ya Selesai diperiksa Input Data'
+   - [Input Data] 'Pemeriksaan Calon Pengantin PerempuanYa Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Pemeriksaan HIVYa Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Pemeriksaan SifilisYa Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Hasil Pemeriksaan - Skrining JantungYa Selesai diperiksa Input Data'
+[DIAG] Membuka form pemeriksaan: 'Demografi Dewasa'
+======================================================================
+[FORM:Demografi Dewasa] URL: https://form.kemkes.go.id/v2/skrining-form/TnLV2u8j8Itq9gMeGrEXnSnLcDnTkKpfYTUnJlLKAMgbQvoKlXdW8yaGgYYukHESV0FZC7ivUfeCRtysHKvsAIQ_GtrZn0T9a9Zt8o8%3D?ctx=hDzNY3I3dQ0MN7bK8vvqeRGyjy7VE7CZkNqpQaPv6SMSlZ9uDlI%3D&redirectUrl=https%3A%2F%2Fsehatindonesiaku.kemkes.go.id%2Fckg-pelayanan%2Fdetail-pemeriksaan%3F_d%3DeyJlIjoiR0ZLa0NnZklCbk1DRlAzWlBUTHpUTGUvZlh3VDRHTDJVbCs3SnR4NEQ3ZTRPdllCQmQrVFVEeXhXSnh6U21Kb0xJNjR4cDJOTXB4aHFETE51UnVuSytESy9TcUttcS9KZ0EzOTFzcjYiLCJpdiI6IjhUN3FvOE5FRHB2U2tTWUMiLCJlayI6IlFjY2grSmhsM091NGtrN0xJWEdqWGlUTzUvZ29sblV6Rm9CaGNuTEUwejNZSHA4QS9hd29nU2lzV2FIK1BOTytURC8rOTNLcjNnYTlXK2s2c1BMd3cxaDhGbXZCWm40U3NXUS90RXdvU0lxbS9FbFhPUXVWeWVxeTJlNCsxbEVEY2wySUlhM0d1aCs1UjNPVXBWR0ZHZzdRQkNWY2RVVVZkbUtmVTRtNHhsYVpMbE1NRW1pNEo1VjB4Y051aXhrMmhYancxbTJSWkFDeFREN0FvNTF4akxSMmtJREEzbGpZVXVBcFVwVC84NnZMZHBySk00N0x5cXhVclgxWmg2RHFSSTdFOVBwUHRVQi94OHcxdVpaWExvY2RWZFFEeUtPRlVoaTh0azRrZVNybGk1MzlIeTJYTTBpVDRFakNXWXdidXNYYzBta2VLc0dOaCtGaTJEZVA3Zz09IiwiayI6IlpUcnpTNFZkVkkifQ%25253D%25253D-98sec11-rowfrm000007&mitra=B-54oKq0V-q_0rxjNbFXfVj0s1_p2mcZaDIMQB84VvX3ZQiknC5KXtGGx3TNbT5C2sjtlKyThcXCd4Vl83U4P1R2KuCsR_2z-pt3mcLzb-GqgjRVa-IR1hWEaOUItTEvGPcMpoylgjRefzbSjBwnMRk3jNc4nQ2B_qbhFJdvCJ0k38XGMi7Nj7wWWdEXwuucT-AudESIjbtCKmDqPMeEZHMMKTwmGm4NWrs8QGoULGCY4g6gL1veSHQfIQB2XQlzGnJAsVlxuxfog3WazsB8zov2JCnRbiR3Ic3TNmhFaoCfk9KSjJ1cyq6i9l2740RtYyZGpvrLDri3PJlHjQ0i7_l14cdaYKKwvm15cPFZBF5MOQWSKZQiMXegVsTB4B_UhSK921-2hzoj
+[FORM:Demografi Dewasa] INPUT (label | id | name | type | value | placeholder):
+   - 'Belum Menikah'                          | id='sq_100i_0' name='LPM000063|FRM000007|PPM00000172|text_sq_100' type='radio' checked=False value='PPV00000337' ph=''
+   - 'Menikah'                                | id='sq_100i_1' name='LPM000063|FRM000007|PPM00000172|text_sq_100' type='radio' checked=False value='PPV00000338' ph=''
+   - 'Cerai Mati'                             | id='sq_100i_2' name='LPM000063|FRM000007|PPM00000172|text_sq_100' type='radio' checked=False value='PPV00000339' ph=''
+   - 'Cerai Hidup'                            | id='sq_100i_3' name='LPM000063|FRM000007|PPM00000172|text_sq_100' type='radio' checked=False value='PPV00000340' ph=''
+   - 'Ya'                                     | id='sq_102i_0' name='LPM000063|FRM000007|PPM00000173|text_sq_102' type='radio' checked=False value='PPV00000341' ph=''
+   - 'Tidak'                                  | id='sq_102i_1' name='LPM000063|FRM000007|PPM00000173|text_sq_102' type='radio' checked=False value='PPV00000342' ph=''
+   - 'Non disabilitas'                        | id='sq_103i_0' name='LPM000063|FRM000007|PPM00000299|text_sq_103' type='radio' checked=False value='PPV00000561' ph=''
+   - 'Penyandang disabilitas'                 | id='sq_103i_1' name='LPM000063|FRM000007|PPM00000299|text_sq_103' type='radio' checked=False value='PPV00000562' ph=''
+   - ''                                       | id='' name='' type='button' checked=False value='Kirim' ph=''
+[FORM:Demografi Dewasa] QTITLE (sq -> judul pertanyaan):
+   - sq_100: '1. Status Perkawinan *'
+   - sq_102: '2. Apakah Anda sedang hamil? *'
+   - sq_103: '3. Apakah Anda penyandang disabilitas? *'
+[FORM:Demografi Dewasa] SELECT (label | id | name | options):
+[FORM:Demografi Dewasa] TEXTAREA:
+[FORM:Demografi Dewasa] Dropdown custom (Vue):
+[FORM:Demografi Dewasa] Heading/tab/section:
+   - 'Demografi Dewasa Perempuan'
+   - '1. Status Perkawinan *ClearMoreNo data to display'
+   - '2. Apakah Anda sedang hamil? *ClearMoreNo data to display'
+[FORM:Demografi Dewasa] Tombol:
+   - 'Kembali ke Halaman Utama'
+----------------------------------------------------------------------
+[OPSI] Form 'Demografi Dewasa' — probe dropdown:
+[OPSI] dropdown text-input ditemukan: 0
+======================================================================
+[DIAG] Selesai. Dump: C:\Project Phyton\ckg-automation\data\output\diag_pelayanan_20260616_015149.txt

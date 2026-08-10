@@ -1,0 +1,688 @@
+[DIAG] Dari Excel: nama='SUMIATI', Waktu Hadir='2026-06-12'
+[DIAG] Navigasi ke https://sehatindonesiaku.kemkes.go.id/ckg-pelayanan (dari https://form.kemkes.go.id/v2/skrining-form/Qy8d1ixiDn-t6FThskZitX0lWOrMBBk9AE1jbbIZ8VMIoTLZHxeS_LskcIhN3ggyKS_DxdJ6rSYypGBneelm39RKPDkWmjEC55YJhzA%3D?ctx=kmczPLpSqMjF0-uksw8YaLGGf18vaexCyRIk-vMpx9iKVAXgzvo%3D&redirectUrl=https%3A%2F%2Fsehatindonesiaku.kemkes.go.id%2Fckg-pelayanan%2Fdetail-pemeriksaan%3F_d%3DeyJlIjoicDVkWGVreEw4RE9vOGo3RnJlVzljNWVZczBGRzFJbmVLK3JjQUtxQWdXNE5QdldjUjFJaGRaYWdYNFBIUXV1T3VvNkFSL21SazF2N3A1Y0lRZVh5S0FNSDVac010bmp4cWMrdEpjVWIiLCJpdiI6Im5LVEJIQVpwRWZBaEw0cTgiLCJlayI6IlVDSU96Uzl2bUdSOVRiWldHWlZiaEFPYmk5MXBLVVJtN2JuWXB6aGl0bldVQTFYbFFGRkNBaXUwSG1tTm9UbVlCUktZTXp2Und3MUh0Vlp6WkV1cXRRRWVEbFFPWFMwcmpRYzRZa2tpZ3o1WWVEMWF4aFR1djlmcFZiYmU1RzlYRnZFRHM0Tm1SRk5YRE9DTHVXaGpaNG1oZkpvU2RHMGdOVTRodlN3T1JtaWVITUpSTkxMV2tWM3VGZ0JLcFVDanRrZEVrSU5VeERkOVpCMnVIcUFtdm1WdTZMdjMzZlpwNEc5RTBRNVR1M2tqVDI1WWpOamI3QzRmdjNxaEk5OWNOWHdXa21FNk8rZDA4T2R5R1lLQW9iWE9MVHYxdVRnUEdxWVd4OWwrRVZ5Sm9rZjh6MHVvS1Z4UzJwekYvaEc5YS9lVWU5Z1NpeHRPSXRtWmRxSjZrZz09IiwiayI6ImJfWllYbmxvT20ifQ%25253D%25253D-98sec11-rowfrm000008&mitra=J_h7KXfBFl6ADtaaF1dduMggorOGDQaloM3kBhTCC_4W_8sc0Is5aJNlqs9HKdVU2L_Mdvx0P8ZBCqzJyAwe9WS7W05WGooZaxOGGfDty-115ATfB--r2mpaEjOIi68Ez6x-ACTjsHuL_xHHdUw0y-n2JgjxQSyMpvE2lg0mbVXU4DuVs0u-cmzuadidanJqWZZUCzVxVB5FuNkJhM5U8fk6PpYHOg_3ZFqWs1GD_YfgKWnZptBRC2wrDqLaQ4UgUW8qCM8hN-lGX1zAoAN5a2PG7Hoo7Nu-emEu8j8WFmgQsdTR6NKQL1rkih2soo0XQzalWwLn9M51psmj5AW2_zvLp1DCRoFNLedx_YvyqT7MrXoGq5BdDyopWaGy3h2JGZUQXPp-0Vzp)
+[DIAG] Tab aktif: https://sehatindonesiaku.kemkes.go.id/ckg-pelayanan
+======================================================================
+[DIAG] Tanggal tidak disentuh (pakai rentang bawaan UI).
+[DIAG] Pindah tab -> Sedang Pemeriksaan.
+[LISTING] Dropdown custom / cursor-pointer:
+   - 'Nama'
+   - 'Belum Pemeriksaan'
+   - 'Sedang Pemeriksaan 67'
+   - 'Selesai Pemeriksaan'
+[LISTING] Tombol terlihat:
+   - 'CKG Umum'
+   - 'CKG Sekolah'
+   - 'Tatalaksana'
+   - 'Klaster 2'
+   - 'Klaster 4'
+   - 'Keluar'
+   - 'Pandu Rizki MaulidiahPuskesmas Driyorejo'
+   - 'Mulai'
+[LISTING] Tabel #0: headers = ['No', 'Nama', 'Tanggal Lahir', 'Nomor Tiket', 'Nama Wali', 'Unit Pelayanan', 'Pemeriksaan Mandiri', 'Pelayanan', 'Pemeriksaan', 'Rapor']
+      row: ['1', 'AGIL IPUNG HIDAYAT', '08 Mei 2003', 'EEL-4ZC', '-', 'Puskesmas Driyorejo', 'Belum lengkap', 'Sedang Pemeriksaan', 'Mulai', 'Lihat']
+      row: ['2', 'ALI YUWAFI', '04 Jul 1996', 'KXX-MP2', '-', 'Puskesmas Driyorejo', 'Lengkap', 'Sedang Pemeriksaan', 'Mulai', 'Lihat']
+      row: ['3', 'AMIDA NUR DWI YANTI', '15 Sep 2004', 'PS7-WZL', '-', 'Puskesmas Driyorejo', 'Belum lengkap', 'Sedang Pemeriksaan', 'Mulai', 'Lihat']
+======================================================================
+[DIAG] Opsi dropdown terlihat: ['Nama', 'Belum Pemeriksaan', 'Sedang Pemeriksaan 67', 'Selesai Pemeriksaan', '<', '1', '2', '3', '…', '7', '>']
+[DIAG] Dropdown filter -> Nama.
+[DIAG] (cari) hasil 'SUMIATI' muncul.
+[DIAG] Baris cocok 'SUMIATI': 1.
+[DIAG] Tombol di baris: ['Mulai']
+[DIAG] Klik aksi baris 'Mulai'.
+======================================================================
+[DETAIL] URL: https://sehatindonesiaku.kemkes.go.id/ckg-pelayanan/detail-pemeriksaan?_d=eyJlIjoiVFByMlhsZGNNMDAwVGRWbFdIYWkzOGI2V3AvaFU3c2JpWjZFcWJOUGpWY0F5STNiOWZob0Rxdm9IUUQ0MGRVUzNxSjVOTXRrdVhpcmlSanBKSU82U3V1R0FVaVE4Q0VYM3AzQit5MDAiLCJpdiI6IkE5YkUwTXgzV1l5SGtQUTAiLCJlayI6ImFPUnZQa042Wll5Y3BwMlhpTndIa2tYdERrU3Q1bHdiVjR3RzlFVU1xa3lka1NEeUVpcXJlZW92WnB4cnBHVGpEbXJvbGU5TFUxT09CTUlSSEg1UzVrZlpiaXFtb2toaklWb25VQXZxUmlIUCtjdElOOWMxOUpJbWp4dkR2bENyVUxUajFWU0wwNWszRHRJNUd1UHowa29KaEkxdjVobENFR3N6ZzBtVSt0dVVIWmxDRkNjNlhIQVNOQ1ViNEMwUFdQZjY0TWdvZGJsSTR2aUJiS2s0NGZHZlF6MUpXQTl1Q1RZRVFwSU5HaXh0dms4ZFFnSnBPRUlwbUpQOUdTSWNObHJYVVZuV3kzU0g2VmRQelV5L1A5eS9heWp2Q0hrcFByQ3pTU0hpcHRmcFl5VjNhRXdSanZudHh1TExvQThUYTkrUnJoZXprQ0FzaW45T2Z1L2FRUT09IiwiayI6Im1JN0FGOVN6MkEifQ%253D%253D
+[DETAIL] INPUT (label | id | name | type | value | placeholder):
+   - 'Ya'                                     | id='hasil-lab-0-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-0-1' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-0-2' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-1-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-1-1' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-1-2' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-1-3' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-1-4' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-1-5' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-1-6' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-1-7' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-1-8' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-1-9' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-2-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-2-1' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-3-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-3-1' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-3-2' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-4-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-5-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-5-1' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-6-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-7-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-8-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-8-1' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-8-2' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-8-3' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-8-4' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-9-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-10-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-11-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-11-1' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-12-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-13-0' name='' type='checkbox' checked=True value='on' ph=''
+[DETAIL] SELECT (label | id | name | options):
+[DETAIL] TEXTAREA:
+[DETAIL] Dropdown custom (Vue):
+   - 'Kirim Rapor (0/3)'
+[DETAIL] Heading/tab/section:
+[DETAIL] Tombol:
+   - 'CKG Umum'
+   - 'CKG Sekolah'
+   - 'Tatalaksana'
+   - 'Klaster 2'
+   - 'Klaster 4'
+   - 'Keluar'
+   - 'Pandu Rizki MaulidiahPuskesmas Driyorejo'
+   - 'Tanggal Pemeriksaan'
+   - 'Selesaikan Layanan'
+   - 'Detail Data'
+   - 'Jumlah Pemeriksaan (0/9)'
+   - 'Input Data'
+   - 'Panduan Pemeriksaan'
+   - 'Skrining Gizi, Tekanan Darah, dan Gula Darah Perempuan => 40 Tahun'
+   - 'Skrining Geriatri (Usia >=60 thn/lansia)'
+   - 'Tuberkulosis - Skrining Nakes Dewasa & Lansia'
+   - 'Layanan Penyakit Tropis Terabaikan'
+   - 'Skrining Telinga dan Mata (=>40 tahun)'
+   - 'Skrining Gigi - Dewasa >=25 tahun'
+   - 'Pemeriksaan PPOK (Skrining PUMA)'
+   - 'Pemeriksaan Kadar CO (Tatalaksana Merokok)'
+   - 'Skrining Laboratorium =>40 thn Perempuan Fungsi Ginjal, Hati, Profil Lipid'
+   - 'Skrining Jantung (Pemeriksaan EKG - hanya penyandang HT & DM)'
+   - 'Skrining Kanker Payudara'
+   - 'Skrining Kanker Leher Rahim'
+   - 'Skrining Kanker Paru (Usia=>45 tahun)'
+   - 'Skrining Kanker Usus (TL APCS)'
+[PEMERIKSAAN] Daftar form (tombol -> judul kartu terdekat):
+   - [Input Data] 'Demografi LansiaInput Data'
+   - [Input Data] 'Faktor Risiko Kanker UsusInput Data'
+   - [Input Data] 'Faktor Risiko TB - Dewasa & LansiaInput Data'
+   - [Input Data] 'HatiInput Data'
+   - [Input Data] 'Kanker Leher RahimInput Data'
+   - [Input Data] 'Kesehatan JiwaInput Data'
+   - [Input Data] 'Penapisan Risiko Kanker ParuInput Data'
+   - [Input Data] 'Perilaku MerokokInput Data'
+   - [Input Data] 'Tingkat Aktivitas Fisik (sedang dan berat)Input Data'
+   - [Input Data] 'Gizi (BB - TB - Lingkar Perut) PerempuanYa Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Pemeriksaan Gula Darah Dewasa LansiaYa Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Tekanan Darah Dewasa LansiaYa Dalam Pemeriksaan Input Data'
+   - [Input Data] '1. SKILAS Penurunan Kognitif - LansiaYa Dalam Pemeriksaan Input Data'
+   - [Input Data] '2. SKILAS Mobilisasi - LansiaYa Dalam Pemeriksaan Input Data'
+   - [Input Data] '3. SKILAS MalnutrisiYa Dalam Pemeriksaan Input Data'
+   - [Input Data] '4. SKILAS Pemeriksaan Gejala Depresi - LansiaYa Dalam Pemeriksaan Input Data'
+   - [Input Data] '5. Pemeriksaan Gangguan Fungsional/Barthel Index - LansiaYa Dalam Pemeriksaan Input Data'
+   - [Input Data] '6a. Penurunan Kognitif - Tindak Lanjut (Mini Cog-Clock Draw)Ya Dalam Pemeriksaan Input Data'
+   - [Input Data] '6b. Penurunan Kognitif - Tindak Lanjut (AD-8 INA)Ya Dalam Pemeriksaan Input Data'
+   - [Input Data] '7. Mobilisasi - Pemeriksaan Lanjutan (SPPB)Ya Dalam Pemeriksaan Input Data'
+   - [Input Data] '8. Skrining Malnutrisi - Pemeriksaan Lanjutan (MNA-SF)Ya Dalam Pemeriksaan Input Data'
+   - [Input Data] '9. Pemeriksaan Gejala Depresi - Pemeriksaan LanjutanYa Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Faktor Risiko dan Skrining X-Ray TB (Dewasa & Lansia)Ya Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Pemeriksaan Tuberkulosis (Dewasa & Lansia)Ya Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Pemeriksaan Penyakit Frambusia (untuk daerah endemis atau berisiko frambusia)Ya Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Pemeriksaan Penyakit KustaYa Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Pemeriksaan Penyakit SkabiesYa Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Skrining Telinga dan Mata (=>40 tahun)Ya Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Skrining Karies dan Gigi HilangYa Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Skrining Penyakit PeriodontalYa Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Pemeriksaan PPOK (Skrining PUMA)Ya Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Pemeriksaan Kadar CO (Hanya Diisi Apabila Merokok atau Terpapar Asap Rokok)Ya Dalam Pemeriksaan Input Data'
+   - [Input Data] 'POCT Lipid Panel (Khusus usia >=40 thn dan penyandang HT dan/atau DM)Ya Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Pemeriksaan Fibrosis/Sirosis HatiYa Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Pemeriksaan HepatitisYa Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Skrining Fungsi Ginjal Perempuan (hanya untuk =>40 tahun dengan risiko HT DM)Ya Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Skrining Kerusakan Ginjal (hanya untuk =>40 tahun dengan risiko HT DM)Ya Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Hasil Pemeriksaan - Skrining JantungYa Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Skrining Kanker PayudaraYa Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Hasil Pemeriksaan HPV-DNAYa Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Pemeriksaan Inspekulo dan IVAYa Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Skrining Kanker Paru (Usia =>45 thn)Ya Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Pemeriksaan Lanjutan Kanker UsusYa Dalam Pemeriksaan Input Data'
+[DIAG] Akan dump 22 form (Otomasi=Ya).
+######################################################################
+[DIAG] (1/22) Buka form: 'Demografi Lansia' [sumber=Excel]
+======================================================================
+[FORM:Demografi Lansia] URL: https://form.kemkes.go.id/v2/skrining-form/Qy8d1ixiDn-t6FThskZitX0lWOrMBBk9AE1jbbIZ8VMIoTLZHxeS_LskcIhN3ggyKS_DxdJ6rSYypGBneelm39RKPDkWmjEC55YJhzA%3D?ctx=kmczPLpSqMjF0-uksw8YaLGGf18vaexCyRIk-vMpx9iKVAXgzvo%3D&redirectUrl=https%3A%2F%2Fsehatindonesiaku.kemkes.go.id%2Fckg-pelayanan%2Fdetail-pemeriksaan%3F_d%3DeyJlIjoiVFByMlhsZGNNMDAwVGRWbFdIYWkzOGI2V3AvaFU3c2JpWjZFcWJOUGpWY0F5STNiOWZob0Rxdm9IUUQ0MGRVUzNxSjVOTXRrdVhpcmlSanBKSU82U3V1R0FVaVE4Q0VYM3AzQit5MDAiLCJpdiI6IkE5YkUwTXgzV1l5SGtQUTAiLCJlayI6ImFPUnZQa042Wll5Y3BwMlhpTndIa2tYdERrU3Q1bHdiVjR3RzlFVU1xa3lka1NEeUVpcXJlZW92WnB4cnBHVGpEbXJvbGU5TFUxT09CTUlSSEg1UzVrZlpiaXFtb2toaklWb25VQXZxUmlIUCtjdElOOWMxOUpJbWp4dkR2bENyVUxUajFWU0wwNWszRHRJNUd1UHowa29KaEkxdjVobENFR3N6ZzBtVSt0dVVIWmxDRkNjNlhIQVNOQ1ViNEMwUFdQZjY0TWdvZGJsSTR2aUJiS2s0NGZHZlF6MUpXQTl1Q1RZRVFwSU5HaXh0dms4ZFFnSnBPRUlwbUpQOUdTSWNObHJYVVZuV3kzU0g2VmRQelV5L1A5eS9heWp2Q0hrcFByQ3pTU0hpcHRmcFl5VjNhRXdSanZudHh1TExvQThUYTkrUnJoZXprQ0FzaW45T2Z1L2FRUT09IiwiayI6Im1JN0FGOVN6MkEifQ%25253D%25253D-98sec11-rowfrm000008&mitra=E77XQmF7Z0oHUSDSTwvQRnP-SG1W_RuEKEHVwZGwKOnA_xMlJLQF2hbBuvyfipdT2OsH3mXGHypy26dop62XrM1oRIsB4THvpqKQOiN3VeTQbehrALpedZW8eAalvQyUcymkaFLwigXoPyNUq0Uyv10qjVYxm67UiKn1xQsdI3v6zNE9LrYIPVXidBjY6x4xTaZPIiLfN19dsmP_7oBAQCTfsytGh3G5Kzr0LEqPdTI07MyJ1X4r5fqNrqy7Jj_vhXKQaypLiv3hJe3vH0mgSSuKcYNKXtUc2rsVOFMK3_ONUWNLiUa7y9f5_E-VZeMu8rq_N1g3qfvIQJ887EUHLMQU19Kwyq24ks66HMOvYySD08aBQphfKWkWhQ-nmD1Fkd-x01tSYDw3
+[FORM:Demografi Lansia] INPUT (label | id | name | type | value | placeholder):
+   - 'Belum Menikah'                          | id='sq_100i_0' name='LPM000064|FRM000008|PPM00000172|text_sq_100' type='radio' checked=False value='PPV00000337' ph=''
+   - 'Menikah'                                | id='sq_100i_1' name='LPM000064|FRM000008|PPM00000172|text_sq_100' type='radio' checked=False value='PPV00000338' ph=''
+   - 'Cerai Mati'                             | id='sq_100i_2' name='LPM000064|FRM000008|PPM00000172|text_sq_100' type='radio' checked=False value='PPV00000339' ph=''
+   - 'Cerai Hidup'                            | id='sq_100i_3' name='LPM000064|FRM000008|PPM00000172|text_sq_100' type='radio' checked=False value='PPV00000340' ph=''
+   - 'Non disabilitas'                        | id='sq_101i_0' name='LPM000064|FRM000008|PPM00000299|text_sq_101' type='radio' checked=False value='PPV00000561' ph=''
+   - 'Penyandang disabilitas'                 | id='sq_101i_1' name='LPM000064|FRM000008|PPM00000299|text_sq_101' type='radio' checked=False value='PPV00000562' ph=''
+   - ''                                       | id='' name='' type='button' checked=False value='Kirim' ph=''
+[FORM:Demografi Lansia] QTITLE (sq -> judul pertanyaan):
+   - sq_100: '1. Status Perkawinan *'
+   - sq_101: '2. Apakah Anda penyandang disabilitas? *'
+[FORM:Demografi Lansia] SELECT (label | id | name | options):
+[FORM:Demografi Lansia] TEXTAREA:
+[FORM:Demografi Lansia] Dropdown custom (Vue):
+[FORM:Demografi Lansia] Heading/tab/section:
+   - 'Demografi Lansia'
+   - '1. Status Perkawinan *ClearMoreNo data to display'
+[FORM:Demografi Lansia] Tombol:
+   - 'Kembali ke Halaman Utama'
+######################################################################
+[DIAG] (2/22) Buka form: 'Faktor Risiko Kanker Usus' [sumber=Default]
+======================================================================
+[FORM:Faktor Risiko Kanker Usus] URL: https://form.kemkes.go.id/v2/skrining-form/d9P2v5_Ve3uxZq4FktrnS7B8kMoNMX-ZOvAXUsE3SdokO4ZrBFYlnRCVD502RPDjPS3y4MY1ppjI44wiK6oepfklUfDem5sFWKbvbWw%3D?ctx=gsWIQn75nlKMpVvJDk1wDR1NEea14_rBUkRtnMIDjpmxpVmGBFk%3D&redirectUrl=https%3A%2F%2Fsehatindonesiaku.kemkes.go.id%2Fckg-pelayanan%2Fdetail-pemeriksaan%3F_d%3DeyJlIjoiVFByMlhsZGNNMDAwVGRWbFdIYWkzOGI2V3AvaFU3c2JpWjZFcWJOUGpWY0F5STNiOWZob0Rxdm9IUUQ0MGRVUzNxSjVOTXRrdVhpcmlSanBKSU82U3V1R0FVaVE4Q0VYM3AzQit5MDAiLCJpdiI6IkE5YkUwTXgzV1l5SGtQUTAiLCJlayI6ImFPUnZQa042Wll5Y3BwMlhpTndIa2tYdERrU3Q1bHdiVjR3RzlFVU1xa3lka1NEeUVpcXJlZW92WnB4cnBHVGpEbXJvbGU5TFUxT09CTUlSSEg1UzVrZlpiaXFtb2toaklWb25VQXZxUmlIUCtjdElOOWMxOUpJbWp4dkR2bENyVUxUajFWU0wwNWszRHRJNUd1UHowa29KaEkxdjVobENFR3N6ZzBtVSt0dVVIWmxDRkNjNlhIQVNOQ1ViNEMwUFdQZjY0TWdvZGJsSTR2aUJiS2s0NGZHZlF6MUpXQTl1Q1RZRVFwSU5HaXh0dms4ZFFnSnBPRUlwbUpQOUdTSWNObHJYVVZuV3kzU0g2VmRQelV5L1A5eS9heWp2Q0hrcFByQ3pTU0hpcHRmcFl5VjNhRXdSanZudHh1TExvQThUYTkrUnJoZXprQ0FzaW45T2Z1L2FRUT09IiwiayI6Im1JN0FGOVN6MkEifQ%25253D%25253D-98sec11-rowfrm000027&mitra=Du7oHey3TX_XQv4Bl4Ccu-ujyoVjTG37VBqQRkDivjGe3fSj1H_Vw80McXY9MHnR9fWqsBQR4sgpLroQowf8qL7Vzyna1W5WQ0KrCnh5-ReeegXhIFdU1yuhSaBRm1eD6y0wLtyT-rpdbfSInbl_367SnvoLr8-YxEycPf_JtOwkwPLEjrBPIzmJL4iXf2mXT6yWa3vh6wPbs0mzN3bNuMR1K-Sh4xx-4v4RgERztYGXQoZ8sy_dfuTroIy_KliS5Daq4JTDmUCJlsWxW2F4IA8aXQECKEq9ACt1yxIDO1gGwv-RZ5W30yTDWgEE685NheHRKcATcnGceksgBCEFOe-291HZe3N4ccpWUL_cexhl_8Nl1o7nKP5sGHQ1PJw8JQOmzVr9IeJt
+[FORM:Faktor Risiko Kanker Usus] INPUT (label | id | name | type | value | placeholder):
+   - 'Ya'                                     | id='sq_100i_0' name='LPM000060|FRM000027|PPM00000175|text_sq_100' type='radio' checked=False value='PPV00000347' ph=''
+   - 'Tidak'                                  | id='sq_100i_1' name='LPM000060|FRM000027|PPM00000175|text_sq_100' type='radio' checked=False value='PPV00000348' ph=''
+   - 'Ya'                                     | id='sq_101i_0' name='LPM000060|FRM000027|PPM00000288|text_sq_101' type='radio' checked=False value='PPV00000537' ph=''
+   - 'Tidak'                                  | id='sq_101i_1' name='LPM000060|FRM000027|PPM00000288|text_sq_101' type='radio' checked=False value='PPV00000538' ph=''
+   - ''                                       | id='' name='' type='button' checked=False value='Kirim' ph=''
+[FORM:Faktor Risiko Kanker Usus] QTITLE (sq -> judul pertanyaan):
+   - sq_100: '1. Apakah ada anggota keluarga Anda, yang pernah dinyatakan menderita kanker kolorektal atau kanker usus? *'
+   - sq_101: '2. Apakah Anda merokok? *'
+[FORM:Faktor Risiko Kanker Usus] SELECT (label | id | name | options):
+[FORM:Faktor Risiko Kanker Usus] TEXTAREA:
+[FORM:Faktor Risiko Kanker Usus] Dropdown custom (Vue):
+[FORM:Faktor Risiko Kanker Usus] Heading/tab/section:
+   - 'Faktor Risiko Kanker Usus'
+   - '2. Apakah Anda merokok? *ClearMoreNo data to display'
+[FORM:Faktor Risiko Kanker Usus] Tombol:
+   - 'Kembali ke Halaman Utama'
+######################################################################
+[DIAG] (3/22) Buka form: 'Faktor Risiko TB - Dewasa & Lansia' [sumber=Default]
+======================================================================
+[FORM:Faktor Risiko TB - Dewasa & Lansia] URL: https://form.kemkes.go.id/v2/skrining-form/E2BU32iynLDeVb5TLk7z-IpOEX4bE59_AFyqdCUbGcxUQ-mk8At-63adHmdPAaZW17URP2tJZnMUStY7QD0M_x6jYPudBDzh7xlebLg%3D?ctx=ik_R3TRgP7kFXLxge-OurMYI2JgjN2IWhk-35K8aoCnsFzXDbYg%3D&redirectUrl=https%3A%2F%2Fsehatindonesiaku.kemkes.go.id%2Fckg-pelayanan%2Fdetail-pemeriksaan%3F_d%3DeyJlIjoiVFByMlhsZGNNMDAwVGRWbFdIYWkzOGI2V3AvaFU3c2JpWjZFcWJOUGpWY0F5STNiOWZob0Rxdm9IUUQ0MGRVUzNxSjVOTXRrdVhpcmlSanBKSU82U3V1R0FVaVE4Q0VYM3AzQit5MDAiLCJpdiI6IkE5YkUwTXgzV1l5SGtQUTAiLCJlayI6ImFPUnZQa042Wll5Y3BwMlhpTndIa2tYdERrU3Q1bHdiVjR3RzlFVU1xa3lka1NEeUVpcXJlZW92WnB4cnBHVGpEbXJvbGU5TFUxT09CTUlSSEg1UzVrZlpiaXFtb2toaklWb25VQXZxUmlIUCtjdElOOWMxOUpJbWp4dkR2bENyVUxUajFWU0wwNWszRHRJNUd1UHowa29KaEkxdjVobENFR3N6ZzBtVSt0dVVIWmxDRkNjNlhIQVNOQ1ViNEMwUFdQZjY0TWdvZGJsSTR2aUJiS2s0NGZHZlF6MUpXQTl1Q1RZRVFwSU5HaXh0dms4ZFFnSnBPRUlwbUpQOUdTSWNObHJYVVZuV3kzU0g2VmRQelV5L1A5eS9heWp2Q0hrcFByQ3pTU0hpcHRmcFl5VjNhRXdSanZudHh1TExvQThUYTkrUnJoZXprQ0FzaW45T2Z1L2FRUT09IiwiayI6Im1JN0FGOVN6MkEifQ%25253D%25253D-98sec11-rowfrm000180&mitra=y_jMnjJadXN7Ft4apyNF6avtonAbNtjTzM_KMKtYS11TXpRJb-JUWupuHZj1k-AOrADuf6oMrN_ZmJszdCGdtGhuAFQSJOinD8GF0j8hfzESo_qRPFClQ7IKgnVjYKz8nP5SVrMYlGKYKKOg-T24CrP5gISURlS2YpKilbuAsTs6wwMvY07UvFQ1k0m9b4opx3ShzbTRN9YRJkCpqQFSMqs3GLMYrxjSYX8_mbiCPRZiQdF-NukV7OiKkxk44zkTy9MkHiohjq1c_UDbzdkTWrwyl6TGBGtxO0ykVd8WW_rL33BfG5KjtiXjWj0PrkgAd3XXIf3SOz37ldfkZVf26yMfHf64qPUO30Z7WkuC3S8Z9Jmzeyju92dKcLZUeLHXeeQ7Xn-U3RXK
+[FORM:Faktor Risiko TB - Dewasa & Lansia] INPUT (label | id | name | type | value | placeholder):
+   - 'Ya, lebih dari 2 minggu'                | id='sq_100i_0' name='LPM000131|FRM000180|PPM00000477|text_sq_100' type='radio' checked=False value='PPV00000881' ph=''
+   - 'Ya, kurang dari 2 minggu'               | id='sq_100i_1' name='LPM000131|FRM000180|PPM00000477|text_sq_100' type='radio' checked=False value='PPV00000882' ph=''
+   - 'Tidak batuk'                            | id='sq_100i_2' name='LPM000131|FRM000180|PPM00000477|text_sq_100' type='radio' checked=False value='PPV00000883' ph=''
+   - ''                                       | id='' name='' type='button' checked=False value='Kirim' ph=''
+[FORM:Faktor Risiko TB - Dewasa & Lansia] QTITLE (sq -> judul pertanyaan):
+   - sq_100: '1. Apakah Anda pernah atau sedang mengalami batuk yang tidak sembuh-sembuh? *'
+[FORM:Faktor Risiko TB - Dewasa & Lansia] SELECT (label | id | name | options):
+[FORM:Faktor Risiko TB - Dewasa & Lansia] TEXTAREA:
+[FORM:Faktor Risiko TB - Dewasa & Lansia] Dropdown custom (Vue):
+[FORM:Faktor Risiko TB - Dewasa & Lansia] Heading/tab/section:
+   - 'Faktor Risiko TB - Dewasa & Lansia'
+[FORM:Faktor Risiko TB - Dewasa & Lansia] Tombol:
+   - 'Kembali ke Halaman Utama'
+######################################################################
+[DIAG] (4/22) Buka form: 'Hati' [sumber=Default]
+======================================================================
+[FORM:Hati] URL: https://form.kemkes.go.id/v2/skrining-form/3PVZ6HhjB32tOCNvyIuXPeHTWIfPKr9GhnNrmmbKe39PFnSheTT3c5YAG4qIOfw9Czl-VNlGsYIUiOoXSQbZZtjn6BNwLd0QD-fWEng%3D?ctx=XN-3Rv6fFQlDZX4LfltS3w4UcKnrrBvqQuuGsnGegsBFUDYHwvQ%3D&redirectUrl=https%3A%2F%2Fsehatindonesiaku.kemkes.go.id%2Fckg-pelayanan%2Fdetail-pemeriksaan%3F_d%3DeyJlIjoiVFByMlhsZGNNMDAwVGRWbFdIYWkzOGI2V3AvaFU3c2JpWjZFcWJOUGpWY0F5STNiOWZob0Rxdm9IUUQ0MGRVUzNxSjVOTXRrdVhpcmlSanBKSU82U3V1R0FVaVE4Q0VYM3AzQit5MDAiLCJpdiI6IkE5YkUwTXgzV1l5SGtQUTAiLCJlayI6ImFPUnZQa042Wll5Y3BwMlhpTndIa2tYdERrU3Q1bHdiVjR3RzlFVU1xa3lka1NEeUVpcXJlZW92WnB4cnBHVGpEbXJvbGU5TFUxT09CTUlSSEg1UzVrZlpiaXFtb2toaklWb25VQXZxUmlIUCtjdElOOWMxOUpJbWp4dkR2bENyVUxUajFWU0wwNWszRHRJNUd1UHowa29KaEkxdjVobENFR3N6ZzBtVSt0dVVIWmxDRkNjNlhIQVNOQ1ViNEMwUFdQZjY0TWdvZGJsSTR2aUJiS2s0NGZHZlF6MUpXQTl1Q1RZRVFwSU5HaXh0dms4ZFFnSnBPRUlwbUpQOUdTSWNObHJYVVZuV3kzU0g2VmRQelV5L1A5eS9heWp2Q0hrcFByQ3pTU0hpcHRmcFl5VjNhRXdSanZudHh1TExvQThUYTkrUnJoZXprQ0FzaW45T2Z1L2FRUT09IiwiayI6Im1JN0FGOVN6MkEifQ%25253D%25253D-98sec11-rowfrm000028&mitra=EpYfdnjLFzvP1fJplbPDK24fxmOa8PDNNq331SkP0Mcgafg15-mz6QXkrdqbhRLE7lgxh5rfvfx91pl_hqTYEELzC97NE7mLL0ESFZ6oCFWDaj5-ApHnFrBjHA98UfS-OFm1zMgIls4Dwr_BqvPdF1Wa2xXhMOtsgiiaP1J4zXywUP3QU8O5XvWTaXRYA7rGKc4eX9JDQay7OGJ1UkdMBCK34zHHfDiFtnlO8r5CrmNuRnl3Owcgd2tN-1kJa45qg68sEYPw6WUpoligZG7l9FRZjEtUP7wiaMAn2BpXct4DCoYSxuxjIMt-1OZ22wbZk3ysgSwAIdaVJz2djLgQeQmVqCq1XyCe9SpydbYz6pHenYmugbuoJcAcmvgLm2K_yNPIryadI6s2
+[FORM:Hati] INPUT (label | id | name | type | value | placeholder):
+   - 'Ya'                                     | id='sq_100i_0' name='LPM000061|FRM000028|PPM00000176|text_sq_100' type='radio' checked=False value='PPV00000349' ph=''
+   - 'Tidak'                                  | id='sq_100i_1' name='LPM000061|FRM000028|PPM00000176|text_sq_100' type='radio' checked=False value='PPV00000350' ph=''
+   - 'Ya'                                     | id='sq_101i_0' name='LPM000061|FRM000028|PPM00000177|text_sq_101' type='radio' checked=False value='PPV00000351' ph=''
+   - 'Tidak'                                  | id='sq_101i_1' name='LPM000061|FRM000028|PPM00000177|text_sq_101' type='radio' checked=False value='PPV00000352' ph=''
+   - 'Ya'                                     | id='sq_102i_0' name='LPM000061|FRM000028|PPM00000178|text_sq_102' type='radio' checked=False value='PPV00000353' ph=''
+   - 'Tidak'                                  | id='sq_102i_1' name='LPM000061|FRM000028|PPM00000178|text_sq_102' type='radio' checked=False value='PPV00000354' ph=''
+   - 'Ya'                                     | id='sq_103i_0' name='LPM000061|FRM000028|PPM00000179|text_sq_103' type='radio' checked=False value='PPV00000355' ph=''
+   - 'Tidak'                                  | id='sq_103i_1' name='LPM000061|FRM000028|PPM00000179|text_sq_103' type='radio' checked=False value='PPV00000356' ph=''
+   - 'Ya'                                     | id='sq_104i_0' name='LPM000061|FRM000028|PPM00000180|text_sq_104' type='radio' checked=False value='PPV00000357' ph=''
+   - 'Tidak'                                  | id='sq_104i_1' name='LPM000061|FRM000028|PPM00000180|text_sq_104' type='radio' checked=False value='PPV00000358' ph=''
+   - 'Ya'                                     | id='sq_105i_0' name='LPM000061|FRM000028|PPM00000181|text_sq_105' type='radio' checked=False value='PPV00000359' ph=''
+   - 'Tidak'                                  | id='sq_105i_1' name='LPM000061|FRM000028|PPM00000181|text_sq_105' type='radio' checked=False value='PPV00000360' ph=''
+   - 'Ya'                                     | id='sq_106i_0' name='LPM000061|FRM000028|PPM00000182|text_sq_106' type='radio' checked=False value='PPV00000361' ph=''
+   - 'Tidak'                                  | id='sq_106i_1' name='LPM000061|FRM000028|PPM00000182|text_sq_106' type='radio' checked=False value='PPV00000362' ph=''
+   - 'Ya'                                     | id='sq_107i_0' name='LPM000061|FRM000028|PPM00000221|text_sq_107' type='radio' checked=False value='PPV00000448' ph=''
+   - 'Tidak'                                  | id='sq_107i_1' name='LPM000061|FRM000028|PPM00000221|text_sq_107' type='radio' checked=False value='PPV00000449' ph=''
+   - 'Ya'                                     | id='sq_108i_0' name='LPM000061|FRM000028|PPM00000230|text_sq_108' type='radio' checked=False value='PPV00000462' ph=''
+   - 'Tidak'                                  | id='sq_108i_1' name='LPM000061|FRM000028|PPM00000230|text_sq_108' type='radio' checked=False value='PPV00000463' ph=''
+   - ''                                       | id='' name='' type='button' checked=False value='Kirim' ph=''
+[FORM:Hati] QTITLE (sq -> judul pertanyaan):
+   - sq_100: '1. Apakah Anda pernah menjalani tes untuk Hepatitis B dan mendapatkan hasil positif? *'
+   - sq_101: '2. Apakah Anda memiliki ibu kandung/saudara sekandung yang menderita Hepatitis B? *'
+   - sq_102: '3. Apakah anda pernah berhubungan seksual berisiko/tanpa pengaman dengan bukan pasangan suami/istri? *'
+   - sq_103: '4. Apakah Anda pernah menerima transfusi darah sebelumnya? *'
+   - sq_104: '5. Apakah Anda pernah menjalani cuci darah atau hemodialisis? *'
+   - sq_105: '6. Apakah Anda pernah menggunakan narkoba, obat terlarang, atau bahan adiktif lainnya dengan cara disuntik? *'
+   - sq_106: '7. Apakah Anda adalah orang dengan HIV (ODHIV)? *'
+   - sq_107: '8. Apakah Anda pernah mendapatkan pengobatan Hepatitis C dan tidak sembuh? *'
+   - sq_108: '9. Apakah Anda pernah didiagnosa atau mendapatkan hasil pemeriksaan kolesterol (lemak darah) tinggi? *'
+[FORM:Hati] SELECT (label | id | name | options):
+[FORM:Hati] TEXTAREA:
+[FORM:Hati] Dropdown custom (Vue):
+[FORM:Hati] Heading/tab/section:
+   - 'Hati'
+[FORM:Hati] Tombol:
+   - 'Kembali ke Halaman Utama'
+######################################################################
+[DIAG] (5/22) Buka form: 'Kanker Leher Rahim' [sumber=Default]
+======================================================================
+[FORM:Kanker Leher Rahim] URL: https://form.kemkes.go.id/v2/skrining-form/3ge_sm8nIzMjxF-Ze89mViLGlqKkTRllbQbenSKxotM-RbNiY6PfsAxFvW8CpgvURQ66ydbZi3jCYkV4UJzgTvrEUwAoL97iBpzLPDA%3D?ctx=0muGJ32ogrIviuH4PInUH_tRdHHFXB6wckScYOUCTvWDpPiWaKI%3D&redirectUrl=https%3A%2F%2Fsehatindonesiaku.kemkes.go.id%2Fckg-pelayanan%2Fdetail-pemeriksaan%3F_d%3DeyJlIjoiVFByMlhsZGNNMDAwVGRWbFdIYWkzOGI2V3AvaFU3c2JpWjZFcWJOUGpWY0F5STNiOWZob0Rxdm9IUUQ0MGRVUzNxSjVOTXRrdVhpcmlSanBKSU82U3V1R0FVaVE4Q0VYM3AzQit5MDAiLCJpdiI6IkE5YkUwTXgzV1l5SGtQUTAiLCJlayI6ImFPUnZQa042Wll5Y3BwMlhpTndIa2tYdERrU3Q1bHdiVjR3RzlFVU1xa3lka1NEeUVpcXJlZW92WnB4cnBHVGpEbXJvbGU5TFUxT09CTUlSSEg1UzVrZlpiaXFtb2toaklWb25VQXZxUmlIUCtjdElOOWMxOUpJbWp4dkR2bENyVUxUajFWU0wwNWszRHRJNUd1UHowa29KaEkxdjVobENFR3N6ZzBtVSt0dVVIWmxDRkNjNlhIQVNOQ1ViNEMwUFdQZjY0TWdvZGJsSTR2aUJiS2s0NGZHZlF6MUpXQTl1Q1RZRVFwSU5HaXh0dms4ZFFnSnBPRUlwbUpQOUdTSWNObHJYVVZuV3kzU0g2VmRQelV5L1A5eS9heWp2Q0hrcFByQ3pTU0hpcHRmcFl5VjNhRXdSanZudHh1TExvQThUYTkrUnJoZXprQ0FzaW45T2Z1L2FRUT09IiwiayI6Im1JN0FGOVN6MkEifQ%25253D%25253D-98sec11-rowfrm000088&mitra=72pBOLrgdnbYhr0qsoq25PAtuYlxi4fVxru62IVVTKCAuexAh2hIJb7743eO2vDkRTarlq7ZUMqTXa8H92kCAVXDZLlmO8qZOC5vhohRd9z3xNy3h_TyN_0r888WGfXVBI1V5BNQKBMB7S47OcuOaqKVpJ1e3_Q5kkp7TVtPg0_RwwvFsUmMsm4w2aqcgKY1fj95w0lyR3QNNnJcPN3oAqxOwi1W0PbU_27TA-JTMxhLavD2G68qn5Q-8C92bJkOvh4Lesl4XiTSJSzSM6IHhInJ6AmqLudq5MlW4B1I-5PrftGQk2BQu-jB0xc_0jNsQ-SVRMfDhzO4XeZzRqSJti6SRJRuyifRYTJVFkhDNMqcviSVoJ70ghMIo14sGOmC_rc1CyVixitd
+[FORM:Kanker Leher Rahim] INPUT (label | id | name | type | value | placeholder):
+   - 'Ya'                                     | id='sq_100i_0' name='LPM000062|FRM000088|PPM00000171|text_sq_100' type='radio' checked=False value='PPV00000345' ph=''
+   - 'Tidak'                                  | id='sq_100i_1' name='LPM000062|FRM000088|PPM00000171|text_sq_100' type='radio' checked=False value='PPV00000346' ph=''
+   - ''                                       | id='' name='' type='button' checked=False value='Kirim' ph=''
+[FORM:Kanker Leher Rahim] QTITLE (sq -> judul pertanyaan):
+   - sq_100: '1. Apakah pernah melakukan hubungan intim/seksual? *'
+[FORM:Kanker Leher Rahim] SELECT (label | id | name | options):
+[FORM:Kanker Leher Rahim] TEXTAREA:
+[FORM:Kanker Leher Rahim] Dropdown custom (Vue):
+[FORM:Kanker Leher Rahim] Heading/tab/section:
+   - 'Kanker Leher Rahim'
+[FORM:Kanker Leher Rahim] Tombol:
+   - 'Kembali ke Halaman Utama'
+######################################################################
+[DIAG] (6/22) Buka form: 'Kesehatan Jiwa' [sumber=Default]
+======================================================================
+[FORM:Kesehatan Jiwa] URL: https://form.kemkes.go.id/v2/skrining-form/zOn3Mryqf1N__A4uaqHRZLIV1RgbAG4SXe_xKyU9l4C7YXhen_GKvmC4LvDb9Dag3uGS4NyxIs-8t8SmoUs_k60DecG9cFMpiAeLs3g%3D?ctx=2W0hOAoPXgVxRNe_v_abwSWacV4M0dSo4pl_iRhV9COB-UrwYjY%3D&redirectUrl=https%3A%2F%2Fsehatindonesiaku.kemkes.go.id%2Fckg-pelayanan%2Fdetail-pemeriksaan%3F_d%3DeyJlIjoiVFByMlhsZGNNMDAwVGRWbFdIYWkzOGI2V3AvaFU3c2JpWjZFcWJOUGpWY0F5STNiOWZob0Rxdm9IUUQ0MGRVUzNxSjVOTXRrdVhpcmlSanBKSU82U3V1R0FVaVE4Q0VYM3AzQit5MDAiLCJpdiI6IkE5YkUwTXgzV1l5SGtQUTAiLCJlayI6ImFPUnZQa042Wll5Y3BwMlhpTndIa2tYdERrU3Q1bHdiVjR3RzlFVU1xa3lka1NEeUVpcXJlZW92WnB4cnBHVGpEbXJvbGU5TFUxT09CTUlSSEg1UzVrZlpiaXFtb2toaklWb25VQXZxUmlIUCtjdElOOWMxOUpJbWp4dkR2bENyVUxUajFWU0wwNWszRHRJNUd1UHowa29KaEkxdjVobENFR3N6ZzBtVSt0dVVIWmxDRkNjNlhIQVNOQ1ViNEMwUFdQZjY0TWdvZGJsSTR2aUJiS2s0NGZHZlF6MUpXQTl1Q1RZRVFwSU5HaXh0dms4ZFFnSnBPRUlwbUpQOUdTSWNObHJYVVZuV3kzU0g2VmRQelV5L1A5eS9heWp2Q0hrcFByQ3pTU0hpcHRmcFl5VjNhRXdSanZudHh1TExvQThUYTkrUnJoZXprQ0FzaW45T2Z1L2FRUT09IiwiayI6Im1JN0FGOVN6MkEifQ%25253D%25253D-98sec11-rowfrm000067&mitra=L0R3-nLYwfEpm5bC8xEWdXETpsaKl4grWSyW9WLed9xO6ADX9Ui32lMQtAuUu9vY36iu34rStHGUM7TSwO1ZOC2QjOWjb-uE_0FaF6dh1nSM1ESdhAIyVv17eR63O4-2B3BDoWD6vn_n0Fr9VP5jkyYfcxSqw-AGDttO6Fin3Nxx9t83cO5hYjBbuhUQLwMykvY0kf6tECentPHdpcNdbvzwnyOX9uAm0yKpjVzrjEPfsT6wxspClSghBSeGeRCQrdEaF8Ev7ZdjMJz1TAWaLmnAz00Lp3jOUJdCAsCEezfuUECWHN7CmiC1rW3aFd2mS9Y4skvi5h1WNJrOTfGXYKCM0zCWdrpNetT_VsfQM0EdA_IlqhjopFJ_IXuJV-tlz_o4EN_2A1Pb
+[FORM:Kesehatan Jiwa] INPUT (label | id | name | type | value | placeholder):
+   - 'Tidak sama sekali'                      | id='sq_100i_0' name='LPM000023|FRM000067|PPM00000192|text_sq_100' type='radio' checked=False value='PPV00000381' ph=''
+   - 'Kurang dari 1 minggu'                   | id='sq_100i_1' name='LPM000023|FRM000067|PPM00000192|text_sq_100' type='radio' checked=False value='PPV00000388' ph=''
+   - 'Lebih dari 1 minggu'                    | id='sq_100i_2' name='LPM000023|FRM000067|PPM00000192|text_sq_100' type='radio' checked=False value='PPV00000392' ph=''
+   - 'Hampir setiap hari'                     | id='sq_100i_3' name='LPM000023|FRM000067|PPM00000192|text_sq_100' type='radio' checked=False value='PPV00000396' ph=''
+   - 'Tidak sama sekali'                      | id='sq_101i_0' name='LPM000023|FRM000067|PPM00000193|text_sq_101' type='radio' checked=False value='PPV00000382' ph=''
+   - 'Kurang dari 1 minggu'                   | id='sq_101i_1' name='LPM000023|FRM000067|PPM00000193|text_sq_101' type='radio' checked=False value='PPV00000385' ph=''
+   - 'Lebih dari 1 minggu'                    | id='sq_101i_2' name='LPM000023|FRM000067|PPM00000193|text_sq_101' type='radio' checked=False value='PPV00000389' ph=''
+   - 'Hampir setiap hari'                     | id='sq_101i_3' name='LPM000023|FRM000067|PPM00000193|text_sq_101' type='radio' checked=False value='PPV00000393' ph=''
+   - 'Tidak sama sekali'                      | id='sq_102i_0' name='LPM000023|FRM000067|PPM00000194|text_sq_102' type='radio' checked=False value='PPV00000383' ph=''
+   - 'Kurang dari 1 minggu'                   | id='sq_102i_1' name='LPM000023|FRM000067|PPM00000194|text_sq_102' type='radio' checked=False value='PPV00000386' ph=''
+   - 'Lebih dari 1 minggu'                    | id='sq_102i_2' name='LPM000023|FRM000067|PPM00000194|text_sq_102' type='radio' checked=False value='PPV00000390' ph=''
+   - 'Hampir setiap hari'                     | id='sq_102i_3' name='LPM000023|FRM000067|PPM00000194|text_sq_102' type='radio' checked=False value='PPV00000394' ph=''
+   - 'Tidak sama sekali'                      | id='sq_103i_0' name='LPM000023|FRM000067|PPM00000195|text_sq_103' type='radio' checked=False value='PPV00000384' ph=''
+   - 'Kurang dari 1 minggu'                   | id='sq_103i_1' name='LPM000023|FRM000067|PPM00000195|text_sq_103' type='radio' checked=False value='PPV00000387' ph=''
+   - 'Lebih dari 1 minggu'                    | id='sq_103i_2' name='LPM000023|FRM000067|PPM00000195|text_sq_103' type='radio' checked=False value='PPV00000391' ph=''
+   - 'Hampir setiap hari'                     | id='sq_103i_3' name='LPM000023|FRM000067|PPM00000195|text_sq_103' type='radio' checked=False value='PPV00000395' ph=''
+   - ''                                       | id='' name='' type='button' checked=False value='Kirim' ph=''
+[FORM:Kesehatan Jiwa] QTITLE (sq -> judul pertanyaan):
+   - sq_100: '1. Dalam 2 minggu terakhir, seberapa sering anda kurang/ tidak bersemangat dalam melakukan kegiatan sehari-hari? *'
+   - sq_101: '2. Dalam 2 minggu terakhir, seberapa sering anda merasa murung, tertekan, atau putus asa? *'
+   - sq_102: '3. Dalam 2 minggu terakhir, seberapa sering anda merasa gugup, cemas, atau gelisah? *'
+   - sq_103: '4. Dalam 2 minggu terakhir, seberapa sering anda tidak mampu mengendalikan rasa khawatir? *'
+[FORM:Kesehatan Jiwa] SELECT (label | id | name | options):
+[FORM:Kesehatan Jiwa] TEXTAREA:
+[FORM:Kesehatan Jiwa] Dropdown custom (Vue):
+[FORM:Kesehatan Jiwa] Heading/tab/section:
+   - 'Kesehatan Jiwa'
+[FORM:Kesehatan Jiwa] Tombol:
+   - 'Kembali ke Halaman Utama'
+######################################################################
+[DIAG] (7/22) Buka form: 'Penapisan Risiko Kanker Paru' [sumber=Default]
+======================================================================
+[FORM:Penapisan Risiko Kanker Paru] URL: https://form.kemkes.go.id/v2/skrining-form/Sbdu9W2mjjWBoK40LLaWSy8roDpHFOAGgjM3Frd59oBC3Y55rxSnG-aBZBTPQ0NL5zhj7YOiRWgpROaqzJCCAx6HETPA6pEjlRSF_Lc%3D?ctx=3e8hmf2u4WEkBetIY-MkYLGyxbOPuOyY_f98SQ2SI3HoHqDEvWo%3D&redirectUrl=https%3A%2F%2Fsehatindonesiaku.kemkes.go.id%2Fckg-pelayanan%2Fdetail-pemeriksaan%3F_d%3DeyJlIjoiVFByMlhsZGNNMDAwVGRWbFdIYWkzOGI2V3AvaFU3c2JpWjZFcWJOUGpWY0F5STNiOWZob0Rxdm9IUUQ0MGRVUzNxSjVOTXRrdVhpcmlSanBKSU82U3V1R0FVaVE4Q0VYM3AzQit5MDAiLCJpdiI6IkE5YkUwTXgzV1l5SGtQUTAiLCJlayI6ImFPUnZQa042Wll5Y3BwMlhpTndIa2tYdERrU3Q1bHdiVjR3RzlFVU1xa3lka1NEeUVpcXJlZW92WnB4cnBHVGpEbXJvbGU5TFUxT09CTUlSSEg1UzVrZlpiaXFtb2toaklWb25VQXZxUmlIUCtjdElOOWMxOUpJbWp4dkR2bENyVUxUajFWU0wwNWszRHRJNUd1UHowa29KaEkxdjVobENFR3N6ZzBtVSt0dVVIWmxDRkNjNlhIQVNOQ1ViNEMwUFdQZjY0TWdvZGJsSTR2aUJiS2s0NGZHZlF6MUpXQTl1Q1RZRVFwSU5HaXh0dms4ZFFnSnBPRUlwbUpQOUdTSWNObHJYVVZuV3kzU0g2VmRQelV5L1A5eS9heWp2Q0hrcFByQ3pTU0hpcHRmcFl5VjNhRXdSanZudHh1TExvQThUYTkrUnJoZXprQ0FzaW45T2Z1L2FRUT09IiwiayI6Im1JN0FGOVN6MkEifQ%25253D%25253D-98sec11-rowfrm000138&mitra=JR3CxIoLLvJJW9rCR6zIU6zlF3k0DapknD07yTOPTFy8EfCE2jbvkXECgE2RIzGFtq-OjCUtRA4brfbiHb8ULiHw8SNf6s9uEsJk2u9gnothqEmYgKB8kqyZ-8C12H9xlmVaIsDSp8zQmF6gBCqeSO2e_PVudAJiBj-tEGla62PKFRZOAzsv44je8KOyMPw3u5On8-KPKBBXr3C850xI7CC1xhoARkPIynHSafJZPxRTC7kP-IFfYeseW36s27EyFxCDYbLsVdkj5lDEi2TqOn8WIp1fkYAV0BzUD7ZzaoY_lRtP1M8I-9M66OWCQQOrjY1OEkH0cZqbfXCTp46VyZmi3jO4cHVScEpnWzYvucvpNP_G8YJcGC0R5pl0rgZMp7cM72PUaXLI
+[FORM:Penapisan Risiko Kanker Paru] INPUT (label | id | name | type | value | placeholder):
+   - 'Ya'                                     | id='sq_100i_0' name='LPM000105|FRM000138|PPM00000561|text_sq_100' type='radio' checked=False value='PPV00001024' ph=''
+   - 'Tidak'                                  | id='sq_100i_1' name='LPM000105|FRM000138|PPM00000561|text_sq_100' type='radio' checked=False value='PPV00001025' ph=''
+   - 'Ya'                                     | id='sq_102i_0' name='LPM000105|FRM000138|PPM00000563|text_sq_102' type='radio' checked=False value='PPV00001028' ph=''
+   - 'Tidak'                                  | id='sq_102i_1' name='LPM000105|FRM000138|PPM00000563|text_sq_102' type='radio' checked=False value='PPV00001029' ph=''
+   - 'Ya'                                     | id='sq_103i_0' name='LPM000105|FRM000138|PPM00000402|text_sq_103' type='radio' checked=False value='PPV00000736' ph=''
+   - 'Tidak'                                  | id='sq_103i_1' name='LPM000105|FRM000138|PPM00000402|text_sq_103' type='radio' checked=False value='PPV00000737' ph=''
+   - 'Ya'                                     | id='sq_104i_0' name='LPM000105|FRM000138|PPM00000564|text_sq_104' type='radio' checked=False value='PPV00001030' ph=''
+   - 'Tidak'                                  | id='sq_104i_1' name='LPM000105|FRM000138|PPM00000564|text_sq_104' type='radio' checked=False value='PPV00001031' ph=''
+   - 'Ya'                                     | id='sq_105i_0' name='LPM000105|FRM000138|PPM00000565|text_sq_105' type='radio' checked=False value='PPV00001032' ph=''
+   - 'Tidak'                                  | id='sq_105i_1' name='LPM000105|FRM000138|PPM00000565|text_sq_105' type='radio' checked=False value='PPV00001033' ph=''
+   - ''                                       | id='' name='' type='button' checked=False value='Kirim' ph=''
+[FORM:Penapisan Risiko Kanker Paru] QTITLE (sq -> judul pertanyaan):
+   - sq_100: '1. Apakah Anda merokok dalam setahun terakhir ini? *'
+   - sq_102: '2. Apakah Anda terpapar atau menghirup asap rokok dari orang lain di rumah, lingkungan atau tempat kerja dalam 1 bulan terakhir? *'
+   - sq_103: '3. Apakah memiliki riwayat kanker paru pada keluarga (ayah/ibu/saudara kandung)? *'
+   - sq_104: '4. Apakah Anda sedang mengalami salah satu atau lebih gejala berikut dan telah diobati tetapi tidak sembuh-sembuh : batuk dalam jangka waktu yang lama / batuk berdarah/ sesak napas/ nyeri dada/ leher bengkak/ terdapat benjolan pada leher? *'
+   - sq_105: '5. Apakah Anda pernah memiliki riwayat penyakit TBC atau PPOK? *'
+[FORM:Penapisan Risiko Kanker Paru] SELECT (label | id | name | options):
+[FORM:Penapisan Risiko Kanker Paru] TEXTAREA:
+[FORM:Penapisan Risiko Kanker Paru] Dropdown custom (Vue):
+[FORM:Penapisan Risiko Kanker Paru] Heading/tab/section:
+   - 'Penapisan Risiko Kanker Paru'
+[FORM:Penapisan Risiko Kanker Paru] Tombol:
+   - 'Kembali ke Halaman Utama'
+######################################################################
+[DIAG] (8/22) Buka form: 'Perilaku Merokok' [sumber=Default]
+======================================================================
+[FORM:Perilaku Merokok] URL: https://form.kemkes.go.id/v2/skrining-form/rAa6cTc_nBHTHGQiPsJ0nkqczMpseH5EzyUD_qCnoVp9yDE4c2m3CrGY--LrDT_qE7rCq73-gh24YknZh-3uhz7xU8Z99sOfCnme5Wc%3D?ctx=vT1Kc4iWDC06PVPatykkWJwzGxI8tdntel_Z2y2mPrxzunVxle8%3D&redirectUrl=https%3A%2F%2Fsehatindonesiaku.kemkes.go.id%2Fckg-pelayanan%2Fdetail-pemeriksaan%3F_d%3DeyJlIjoiVFByMlhsZGNNMDAwVGRWbFdIYWkzOGI2V3AvaFU3c2JpWjZFcWJOUGpWY0F5STNiOWZob0Rxdm9IUUQ0MGRVUzNxSjVOTXRrdVhpcmlSanBKSU82U3V1R0FVaVE4Q0VYM3AzQit5MDAiLCJpdiI6IkE5YkUwTXgzV1l5SGtQUTAiLCJlayI6ImFPUnZQa042Wll5Y3BwMlhpTndIa2tYdERrU3Q1bHdiVjR3RzlFVU1xa3lka1NEeUVpcXJlZW92WnB4cnBHVGpEbXJvbGU5TFUxT09CTUlSSEg1UzVrZlpiaXFtb2toaklWb25VQXZxUmlIUCtjdElOOWMxOUpJbWp4dkR2bENyVUxUajFWU0wwNWszRHRJNUd1UHowa29KaEkxdjVobENFR3N6ZzBtVSt0dVVIWmxDRkNjNlhIQVNOQ1ViNEMwUFdQZjY0TWdvZGJsSTR2aUJiS2s0NGZHZlF6MUpXQTl1Q1RZRVFwSU5HaXh0dms4ZFFnSnBPRUlwbUpQOUdTSWNObHJYVVZuV3kzU0g2VmRQelV5L1A5eS9heWp2Q0hrcFByQ3pTU0hpcHRmcFl5VjNhRXdSanZudHh1TExvQThUYTkrUnJoZXprQ0FzaW45T2Z1L2FRUT09IiwiayI6Im1JN0FGOVN6MkEifQ%25253D%25253D-98sec11-rowfrm000064&mitra=vGYOmdj7o-394PLk68Bag6XAcMzm4jpcUyzQipu8MUPPhjUl1C5IwvxDWpl4hk7NyAUjsy7Q2Gl0ydogiFtsHiP3rZSZrmuXqodzYSPUsBtLqSvq7nmwDOPt2kEf2V9fU0GLAWFYsINmQq9kYyPoTh5WIAWFENDNNWAk8pRoywLNsjgRns0XjUM_UuHtwdOkGUTuNA0scuv02xl1vacS3SQO0_ELPC2U1BvGw2SKC2g9zCrks0UTPXHxLMYhiQ3Ac4haptVzfnYfbzJuazKdCaBulxqlYyTOoAPPGnUV76OlA2HU0EwomHyav-hcjYeirtoJ7FAS042b3g1I_C5agFsRFPsDs4A4xH49wsDzPYk4ZxjQDoX2mgzvebABIZPDcwttlaWjj31p
+[FORM:Perilaku Merokok] INPUT (label | id | name | type | value | placeholder):
+   - 'Ya'                                     | id='sq_100i_0' name='LPM000057|FRM000064|PPM00000183|text_sq_100' type='radio' checked=False value='PPV00000364' ph=''
+   - 'Tidak'                                  | id='sq_100i_1' name='LPM000057|FRM000064|PPM00000183|text_sq_100' type='radio' checked=False value='PPV00000365' ph=''
+   - 'Ya'                                     | id='sq_107i_0' name='LPM000057|FRM000064|PPM00000218|text_sq_107' type='radio' checked=False value='PPV00000438' ph=''
+   - 'Tidak'                                  | id='sq_107i_1' name='LPM000057|FRM000064|PPM00000218|text_sq_107' type='radio' checked=False value='PPV00000439' ph=''
+   - ''                                       | id='' name='' type='button' checked=False value='Kirim' ph=''
+[FORM:Perilaku Merokok] QTITLE (sq -> judul pertanyaan):
+   - sq_100: '1. Apakah Anda merokok dalam setahun terakhir ini? *'
+   - sq_107: '2. Apakah Anda terpapar asap rokok atau menghirup asap rokok dari orang lain dalam sebulan terakhir? *'
+[FORM:Perilaku Merokok] SELECT (label | id | name | options):
+[FORM:Perilaku Merokok] TEXTAREA:
+[FORM:Perilaku Merokok] Dropdown custom (Vue):
+[FORM:Perilaku Merokok] Heading/tab/section:
+   - 'Perilaku Merokok'
+[FORM:Perilaku Merokok] Tombol:
+   - 'Kembali ke Halaman Utama'
+######################################################################
+[DIAG] (9/22) Buka form: 'Tingkat Aktivitas Fisik (sedang dan berat)' [sumber=Default]
+======================================================================
+[FORM:Tingkat Aktivitas Fisik (sedang dan berat)] URL: https://form.kemkes.go.id/v2/skrining-form/8Y8v4G9hRLBc6C4Ra0GlZJEC71FiE1oIL2vGqCXlIn0oeE--acRkA49UzECnBmcYZaLII_DuQeWuPuebxvAoC8LyYCTlg1Z3RG5uV2M%3D?ctx=CEqgKGGFIL-tkAr3UbF5BFZCrQ7nGFoq19Q7dE2Y6if3UMCDjzM%3D&redirectUrl=https%3A%2F%2Fsehatindonesiaku.kemkes.go.id%2Fckg-pelayanan%2Fdetail-pemeriksaan%3F_d%3DeyJlIjoiVFByMlhsZGNNMDAwVGRWbFdIYWkzOGI2V3AvaFU3c2JpWjZFcWJOUGpWY0F5STNiOWZob0Rxdm9IUUQ0MGRVUzNxSjVOTXRrdVhpcmlSanBKSU82U3V1R0FVaVE4Q0VYM3AzQit5MDAiLCJpdiI6IkE5YkUwTXgzV1l5SGtQUTAiLCJlayI6ImFPUnZQa042Wll5Y3BwMlhpTndIa2tYdERrU3Q1bHdiVjR3RzlFVU1xa3lka1NEeUVpcXJlZW92WnB4cnBHVGpEbXJvbGU5TFUxT09CTUlSSEg1UzVrZlpiaXFtb2toaklWb25VQXZxUmlIUCtjdElOOWMxOUpJbWp4dkR2bENyVUxUajFWU0wwNWszRHRJNUd1UHowa29KaEkxdjVobENFR3N6ZzBtVSt0dVVIWmxDRkNjNlhIQVNOQ1ViNEMwUFdQZjY0TWdvZGJsSTR2aUJiS2s0NGZHZlF6MUpXQTl1Q1RZRVFwSU5HaXh0dms4ZFFnSnBPRUlwbUpQOUdTSWNObHJYVVZuV3kzU0g2VmRQelV5L1A5eS9heWp2Q0hrcFByQ3pTU0hpcHRmcFl5VjNhRXdSanZudHh1TExvQThUYTkrUnJoZXprQ0FzaW45T2Z1L2FRUT09IiwiayI6Im1JN0FGOVN6MkEifQ%25253D%25253D-98sec11-rowfrm000169&mitra=gWujxamBboGzHJuvRvIFiKOhfq0RY95iFACqtUC1xDvD0ed9Hk-eJof8R1dBwjYcAvvoOja9hEmNx_9hK15-pkSP18MIx5aZXDIiKrMWiFXvAcHiMtIVGaPMzyi-02eqVguuJb8I6rpauyZYGr5vt0uGVG6sqgZyUEaZA8TwPIKPjrvA_tyHwUpfKEgMmuv6g_oOjJ5XKBZW89hmmxI_j6yG4HrIvLqDJoKbBaMgwp5suSsb6WS0w9r3Myw1vXRw7_jcmro3UtoFPDKFwGXzWkmcfzwsbJpJBO8DiA4bLeUKm1vBvj-Rnfu61QvA0HB3_8Sbsyl-tKOJlcsjJcrhFaNqA4WNvbwX7DOsJb2SkyDuTv6DVcAvGoILBUUFO_2Ae1tZ5khJ_zf9
+[FORM:Tingkat Aktivitas Fisik (sedang dan berat)] INPUT (label | id | name | type | value | placeholder):
+   - ''                                       | id='sq_100i_0' name='' type='text' checked=False value='' ph='Aktivitas fisik intensitas sedang adalah aktivitas yang akan meningkatkan pernafasan dan denyut jantung, anda masih bisa berbicara namun kesulitan bernyanyi'
+   - ''                                       | id='sq_103i_0' name='' type='text' checked=False value='' ph='Aktivitas fisik intensitas sedang adalah aktivitas yang akan meningkatkan pernafasan dan denyut jantung, anda masih bisa berbicara namun kesulitan bernyanyi'
+   - ''                                       | id='sq_106i_0' name='' type='text' checked=False value='' ph='Aktivitas fisik intensitas sedang adalah aktivitas yang akan meningkatkan pernafasan dan denyut jantung, anda masih bisa berbicara namun kesulitan bernyanyi'
+   - ''                                       | id='sq_109i_0' name='' type='text' checked=False value='' ph='Aktivitas fisik intensitas sedang adalah aktivitas yang akan meningkatkan pernafasan dan denyut jantung, anda masih bisa berbicara namun kesulitan bernyanyi'
+   - ''                                       | id='sq_112i_0' name='' type='text' checked=False value='' ph='Aktivitas fisik intensitas berat adalah aktivitas yang membuat anda terengah-engah dan kesulitan berbicara'
+   - ''                                       | id='sq_115i_0' name='' type='text' checked=False value='' ph='Aktivitas fisik intensitas berat adalah aktivitas yang membuat anda terengah-engah dan kesulitan berbicara'
+   - ''                                       | id='' name='' type='button' checked=False value='Kirim' ph=''
+[FORM:Tingkat Aktivitas Fisik (sedang dan berat)] QTITLE (sq -> judul pertanyaan):
+   - sq_100: '1. Apakah Anda melakukan aktivitas fisik sedang pada kegiatan rumah tangga/domestik seperti membersihkan rumah/lingkungan (menyapu, menata perabotan), mencuci baju manual, memasak, mengasuh anak, atau mengangkat beban dengan berat < 20 kg? *'
+   - sq_103: '2. Apakah Anda melakukan aktivitas fisik sedang pada tempat kerja seperti pekerjaan dengan mengangkat beban, memberi makan ternak, berkebun dan membersihkan kendaraan (motor/mobil/perahu)? *'
+   - sq_106: '3. Apakah Anda melakukan aktivitas fisik sedang dalam perjalanan seperti berjalan kaki atau bersepeda ke ladang, sawah, pasar dan tempat kerja? *'
+   - sq_109: '4. Apakah Anda melakukan olahraga intensitas sedang seperti latihan beban < 20 kg, senam aerobic, yoga, bermain bola, bersepeda dan berenang (santai)? *'
+[DIAG] ERROR form 'Tingkat Aktivitas Fisik (sedang dan berat)': 'charmap' codec can't encode character '\u2265' in position 127: character maps to <undefined>
+######################################################################
+[DIAG] (10/22) Buka form: 'Gizi (BB - TB - Lingkar Perut) Perempuan' [sumber=Excel]
+======================================================================
+[FORM:Gizi (BB - TB - Lingkar Perut) Perempuan] URL: https://form.kemkes.go.id/v2/skrining-form/zybZd4YJmhUj83C4-8gPkblcJ4VmsRO3K0_GXg30j3FDHPYdjlPLdhZeCwP0k10G-FHP5s1EhfbeqxEYpfEqCo2VVTvg-kP9Zt0Suw8%3D?ctx=ORnVdUsm_sfvikinYMe9aMAqR0_H5qXDnMCIvZK49pwP_b2Sdec%3D&redirectUrl=https%3A%2F%2Fsehatindonesiaku.kemkes.go.id%2Fckg-pelayanan%2Fdetail-pemeriksaan%3F_d%3DeyJlIjoiVFByMlhsZGNNMDAwVGRWbFdIYWkzOGI2V3AvaFU3c2JpWjZFcWJOUGpWY0F5STNiOWZob0Rxdm9IUUQ0MGRVUzNxSjVOTXRrdVhpcmlSanBKSU82U3V1R0FVaVE4Q0VYM3AzQit5MDAiLCJpdiI6IkE5YkUwTXgzV1l5SGtQUTAiLCJlayI6ImFPUnZQa042Wll5Y3BwMlhpTndIa2tYdERrU3Q1bHdiVjR3RzlFVU1xa3lka1NEeUVpcXJlZW92WnB4cnBHVGpEbXJvbGU5TFUxT09CTUlSSEg1UzVrZlpiaXFtb2toaklWb25VQXZxUmlIUCtjdElOOWMxOUpJbWp4dkR2bENyVUxUajFWU0wwNWszRHRJNUd1UHowa29KaEkxdjVobENFR3N6ZzBtVSt0dVVIWmxDRkNjNlhIQVNOQ1ViNEMwUFdQZjY0TWdvZGJsSTR2aUJiS2s0NGZHZlF6MUpXQTl1Q1RZRVFwSU5HaXh0dms4ZFFnSnBPRUlwbUpQOUdTSWNObHJYVVZuV3kzU0g2VmRQelV5L1A5eS9heWp2Q0hrcFByQ3pTU0hpcHRmcFl5VjNhRXdSanZudHh1TExvQThUYTkrUnJoZXprQ0FzaW45T2Z1L2FRUT09IiwiayI6Im1JN0FGOVN6MkEifQ%25253D%25253D-98sec11-rowfrm000051&mitra=OYXHHX8x2OC9KlMhkz-n5Bq6FOqY5xQxhhZbMOHNn_VP2pUG6BDNsd1SR4JMf6YQvFvRWlLAKSshJOyzshfsTkdIvKH5lQqWYBughosd7T5FE1ukhjqh_jzz0-fBTZXBu1ZTvMxdTDpEKBIYe54s_5IKGdVLBWPRh60YE4I-GSoo2FcimsBv0BiDxFJ-dli-L-fCEHChSroIjqYaIwTdI0BSTQNpNmBiAMDAw-X4vvKuqS56mA69pV2HdK1ciI1VOniSH1ZPCxn0u2o1zXmTe4ybhXXUqOR3ga-cE6rT50Dyx-vMFiNLYJNG4X8A-NG-_PfxbGw_ID1awsBWqAhy3C4HQsJzLFjSXOtpyljPyDr7aYLa2xxHs7RIfyYD-GMK3igFeL9TW5Ux
+[FORM:Gizi (BB - TB - Lingkar Perut) Perempuan] INPUT (label | id | name | type | value | placeholder):
+   - '1. Berat Badan (Kg) *'                  | id='sq_100i' name='' type='number' checked=False value='' ph='isikan dalam satuan kg, dengan koma diisi dengan (.)'
+   - '2. Pengukuran Tinggi Badan (cm) *'      | id='sq_101i' name='' type='number' checked=False value='' ph='Isi sesuai hasil pengukuran tinggi badan dalam cm'
+   - '3. Pengukuran Lingkar Perut *'          | id='sq_102i' name='' type='number' checked=False value='' ph='Isi sesuai hasil pengukuran'
+   - ''                                       | id='' name='' type='button' checked=False value='Kirim' ph=''
+[FORM:Gizi (BB - TB - Lingkar Perut) Perempuan] QTITLE (sq -> judul pertanyaan):
+   - sq_100: '1. Berat Badan (Kg) *'
+   - sq_101: '2. Pengukuran Tinggi Badan (cm) *'
+   - sq_102: '3. Pengukuran Lingkar Perut *'
+[FORM:Gizi (BB - TB - Lingkar Perut) Perempuan] SELECT (label | id | name | options):
+[FORM:Gizi (BB - TB - Lingkar Perut) Perempuan] TEXTAREA:
+[FORM:Gizi (BB - TB - Lingkar Perut) Perempuan] Dropdown custom (Vue):
+[FORM:Gizi (BB - TB - Lingkar Perut) Perempuan] Heading/tab/section:
+   - 'Gizi (BB - TB - Lingkar Perut) Perempuan'
+   - '1. Berat Badan (Kg) *'
+   - '2. Pengukuran Tinggi Badan (cm) *'
+   - '3. Pengukuran Lingkar Perut *'
+[FORM:Gizi (BB - TB - Lingkar Perut) Perempuan] Tombol:
+   - 'Kembali ke Halaman Utama'
+######################################################################
+[DIAG] (11/22) Buka form: 'Pemeriksaan Gula Darah Dewasa Lansia' [sumber=Excel]
+======================================================================
+[FORM:Pemeriksaan Gula Darah Dewasa Lansia] URL: https://form.kemkes.go.id/v2/skrining-form/Y7OFSCkY13Lvt91YDISa5_n8XC9dGxZsGN4R9KRS9FVYHzs9AkQEXqwUS2h_kq6IsN_wVNYDRqK42lV22lluVUxNBbRlW_tdQfGVxY4%3D?ctx=hUZ48jYWZr0dc71SsHNMgPjwfpdxlItcSVZ5QJeEkwH3aphK5O0%3D&redirectUrl=https%3A%2F%2Fsehatindonesiaku.kemkes.go.id%2Fckg-pelayanan%2Fdetail-pemeriksaan%3F_d%3DeyJlIjoiVFByMlhsZGNNMDAwVGRWbFdIYWkzOGI2V3AvaFU3c2JpWjZFcWJOUGpWY0F5STNiOWZob0Rxdm9IUUQ0MGRVUzNxSjVOTXRrdVhpcmlSanBKSU82U3V1R0FVaVE4Q0VYM3AzQit5MDAiLCJpdiI6IkE5YkUwTXgzV1l5SGtQUTAiLCJlayI6ImFPUnZQa042Wll5Y3BwMlhpTndIa2tYdERrU3Q1bHdiVjR3RzlFVU1xa3lka1NEeUVpcXJlZW92WnB4cnBHVGpEbXJvbGU5TFUxT09CTUlSSEg1UzVrZlpiaXFtb2toaklWb25VQXZxUmlIUCtjdElOOWMxOUpJbWp4dkR2bENyVUxUajFWU0wwNWszRHRJNUd1UHowa29KaEkxdjVobENFR3N6ZzBtVSt0dVVIWmxDRkNjNlhIQVNOQ1ViNEMwUFdQZjY0TWdvZGJsSTR2aUJiS2s0NGZHZlF6MUpXQTl1Q1RZRVFwSU5HaXh0dms4ZFFnSnBPRUlwbUpQOUdTSWNObHJYVVZuV3kzU0g2VmRQelV5L1A5eS9heWp2Q0hrcFByQ3pTU0hpcHRmcFl5VjNhRXdSanZudHh1TExvQThUYTkrUnJoZXprQ0FzaW45T2Z1L2FRUT09IiwiayI6Im1JN0FGOVN6MkEifQ%25253D%25253D-98sec11-rowfrm000256&mitra=duMAb9fEto9YHC9_eIgULBPX-Jbe2hjUpo8z2qx3O2JS39Yv5D8BQ-YvIGjF24HUKg--XGd-stWyrAMg1m46ylqSqwsZT6XDc26D0zjU5SBw_q_yC02m4WvrqxyaeAbRYGkvus6HnIhczQSdW__KlexGDcy5t_XXL9EyCJBLSj6NXjuxtwaPbHY41Jrh0b-sJTJAmAcuy28DkVph4nOmk8NoOkT7UW7oUuYtPSV6nkdzewkUVYpYge5VlwzNVSy3SY9fFLKyTuIGiQn5H5A-jwE4N5HW0kPFWiOtp8MTVKptRs0Td0mr3KYFf0IaJQ9p66llFpCvYzwW1zAheeigryfmau400HeeSfpXoIRkFwe9lqZ3W9HKgPrbxFTDoRgS2ll-a2VMsjQI
+[FORM:Pemeriksaan Gula Darah Dewasa Lansia] INPUT (label | id | name | type | value | placeholder):
+   - 'Ya'                                     | id='sq_100i_0' name='LPM000072|FRM000256|PPM00000160|text_sq_100' type='radio' checked=False value='PPV00000327' ph=''
+   - 'Tidak'                                  | id='sq_100i_1' name='LPM000072|FRM000256|PPM00000160|text_sq_100' type='radio' checked=False value='PPV00000328' ph=''
+   - '2. Gula Darah Sewaktu (GDS) (mg/dl)'    | id='sq_102i' name='' type='number' checked=False value='' ph=''
+   - '3. Gula Darah Puasa (GDP) (mg/dl)'      | id='sq_104i' name='' type='number' checked=False value='' ph=''
+   - '4. Gula Darah 2 Jam PP (mg/dl)'         | id='sq_105i' name='' type='number' checked=False value='' ph=''
+   - ''                                       | id='' name='' type='button' checked=False value='Kirim' ph=''
+[FORM:Pemeriksaan Gula Darah Dewasa Lansia] QTITLE (sq -> judul pertanyaan):
+   - sq_100: '1. Apakah Anda pernah dinyatakan diabetes atau kencing manis oleh Dokter? *'
+   - sq_102: '2. Gula Darah Sewaktu (GDS) (mg/dl)'
+   - sq_104: '3. Gula Darah Puasa (GDP) (mg/dl)'
+   - sq_105: '4. Gula Darah 2 Jam PP (mg/dl)'
+[FORM:Pemeriksaan Gula Darah Dewasa Lansia] SELECT (label | id | name | options):
+[FORM:Pemeriksaan Gula Darah Dewasa Lansia] TEXTAREA:
+[FORM:Pemeriksaan Gula Darah Dewasa Lansia] Dropdown custom (Vue):
+[FORM:Pemeriksaan Gula Darah Dewasa Lansia] Heading/tab/section:
+   - 'Pemeriksaan Gula Darah Dewasa Lansia'
+   - '2. Gula Darah Sewaktu (GDS) (mg/dl)'
+   - '3. Gula Darah Puasa (GDP) (mg/dl)'
+   - '4. Gula Darah 2 Jam PP (mg/dl)'
+[FORM:Pemeriksaan Gula Darah Dewasa Lansia] Tombol:
+   - 'Kembali ke Halaman Utama'
+######################################################################
+[DIAG] (12/22) Buka form: 'Tekanan Darah Dewasa Lansia' [sumber=Excel]
+======================================================================
+[FORM:Tekanan Darah Dewasa Lansia] URL: https://form.kemkes.go.id/v2/skrining-form/IpYpk972HADmeIGUzsbaEiYrAX2SnSZbxbGfj2ffNpfKP9lo6-vzTPvm5DmOR_kXM42QjuzndZINHgXMm8TLdcqSKKhMb5V2G4IrIwA%3D?ctx=ni1s6nupKpjGAffxA4iyNDY9VbWX6vFTF9My8_5aivbRV5Zyyzs%3D&redirectUrl=https%3A%2F%2Fsehatindonesiaku.kemkes.go.id%2Fckg-pelayanan%2Fdetail-pemeriksaan%3F_d%3DeyJlIjoiVFByMlhsZGNNMDAwVGRWbFdIYWkzOGI2V3AvaFU3c2JpWjZFcWJOUGpWY0F5STNiOWZob0Rxdm9IUUQ0MGRVUzNxSjVOTXRrdVhpcmlSanBKSU82U3V1R0FVaVE4Q0VYM3AzQit5MDAiLCJpdiI6IkE5YkUwTXgzV1l5SGtQUTAiLCJlayI6ImFPUnZQa042Wll5Y3BwMlhpTndIa2tYdERrU3Q1bHdiVjR3RzlFVU1xa3lka1NEeUVpcXJlZW92WnB4cnBHVGpEbXJvbGU5TFUxT09CTUlSSEg1UzVrZlpiaXFtb2toaklWb25VQXZxUmlIUCtjdElOOWMxOUpJbWp4dkR2bENyVUxUajFWU0wwNWszRHRJNUd1UHowa29KaEkxdjVobENFR3N6ZzBtVSt0dVVIWmxDRkNjNlhIQVNOQ1ViNEMwUFdQZjY0TWdvZGJsSTR2aUJiS2s0NGZHZlF6MUpXQTl1Q1RZRVFwSU5HaXh0dms4ZFFnSnBPRUlwbUpQOUdTSWNObHJYVVZuV3kzU0g2VmRQelV5L1A5eS9heWp2Q0hrcFByQ3pTU0hpcHRmcFl5VjNhRXdSanZudHh1TExvQThUYTkrUnJoZXprQ0FzaW45T2Z1L2FRUT09IiwiayI6Im1JN0FGOVN6MkEifQ%25253D%25253D-98sec11-rowfrm000265&mitra=w4XCSiEOuOSZdPoLaRIx5uqGiEo_SFHow9a18eIdy3eqwGtYYcpPpqzO17PJ3EoXBDj72CGWAuuhk0Iv_-yUur7nPH0nD68VB6o-CcUEK0JEGQbXwaoZR-VxR44c_IJSa6R_BvjzkWhezyFf9N9J0is8bUOuI5Je0M_kVahn0P6RBdffI_Ae3qZePet8UsMTpRbMaBwTOLyoDcwYkgMtfVPykSjkCSAIU42B-Ztk5vnSHxb0P49ubttouYqX-7aifoivZFfaiW3yxg25V1JnPbpW8eW8GzY_G065bi3khMwwIm69uYU7G9NvQWHTnGfPgt-QetkU7FwewwltZJ2wxVuBB2_lEKksVMVe4mniHWjvVHBkNu3dojW9nX4EwxU3E4XSpaGvHdOX
+[FORM:Tekanan Darah Dewasa Lansia] INPUT (label | id | name | type | value | placeholder):
+   - 'Ya'                                     | id='sq_100i_0' name='LPM000072|FRM000265|PPM00000203|text_sq_100' type='radio' checked=False value='PPV00000379' ph=''
+   - 'Tidak'                                  | id='sq_100i_1' name='LPM000072|FRM000265|PPM00000203|text_sq_100' type='radio' checked=False value='PPV00000380' ph=''
+   - '2. Tekanan Darah Sistolik *'            | id='sq_102i' name='' type='number' checked=False value='' ph='Masukan nilai tekanan darah Sistolik (mmHg)'
+   - '3. Tekanan darah diastolik *'           | id='sq_103i' name='' type='number' checked=False value='' ph='Masukan nilai tekanan darah Diastolik (satuan mmHg)'
+   - '4. Tekanan Darah Sistolik Ke-2'         | id='sq_104i' name='' type='number' checked=False value='' ph='Masukan nilai tekanan darah Sistolik Ke-2'
+   - '5. Tekanan darah diastolik ke-2'        | id='sq_105i' name='' type='number' checked=False value='' ph='Masukan nilai tekanan darah Diastolik'
+   - ''                                       | id='' name='' type='button' checked=False value='Kirim' ph=''
+[FORM:Tekanan Darah Dewasa Lansia] QTITLE (sq -> judul pertanyaan):
+   - sq_100: '1. Apakah Anda pernah dinyatakan tekanan darah tinggi? *'
+   - sq_102: '2. Tekanan Darah Sistolik *'
+   - sq_103: '3. Tekanan darah diastolik *'
+   - sq_104: '4. Tekanan Darah Sistolik Ke-2'
+   - sq_105: '5. Tekanan darah diastolik ke-2'
+[FORM:Tekanan Darah Dewasa Lansia] SELECT (label | id | name | options):
+[FORM:Tekanan Darah Dewasa Lansia] TEXTAREA:
+[FORM:Tekanan Darah Dewasa Lansia] Dropdown custom (Vue):
+[FORM:Tekanan Darah Dewasa Lansia] Heading/tab/section:
+   - 'Tekanan Darah Dewasa Lansia'
+   - '2. Tekanan Darah Sistolik *'
+   - '3. Tekanan darah diastolik *'
+   - '4. Tekanan Darah Sistolik Ke-2'
+   - '5. Tekanan darah diastolik ke-2'
+[FORM:Tekanan Darah Dewasa Lansia] Tombol:
+   - 'Kembali ke Halaman Utama'
+######################################################################
+[DIAG] (13/22) Buka form: '1. SKILAS Penurunan Kognitif - Lansia' [sumber=Default]
+======================================================================
+[FORM:1. SKILAS Penurunan Kognitif - Lansia] URL: https://form.kemkes.go.id/v2/skrining-form/zbZzG6NC7p3Ht7J5rn5Wua5ofzG3G15cAMuiC_D-eu_4IrwxaXUVBp2-wn6rlmY6PYtjQfjnCpRh8FbDqyimQOhIdgxAPAZfOPPJjgw%3D?ctx=Fymlwrn6bML9ODjtYuDOEQe8b7TJDZ0_wTRKHve4iljFbLxfXFY%3D&redirectUrl=https%3A%2F%2Fsehatindonesiaku.kemkes.go.id%2Fckg-pelayanan%2Fdetail-pemeriksaan%3F_d%3DeyJlIjoiVFByMlhsZGNNMDAwVGRWbFdIYWkzOGI2V3AvaFU3c2JpWjZFcWJOUGpWY0F5STNiOWZob0Rxdm9IUUQ0MGRVUzNxSjVOTXRrdVhpcmlSanBKSU82U3V1R0FVaVE4Q0VYM3AzQit5MDAiLCJpdiI6IkE5YkUwTXgzV1l5SGtQUTAiLCJlayI6ImFPUnZQa042Wll5Y3BwMlhpTndIa2tYdERrU3Q1bHdiVjR3RzlFVU1xa3lka1NEeUVpcXJlZW92WnB4cnBHVGpEbXJvbGU5TFUxT09CTUlSSEg1UzVrZlpiaXFtb2toaklWb25VQXZxUmlIUCtjdElOOWMxOUpJbWp4dkR2bENyVUxUajFWU0wwNWszRHRJNUd1UHowa29KaEkxdjVobENFR3N6ZzBtVSt0dVVIWmxDRkNjNlhIQVNOQ1ViNEMwUFdQZjY0TWdvZGJsSTR2aUJiS2s0NGZHZlF6MUpXQTl1Q1RZRVFwSU5HaXh0dms4ZFFnSnBPRUlwbUpQOUdTSWNObHJYVVZuV3kzU0g2VmRQelV5L1A5eS9heWp2Q0hrcFByQ3pTU0hpcHRmcFl5VjNhRXdSanZudHh1TExvQThUYTkrUnJoZXprQ0FzaW45T2Z1L2FRUT09IiwiayI6Im1JN0FGOVN6MkEifQ%25253D%25253D-98sec11-rowfrm000029&mitra=ZpgTOCFY8LHgincNMuU-f5ITC01oEy-3WtU5EakXG62iEKYRoLZ0AJktoNXMd0bRx1E_gaxeafCTrlzBR_AMEXnmFkqldg_AqmGNDRiv4iz2E862Bbxjy000AmXRBUI1_8ldIwRdhCiWTYuZHWBoPAPTj2UiWVberatFlAVqe9GEOWnn_F_xSOo8z1QQBU82LnriQB3YVUK2YJgb5iUawrlaPYH-Mv3l-9sRvm20IVyW4boWePA-h_v3K29pTD6m7O3E1GYqjs2yIjM6Ct1BSoCOj48YLWbUHQN2ACWxef50glLqm9-YG9hcm6Z2UPgxFfJxk8vn6hWZr4yNo9KC_BSkK6yMGgiluXqgpQZoCEofw644ZIFCv6jClK6iteqcqEYVHqpiKYAC
+[FORM:1. SKILAS Penurunan Kognitif - Lansia] INPUT (label | id | name | type | value | placeholder):
+   - 'Ya'                                     | id='sq_100i_0' name='LPM000025|FRM000029|PPM00000037|text_sq_100' type='radio' checked=False value='PPV00000042' ph=''
+   - 'Tidak'                                  | id='sq_100i_1' name='LPM000025|FRM000029|PPM00000037|text_sq_100' type='radio' checked=False value='PPV00000043' ph=''
+   - 'Benar semua'                            | id='sq_101i_0' name='LPM000025|FRM000029|PPM00000066|text_sq_101' type='radio' checked=False value='PPV00000088' ph=''
+   - 'Salah satu/Dua'                         | id='sq_101i_1' name='LPM000025|FRM000029|PPM00000066|text_sq_101' type='radio' checked=False value='PPV00000089' ph=''
+   - 'Tidak Tahu'                             | id='sq_101i_2' name='LPM000025|FRM000029|PPM00000066|text_sq_101' type='radio' checked=False value='PPV00000113' ph=''
+   - 'Ya'                                     | id='sq_102i_0' name='LPM000025|FRM000029|PPM00000085|text_sq_102' type='radio' checked=False value='PPV00000120' ph=''
+   - 'Tidak'                                  | id='sq_102i_1' name='LPM000025|FRM000029|PPM00000085|text_sq_102' type='radio' checked=False value='PPV00000121' ph=''
+   - ''                                       | id='' name='' type='button' checked=False value='Kirim' ph=''
+[FORM:1. SKILAS Penurunan Kognitif - Lansia] QTITLE (sq -> judul pertanyaan):
+   - sq_100: '1. Apakah dapat mengingat tiga kata: bunga, pintu, nasi (contoh)? *'
+   - sq_101: '2. Tanggal berapakah hari ini secara lengkap (tanggal/bulan/tahun)? atau- Dimanakah Anda saat ini (Puskesmas, rumah, klinik, dll)? *'
+   - sq_102: '3. Apakah peserta dapat mengingat tiga kata sebelumnya? *'
+[FORM:1. SKILAS Penurunan Kognitif - Lansia] SELECT (label | id | name | options):
+[FORM:1. SKILAS Penurunan Kognitif - Lansia] TEXTAREA:
+[FORM:1. SKILAS Penurunan Kognitif - Lansia] Dropdown custom (Vue):
+[FORM:1. SKILAS Penurunan Kognitif - Lansia] Heading/tab/section:
+   - '1. SKILAS Penurunan Kognitif - Lansia'
+[FORM:1. SKILAS Penurunan Kognitif - Lansia] Tombol:
+   - 'Kembali ke Halaman Utama'
+######################################################################
+[DIAG] (14/22) Buka form: '2. SKILAS Mobilisasi - Lansia' [sumber=Default]
+======================================================================
+[FORM:2. SKILAS Mobilisasi - Lansia] URL: https://form.kemkes.go.id/v2/skrining-form/YHQY_E--1YnD5G8jDyrpBEjdO4XnZN2tzvS6PFmLtY0dI0NG9ssJpW45egAvh6M7gWaOWTQ7PZYnNZdZH4vqCBq_M4QRp-vLzR_s7MA%3D?ctx=_VQOPmYYno6WvhmAhNBGNPffcEBXpJBVnVhOL99bkAhbV7xyhv8%3D&redirectUrl=https%3A%2F%2Fsehatindonesiaku.kemkes.go.id%2Fckg-pelayanan%2Fdetail-pemeriksaan%3F_d%3DeyJlIjoiVFByMlhsZGNNMDAwVGRWbFdIYWkzOGI2V3AvaFU3c2JpWjZFcWJOUGpWY0F5STNiOWZob0Rxdm9IUUQ0MGRVUzNxSjVOTXRrdVhpcmlSanBKSU82U3V1R0FVaVE4Q0VYM3AzQit5MDAiLCJpdiI6IkE5YkUwTXgzV1l5SGtQUTAiLCJlayI6ImFPUnZQa042Wll5Y3BwMlhpTndIa2tYdERrU3Q1bHdiVjR3RzlFVU1xa3lka1NEeUVpcXJlZW92WnB4cnBHVGpEbXJvbGU5TFUxT09CTUlSSEg1UzVrZlpiaXFtb2toaklWb25VQXZxUmlIUCtjdElOOWMxOUpJbWp4dkR2bENyVUxUajFWU0wwNWszRHRJNUd1UHowa29KaEkxdjVobENFR3N6ZzBtVSt0dVVIWmxDRkNjNlhIQVNOQ1ViNEMwUFdQZjY0TWdvZGJsSTR2aUJiS2s0NGZHZlF6MUpXQTl1Q1RZRVFwSU5HaXh0dms4ZFFnSnBPRUlwbUpQOUdTSWNObHJYVVZuV3kzU0g2VmRQelV5L1A5eS9heWp2Q0hrcFByQ3pTU0hpcHRmcFl5VjNhRXdSanZudHh1TExvQThUYTkrUnJoZXprQ0FzaW45T2Z1L2FRUT09IiwiayI6Im1JN0FGOVN6MkEifQ%25253D%25253D-98sec11-rowfrm000032&mitra=grBOx6NItk83KvZ0VpBYmkOCh8zuV0ETqt1wkDpRsJz6OyXFo6jQ-93pK-3a0wiB8m0N28uiqUw09ycJ-SY9jbUaTdSBO56Q_UeA1KnVudUM1F6UiqIcGeSghITUTZauulNDfinjq1h15ETWhV-D0SKZaWd79ekGYrI7QBQBE2HLMjXBYVP8SGg0eeqtmndMG68DG6Y2fDx8jptbU_cGJVBwJa5_AIVW5bK5QR4AXSxUjd294Q5cgpitkAsO2IqBjb46oY0UGpZV_EOLivbohpUwWFPNxV8ASZpE8Zhj5f8AXO4dsoo34J03lKDiv_urBRUYBaDqHG2T77wXHmUkhKuUrJa_4p-xQYqMksQu8Kr1A7rwM93cWHN9cnKf1XKqs66ap2Eje2xu
+[FORM:2. SKILAS Mobilisasi - Lansia] INPUT (label | id | name | type | value | placeholder):
+   - 'Ya'                                     | id='sq_100i_0' name='LPM000025|FRM000032|PPM00000122|text_sq_100' type='radio' checked=False value='PPV00000223' ph=''
+   - 'Tidak'                                  | id='sq_100i_1' name='LPM000025|FRM000032|PPM00000122|text_sq_100' type='radio' checked=False value='PPV00000224' ph=''
+   - ''                                       | id='' name='' type='button' checked=False value='Kirim' ph=''
+[FORM:2. SKILAS Mobilisasi - Lansia] QTITLE (sq -> judul pertanyaan):
+   - sq_100: '1. Tes Berdiri di kursi: Berdiri dari kursi lima kali tanpa bantuan tangan. Apakah orang tersebut dapat berdiri dari kursi utuh sebanyak lima kali dalam 14 detik ? *'
+[FORM:2. SKILAS Mobilisasi - Lansia] SELECT (label | id | name | options):
+[FORM:2. SKILAS Mobilisasi - Lansia] TEXTAREA:
+[FORM:2. SKILAS Mobilisasi - Lansia] Dropdown custom (Vue):
+[FORM:2. SKILAS Mobilisasi - Lansia] Heading/tab/section:
+   - '2. SKILAS Mobilisasi - Lansia'
+[FORM:2. SKILAS Mobilisasi - Lansia] Tombol:
+   - 'Kembali ke Halaman Utama'
+######################################################################
+[DIAG] (15/22) Buka form: '3. SKILAS Malnutrisi' [sumber=Default]
+======================================================================
+[FORM:3. SKILAS Malnutrisi] URL: https://form.kemkes.go.id/v2/skrining-form/aA6eqo72yeR7UOE1oCeX0vFFTS-Rfh1qAMuSVChXITN7Pxw5ROsHqZvg8CaQ3Pl91wPj8Vp8tCIVID54nOoZFJ0eQwb2YMInGvY0jFY%3D?ctx=7szOzYX1zSZ5EXqznPf_8s5SWuasoQkZNuAO8WwObHCBYGLnkaY%3D&redirectUrl=https%3A%2F%2Fsehatindonesiaku.kemkes.go.id%2Fckg-pelayanan%2Fdetail-pemeriksaan%3F_d%3DeyJlIjoiVFByMlhsZGNNMDAwVGRWbFdIYWkzOGI2V3AvaFU3c2JpWjZFcWJOUGpWY0F5STNiOWZob0Rxdm9IUUQ0MGRVUzNxSjVOTXRrdVhpcmlSanBKSU82U3V1R0FVaVE4Q0VYM3AzQit5MDAiLCJpdiI6IkE5YkUwTXgzV1l5SGtQUTAiLCJlayI6ImFPUnZQa042Wll5Y3BwMlhpTndIa2tYdERrU3Q1bHdiVjR3RzlFVU1xa3lka1NEeUVpcXJlZW92WnB4cnBHVGpEbXJvbGU5TFUxT09CTUlSSEg1UzVrZlpiaXFtb2toaklWb25VQXZxUmlIUCtjdElOOWMxOUpJbWp4dkR2bENyVUxUajFWU0wwNWszRHRJNUd1UHowa29KaEkxdjVobENFR3N6ZzBtVSt0dVVIWmxDRkNjNlhIQVNOQ1ViNEMwUFdQZjY0TWdvZGJsSTR2aUJiS2s0NGZHZlF6MUpXQTl1Q1RZRVFwSU5HaXh0dms4ZFFnSnBPRUlwbUpQOUdTSWNObHJYVVZuV3kzU0g2VmRQelV5L1A5eS9heWp2Q0hrcFByQ3pTU0hpcHRmcFl5VjNhRXdSanZudHh1TExvQThUYTkrUnJoZXprQ0FzaW45T2Z1L2FRUT09IiwiayI6Im1JN0FGOVN6MkEifQ%25253D%25253D-98sec11-rowfrm000034&mitra=cZp4t3xDsG4dIAKiRH2A_7eA7MGDuuJZPrINHkjTAOVr36trEWN-mLpsUce_b377tK1nDmhBQK4439GIcEp_xc_OMG2JquJ9I-I-EHYX54txw3BCakj5VnGRH9p6kUdiCrrvsPi8A3FBAy310dE_H8B-4MUCxSDLgh7IHtuuyLj4wwAGMSvEXvFJ-0KueBJkosxHihDPPd02-yV9012B1wBpCb4NXq1C0_kOZagYiGAn7hkjSXiF3Dx3t3tQeIMsDm-Sr6Iwy7OueF_1eN-iaJsvZ_t-lftM2vhD5-O-TL9FiWkII-h6_YzxYfdA9O1Ctbii6mmg1OvSi98uv0T4FqRwvfXfAWUCPAt-kaq57-0e3q5pMe4KNHCsFGKtTXZ9lyhQ5kqWWPBW
+[FORM:3. SKILAS Malnutrisi] INPUT (label | id | name | type | value | placeholder):
+   - 'Ya'                                     | id='sq_100i_0' name='LPM000025|FRM000034|PPM00000126|text_sq_100' type='radio' checked=False value='PPV00000234' ph=''
+   - 'Tidak'                                  | id='sq_100i_1' name='LPM000025|FRM000034|PPM00000126|text_sq_100' type='radio' checked=False value='PPV00000235' ph=''
+   - 'Ya'                                     | id='sq_101i_0' name='LPM000025|FRM000034|PPM00000128|text_sq_101' type='radio' checked=False value='PPV00000239' ph=''
+   - 'Tidak'                                  | id='sq_101i_1' name='LPM000025|FRM000034|PPM00000128|text_sq_101' type='radio' checked=False value='PPV00000240' ph=''
+   - 'Ya'                                     | id='sq_102i_0' name='LPM000025|FRM000034|PPM00000129|text_sq_102' type='radio' checked=False value='PPV00000241' ph=''
+   - 'Tidak'                                  | id='sq_102i_1' name='LPM000025|FRM000034|PPM00000129|text_sq_102' type='radio' checked=False value='PPV00000242' ph=''
+   - ''                                       | id='' name='' type='button' checked=False value='Kirim' ph=''
+[FORM:3. SKILAS Malnutrisi] QTITLE (sq -> judul pertanyaan):
+   - sq_100: '1. Apakah berat badan Anda berkurang >3 kg dalam 3 bulan terakhir atau pakaian menjadi lebih longgar? *'
+   - sq_101: '2. Apakah Anda hilang nafsu makan Atau mengalami kesulitan makan (misal batuk atau tersedak saat makan, menggunakan selang makan/sonde)? *'
+   - sq_102: '3. Apakah ukuran lingkar lengan atas (LiLA) <21 cm? *'
+[FORM:3. SKILAS Malnutrisi] SELECT (label | id | name | options):
+[FORM:3. SKILAS Malnutrisi] TEXTAREA:
+[FORM:3. SKILAS Malnutrisi] Dropdown custom (Vue):
+[FORM:3. SKILAS Malnutrisi] Heading/tab/section:
+   - '3. SKILAS Malnutrisi'
+[FORM:3. SKILAS Malnutrisi] Tombol:
+   - 'Kembali ke Halaman Utama'
+######################################################################
+[DIAG] (16/22) Buka form: '4. SKILAS Pemeriksaan Gejala Depresi - Lansia' [sumber=Default]
+======================================================================
+[FORM:4. SKILAS Pemeriksaan Gejala Depresi - Lansia] URL: https://form.kemkes.go.id/v2/skrining-form/0BAgXkZDy9fYCRrWROVjewfS5I83CFMeZigMeBZVk-1d2GwgdEa8ICZkZoDbIM0BY63EETpSWIHNgfFmh1kPnFLtV0ojrAujB__fD6A%3D?ctx=zqY3m4yjxuUTym5m0XsMeEpZaETHDGLXXth5VUx5iY53h9mfaZI%3D&redirectUrl=https%3A%2F%2Fsehatindonesiaku.kemkes.go.id%2Fckg-pelayanan%2Fdetail-pemeriksaan%3F_d%3DeyJlIjoiVFByMlhsZGNNMDAwVGRWbFdIYWkzOGI2V3AvaFU3c2JpWjZFcWJOUGpWY0F5STNiOWZob0Rxdm9IUUQ0MGRVUzNxSjVOTXRrdVhpcmlSanBKSU82U3V1R0FVaVE4Q0VYM3AzQit5MDAiLCJpdiI6IkE5YkUwTXgzV1l5SGtQUTAiLCJlayI6ImFPUnZQa042Wll5Y3BwMlhpTndIa2tYdERrU3Q1bHdiVjR3RzlFVU1xa3lka1NEeUVpcXJlZW92WnB4cnBHVGpEbXJvbGU5TFUxT09CTUlSSEg1UzVrZlpiaXFtb2toaklWb25VQXZxUmlIUCtjdElOOWMxOUpJbWp4dkR2bENyVUxUajFWU0wwNWszRHRJNUd1UHowa29KaEkxdjVobENFR3N6ZzBtVSt0dVVIWmxDRkNjNlhIQVNOQ1ViNEMwUFdQZjY0TWdvZGJsSTR2aUJiS2s0NGZHZlF6MUpXQTl1Q1RZRVFwSU5HaXh0dms4ZFFnSnBPRUlwbUpQOUdTSWNObHJYVVZuV3kzU0g2VmRQelV5L1A5eS9heWp2Q0hrcFByQ3pTU0hpcHRmcFl5VjNhRXdSanZudHh1TExvQThUYTkrUnJoZXprQ0FzaW45T2Z1L2FRUT09IiwiayI6Im1JN0FGOVN6MkEifQ%25253D%25253D-98sec11-rowfrm000038&mitra=iN9hp8joX4pL2G517q5Q6dn3uNoo-Fs378CErERPzbt0RwJXQy__pZcFGgpSUCZKNqS5ph6fUyn35uVLQUrdQAlMCG94XwCvBegFhcNRuzm_pfxNiCgrgmCnFonBp4Pe3gzdjcT5JjvdHBuAbMsGhP0VpnYFhfwd6J0ZzYajdw-zQybe-r3v51zrRLxhBaXYKm8vQ3UkHW2qE4-mx7KkbCKRQFOJJc7aSkAWeW6H4k9rB4S-OWGkIwBtMVuWzaM3E_Hoa_RYdGSxQ7JZUfOLkucjCYo9h5C1yEbWd__nb3MSifbh9tXndTaLgPTfRFMwWGsVyUJ0GJ9G0PaskY8DALeO4_8HJAxypSNbCrQkzKIFDeMtiQ3KPj7WpXeHUjRshK4CxFYaXj9s
+[FORM:4. SKILAS Pemeriksaan Gejala Depresi - Lansia] INPUT (label | id | name | type | value | placeholder):
+   - ''                                       | id='sq_100i_0' name='' type='text' checked=False value='' ph='Select...'
+   - ''                                       | id='sq_101i_0' name='' type='text' checked=False value='' ph='Select...'
+   - ''                                       | id='' name='' type='button' checked=False value='Kirim' ph=''
+[FORM:4. SKILAS Pemeriksaan Gejala Depresi - Lansia] QTITLE (sq -> judul pertanyaan):
+   - sq_100: '1. Apakah dalam 2 minggu terakhir Anda merasa sedih, tertekan, atau putus asa? *'
+   - sq_101: '2. Apakah dalam 2 minggu terakhir Anda sedikit minat atau kesenangan dalam melakukan sesuatu? *'
+[FORM:4. SKILAS Pemeriksaan Gejala Depresi - Lansia] SELECT (label | id | name | options):
+[FORM:4. SKILAS Pemeriksaan Gejala Depresi - Lansia] TEXTAREA:
+[FORM:4. SKILAS Pemeriksaan Gejala Depresi - Lansia] Dropdown custom (Vue):
+[FORM:4. SKILAS Pemeriksaan Gejala Depresi - Lansia] Heading/tab/section:
+   - '4. SKILAS Pemeriksaan Gejala Depresi - Lansia'
+[FORM:4. SKILAS Pemeriksaan Gejala Depresi - Lansia] Tombol:
+   - 'Kembali ke Halaman Utama'
+######################################################################
+[DIAG] (17/22) Buka form: '5. Pemeriksaan Gangguan Fungsional/Barthel Index - Lansia' [sumber=Default]
+======================================================================
+[FORM:5. Pemeriksaan Gangguan Fungsional/Barthel Index - Lansia] URL: https://form.kemkes.go.id/v2/skrining-form/IBtutHcrqNnqoTA4LDX0AhaE08PsNJ0IwJKspggIuuYaRGLSRVHmxn9XIwSkmxOyN47JbF5PsVl2QuzaXjHFTpikxEEms--3vCzKKEk%3D?ctx=0dCUaXjhpU9NCE0YN_1g-a4Jv6FXU-KeslO9IUgIdoYn4F8sZxI%3D&redirectUrl=https%3A%2F%2Fsehatindonesiaku.kemkes.go.id%2Fckg-pelayanan%2Fdetail-pemeriksaan%3F_d%3DeyJlIjoiVFByMlhsZGNNMDAwVGRWbFdIYWkzOGI2V3AvaFU3c2JpWjZFcWJOUGpWY0F5STNiOWZob0Rxdm9IUUQ0MGRVUzNxSjVOTXRrdVhpcmlSanBKSU82U3V1R0FVaVE4Q0VYM3AzQit5MDAiLCJpdiI6IkE5YkUwTXgzV1l5SGtQUTAiLCJlayI6ImFPUnZQa042Wll5Y3BwMlhpTndIa2tYdERrU3Q1bHdiVjR3RzlFVU1xa3lka1NEeUVpcXJlZW92WnB4cnBHVGpEbXJvbGU5TFUxT09CTUlSSEg1UzVrZlpiaXFtb2toaklWb25VQXZxUmlIUCtjdElOOWMxOUpJbWp4dkR2bENyVUxUajFWU0wwNWszRHRJNUd1UHowa29KaEkxdjVobENFR3N6ZzBtVSt0dVVIWmxDRkNjNlhIQVNOQ1ViNEMwUFdQZjY0TWdvZGJsSTR2aUJiS2s0NGZHZlF6MUpXQTl1Q1RZRVFwSU5HaXh0dms4ZFFnSnBPRUlwbUpQOUdTSWNObHJYVVZuV3kzU0g2VmRQelV5L1A5eS9heWp2Q0hrcFByQ3pTU0hpcHRmcFl5VjNhRXdSanZudHh1TExvQThUYTkrUnJoZXprQ0FzaW45T2Z1L2FRUT09IiwiayI6Im1JN0FGOVN6MkEifQ%25253D%25253D-98sec11-rowfrm000040&mitra=CMl32s8K9z0vyEgnDpN1oaRh44GqhP0tWQuUibhBTv1qJp3hVNWhZlJUorM3KIDVthLcsnmXGk0DDIbMWAwyq3LdJ5mdaX3iLxO80LHrLQcB1E6suyKcXMzJlkHnSrxxP7-Q2AQehjBI-aJUZL2RoZa0eRhdYxrPMlg-98iteI2UOTJMSuGQfUitrmyzMh9WVdcWwxijVVx_PUciuefnY4btzaJto_qZdNfiRz0njb99lfUahISuMG0tb0k0FAJvaHL620y0yi0GEZyYhgQRCwzSpBDgQD5xcVbdBnMSBCTQkNem-i0z-0qaZToUcORFKUFrewt9MX4MAFpsWQjL_lGW3rotNjzh02PCTvfmeYYt_eC9Yd_vVHrrwPFbm7d7wCnMgxQXnSrN
+[FORM:5. Pemeriksaan Gangguan Fungsional/Barthel Index - Lansia] INPUT (label | id | name | type | value | placeholder):
+   - ''                                       | id='sq_100i_0' name='' type='text' checked=False value='' ph='Select...'
+   - ''                                       | id='sq_101i_0' name='' type='text' checked=False value='' ph='Select...'
+   - ''                                       | id='sq_102i_0' name='' type='text' checked=False value='' ph='Select...'
+   - ''                                       | id='sq_103i_0' name='' type='text' checked=False value='' ph='Select...'
+   - ''                                       | id='sq_104i_0' name='' type='text' checked=False value='' ph='Select...'
+   - ''                                       | id='sq_105i_0' name='' type='text' checked=False value='' ph='Select...'
+   - ''                                       | id='sq_106i_0' name='' type='text' checked=False value='' ph='Select...'
+   - ''                                       | id='sq_107i_0' name='' type='text' checked=False value='' ph='Select...'
+   - ''                                       | id='sq_108i_0' name='' type='text' checked=False value='' ph='Select...'
+   - ''                                       | id='sq_109i_0' name='' type='text' checked=False value='' ph='Select...'
+   - ''                                       | id='' name='' type='button' checked=False value='Kirim' ph=''
+[FORM:5. Pemeriksaan Gangguan Fungsional/Barthel Index - Lansia] QTITLE (sq -> judul pertanyaan):
+   - sq_100: '1. Dapat mengendalikan rangsang buang air besar (BAB)? *'
+   - sq_101: '2. Dapat mengendalikan rangsang berkemih/buar air kecil (BAK)? *'
+   - sq_102: '3. Membersihkan diri (seka wajah, sisir rambut, sikat gigi)? *'
+   - sq_103: '4. Penggunaan jamban (keluar masuk jamban, melepas/memakai celana, membersihkan, menyiram)? *'
+   - sq_104: '5. Makan dan Minum (jika makan harus berupa potongan, dianggap dibantu) *'
+   - sq_105: '6. Berubah sikap dari berbaring ke duduk *'
+   - sq_106: '7. Berpindah/berjalan *'
+   - sq_107: '8. Memakai baju *'
+   - sq_108: '9. Naik turun tangga *'
+   - sq_109: '10. Mandi *'
+[FORM:5. Pemeriksaan Gangguan Fungsional/Barthel Index - Lansia] SELECT (label | id | name | options):
+[FORM:5. Pemeriksaan Gangguan Fungsional/Barthel Index - Lansia] TEXTAREA:
+[FORM:5. Pemeriksaan Gangguan Fungsional/Barthel Index - Lansia] Dropdown custom (Vue):
+[FORM:5. Pemeriksaan Gangguan Fungsional/Barthel Index - Lansia] Heading/tab/section:
+   - '5. Pemeriksaan Gangguan Fungsional/Barthel Index - Lansia'
+   - '1. Dapat mengendalikan rangsang buang air besar (BAB)? *'
+   - '6. Berubah sikap dari berbaring ke duduk *'
+   - '7. Berpindah/berjalan *'
+   - '8. Memakai baju *'
+   - '9. Naik turun tangga *'
+   - '10. Mandi *'
+[FORM:5. Pemeriksaan Gangguan Fungsional/Barthel Index - Lansia] Tombol:
+   - 'Kembali ke Halaman Utama'
+######################################################################
+[DIAG] (18/22) Buka form: 'Skrining Telinga dan Mata (=>40 tahun)' [sumber=Default]
+======================================================================
+[FORM:Skrining Telinga dan Mata (=>40 tahun)] URL: https://form.kemkes.go.id/v2/skrining-form/-B22gV2SjUNBh0x28MHWJ9ExcQC0jifdmBz9NPFr62wII-aZIWMwDMAHNN77SBhPuNkX2ISIZxXnZ2_lLLO-yEWy5PcWAVtfd-2xzQg%3D?ctx=_pGBNi3ePBe6W3-QTqd02anpeD644UvaUyh5vozHIzV4jJNnAKI%3D&redirectUrl=https%3A%2F%2Fsehatindonesiaku.kemkes.go.id%2Fckg-pelayanan%2Fdetail-pemeriksaan%3F_d%3DeyJlIjoiVFByMlhsZGNNMDAwVGRWbFdIYWkzOGI2V3AvaFU3c2JpWjZFcWJOUGpWY0F5STNiOWZob0Rxdm9IUUQ0MGRVUzNxSjVOTXRrdVhpcmlSanBKSU82U3V1R0FVaVE4Q0VYM3AzQit5MDAiLCJpdiI6IkE5YkUwTXgzV1l5SGtQUTAiLCJlayI6ImFPUnZQa042Wll5Y3BwMlhpTndIa2tYdERrU3Q1bHdiVjR3RzlFVU1xa3lka1NEeUVpcXJlZW92WnB4cnBHVGpEbXJvbGU5TFUxT09CTUlSSEg1UzVrZlpiaXFtb2toaklWb25VQXZxUmlIUCtjdElOOWMxOUpJbWp4dkR2bENyVUxUajFWU0wwNWszRHRJNUd1UHowa29KaEkxdjVobENFR3N6ZzBtVSt0dVVIWmxDRkNjNlhIQVNOQ1ViNEMwUFdQZjY0TWdvZGJsSTR2aUJiS2s0NGZHZlF6MUpXQTl1Q1RZRVFwSU5HaXh0dms4ZFFnSnBPRUlwbUpQOUdTSWNObHJYVVZuV3kzU0g2VmRQelV5L1A5eS9heWp2Q0hrcFByQ3pTU0hpcHRmcFl5VjNhRXdSanZudHh1TExvQThUYTkrUnJoZXprQ0FzaW45T2Z1L2FRUT09IiwiayI6Im1JN0FGOVN6MkEifQ%25253D%25253D-98sec11-rowfrm000099&mitra=aicwZvZQByrQjPhSyaL4OTGDGWL6Oa1o-jf9UPajBbqbq5NRZVdCgpnDW9lSy50KRmzCB-y8IJa4BuHMst6PKdXBz7D4dNy1UnXKlaX8HMU26Gbc1r_5InMw5Bjk9E_ri2Xd8C8oIksgAiToLuxRJQS2usWn0pLH32xmvBOSWpkZn2ufaBbEnE6pc6f39ZdFVam24kTvxLk3X_9t0EBIIKPoyf8MnqdF1HqmPIm2pS9BYNGU3_yxH6nuk7ZsJpNjozytuw4jBlVi01VmIa9MngxpMe1-lw6F2ba4JgIY1PTtBIjwp6bcNGv4-Nu-AiKGqfvVO697rdM_tTNjAQs_KJLuXikzoOGiROQ7tLhBMQyXKb4Wo0HuihyMhVltagNkpFfO00n7sF9E
+[FORM:Skrining Telinga dan Mata (=>40 tahun)] INPUT (label | id | name | type | value | placeholder):
+   - 'Tidak ada serumen impaksi'              | id='sq_100i_0' name='LPM000054|FRM000099|PPM00000559|text_sq_100' type='radio' checked=False value='PPV00001020' ph=''
+   - 'Ada serumen impaksi'                    | id='sq_100i_1' name='LPM000054|FRM000099|PPM00000559|text_sq_100' type='radio' checked=False value='PPV00001021' ph=''
+   - ''                                       | id='sq_101i_0' name='' type='text' checked=False value='' ph='Select...'
+   - 'Normal'                                 | id='sq_102i_0' name='LPM000054|FRM000099|PPM00000020|text_sq_102' type='radio' checked=False value='PPV00000022' ph=''
+   - 'Curiga gangguan pendengaran'            | id='sq_102i_1' name='LPM000054|FRM000099|PPM00000020|text_sq_102' type='radio' checked=False value='PPV00000023' ph=''
+   - 'Normal (visus 6/6 - 6/12)'              | id='sq_104i_0' name='LPM000054|FRM000099|PPM00000040|text_sq_104' type='radio' checked=False value='PPV00000044' ph=''
+   - 'Curiga gangguan penglihatan (visus <6/12)' | id='sq_104i_1' name='LPM000054|FRM000099|PPM00000040|text_sq_104' type='radio' checked=False value='PPV00000045' ph=''
+   - 'Curiga Katarak'                         | id='sq_109i_0' name='LPM000054|FRM000099|PPM00000072|text_sq_109' type='radio' checked=False value='PPV00000098' ph=''
+   - 'Normal'                                 | id='sq_109i_1' name='LPM000054|FRM000099|PPM00000072|text_sq_109' type='radio' checked=False value='PPV00000099' ph=''
+   - ''                                       | id='' name='' type='button' checked=False value='Kirim' ph=''
+[FORM:Skrining Telinga dan Mata (=>40 tahun)] QTITLE (sq -> judul pertanyaan):
+   - sq_100: '1. Apa Hasil Pemeriksaan Telinga Luar (serumen impaksi)? *'
+   - sq_101: '2. Apa Hasil Pemeriksaan Telinga Luar (infeksi telinga)? *'
+   - sq_102: '3. Hasil pemeriksaan tajam pendengaran *'
+   - sq_104: '4. Apa hasil skrining tajam penglihatan? *'
+   - sq_109: '5. Hasil pemeriksaan pupil'
+[FORM:Skrining Telinga dan Mata (=>40 tahun)] SELECT (label | id | name | options):
+[FORM:Skrining Telinga dan Mata (=>40 tahun)] TEXTAREA:
+[FORM:Skrining Telinga dan Mata (=>40 tahun)] Dropdown custom (Vue):
+[FORM:Skrining Telinga dan Mata (=>40 tahun)] Heading/tab/section:
+   - 'Skrining Telinga dan Mata (=>40 tahun)'
+   - '2. Apa Hasil Pemeriksaan Telinga Luar (infeksi telinga)? *'
+   - '5. Hasil pemeriksaan pupilClearMoreNo data to display'
+[FORM:Skrining Telinga dan Mata (=>40 tahun)] Tombol:
+   - 'Kembali ke Halaman Utama'
+######################################################################
+[DIAG] (19/22) Buka form: 'Skrining Karies dan Gigi Hilang' [sumber=Default]
+======================================================================
+[FORM:Skrining Karies dan Gigi Hilang] URL: https://form.kemkes.go.id/v2/skrining-form/djtRft5t_zeoLvSZ0QbIis6ZqncUMrCbfyXRtptU0KsV9f9Ll8QG8_C0gx6bvlkzEaqkRRqW74wFl8QdBLwYUtCyLcNL212Qk-vF0Z0%3D?ctx=2QKFfCoL098GTiSnrrONesm23o9c_38ukxoE4K6IWekTElYEJoY%3D&redirectUrl=https%3A%2F%2Fsehatindonesiaku.kemkes.go.id%2Fckg-pelayanan%2Fdetail-pemeriksaan%3F_d%3DeyJlIjoiVFByMlhsZGNNMDAwVGRWbFdIYWkzOGI2V3AvaFU3c2JpWjZFcWJOUGpWY0F5STNiOWZob0Rxdm9IUUQ0MGRVUzNxSjVOTXRrdVhpcmlSanBKSU82U3V1R0FVaVE4Q0VYM3AzQit5MDAiLCJpdiI6IkE5YkUwTXgzV1l5SGtQUTAiLCJlayI6ImFPUnZQa042Wll5Y3BwMlhpTndIa2tYdERrU3Q1bHdiVjR3RzlFVU1xa3lka1NEeUVpcXJlZW92WnB4cnBHVGpEbXJvbGU5TFUxT09CTUlSSEg1UzVrZlpiaXFtb2toaklWb25VQXZxUmlIUCtjdElOOWMxOUpJbWp4dkR2bENyVUxUajFWU0wwNWszRHRJNUd1UHowa29KaEkxdjVobENFR3N6ZzBtVSt0dVVIWmxDRkNjNlhIQVNOQ1ViNEMwUFdQZjY0TWdvZGJsSTR2aUJiS2s0NGZHZlF6MUpXQTl1Q1RZRVFwSU5HaXh0dms4ZFFnSnBPRUlwbUpQOUdTSWNObHJYVVZuV3kzU0g2VmRQelV5L1A5eS9heWp2Q0hrcFByQ3pTU0hpcHRmcFl5VjNhRXdSanZudHh1TExvQThUYTkrUnJoZXprQ0FzaW45T2Z1L2FRUT09IiwiayI6Im1JN0FGOVN6MkEifQ%25253D%25253D-98sec11-rowfrm000055&mitra=_VLFOpit3P8EGRFwuf05beq5brE8sZaVgldoOxWbr-q6HpGW4rWFehHCZjTAHVcyFVapwJaNETn6ffmpHA2SqQxVTzNy39EVe41__H7NGGH_YvyD6sf31judfzinFMXCe2j5yEYxMSrxkDYftfREnM3fJuFDbt8WXKBXhCvYK7m6YTqkFj37GPmfF3OXAfdv7Uv-7y7MZAuUnoLsAGHSkpLgBWagQXFDZhUEkI69k7ioqtbKeldxfR-q5bwZsSkho-ysgRxXS4PdTmnH46NYRJlun3ocw6JwUT61R9jph90_ANujepg4j6slXNePUGdmxwyNa2KRpNzpGxMAhkwYiNS0AULCSSfDfjLyvk3FV4zLOh6Yjw3Zg3bghBj8Vr_tQmVUIu08xY1T
+[FORM:Skrining Karies dan Gigi Hilang] INPUT (label | id | name | type | value | placeholder):
+   - 'Ya'                                     | id='sq_100i_0' name='LPM000032|FRM000055|PPM00000025|text_sq_100' type='radio' checked=False value='PPV00000026' ph=''
+   - 'Tidak'                                  | id='sq_100i_1' name='LPM000032|FRM000055|PPM00000025|text_sq_100' type='radio' checked=False value='PPV00000027' ph=''
+   - 'Ya'                                     | id='sq_101i_0' name='LPM000032|FRM000055|PPM00000035|text_sq_101' type='radio' checked=False value='PPV00000038' ph=''
+   - 'Tidak'                                  | id='sq_101i_1' name='LPM000032|FRM000055|PPM00000035|text_sq_101' type='radio' checked=False value='PPV00000039' ph=''
+   - ''                                       | id='' name='' type='button' checked=False value='Kirim' ph=''
+[FORM:Skrining Karies dan Gigi Hilang] QTITLE (sq -> judul pertanyaan):
+   - sq_100: '1. Gigi karies *'
+   - sq_101: '2. Gigi hilang/dicabut'
+[FORM:Skrining Karies dan Gigi Hilang] SELECT (label | id | name | options):
+[FORM:Skrining Karies dan Gigi Hilang] TEXTAREA:
+[FORM:Skrining Karies dan Gigi Hilang] Dropdown custom (Vue):
+[FORM:Skrining Karies dan Gigi Hilang] Heading/tab/section:
+   - 'Skrining Karies dan Gigi Hilang'
+   - '1. Gigi karies *ClearMoreNo data to display'
+   - '2. Gigi hilang/dicabutClearMoreNo data to display'
+[FORM:Skrining Karies dan Gigi Hilang] Tombol:
+   - 'Kembali ke Halaman Utama'
+######################################################################
+[DIAG] (20/22) Buka form: 'Skrining Penyakit Periodontal' [sumber=Default]
+======================================================================
+[FORM:Skrining Penyakit Periodontal] URL: https://form.kemkes.go.id/v2/skrining-form/o1w8xBoMvshLEt39XoNtNBMtsGLOb8DmZ-WLhDQwAIMD3r_EPZNx-KP1HWHmndtQsxY_kBUH8PVCtFHZWxDF2k8wabqdwtix8C-YYCk%3D?ctx=Z53dsuJD9ih8J5QTxwLXc5cVcS21Jmj8kLADHBR5ZDuw0PEKAQA%3D&redirectUrl=https%3A%2F%2Fsehatindonesiaku.kemkes.go.id%2Fckg-pelayanan%2Fdetail-pemeriksaan%3F_d%3DeyJlIjoiVFByMlhsZGNNMDAwVGRWbFdIYWkzOGI2V3AvaFU3c2JpWjZFcWJOUGpWY0F5STNiOWZob0Rxdm9IUUQ0MGRVUzNxSjVOTXRrdVhpcmlSanBKSU82U3V1R0FVaVE4Q0VYM3AzQit5MDAiLCJpdiI6IkE5YkUwTXgzV1l5SGtQUTAiLCJlayI6ImFPUnZQa042Wll5Y3BwMlhpTndIa2tYdERrU3Q1bHdiVjR3RzlFVU1xa3lka1NEeUVpcXJlZW92WnB4cnBHVGpEbXJvbGU5TFUxT09CTUlSSEg1UzVrZlpiaXFtb2toaklWb25VQXZxUmlIUCtjdElOOWMxOUpJbWp4dkR2bENyVUxUajFWU0wwNWszRHRJNUd1UHowa29KaEkxdjVobENFR3N6ZzBtVSt0dVVIWmxDRkNjNlhIQVNOQ1ViNEMwUFdQZjY0TWdvZGJsSTR2aUJiS2s0NGZHZlF6MUpXQTl1Q1RZRVFwSU5HaXh0dms4ZFFnSnBPRUlwbUpQOUdTSWNObHJYVVZuV3kzU0g2VmRQelV5L1A5eS9heWp2Q0hrcFByQ3pTU0hpcHRmcFl5VjNhRXdSanZudHh1TExvQThUYTkrUnJoZXprQ0FzaW45T2Z1L2FRUT09IiwiayI6Im1JN0FGOVN6MkEifQ%25253D%25253D-98sec11-rowfrm000056&mitra=pjeQ206KZcxOY5IHnvg28lCjj_0-OL_New8RGxUQ5kVsmdbXNvKL3QkvuZbQB6mlXCOBi1lvV5c70ykcCaPuEAYLJncZocJunhIdq2m9tmuitgRACscNSvsTecpzDBF3FXwS0l5zM5_IeHAR7nYxvNOt-k8WJa62Lnd5R0WE72clodpPMF9rVqDFrrfu6ICnlAPO2PJkLGf2t8Y4mwXVE1zU9XGcljEgMNIg16dx7DMvLbU3zc_0aTgy7Y8nXfjKzyBkdWuAJ2aJ1tYdvfx2uq1FxRHnFkL7u0HGWfLitiNvFYRN5i8zN_iaxAXw1Ubw8rT9ttctFWmmYgjuYJD5Gi5-D_su3fnM7c1hKHG-HyzHQSQBSug1NbGmhFa8u2jf5WD0oNEks7on
+[FORM:Skrining Penyakit Periodontal] INPUT (label | id | name | type | value | placeholder):
+   - 'Ya'                                     | id='sq_100i_0' name='LPM000032|FRM000056|PPM00000044|text_sq_100' type='radio' checked=False value='PPV00000065' ph=''
+   - 'Tidak'                                  | id='sq_100i_1' name='LPM000032|FRM000056|PPM00000044|text_sq_100' type='radio' checked=False value='PPV00000066' ph=''
+   - 'Ya'                                     | id='sq_101i_0' name='LPM000032|FRM000056|PPM00000070|text_sq_101' type='radio' checked=False value='PPV00000094' ph=''
+   - 'Tidak'                                  | id='sq_101i_1' name='LPM000032|FRM000056|PPM00000070|text_sq_101' type='radio' checked=False value='PPV00000095' ph=''
+   - ''                                       | id='' name='' type='button' checked=False value='Kirim' ph=''
+[FORM:Skrining Penyakit Periodontal] QTITLE (sq -> judul pertanyaan):
+   - sq_100: '1. Penyakit Periodontal *'
+   - sq_101: '2. Gigi Goyang *'
+[FORM:Skrining Penyakit Periodontal] SELECT (label | id | name | options):
+[FORM:Skrining Penyakit Periodontal] TEXTAREA:
+[FORM:Skrining Penyakit Periodontal] Dropdown custom (Vue):
+[FORM:Skrining Penyakit Periodontal] Heading/tab/section:
+   - 'Skrining Penyakit Periodontal'
+   - '1. Penyakit Periodontal *ClearMoreNo data to display'
+   - '2. Gigi Goyang *ClearMoreNo data to display'
+[FORM:Skrining Penyakit Periodontal] Tombol:
+   - 'Kembali ke Halaman Utama'
+######################################################################
+[DIAG] (21/22) Buka form: 'Hasil Pemeriksaan - Skrining Jantung' [sumber=Default]
+======================================================================
+[FORM:Hasil Pemeriksaan - Skrining Jantung] URL: https://form.kemkes.go.id/v2/skrining-form/pz7RNEOQ0BFpdt91zCL8LTvb-OVBLQehFyktqzpoKlBFkEfjfY9vFb9ZgnZoXNTddzo-l0vI1irtBzFjNz6VtEVP7X-6gfHsRPrsdM4%3D?ctx=yXnmY_7MSY4NCdLy7YXBdZhgPCKL4cpwsD8j1pFgsjl-rbhJ6Sg%3D&redirectUrl=https%3A%2F%2Fsehatindonesiaku.kemkes.go.id%2Fckg-pelayanan%2Fdetail-pemeriksaan%3F_d%3DeyJlIjoiVFByMlhsZGNNMDAwVGRWbFdIYWkzOGI2V3AvaFU3c2JpWjZFcWJOUGpWY0F5STNiOWZob0Rxdm9IUUQ0MGRVUzNxSjVOTXRrdVhpcmlSanBKSU82U3V1R0FVaVE4Q0VYM3AzQit5MDAiLCJpdiI6IkE5YkUwTXgzV1l5SGtQUTAiLCJlayI6ImFPUnZQa042Wll5Y3BwMlhpTndIa2tYdERrU3Q1bHdiVjR3RzlFVU1xa3lka1NEeUVpcXJlZW92WnB4cnBHVGpEbXJvbGU5TFUxT09CTUlSSEg1UzVrZlpiaXFtb2toaklWb25VQXZxUmlIUCtjdElOOWMxOUpJbWp4dkR2bENyVUxUajFWU0wwNWszRHRJNUd1UHowa29KaEkxdjVobENFR3N6ZzBtVSt0dVVIWmxDRkNjNlhIQVNOQ1ViNEMwUFdQZjY0TWdvZGJsSTR2aUJiS2s0NGZHZlF6MUpXQTl1Q1RZRVFwSU5HaXh0dms4ZFFnSnBPRUlwbUpQOUdTSWNObHJYVVZuV3kzU0g2VmRQelV5L1A5eS9heWp2Q0hrcFByQ3pTU0hpcHRmcFl5VjNhRXdSanZudHh1TExvQThUYTkrUnJoZXprQ0FzaW45T2Z1L2FRUT09IiwiayI6Im1JN0FGOVN6MkEifQ%25253D%25253D-98sec11-rowfrm000057&mitra=b3ueHFf9FsLuzI104e6EbDnMCbZWEbyAuvjSohulTCPuWcI1EKVz3VFDb9x3cPrIhAOLYWJa_Y4Vb6uxAgskLcnlBI9xuisN04kTeGv4hwLnThrEsHFf8_yiPHAj7f_vwZMVQUp03PtLSGMKzsZlKxgIBOVyqnqzDFFS0PBk0YRpGeiJAKXOdRu3wqp2LOvf3wqfkj0JOxmm2fy7DIOHlzHWysXDzxylxL-fgrwrVC78iMcL42n07rVpwfhax6N7aW4aXosBvPDA6jJcmenqqA2c1mnpn0JrzeNr7XAHiIn4rf8-fhuaWEvy8eK7WB5a_F7hoofFd1CBzJ2rfIzn84qMIJzjUBFXNiPsgU8wBebnu_vczRISF7HCD7PXzU_ztakc1qpfB4h1
+[FORM:Hasil Pemeriksaan - Skrining Jantung] INPUT (label | id | name | type | value | placeholder):
+   - 'Normal'                                 | id='sq_100i_0' name='LPM000034|FRM000057|PPM00000200|text_sq_100' type='radio' checked=False value='PPV00000411' ph=''
+   - 'Abnormal'                               | id='sq_100i_1' name='LPM000034|FRM000057|PPM00000200|text_sq_100' type='radio' checked=False value='PPV00000412' ph=''
+   - 'Normal'                                 | id='sq_101i_0' name='LPM000034|FRM000057|PPM00000034|text_sq_101' type='radio' checked=False value='PPV00000037' ph=''
+   - 'Abnormal ST Depresi'                    | id='sq_101i_1' name='LPM000034|FRM000057|PPM00000034|text_sq_101' type='radio' checked=False value='PPV00000122' ph=''
+   - 'Abnormal T Inversi'                     | id='sq_101i_2' name='LPM000034|FRM000057|PPM00000034|text_sq_101' type='radio' checked=False value='PPV00000123' ph=''
+   - 'Abnormal Hipertrofi Ventrikel Kiri'     | id='sq_101i_3' name='LPM000034|FRM000057|PPM00000034|text_sq_101' type='radio' checked=False value='PPV00000124' ph=''
+   - 'Abnormal Atrial Fibrilasi'              | id='sq_101i_4' name='LPM000034|FRM000057|PPM00000034|text_sq_101' type='radio' checked=False value='PPV00000125' ph=''
+   - 'Abnormal Q-Patologis'                   | id='sq_101i_5' name='LPM000034|FRM000057|PPM00000034|text_sq_101' type='radio' checked=False value='PPV00000126' ph=''
+   - 'Abnormal ST Elevasi'                    | id='sq_101i_6' name='LPM000034|FRM000057|PPM00000034|text_sq_101' type='radio' checked=False value='PPV00000139' ph=''
+   - 'Abnormal Gambaran Abnormal Lainnya'     | id='sq_101i_7' name='LPM000034|FRM000057|PPM00000034|text_sq_101' type='radio' checked=False value='PPV00000140' ph=''
+   - ''                                       | id='' name='' type='button' checked=False value='Kirim' ph=''
+[FORM:Hasil Pemeriksaan - Skrining Jantung] QTITLE (sq -> judul pertanyaan):
+   - sq_100: '1. Hasil Pemeriksaan EKG'
+   - sq_101: '2. Pemeriksaan EKG'
+[FORM:Hasil Pemeriksaan - Skrining Jantung] SELECT (label | id | name | options):
+[FORM:Hasil Pemeriksaan - Skrining Jantung] TEXTAREA:
+[FORM:Hasil Pemeriksaan - Skrining Jantung] Dropdown custom (Vue):
+[FORM:Hasil Pemeriksaan - Skrining Jantung] Heading/tab/section:
+   - 'Hasil Pemeriksaan - Skrining Jantung'
+   - '1. Hasil Pemeriksaan EKGClearMoreNo data to display'
+   - '2. Pemeriksaan EKGClearMoreNo data to display'
+[FORM:Hasil Pemeriksaan - Skrining Jantung] Tombol:
+   - 'Kembali ke Halaman Utama'
+######################################################################
+[DIAG] (22/22) Buka form: 'Skrining Kanker Payudara' [sumber=Default]
+======================================================================
+[FORM:Skrining Kanker Payudara] URL: https://form.kemkes.go.id/v2/skrining-form/toafuzMCJ0eIL3EdmaKEttNSTPLQ8kz6EaLYJpe_G8yIODdoW81jWX7JBz5J0DlRYv2NAXX_9WX5vyVb0GE-ZfSq0DSpp7zGRW1c8Cw%3D?ctx=nA8xI65pMbTKlfuUqZavE2xjPOMRfbk_1eP3sPn7PuBlVrbFCas%3D&redirectUrl=https%3A%2F%2Fsehatindonesiaku.kemkes.go.id%2Fckg-pelayanan%2Fdetail-pemeriksaan%3F_d%3DeyJlIjoiVFByMlhsZGNNMDAwVGRWbFdIYWkzOGI2V3AvaFU3c2JpWjZFcWJOUGpWY0F5STNiOWZob0Rxdm9IUUQ0MGRVUzNxSjVOTXRrdVhpcmlSanBKSU82U3V1R0FVaVE4Q0VYM3AzQit5MDAiLCJpdiI6IkE5YkUwTXgzV1l5SGtQUTAiLCJlayI6ImFPUnZQa042Wll5Y3BwMlhpTndIa2tYdERrU3Q1bHdiVjR3RzlFVU1xa3lka1NEeUVpcXJlZW92WnB4cnBHVGpEbXJvbGU5TFUxT09CTUlSSEg1UzVrZlpiaXFtb2toaklWb25VQXZxUmlIUCtjdElOOWMxOUpJbWp4dkR2bENyVUxUajFWU0wwNWszRHRJNUd1UHowa29KaEkxdjVobENFR3N6ZzBtVSt0dVVIWmxDRkNjNlhIQVNOQ1ViNEMwUFdQZjY0TWdvZGJsSTR2aUJiS2s0NGZHZlF6MUpXQTl1Q1RZRVFwSU5HaXh0dms4ZFFnSnBPRUlwbUpQOUdTSWNObHJYVVZuV3kzU0g2VmRQelV5L1A5eS9heWp2Q0hrcFByQ3pTU0hpcHRmcFl5VjNhRXdSanZudHh1TExvQThUYTkrUnJoZXprQ0FzaW45T2Z1L2FRUT09IiwiayI6Im1JN0FGOVN6MkEifQ%25253D%25253D-98sec11-rowfrm000059&mitra=awUYxEudNxIT3hiny_Qm2Q_T8jQ0bDB3AqTbKc01ud4-OD3nbORAdxttjNBhFNouMiATdwfkNF-_E7qmDQu4rZc95FnrS2_ooiXqllXchTdk0G-Qp6NHmdGsw6WtxZVnSLUISJeA9QX5dJZFx_ptZrNB5K8PHJXVOXa5QVAjN9O9N9tbwYJlPYjzK1c5rV8H33Q85vQjoV23J1TcCZ6UGLfSG5DoHGp0hjaK5mGoz6yzXVRSeAPneKFI3mjKJO40qkvvraFB-tedRZnb9mjETjsuR8-Kwgngtpe_NrzVzensB9soPx8yfNBL_ESwaw4jwelyvl8jNN3rlvdFMgTdQt8K9quhUdB5IjSAKFiRloEDVqNn0XlSgGbtPWT4Qwcj4S6ntVToDy4s
+[FORM:Skrining Kanker Payudara] INPUT (label | id | name | type | value | placeholder):
+   - ''                                       | id='sq_100i_0' name='' type='text' checked=False value='' ph='Pilih jenis pemeriksaan yang dilakukan'
+   - ''                                       | id='' name='' type='button' checked=False value='Kirim' ph=''
+[FORM:Skrining Kanker Payudara] QTITLE (sq -> judul pertanyaan):
+   - sq_100: '1. Pemeriksaan yang dilakukan *'
+[FORM:Skrining Kanker Payudara] SELECT (label | id | name | options):
+[FORM:Skrining Kanker Payudara] TEXTAREA:
+[FORM:Skrining Kanker Payudara] Dropdown custom (Vue):
+[FORM:Skrining Kanker Payudara] Heading/tab/section:
+   - 'Skrining Kanker Payudara'
+   - '1. Pemeriksaan yang dilakukan *'
+[FORM:Skrining Kanker Payudara] Tombol:
+   - 'Kembali ke Halaman Utama'
+======================================================================
+[DIAG] Selesai. Dump: C:\Project Phyton\ckg-automation\data\output\diag_pelayanan_20260615_211110.txt

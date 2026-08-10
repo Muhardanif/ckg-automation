@@ -1,0 +1,127 @@
+[DIAG] Dari Excel: nama='ARUM JULIANA PUTRI', Waktu Hadir='2026-06-12'
+[DIAG] Navigasi ke https://sehatindonesiaku.kemkes.go.id/ckg-pelayanan (dari https://sehatindonesiaku.kemkes.go.id/ckg-pelayanan/detail-pemeriksaan?_d=eyJlIjoidnJFTjhwSUM5L21PYnR6NVMwSGFmNGVMQ1F6RUVoSWhneHg5K09icVM1NXdSamtlZnJXcVBLWC9MVS9qakVmV2tockxJWUFFdHNweTFNRXZlYnM2Sy8rK0Zxc2M0SHdjQjlDUXZ4NE4iLCJpdiI6IllqRW1sRFplMGxFT0p6bUEiLCJlayI6IkdGcDF5c05iWkl0cExYay9ueStJRUNjTGZ4TUtYZk5rdUhkZGpVek9sc2lIVWxkb0o1SU1Rb0tCWW1WM0VMRFJNd3FPaVowTE1Eb3dSVnozSkxPKzRrNkxaTCtQWGs3K0JKK0VmbTdLWFZtemJzQi9udTZWN1d3cW1ZQkZLU05wbDhGbWhVaUdrWC81T2tuT21lWW04bG1XTyt5MkdLM3dobXdJbW1qM25NdlA5Z0VDbE5BaC92cXZSUitaakYwWkhhVUg4OFZ6TUd3ZW8yN2FJZ2RQODRjalB4TVJSYkRxNm1mMDRSSDhQL01tOUo4SW16UjY3N2NIUHhPeDFiRjdFc2Jldm16cTROTW85RHpsZnVBZElodXNrTElQYVdWOTlxMWdhZ0pvd0xCdzdVVExNQ0xYSHZrYWhTZW9UWE1RdldxYk1wckwvR1lndzZXOVhMandUZz09IiwiayI6IjNhX1ZVWjlQZmcifQ%253D%253D)
+[DIAG] Tab aktif: https://sehatindonesiaku.kemkes.go.id/ckg-pelayanan
+======================================================================
+[DIAG] Tanggal tidak disentuh (pakai rentang bawaan UI).
+[DIAG] Pindah tab -> Selesai Pemeriksaan.
+[LISTING] Dropdown custom / cursor-pointer:
+   - 'Nama'
+   - 'Belum Pemeriksaan'
+   - 'Sedang Pemeriksaan'
+   - 'Selesai Pemeriksaan 739'
+[LISTING] Tombol terlihat:
+   - 'CKG Umum'
+   - 'CKG Sekolah'
+   - 'Tatalaksana'
+   - 'Klaster 2'
+   - 'Klaster 4'
+   - 'Keluar'
+   - 'Pandu Rizki MaulidiahPuskesmas Driyorejo'
+   - 'Mulai'
+   - 'Lihat'
+[LISTING] Tabel #0: headers = ['No', 'Nama', 'Tanggal Lahir', 'Nomor Tiket', 'Nama Wali', 'Unit Pelayanan', 'Pemeriksaan Mandiri', 'Pelayanan', 'Pemeriksaan', 'Rapor']
+      row: ['1', 'ABAS SULAIMAN ZONI', '18 Okt 1975', '7PG-NPM', '-', 'Puskesmas Driyorejo', 'Lengkap', 'Selesai Pemeriksaan', 'Mulai', 'Lihat']
+      row: ['2', 'ABDUL AZIS', '24 Okt 1996', 'MHU-KTC', '-', 'Puskesmas Driyorejo', 'Lengkap', 'Selesai Pemeriksaan', 'Mulai', 'Lihat']
+      row: ['3', 'ABDUL AZIS', '12 Jul 1993', '6LY-FNH', '-', 'Puskesmas Driyorejo', 'Lengkap', 'Selesai Pemeriksaan', 'Mulai', 'Lihat']
+======================================================================
+[DIAG] Opsi dropdown terlihat: ['Nama', 'Belum Pemeriksaan', 'Sedang Pemeriksaan', 'Selesai Pemeriksaan 739', '<', '1', '2', '3', '…', '74', '>']
+[DIAG] Dropdown filter -> Nama.
+[DIAG] (cari) hasil 'ARUM JULIANA PUTRI' muncul.
+[DIAG] Baris cocok 'ARUM JULIANA PUTRI': 1.
+[DIAG] Tombol di baris: ['Mulai', 'Lihat']
+[DIAG] Klik aksi baris 'Mulai'.
+======================================================================
+[DETAIL] URL: https://sehatindonesiaku.kemkes.go.id/ckg-pelayanan/detail-pemeriksaan?_d=eyJlIjoiQk5yZk00T3luNFFickVQbWFYVzNMc3czMDRQUlZLWDlQTjVQUFBOMDhTSmhnV1dmbm5jMHNjSFFvUkYzYzllLzEyUVg2ci9aYk9yK0dFU1NQVW45dzRnRnhlOTRnRWFPeXB3Y0ZyNHkiLCJpdiI6ImpZT2E2WEptcmtRSitZM1EiLCJlayI6IlI3aE1GTTlGZWhCSS8vWGx3L3BNamtiSTJSN1lML25ldWtEQUxHSE5qdUIrYkx3c1VMZFVEU2JIWjBabUczOTl6MzhXYWt6eWx2TEtzK1BrbFg2WlhncVoyZDduTm5qc1ZhTWQ5U3FsbDJlZmhIWG10ZjU4YWhHczkydHQ5YXozeWViTEkwVVlIdmJtUWFpU2xhdWorV21GN0pBSFcwc0czS3JUTDZjWG5BTmRxUnJpQTVLTXhOT0M0QlBGcEYxSHdmUVJMQnpQQ1FjNE9HV0lvZ0swQ2hFL1RXWFptSFFFM0NuYjI3YXg4MWZ3ajFpR3FkdW1XQ1lydTBIQlh3U3hZWm5JWGtteEtyY1pqMXhWRkNEL284R2JDYWtjVlJiY2pxbEdHNjFSMTBrR29yN2pqVzhXUVZxVTg3NmZGL3MzTGV0cGYvc3c1MmxoOFR4RG1BdXRMUT09IiwiayI6IlZ6eWlCNDB3V1IifQ%253D%253D
+[DETAIL] INPUT (label | id | name | type | value | placeholder):
+   - 'Ya'                                     | id='hasil-lab-0-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-0-1' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-0-2' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-1-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-2-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-3-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-4-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-4-1' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-5-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-5-1' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-6-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-6-1' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-6-2' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-7-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-7-1' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-7-2' name='' type='checkbox' checked=True value='on' ph=''
+[DETAIL] SELECT (label | id | name | options):
+[DETAIL] TEXTAREA:
+[DETAIL] Dropdown custom (Vue):
+   - 'Selesaikan Layanan'
+   - 'Kirim Rapor (0/3)'
+   - 'Lihat Rapor'
+[DETAIL] Heading/tab/section:
+[DETAIL] Tombol:
+   - 'CKG Umum'
+   - 'CKG Sekolah'
+   - 'Tatalaksana'
+   - 'Klaster 2'
+   - 'Klaster 4'
+   - 'Keluar'
+   - 'Pandu Rizki MaulidiahPuskesmas Driyorejo'
+   - 'Mulai Tatalaksana'
+   - 'Detail Data'
+   - 'Jumlah Pemeriksaan (6/7)'
+   - 'Input Data'
+   - 'Panduan Pemeriksaan'
+   - 'Skrining Gizi, Tekanan Darah, dan Gula Darah Perempuan'
+   - 'Skrining Telinga dan Mata (18-39 tahun)'
+   - 'Skrining Gigi - Dewasa 18-24 tahun'
+   - 'Pemeriksaan Kadar CO (Tatalaksana Merokok)'
+   - 'Tuberkulosis - Skrining Nakes Dewasa & Lansia'
+   - 'Skrining Laboratorium Hepatitis dan Fibrosis/Sirosis'
+   - 'Pemeriksaan Calon Pengantin Perempuan'
+   - 'Layanan Penyakit Tropis Terabaikan'
+[PEMERIKSAAN] Daftar form (tombol -> judul kartu terdekat):
+   - [Mulai Tatalaksana] 'Mulai Tatalaksana'
+   - [Input Data] 'Demografi Dewasa PerempuanInput Data'
+   - [Input Data] 'Faktor Risiko TB - Dewasa & LansiaInput Data'
+   - [Input Data] 'HatiInput Data'
+   - [Input Data] 'Kesehatan JiwaInput Data'
+   - [Input Data] 'Perilaku MerokokInput Data'
+   - [Input Data] 'Riwayat Imunisasi Tetanus(Status T) - Hanya untuk CatinInput Data'
+   - [Input Data] 'Tingkat Aktivitas Fisik (sedang dan berat)Input Data'
+   - [Input Data] 'Gizi (BB - TB - Lingkar Perut) PerempuanYa Selesai diperiksa Input Data'
+   - [Input Data] 'Pemeriksaan Gula Darah Dewasa LansiaYa Selesai diperiksa Input Data'
+   - [Input Data] 'Tekanan Darah Dewasa LansiaYa Selesai diperiksa Input Data'
+   - [Input Data] 'Skrining Telinga dan Mata (18-39 tahun)Ya Selesai diperiksa Input Data'
+   - [Input Data] 'Skrining Karies dan Gigi HilangYa Selesai diperiksa Input Data'
+   - [Input Data] 'Pemeriksaan Kadar CO (Hanya Diisi Apabila Merokok atau Terpapar Asap Rokok)Ya Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Faktor Risiko dan Skrining X-Ray TB (Dewasa & Lansia)Ya Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Pemeriksaan Tuberkulosis (Dewasa & Lansia)Ya Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Pemeriksaan Fibrosis/Sirosis HatiYa Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Pemeriksaan HepatitisYa Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Pemeriksaan Calon Pengantin PerempuanYa Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Pemeriksaan HIVYa Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Pemeriksaan SifilisYa Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Pemeriksaan Penyakit Frambusia (untuk daerah endemis atau berisiko frambusia)Ya Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Pemeriksaan Penyakit KustaYa Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Pemeriksaan Penyakit SkabiesYa Dalam Pemeriksaan Input Data'
+[DIAG] Membuka form pemeriksaan: 'Riwayat Imunisasi Tetanus'
+======================================================================
+[FORM:Riwayat Imunisasi Tetanus] URL: https://form.kemkes.go.id/v2/skrining-form/SQtA0QMNtuCJKTugvBQOw6IKmMRa9dMIkI3D0Fkvk1HolLedfNW9N5m104i4mwbzd_cUIGDmb46Xzwk9rWfO5UYuUmUU9AUQ1QETD0g%3D?ctx=55lDsGlo-NTUwKGRNd1Y-gcDtY4swKX6hEcprY1hUsTPfIlbncw%3D&redirectUrl=https%3A%2F%2Fsehatindonesiaku.kemkes.go.id%2Fckg-pelayanan%2Fdetail-pemeriksaan%3F_d%3DeyJlIjoiQk5yZk00T3luNFFickVQbWFYVzNMc3czMDRQUlZLWDlQTjVQUFBOMDhTSmhnV1dmbm5jMHNjSFFvUkYzYzllLzEyUVg2ci9aYk9yK0dFU1NQVW45dzRnRnhlOTRnRWFPeXB3Y0ZyNHkiLCJpdiI6ImpZT2E2WEptcmtRSitZM1EiLCJlayI6IlI3aE1GTTlGZWhCSS8vWGx3L3BNamtiSTJSN1lML25ldWtEQUxHSE5qdUIrYkx3c1VMZFVEU2JIWjBabUczOTl6MzhXYWt6eWx2TEtzK1BrbFg2WlhncVoyZDduTm5qc1ZhTWQ5U3FsbDJlZmhIWG10ZjU4YWhHczkydHQ5YXozeWViTEkwVVlIdmJtUWFpU2xhdWorV21GN0pBSFcwc0czS3JUTDZjWG5BTmRxUnJpQTVLTXhOT0M0QlBGcEYxSHdmUVJMQnpQQ1FjNE9HV0lvZ0swQ2hFL1RXWFptSFFFM0NuYjI3YXg4MWZ3ajFpR3FkdW1XQ1lydTBIQlh3U3hZWm5JWGtteEtyY1pqMXhWRkNEL284R2JDYWtjVlJiY2pxbEdHNjFSMTBrR29yN2pqVzhXUVZxVTg3NmZGL3MzTGV0cGYvc3c1MmxoOFR4RG1BdXRMUT09IiwiayI6IlZ6eWlCNDB3V1IifQ%25253D%25253D-98sec11-rowfrm000172&mitra=mxoce9AGsnqEtN48gzenCked3xIScR75iXUWvbUseGGRGOws1WoCwRtum-A4BAHdIJODIFd0z8hLYR4sYUXQwRo2dYu_N1MLYwDF1s9O1dBFHYL-eLyb9t-Mhqv59I8v5lAIBeUO-gEgvNaTwY-UiOjK_1tU79w_QbftG6_1H9KtxzM6ru--aq6AecVDPptyQ_gsrLWzYDqmnNnjEMH2zflJGWXBnCRKR7TUNim3m-_vjlXn4PMx3befFaUNGxYpcw977JK5ec4VvkgkTWmU7cx1jrDcEWAla5TWoN0nMhzj5MNr9Elb92ysN5ui8vFlHH70c-JsYchnnNSvsmS8TR-0I1o6IJGvJCk93S7ClZS7z0k62drmq7tg6AISy8KRgZY9zLsJpr5O
+[FORM:Riwayat Imunisasi Tetanus] INPUT (label | id | name | type | value | placeholder):
+   - ''                                       | id='sq_100i_0' name='' type='text' checked=False value='' ph='Select...'
+   - ''                                       | id='' name='' type='button' checked=False value='Kirim' ph=''
+[FORM:Riwayat Imunisasi Tetanus] QTITLE (sq -> judul pertanyaan):
+   - sq_100: '1. Apakah anda pernah mendapatkan imunisasi tetanus minimal 2 kali? (imunisasi tetanus biasanya didapatkan pada vaksin DPT saat bayi, vaksin TT/Td saat usia sekolah dasar)'
+[FORM:Riwayat Imunisasi Tetanus] SELECT (label | id | name | options):
+[FORM:Riwayat Imunisasi Tetanus] TEXTAREA:
+[FORM:Riwayat Imunisasi Tetanus] Dropdown custom (Vue):
+[FORM:Riwayat Imunisasi Tetanus] Heading/tab/section:
+   - 'Riwayat Imunisasi Tetanus(Status T) - Hanya untuk Catin'
+[FORM:Riwayat Imunisasi Tetanus] Tombol:
+   - 'Kembali ke Halaman Utama'
+----------------------------------------------------------------------
+[OPSI] Form 'Riwayat Imunisasi Tetanus' — probe dropdown:
+[OPSI] dropdown text-input ditemukan: 1
+[OPSI] id='sq_100i_0' ph='Select...'
+       opsi: ['Pernah imunisasi tetanus minimal dua kali', 'Pernah imunisasi tetanus satu kali', 'Pernah imunisasi tetanus tetapi tidak ingat berapa kali', 'Tidak tahu atau tidak ingat']
+       boxHTML: <div class="sv-dropdown_select-wrapper"><div id="sq_100i" class="sd-input sd-dropdown sd-dropdown--empty" role="combobox" aria-required="false" aria-label="Apakah anda pernah mendapatkan imunisasi tetanus minimal 2 kali? (imunisasi tetanus biasanya didapatkan pada vaksin DPT saat bayi, vaksin TT/Td saat usia sekolah dasar)" aria-invalid="false" aria-expanded="true" aria-controls="sq_100i_list" data-rendered="r"><div class="sd-dropdown__value"><input autocomplete="off" id="sq_100i_0" class="sd-dropdown__filter-string-input" role="combobox" aria-expanded="true" aria-labelledby="sq_100_ariaTitle" aria-controls="sq_100i_list" placeholder="Select..." inputmode="text" type="text"></div><div class="sd-dropdown_clean-button" aria-hidden="true" style="display: none;"><svg class="sv-svg-icon sd-dropdown_clean-button-svg" role="img"><use xlink:href="#icon-cancel-24x24"></use><title>Clear</title></svg></div></div><div><div tabindex="-1" class="sv-popup sv-dropdown-popup sv-single-select-list sv-popup--dropdown sv-popup--bottom" style=""><div class="sv-popup__container" style="left: 488px; top: 308px; height: auto; width: 560px; min-width: 560px;"><div class="sv-popup__body-content"><div class="sv-popup__scrolling-content"><div class="sv-popup__content"><div class="sv-list__container sd-list"><div class="sv-list__empty-container" style="display: none;"><div class="sv-list__empty-text" aria-label="No data to display">No data to display</div></div><ul class="sv-list" role="listbox" id="sq_1
+======================================================================
+[DIAG] Selesai. Dump: C:\Project Phyton\ckg-automation\data\output\diag_pelayanan_20260616_185448.txt

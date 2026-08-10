@@ -1,0 +1,208 @@
+[DIAG] Dari Excel: nama='SUMIATI', Waktu Hadir='2026-06-12'
+[DIAG] Navigasi ke https://sehatindonesiaku.kemkes.go.id/ckg-pelayanan (dari https://sehatindonesiaku.kemkes.go.id/ckg-pelayanan/detail-pemeriksaan?_d=eyJlIjoiM3M2cFo1Yzlma0wrNWg2bFk1eSt4aGI1NG1iRW95OTF1Zmh1b2NBR3FaMTFkMGFKWSttNmt3WFlSNHpJUHFwMnhJNWhMM2I0RnVaSFptWWtkTWhBQ0hVU0JEdUlmQjZFcVF3akU0YVAiLCJpdiI6IkFPZTQvcWRVeGZmNkttNzMiLCJlayI6IkVTUFltOXhmR3U2eUN1dmViM1FMYlpmRGNsT3hydjZWOHA4REF5bVBpcndQVE1ESmdiVDF1alMxVmMvYXlNRlBxTjRDUkVPODFicFlDNjRJamJHYi9SWlg3c3VSUWVPY1NWSFJSRjVENjhiNVdTL3NDTVdDYXhvSTZ2VGtPNWxkSFIzTHlnLy9OczdzcU84QVFLZStFQVBEbHZPOXI1elBxbXN6ZGtIa1dsMFlQMk55M3VCNUdrSHhyaDFZeENodjBBQWYrOTY0OW53SjcrdUlKY25taE1YRThra2RXdE9LT1RPb0hrZW01akcrUUcxNElDd0RBTTdpWjJ2RDBaSWtsQlVha1VqYytPZTBYbEFibHVtUEZzcktTaUJOVnM1QlpLQW5sZTNrUzlKS2FaelVDa0lFTnR3RDJteXVybUxjdWlDdDJUNDhxcGtaNXlvSlBHc3Rmdz09IiwiayI6InVhcGVpcmw4bUgifQ%253D%253D-98sec11-rowfrm000169)
+[DIAG] Tab aktif: https://sehatindonesiaku.kemkes.go.id/ckg-pelayanan
+======================================================================
+[DIAG] Tanggal tidak disentuh (pakai rentang bawaan UI).
+[DIAG] Pindah tab -> Sedang Pemeriksaan.
+[LISTING] Dropdown custom / cursor-pointer:
+   - 'Nama'
+   - 'Belum Pemeriksaan'
+   - 'Sedang Pemeriksaan 67'
+   - 'Selesai Pemeriksaan'
+[LISTING] Tombol terlihat:
+   - 'CKG Umum'
+   - 'CKG Sekolah'
+   - 'Tatalaksana'
+   - 'Klaster 2'
+   - 'Klaster 4'
+   - 'Keluar'
+   - 'Pandu Rizki MaulidiahPuskesmas Driyorejo'
+   - 'Mulai'
+[LISTING] Tabel #0: headers = ['No', 'Nama', 'Tanggal Lahir', 'Nomor Tiket', 'Nama Wali', 'Unit Pelayanan', 'Pemeriksaan Mandiri', 'Pelayanan', 'Pemeriksaan', 'Rapor']
+      row: ['1', 'AGIL IPUNG HIDAYAT', '08 Mei 2003', 'EEL-4ZC', '-', 'Puskesmas Driyorejo', 'Belum lengkap', 'Sedang Pemeriksaan', 'Mulai', 'Lihat']
+      row: ['2', 'ALI YUWAFI', '04 Jul 1996', 'KXX-MP2', '-', 'Puskesmas Driyorejo', 'Lengkap', 'Sedang Pemeriksaan', 'Mulai', 'Lihat']
+      row: ['3', 'AMIDA NUR DWI YANTI', '15 Sep 2004', 'PS7-WZL', '-', 'Puskesmas Driyorejo', 'Belum lengkap', 'Sedang Pemeriksaan', 'Mulai', 'Lihat']
+======================================================================
+[DIAG] Opsi dropdown terlihat: ['Nama', 'Belum Pemeriksaan', 'Sedang Pemeriksaan 67', 'Selesai Pemeriksaan', '<', '1', '2', '3', '…', '7', '>']
+[DIAG] Dropdown filter -> Nama.
+[DIAG] (cari) hasil 'SUMIATI' muncul.
+[DIAG] Baris cocok 'SUMIATI': 1.
+[DIAG] Tombol di baris: ['Mulai']
+[DIAG] Klik aksi baris 'Mulai'.
+======================================================================
+[DETAIL] URL: https://sehatindonesiaku.kemkes.go.id/ckg-pelayanan/detail-pemeriksaan?_d=eyJlIjoicjhWVnpUcFlMdTBSdDVCRDhGUmpFNWYzelYzOVZycFZreGNUL1lDNXhpVmZTbzNMa1F4Tm4zdDJnL1RTeDlPLzYyMVFDU3JNM0JhczE5MDRzcStleDNjTkFsMnlMd2N3azF1Wmp3L0UiLCJpdiI6IkdWcVpQUWFhVzdwbHMzRXIiLCJlayI6IktvUjhHMzdYbFY1cUNHR0dKY1VJREx4YktwWEhFL2NyZkNoMDU2RGhMY081Tnh2aXBWcG1QMTcvSXNMcWRnTXcyTlQyUWJCS04yZ0laZmNSaXhSUkoxcHJCTmRVUFNYc2hpemxGVzRmamlDZ2NTbkFwdkhUSmsvUXJQcGtRV25DN2MxZDIzaDc1bCtIMlU1KzlOcVFmNUdQM0FHWVE2eEJITCtXRmV5L1VNRVkxa1dINFY1aXV2RjNYVzByYXE4WEtVcXloVTZyZFdIWlllcXZ3TWRaUkFkTWZ4NHR6M1pCci9nK1pVZm0yQlF5Mk5ka1dCZ1FsSjNqK2ZCTDBLajVha3hJSWtsRGdEZ0FNREtQL1VDRDBIYkJLZURNbml6elJpSEFEeEVOQi9GdDFrWll0SDhCQVUvZS8rdEtKZWNZUTExMURJUEthSU8yZWRTeTlkZm5Qdz09IiwiayI6IndjYzg3LWdoNUIifQ%253D%253D
+[DETAIL] INPUT (label | id | name | type | value | placeholder):
+   - 'Ya'                                     | id='hasil-lab-0-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-0-1' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-0-2' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-1-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-1-1' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-1-2' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-1-3' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-1-4' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-1-5' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-1-6' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-1-7' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-1-8' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-1-9' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-2-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-2-1' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-3-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-3-1' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-3-2' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-4-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-5-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-5-1' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-6-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-7-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-8-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-8-1' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-8-2' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-8-3' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-8-4' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-9-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-10-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-11-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-11-1' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-12-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-13-0' name='' type='checkbox' checked=True value='on' ph=''
+[DETAIL] SELECT (label | id | name | options):
+[DETAIL] TEXTAREA:
+[DETAIL] Dropdown custom (Vue):
+   - 'Kirim Rapor (0/3)'
+[DETAIL] Heading/tab/section:
+[DETAIL] Tombol:
+   - 'CKG Umum'
+   - 'CKG Sekolah'
+   - 'Tatalaksana'
+   - 'Klaster 2'
+   - 'Klaster 4'
+   - 'Keluar'
+   - 'Pandu Rizki MaulidiahPuskesmas Driyorejo'
+   - 'Tanggal Pemeriksaan'
+   - 'Selesaikan Layanan'
+   - 'Detail Data'
+   - 'Jumlah Pemeriksaan (0/9)'
+   - 'Input Data'
+   - 'Panduan Pemeriksaan'
+   - 'Skrining Gizi, Tekanan Darah, dan Gula Darah Perempuan => 40 Tahun'
+   - 'Skrining Geriatri (Usia >=60 thn/lansia)'
+   - 'Tuberkulosis - Skrining Nakes Dewasa & Lansia'
+   - 'Layanan Penyakit Tropis Terabaikan'
+   - 'Skrining Telinga dan Mata (=>40 tahun)'
+   - 'Skrining Gigi - Dewasa >=25 tahun'
+   - 'Pemeriksaan PPOK (Skrining PUMA)'
+   - 'Pemeriksaan Kadar CO (Tatalaksana Merokok)'
+   - 'Skrining Laboratorium =>40 thn Perempuan Fungsi Ginjal, Hati, Profil Lipid'
+   - 'Skrining Jantung (Pemeriksaan EKG - hanya penyandang HT & DM)'
+   - 'Skrining Kanker Payudara'
+   - 'Skrining Kanker Leher Rahim'
+   - 'Skrining Kanker Paru (Usia=>45 tahun)'
+   - 'Skrining Kanker Usus (TL APCS)'
+[PEMERIKSAAN] Daftar form (tombol -> judul kartu terdekat):
+   - [Input Data] 'Demografi LansiaInput Data'
+   - [Input Data] 'Faktor Risiko Kanker UsusInput Data'
+   - [Input Data] 'Faktor Risiko TB - Dewasa & LansiaInput Data'
+   - [Input Data] 'HatiInput Data'
+   - [Input Data] 'Kanker Leher RahimInput Data'
+   - [Input Data] 'Kesehatan JiwaInput Data'
+   - [Input Data] 'Penapisan Risiko Kanker ParuInput Data'
+   - [Input Data] 'Perilaku MerokokInput Data'
+   - [Input Data] 'Tingkat Aktivitas Fisik (sedang dan berat)Input Data'
+   - [Input Data] 'Gizi (BB - TB - Lingkar Perut) PerempuanYa Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Pemeriksaan Gula Darah Dewasa LansiaYa Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Tekanan Darah Dewasa LansiaYa Dalam Pemeriksaan Input Data'
+   - [Input Data] '1. SKILAS Penurunan Kognitif - LansiaYa Dalam Pemeriksaan Input Data'
+   - [Input Data] '2. SKILAS Mobilisasi - LansiaYa Dalam Pemeriksaan Input Data'
+   - [Input Data] '3. SKILAS MalnutrisiYa Dalam Pemeriksaan Input Data'
+   - [Input Data] '4. SKILAS Pemeriksaan Gejala Depresi - LansiaYa Dalam Pemeriksaan Input Data'
+   - [Input Data] '5. Pemeriksaan Gangguan Fungsional/Barthel Index - LansiaYa Dalam Pemeriksaan Input Data'
+   - [Input Data] '6a. Penurunan Kognitif - Tindak Lanjut (Mini Cog-Clock Draw)Ya Dalam Pemeriksaan Input Data'
+   - [Input Data] '6b. Penurunan Kognitif - Tindak Lanjut (AD-8 INA)Ya Dalam Pemeriksaan Input Data'
+   - [Input Data] '7. Mobilisasi - Pemeriksaan Lanjutan (SPPB)Ya Dalam Pemeriksaan Input Data'
+   - [Input Data] '8. Skrining Malnutrisi - Pemeriksaan Lanjutan (MNA-SF)Ya Dalam Pemeriksaan Input Data'
+   - [Input Data] '9. Pemeriksaan Gejala Depresi - Pemeriksaan LanjutanYa Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Faktor Risiko dan Skrining X-Ray TB (Dewasa & Lansia)Ya Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Pemeriksaan Tuberkulosis (Dewasa & Lansia)Ya Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Pemeriksaan Penyakit Frambusia (untuk daerah endemis atau berisiko frambusia)Ya Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Pemeriksaan Penyakit KustaYa Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Pemeriksaan Penyakit SkabiesYa Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Skrining Telinga dan Mata (=>40 tahun)Ya Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Skrining Karies dan Gigi HilangYa Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Skrining Penyakit PeriodontalYa Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Pemeriksaan PPOK (Skrining PUMA)Ya Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Pemeriksaan Kadar CO (Hanya Diisi Apabila Merokok atau Terpapar Asap Rokok)Ya Dalam Pemeriksaan Input Data'
+   - [Input Data] 'POCT Lipid Panel (Khusus usia >=40 thn dan penyandang HT dan/atau DM)Ya Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Pemeriksaan Fibrosis/Sirosis HatiYa Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Pemeriksaan HepatitisYa Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Skrining Fungsi Ginjal Perempuan (hanya untuk =>40 tahun dengan risiko HT DM)Ya Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Skrining Kerusakan Ginjal (hanya untuk =>40 tahun dengan risiko HT DM)Ya Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Hasil Pemeriksaan - Skrining JantungYa Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Skrining Kanker PayudaraYa Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Hasil Pemeriksaan HPV-DNAYa Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Pemeriksaan Inspekulo dan IVAYa Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Skrining Kanker Paru (Usia =>45 thn)Ya Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Pemeriksaan Lanjutan Kanker UsusYa Dalam Pemeriksaan Input Data'
+[DIAG] Membuka form pemeriksaan: 'Pemeriksaan Gangguan Fungsional/Barthel'
+======================================================================
+[FORM:Pemeriksaan Gangguan Fungsional/Barthel] URL: https://form.kemkes.go.id/v2/skrining-form/IBtutHcrqNnqoTA4LDX0AhaE08PsNJ0IwJKspggIuuYaRGLSRVHmxn9XIwSkmxOyN47JbF5PsVl2QuzaXjHFTpikxEEms--3vCzKKEk%3D?ctx=0dCUaXjhpU9NCE0YN_1g-a4Jv6FXU-KeslO9IUgIdoYn4F8sZxI%3D&redirectUrl=https%3A%2F%2Fsehatindonesiaku.kemkes.go.id%2Fckg-pelayanan%2Fdetail-pemeriksaan%3F_d%3DeyJlIjoicjhWVnpUcFlMdTBSdDVCRDhGUmpFNWYzelYzOVZycFZreGNUL1lDNXhpVmZTbzNMa1F4Tm4zdDJnL1RTeDlPLzYyMVFDU3JNM0JhczE5MDRzcStleDNjTkFsMnlMd2N3azF1Wmp3L0UiLCJpdiI6IkdWcVpQUWFhVzdwbHMzRXIiLCJlayI6IktvUjhHMzdYbFY1cUNHR0dKY1VJREx4YktwWEhFL2NyZkNoMDU2RGhMY081Tnh2aXBWcG1QMTcvSXNMcWRnTXcyTlQyUWJCS04yZ0laZmNSaXhSUkoxcHJCTmRVUFNYc2hpemxGVzRmamlDZ2NTbkFwdkhUSmsvUXJQcGtRV25DN2MxZDIzaDc1bCtIMlU1KzlOcVFmNUdQM0FHWVE2eEJITCtXRmV5L1VNRVkxa1dINFY1aXV2RjNYVzByYXE4WEtVcXloVTZyZFdIWlllcXZ3TWRaUkFkTWZ4NHR6M1pCci9nK1pVZm0yQlF5Mk5ka1dCZ1FsSjNqK2ZCTDBLajVha3hJSWtsRGdEZ0FNREtQL1VDRDBIYkJLZURNbml6elJpSEFEeEVOQi9GdDFrWll0SDhCQVUvZS8rdEtKZWNZUTExMURJUEthSU8yZWRTeTlkZm5Qdz09IiwiayI6IndjYzg3LWdoNUIifQ%25253D%25253D-98sec11-rowfrm000040&mitra=VedlW5HvVzYQyWcJ5aQx3GVa_Ov9NaMUbTLuAty530vizd9V-mOZ-FASrTG1u4FnxOlgu0qZmT6qPovBlLLBAVbcF827iXQO9DKhfkJCmxSCWQZzWt2DxwnSf5Mx9hIYZzxGB4GgBWrif2PyOxCodzy0qRc-rW82EkTCVeGTtWQEDE-7qI_Pghx7auBWCxzhyd6LPhbOlqRJ9TtlsGELPQrKNWCuNBEGw36DMKpVHMitIIhVxtyv_ldylfUGJmH1NktlyZ8mOAOdNE0ghWBWJOECDEJ3W5vDAURwtG-ZGDkphqPRoDdx70uYjnVKArc2qIHPPJo_L_WoBh3T6xYOFeb_B1r-WclYSWyjtclUHB2cU9cBI_o5IV2NDd5JDYGdCblfbafTBIQ0
+[FORM:Pemeriksaan Gangguan Fungsional/Barthel] INPUT (label | id | name | type | value | placeholder):
+   - ''                                       | id='sq_100i_0' name='' type='text' checked=False value='' ph='Select...'
+   - ''                                       | id='sq_101i_0' name='' type='text' checked=False value='' ph='Select...'
+   - ''                                       | id='sq_102i_0' name='' type='text' checked=False value='' ph='Select...'
+   - ''                                       | id='sq_103i_0' name='' type='text' checked=False value='' ph='Select...'
+   - ''                                       | id='sq_104i_0' name='' type='text' checked=False value='' ph='Select...'
+   - ''                                       | id='sq_105i_0' name='' type='text' checked=False value='' ph='Select...'
+   - ''                                       | id='sq_106i_0' name='' type='text' checked=False value='' ph='Select...'
+   - ''                                       | id='sq_107i_0' name='' type='text' checked=False value='' ph='Select...'
+   - ''                                       | id='sq_108i_0' name='' type='text' checked=False value='' ph='Select...'
+   - ''                                       | id='sq_109i_0' name='' type='text' checked=False value='' ph='Select...'
+   - ''                                       | id='' name='' type='button' checked=False value='Kirim' ph=''
+[FORM:Pemeriksaan Gangguan Fungsional/Barthel] SELECT (label | id | name | options):
+[FORM:Pemeriksaan Gangguan Fungsional/Barthel] TEXTAREA:
+[FORM:Pemeriksaan Gangguan Fungsional/Barthel] Dropdown custom (Vue):
+[FORM:Pemeriksaan Gangguan Fungsional/Barthel] Heading/tab/section:
+   - '5. Pemeriksaan Gangguan Fungsional/Barthel Index - Lansia'
+   - '1. Dapat mengendalikan rangsang buang air besar (BAB)? *'
+   - '6. Berubah sikap dari berbaring ke duduk *'
+   - '7. Berpindah/berjalan *'
+   - '8. Memakai baju *'
+   - '9. Naik turun tangga *'
+   - '10. Mandi *'
+[FORM:Pemeriksaan Gangguan Fungsional/Barthel] Tombol:
+   - 'Kembali ke Halaman Utama'
+----------------------------------------------------------------------
+[OPSI] Form 'Pemeriksaan Gangguan Fungsional/Barthel' — probe dropdown:
+[OPSI] dropdown text-input ditemukan: 10
+[OPSI] id='sq_100i_0' ph='Select...'
+       opsi: ['Tidak terkendali/tak teratur (perlu pencahar)', 'Kadang-kadang tak terkendali (1 x / minggu)', 'Terkendali teratur']
+       boxHTML: <div class="sv-dropdown_select-wrapper"><div id="sq_100i" class="sd-input sd-dropdown sd-dropdown--empty" required="" role="combobox" aria-required="true" aria-label="Dapat mengendalikan rangsang buang air besar (BAB)?" aria-invalid="false" aria-expanded="true" aria-controls="sq_100i_list" data-rendered="r"><div class="sd-dropdown__value"><input autocomplete="off" id="sq_100i_0" class="sd-dropdown__filter-string-input" role="combobox" aria-expanded="true" aria-labelledby="sq_100_ariaTitle" aria-controls="sq_100i_list" placeholder="Select..." inputmode="text" type="text"></div><div class="sd-dropdown_clean-button" aria-hidden="true" style="display: none;"><svg class="sv-svg-icon sd-dropdown_clean-button-svg" role="img"><use xlink:href="#icon-cancel-24x24"></use><title>Clear</title></svg></div></div><div><div tabindex="-1" class="sv-popup sv-dropdown-popup sv-single-select-list sv-popup--dropdown sv-popup--bottom" style=""><div class="sv-popup__container" style="left: 480.4px; top: 260px; height: auto; width: 560px; min-width: 560px;"><div class="sv-popup__body-content"><div class="sv-popup__scrolling-content"><div class="sv-popup__content"><div class="sv-list__container sd-list"><div class="sv-list__empty-container" style="display: none;"><div class="sv-list__empty-text" aria-label="No data to display">No data to display</div></div><ul class="sv-list" role="listbox" id="sq_100i_list"><li class="sv-list__item sd-list__item sv-list__item-text--wrap" role="option" id="sq_100i_lis
+[OPSI] id='sq_101i_0' ph='Select...'
+       opsi: ['Tak terkendali atau pakai kateter', 'Kadang-kadang tak terkendali (hanya 1 x / 24 jam)', 'Mandiri']
+       boxHTML: <div class="sv-dropdown_select-wrapper"><div id="sq_100i" class="sd-input sd-dropdown sd-dropdown--empty" required="" role="combobox" aria-required="true" aria-label="Dapat mengendalikan rangsang buang air besar (BAB)?" aria-invalid="false" aria-expanded="false" aria-controls="sq_100i_list" data-rendered="r"><div class="sd-dropdown__value"><input autocomplete="off" id="sq_100i_0" class="sd-dropdown__filter-string-input" role="combobox" aria-expanded="false" aria-labelledby="sq_100_ariaTitle" aria-controls="sq_100i_list" placeholder="Select..." inputmode="text" type="text" readonly=""></div><div class="sd-dropdown_clean-button" aria-hidden="true" style="display: none;"><svg class="sv-svg-icon sd-dropdown_clean-button-svg" role="img"><use xlink:href="#icon-cancel-24x24"></use><title>Clear</title></svg></div></div><div><div tabindex="-1" class="sv-popup sv-dropdown-popup sv-single-select-list sv-popup--dropdown sv-popup--bottom" style="display: none;"><div class="sv-popup__container" style="left: 0px; top: 0px; height: auto; width: auto; min-width: auto;"><div class="sv-popup__body-content"><div class="sv-popup__scrolling-content"><div class="sv-popup__content"><div class="sv-list__container sd-list"><div class="sv-list__empty-container" style="display: none;"><div class="sv-list__empty-text" aria-label="No data to display">No data to display</div></div><ul class="sv-list" role="listbox" id="sq_100i_list"><li class="sv-list__item sd-list__item sv-list__item-text--wrap" role="opt
+[OPSI] id='sq_102i_0' ph='Select...'
+       opsi: ['Butuh pertolongan orang lain', 'Mandiri']
+       boxHTML: <div class="sv-dropdown_select-wrapper"><div id="sq_100i" class="sd-input sd-dropdown sd-dropdown--empty" required="" role="combobox" aria-required="true" aria-label="Dapat mengendalikan rangsang buang air besar (BAB)?" aria-invalid="false" aria-expanded="false" aria-controls="sq_100i_list" data-rendered="r"><div class="sd-dropdown__value"><input autocomplete="off" id="sq_100i_0" class="sd-dropdown__filter-string-input" role="combobox" aria-expanded="false" aria-labelledby="sq_100_ariaTitle" aria-controls="sq_100i_list" placeholder="Select..." inputmode="text" type="text" readonly=""></div><div class="sd-dropdown_clean-button" aria-hidden="true" style="display: none;"><svg class="sv-svg-icon sd-dropdown_clean-button-svg" role="img"><use xlink:href="#icon-cancel-24x24"></use><title>Clear</title></svg></div></div><div><div tabindex="-1" class="sv-popup sv-dropdown-popup sv-single-select-list sv-popup--dropdown sv-popup--bottom" style="display: none;"><div class="sv-popup__container" style="left: 0px; top: 0px; height: auto; width: auto; min-width: auto;"><div class="sv-popup__body-content"><div class="sv-popup__scrolling-content"><div class="sv-popup__content"><div class="sv-list__container sd-list"><div class="sv-list__empty-container" style="display: none;"><div class="sv-list__empty-text" aria-label="No data to display">No data to display</div></div><ul class="sv-list" role="listbox" id="sq_100i_list"><li class="sv-list__item sd-list__item sv-list__item-text--wrap" role="opt
+[OPSI] id='sq_103i_0' ph='Select...'
+       opsi: ['Tergantung pertolongan orang lain', 'Mandiri']
+       boxHTML: <div class="sv-dropdown_select-wrapper"><div id="sq_100i" class="sd-input sd-dropdown sd-dropdown--empty" required="" role="combobox" aria-required="true" aria-label="Dapat mengendalikan rangsang buang air besar (BAB)?" aria-invalid="false" aria-expanded="false" aria-controls="sq_100i_list" data-rendered="r"><div class="sd-dropdown__value"><input autocomplete="off" id="sq_100i_0" class="sd-dropdown__filter-string-input" role="combobox" aria-expanded="false" aria-labelledby="sq_100_ariaTitle" aria-controls="sq_100i_list" placeholder="Select..." inputmode="text" type="text" readonly=""></div><div class="sd-dropdown_clean-button" aria-hidden="true" style="display: none;"><svg class="sv-svg-icon sd-dropdown_clean-button-svg" role="img"><use xlink:href="#icon-cancel-24x24"></use><title>Clear</title></svg></div></div><div><div tabindex="-1" class="sv-popup sv-dropdown-popup sv-single-select-list sv-popup--dropdown sv-popup--bottom" style="display: none;"><div class="sv-popup__container" style="left: 0px; top: 0px; height: auto; width: auto; min-width: auto;"><div class="sv-popup__body-content"><div class="sv-popup__scrolling-content"><div class="sv-popup__content"><div class="sv-list__container sd-list"><div class="sv-list__empty-container" style="display: none;"><div class="sv-list__empty-text" aria-label="No data to display">No data to display</div></div><ul class="sv-list" role="listbox" id="sq_100i_list"><li class="sv-list__item sd-list__item sv-list__item-text--wrap" role="opt
+[OPSI] id='sq_104i_0' ph='Select...'
+       opsi: ['Tidak mampu', 'Perlu ditolong memotong makanan', 'Mandiri']
+       boxHTML: <div class="sv-dropdown_select-wrapper"><div id="sq_100i" class="sd-input sd-dropdown sd-dropdown--empty" required="" role="combobox" aria-required="true" aria-label="Dapat mengendalikan rangsang buang air besar (BAB)?" aria-invalid="false" aria-expanded="false" aria-controls="sq_100i_list" data-rendered="r"><div class="sd-dropdown__value"><input autocomplete="off" id="sq_100i_0" class="sd-dropdown__filter-string-input" role="combobox" aria-expanded="false" aria-labelledby="sq_100_ariaTitle" aria-controls="sq_100i_list" placeholder="Select..." inputmode="text" type="text" readonly=""></div><div class="sd-dropdown_clean-button" aria-hidden="true" style="display: none;"><svg class="sv-svg-icon sd-dropdown_clean-button-svg" role="img"><use xlink:href="#icon-cancel-24x24"></use><title>Clear</title></svg></div></div><div><div tabindex="-1" class="sv-popup sv-dropdown-popup sv-single-select-list sv-popup--dropdown sv-popup--bottom" style="display: none;"><div class="sv-popup__container" style="left: 0px; top: 0px; height: auto; width: auto; min-width: auto;"><div class="sv-popup__body-content"><div class="sv-popup__scrolling-content"><div class="sv-popup__content"><div class="sv-list__container sd-list"><div class="sv-list__empty-container" style="display: none;"><div class="sv-list__empty-text" aria-label="No data to display">No data to display</div></div><ul class="sv-list" role="listbox" id="sq_100i_list"><li class="sv-list__item sd-list__item sv-list__item-text--wrap" role="opt
+[OPSI] id='sq_105i_0' ph='Select...'
+       opsi: ['Tidak mampu', 'Perlu banyak bantuan untuk bias duduk (2 orang)', 'Bantuan minimal 1 orang', 'Mandiri']
+       boxHTML: <div class="sv-dropdown_select-wrapper"><div id="sq_105i" class="sd-input sd-dropdown sd-dropdown--empty" required="" role="combobox" aria-required="true" aria-label="Berubah sikap dari berbaring ke duduk" aria-invalid="false" aria-expanded="true" aria-controls="sq_105i_list" data-rendered="r"><div class="sd-dropdown__value"><input autocomplete="off" id="sq_105i_0" class="sd-dropdown__filter-string-input" role="combobox" aria-expanded="true" aria-labelledby="sq_105_ariaTitle" aria-controls="sq_105i_list" placeholder="Select..." inputmode="text" type="text"></div><div class="sd-dropdown_clean-button" aria-hidden="true" style="display: none;"><svg class="sv-svg-icon sd-dropdown_clean-button-svg" role="img"><use xlink:href="#icon-cancel-24x24"></use><title>Clear</title></svg></div></div><div><div tabindex="-1" class="sv-popup sv-dropdown-popup sv-single-select-list sv-popup--dropdown sv-popup--bottom" style=""><div class="sv-popup__container" style="left: 480.4px; top: 613px; height: auto; width: 560px; min-width: 560px;"><div class="sv-popup__body-content"><div class="sv-popup__scrolling-content"><div class="sv-popup__content"><div class="sv-list__container sd-list"><div class="sv-list__empty-container" style="display: none;"><div class="sv-list__empty-text" aria-label="No data to display">No data to display</div></div><ul class="sv-list" role="listbox" id="sq_105i_list"><li class="sv-list__item sd-list__item sv-list__item-text--wrap" role="option" id="sq_105i_listPPV00000312" 
+[OPSI] id='sq_106i_0' ph='Select...'
+       opsi: ['Tidak mampu', 'Bisa (pindah) dengan kursi roda', 'Bantuan minimal 1 orang', 'Mandiri']
+       boxHTML: <div class="sv-dropdown_select-wrapper"><div id="sq_105i" class="sd-input sd-dropdown sd-dropdown--empty" required="" role="combobox" aria-required="true" aria-label="Berubah sikap dari berbaring ke duduk" aria-invalid="false" aria-expanded="false" aria-controls="sq_105i_list" data-rendered="r"><div class="sd-dropdown__value"><input autocomplete="off" id="sq_105i_0" class="sd-dropdown__filter-string-input" role="combobox" aria-expanded="false" aria-labelledby="sq_105_ariaTitle" aria-controls="sq_105i_list" placeholder="Select..." inputmode="text" type="text" readonly=""></div><div class="sd-dropdown_clean-button" aria-hidden="true" style="display: none;"><svg class="sv-svg-icon sd-dropdown_clean-button-svg" role="img"><use xlink:href="#icon-cancel-24x24"></use><title>Clear</title></svg></div></div><div><div tabindex="-1" class="sv-popup sv-dropdown-popup sv-single-select-list sv-popup--dropdown sv-popup--bottom" style="display: none;"><div class="sv-popup__container" style="left: 0px; top: 0px; height: auto; width: auto; min-width: auto;"><div class="sv-popup__body-content"><div class="sv-popup__scrolling-content"><div class="sv-popup__content"><div class="sv-list__container sd-list"><div class="sv-list__empty-container" style="display: none;"><div class="sv-list__empty-text" aria-label="No data to display">No data to display</div></div><ul class="sv-list" role="listbox" id="sq_105i_list"><li class="sv-list__item sd-list__item sv-list__item-text--wrap" role="option" id="sq_10
+[OPSI] id='sq_107i_0' ph='Select...'
+       opsi: ['Tergantung orang lain', 'Sebagian dibantu (misalnya: mengancing baju)', 'Mandiri']
+       boxHTML: <div class="sv-dropdown_select-wrapper"><div id="sq_105i" class="sd-input sd-dropdown sd-dropdown--empty" required="" role="combobox" aria-required="true" aria-label="Berubah sikap dari berbaring ke duduk" aria-invalid="false" aria-expanded="false" aria-controls="sq_105i_list" data-rendered="r"><div class="sd-dropdown__value"><input autocomplete="off" id="sq_105i_0" class="sd-dropdown__filter-string-input" role="combobox" aria-expanded="false" aria-labelledby="sq_105_ariaTitle" aria-controls="sq_105i_list" placeholder="Select..." inputmode="text" type="text" readonly=""></div><div class="sd-dropdown_clean-button" aria-hidden="true" style="display: none;"><svg class="sv-svg-icon sd-dropdown_clean-button-svg" role="img"><use xlink:href="#icon-cancel-24x24"></use><title>Clear</title></svg></div></div><div><div tabindex="-1" class="sv-popup sv-dropdown-popup sv-single-select-list sv-popup--dropdown sv-popup--bottom" style="display: none;"><div class="sv-popup__container" style="left: 0px; top: 0px; height: auto; width: auto; min-width: auto;"><div class="sv-popup__body-content"><div class="sv-popup__scrolling-content"><div class="sv-popup__content"><div class="sv-list__container sd-list"><div class="sv-list__empty-container" style="display: none;"><div class="sv-list__empty-text" aria-label="No data to display">No data to display</div></div><ul class="sv-list" role="listbox" id="sq_105i_list"><li class="sv-list__item sd-list__item sv-list__item-text--wrap" role="option" id="sq_10
+[OPSI] id='sq_108i_0' ph='Select...'
+       opsi: ['Tidak mampu', 'Butuh pertolongan', 'Mandiri']
+       boxHTML: <div class="sv-dropdown_select-wrapper"><div id="sq_105i" class="sd-input sd-dropdown sd-dropdown--empty" required="" role="combobox" aria-required="true" aria-label="Berubah sikap dari berbaring ke duduk" aria-invalid="false" aria-expanded="false" aria-controls="sq_105i_list" data-rendered="r"><div class="sd-dropdown__value"><input autocomplete="off" id="sq_105i_0" class="sd-dropdown__filter-string-input" role="combobox" aria-expanded="false" aria-labelledby="sq_105_ariaTitle" aria-controls="sq_105i_list" placeholder="Select..." inputmode="text" type="text" readonly=""></div><div class="sd-dropdown_clean-button" aria-hidden="true" style="display: none;"><svg class="sv-svg-icon sd-dropdown_clean-button-svg" role="img"><use xlink:href="#icon-cancel-24x24"></use><title>Clear</title></svg></div></div><div><div tabindex="-1" class="sv-popup sv-dropdown-popup sv-single-select-list sv-popup--dropdown sv-popup--bottom" style="display: none;"><div class="sv-popup__container" style="left: 0px; top: 0px; height: auto; width: auto; min-width: auto;"><div class="sv-popup__body-content"><div class="sv-popup__scrolling-content"><div class="sv-popup__content"><div class="sv-list__container sd-list"><div class="sv-list__empty-container" style="display: none;"><div class="sv-list__empty-text" aria-label="No data to display">No data to display</div></div><ul class="sv-list" role="listbox" id="sq_105i_list"><li class="sv-list__item sd-list__item sv-list__item-text--wrap" role="option" id="sq_10
+[OPSI] id='sq_109i_0' ph='Select...'
+       opsi: ['Tergantung orang lain', 'Mandiri']
+       boxHTML: <div class="sv-dropdown_select-wrapper"><div id="sq_105i" class="sd-input sd-dropdown sd-dropdown--empty" required="" role="combobox" aria-required="true" aria-label="Berubah sikap dari berbaring ke duduk" aria-invalid="false" aria-expanded="false" aria-controls="sq_105i_list" data-rendered="r"><div class="sd-dropdown__value"><input autocomplete="off" id="sq_105i_0" class="sd-dropdown__filter-string-input" role="combobox" aria-expanded="false" aria-labelledby="sq_105_ariaTitle" aria-controls="sq_105i_list" placeholder="Select..." inputmode="text" type="text" readonly=""></div><div class="sd-dropdown_clean-button" aria-hidden="true" style="display: none;"><svg class="sv-svg-icon sd-dropdown_clean-button-svg" role="img"><use xlink:href="#icon-cancel-24x24"></use><title>Clear</title></svg></div></div><div><div tabindex="-1" class="sv-popup sv-dropdown-popup sv-single-select-list sv-popup--dropdown sv-popup--bottom" style="display: none;"><div class="sv-popup__container" style="left: 0px; top: 0px; height: auto; width: auto; min-width: auto;"><div class="sv-popup__body-content"><div class="sv-popup__scrolling-content"><div class="sv-popup__content"><div class="sv-list__container sd-list"><div class="sv-list__empty-container" style="display: none;"><div class="sv-list__empty-text" aria-label="No data to display">No data to display</div></div><ul class="sv-list" role="listbox" id="sq_105i_list"><li class="sv-list__item sd-list__item sv-list__item-text--wrap" role="option" id="sq_10
+======================================================================
+[DIAG] Selesai. Dump: C:\Project Phyton\ckg-automation\data\output\diag_pelayanan_20260615_203257.txt

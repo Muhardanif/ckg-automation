@@ -1,0 +1,47 @@
+[DIAG] Dari Excel: nama='SUMIATI', Waktu Hadir='2026-06-12'
+[DIAG] Tab aktif: https://sehatindonesiaku.kemkes.go.id/ckg-pelayanan/detail-pemeriksaan?_d=eyJlIjoianRiS3FpOE9vb1pMZ2JHekw1VmdHSXNJUU55UUJXUVJWZTJkUTE4UURvbDdibXZFZ01lYS83OHVRM1JMZ3U0VG9Kd3lQREpoc3lpTHRCQ29aelJzOW9BaWNGYzhZYnVFUDI5RThsUzAiLCJpdiI6InlBRTYveGYxa2tRV25SR1AiLCJlayI6IlBkdDk4cWVGWEtXYkoxK0FSRUxlc3MzMzNmdUtEY25jYUx6Sm1NL3BhTmhuOGtwa2d2NUVSN1lQWU41eHFGNjNTTkEvd0ZEUVBYVnBzTEZvSnFMZ0F6dmQrdXVTQkF4bVVzZGxJQWIrTW9INGFHcDlxM3FTSklTNnZmSGFLSktvQ2ZLMnVaVHZtY2ZJMG9OR3E1ckZFbnVobWdNT0w5R2prUWk3SjNISXNodTZTK2R4SGFaSmFQQ3N4RnFFSjlkYldFeGJMbTlNREkzdzlNa0hzc0R3aFlCK0RXOHdGZGNVbm10T2tQK0lWdGdXcWFMY1pzUnNiaHE2UUJzNm53aFFCNmEvekdkQk1VQnBFVWJteW5FaFdsalgzN2ZNRnlIaTdvK0FyR1RYZktpTEJCWWFxWSs4Y0dZaEtXbWtaOFJCWGoycGplclFpV0RJL1RoaGIxclZPUT09IiwiayI6IkZqTTNEdnlMYW0ifQ%253D%253D-98sec11-rowfrm000059
+======================================================================
+[DIAG] Tanggal tidak disentuh (pakai rentang bawaan UI).
+[DIAG] Pindah tab -> Sedang Pemeriksaan.
+[LISTING] Dropdown custom / cursor-pointer:
+   - 'Kirim Rapor (0/3)'
+[LISTING] Tombol terlihat:
+   - 'CKG Umum'
+   - 'CKG Sekolah'
+   - 'Tatalaksana'
+   - 'Klaster 2'
+   - 'Klaster 4'
+   - 'Keluar'
+   - 'Pandu Rizki MaulidiahPuskesmas Driyorejo'
+   - 'Tanggal Pemeriksaan'
+   - 'Selesaikan Layanan'
+   - 'Detail Data'
+   - 'Jumlah Pemeriksaan (0/9)'
+   - 'Input Data'
+   - 'Panduan Pemeriksaan'
+   - 'Skrining Gizi, Tekanan Darah, dan Gula Darah Perempuan => 40 Tahun'
+   - 'Skrining Geriatri (Usia >=60 thn/lansia)'
+   - 'Tuberkulosis - Skrining Nakes Dewasa & Lansia'
+   - 'Layanan Penyakit Tropis Terabaikan'
+   - 'Skrining Telinga dan Mata (=>40 tahun)'
+   - 'Skrining Gigi - Dewasa >=25 tahun'
+   - 'Pemeriksaan PPOK (Skrining PUMA)'
+   - 'Pemeriksaan Kadar CO (Tatalaksana Merokok)'
+   - 'Skrining Laboratorium =>40 thn Perempuan Fungsi Ginjal, Hati, Profil Lipid'
+   - 'Skrining Jantung (Pemeriksaan EKG - hanya penyandang HT & DM)'
+   - 'Skrining Kanker Payudara'
+   - 'Skrining Kanker Leher Rahim'
+   - 'Skrining Kanker Paru (Usia=>45 tahun)'
+   - 'Skrining Kanker Usus (TL APCS)'
+[LISTING] Tabel #0: headers = ['Layanan', 'Status', 'Aksi']
+      row: ['Demografi Lansia', '', 'Input Data']
+      row: ['Faktor Risiko Kanker Usus', '', 'Input Data']
+      row: ['Faktor Risiko TB - Dewasa & Lansia', '', 'Input Data']
+======================================================================
+[DIAG] Opsi dropdown terlihat: ['Kirim Rapor (0/3)', 'Lihat Rapor']
+[DIAG] Opsi 'Nama' tak ada setelah dropdown dibuka.
+[DIAG] Kotak cari tak ditemukan.
+[DIAG] Baris cocok 'SUMIATI': 0.
+[DIAG] Pencarian 'SUMIATI' tak menghasilkan baris. Baris terlihat: ['', '', '', '', '', '', '', '']. Filter mungkin belum jalan / peserta di tab lain. BERHENTI (tak klik apa pun).
+======================================================================
+[DIAG] Selesai. Dump: C:\Project Phyton\ckg-automation\data\output\diag_pelayanan_20260615_185251.txt

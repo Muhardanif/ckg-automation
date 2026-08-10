@@ -1,0 +1,54 @@
+[DIAG] Dari Excel: nama='SUMIATI', Waktu Hadir='2026-06-12'
+[DIAG] Navigasi ke https://sehatindonesiaku.kemkes.go.id/ckg-pelayanan
+[DIAG] Tab aktif: https://sehatindonesiaku.kemkes.go.id/ckg-pelayanan
+======================================================================
+[DIAG] Tanggal tidak disentuh (pakai rentang bawaan UI).
+[DIAG] Pindah tab -> Sedang Pemeriksaan.
+[LISTING] Dropdown custom / cursor-pointer:
+   - 'Nama'
+   - 'Belum Pemeriksaan'
+   - 'Sedang Pemeriksaan 54'
+   - 'Selesai Pemeriksaan'
+[LISTING] Tombol terlihat:
+   - 'CKG Umum'
+   - 'CKG Sekolah'
+   - 'Tatalaksana'
+   - 'Klaster 2'
+   - 'Klaster 4'
+   - 'Keluar'
+   - 'Pandu Rizki MaulidiahPuskesmas Driyorejo'
+   - 'Mulai'
+[LISTING] Tabel #0: headers = ['No', 'Nama', 'Tanggal Lahir', 'Nomor Tiket', 'Nama Wali', 'Unit Pelayanan', 'Pemeriksaan Mandiri', 'Pelayanan', 'Pemeriksaan', 'Rapor']
+      row: ['1', 'AGIL IPUNG HIDAYAT', '08 Mei 2003', 'EEL-4ZC', '-', 'Puskesmas Driyorejo', 'Belum lengkap', 'Sedang Pemeriksaan', 'Mulai', 'Lihat']
+      row: ['2', 'ALI YUWAFI', '04 Jul 1996', 'KXX-MP2', '-', 'Puskesmas Driyorejo', 'Lengkap', 'Sedang Pemeriksaan', 'Mulai', 'Lihat']
+      row: ['3', 'AMIDA NUR DWI YANTI', '15 Sep 2004', 'PS7-WZL', '-', 'Puskesmas Driyorejo', 'Belum lengkap', 'Sedang Pemeriksaan', 'Mulai', 'Lihat']
+======================================================================
+[DIAG] Opsi dropdown terlihat: ['Nama', 'Belum Pemeriksaan', 'Sedang Pemeriksaan 54', 'Selesai Pemeriksaan', '<', '1', '2', '3', '…', '6', '>']
+[DIAG] Dropdown filter -> Nama.
+[DIAG] Baris cocok 'SUMIATI': 0.
+[DIAG] Tombol di baris: ['CKG Umum', 'CKG Sekolah', 'Tatalaksana', 'Klaster 2', 'Klaster 4', 'Keluar', 'Pandu Rizki Maulidiah\nPuskesmas Driyorejo', '', 'Mulai']
+[DIAG] Klik aksi baris 'Mulai'.
+======================================================================
+[DETAIL] URL: https://sehatindonesiaku.kemkes.go.id/ckg-pelayanan/detail-pemeriksaan?_d=eyJlIjoidTE0K1czOXhtWTRiRUNNYy9HNlZMa1k3cCtvTzAwNGFONTFxOFBaT2x4TlcvOVE5ZWxmcFk4d0dnVlZMZThRaTZoaEZPS3c5Z005dlhlOThxUFRZbTlVb2dqdGx4UlJ3TDBWZlhzQ0QiLCJpdiI6InNvM2R1eEIzU1p6OCtnTG4iLCJlayI6IlZPbVlQUzdXR21HRW01QXY4WG5IUGttcSswOHZaSnNFeDRCV0JuM3N1NjRUT3BEckd3aVUxLzd1VjhrSTlKRjkwdEhSQmtaSnM0aUhOVXNFL28xajlNY2VKSVd1RlZQTm10Y0R5QTdGTkhBMUxJZXNtZkNRcEJYeFBCU3NLRXo2cE9VUk9yM1lodDdJTlNSUmVHRW5sckMrNnl3ZW9kQzhwM3V3TkRkdkJselE3L2h6RTYzamJydGRXeWE1REhDOFo4ZXRFUEtEd0ErZm8vSEJDaGxjcXJCT3ZpMjhTOXhkekUxSXB2R2k4dkg3ekcra2M0OU9CUElHcEI3NmkrSWd1cWgxTGRScU1PTnRsUVFsZ0lRR3k5aUpha0FpalNZVXV6czA2c3NSbmR1dUdkMVd2bVQ2dUJDRURwK1p6d1h5eWNDWWRodERhR2NIMDQzdExuaXdUdz09IiwiayI6IlczWklOLWJrRzkifQ%253D%253D
+[DETAIL] INPUT (label | id | name | type | value | placeholder):
+[DETAIL] SELECT (label | id | name | options):
+[DETAIL] TEXTAREA:
+[DETAIL] Dropdown custom (Vue):
+   - 'Kirim Rapor (0/3)'
+[DETAIL] Heading/tab/section:
+[DETAIL] Tombol:
+   - 'CKG Umum'
+   - 'CKG Sekolah'
+   - 'Tatalaksana'
+   - 'Klaster 2'
+   - 'Klaster 4'
+   - 'Keluar'
+   - 'Pandu Rizki MaulidiahPuskesmas Driyorejo'
+   - 'Tanggal Pemeriksaan'
+   - 'Selesaikan Layanan'
+   - 'Detail Data'
+   - 'Jumlah Pemeriksaan (0/0)'
+   - 'Panduan Pemeriksaan'
+[PEMERIKSAAN] Daftar form (tombol -> judul kartu terdekat):
+======================================================================
+[DIAG] Selesai. Dump: C:\Project Phyton\ckg-automation\data\output\diag_pelayanan_20260615_113801.txt

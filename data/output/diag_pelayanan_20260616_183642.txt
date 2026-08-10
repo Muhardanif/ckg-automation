@@ -1,0 +1,127 @@
+[DIAG] Dari Excel: nama='ACHMAD NUR RAJA FALENTINO', Waktu Hadir='2026-06-12'
+[DIAG] Tab aktif: https://sehatindonesiaku.kemkes.go.id/ckg-pelayanan
+======================================================================
+[DIAG] Tanggal tidak disentuh (pakai rentang bawaan UI).
+[DIAG] Pindah tab -> Selesai Pemeriksaan.
+[LISTING] Dropdown custom / cursor-pointer:
+   - 'Nama'
+   - 'Belum Pemeriksaan'
+   - 'Sedang Pemeriksaan'
+   - 'Selesai Pemeriksaan 739'
+[LISTING] Tombol terlihat:
+   - 'CKG Umum'
+   - 'CKG Sekolah'
+   - 'Tatalaksana'
+   - 'Klaster 2'
+   - 'Klaster 4'
+   - 'Keluar'
+   - 'Pandu Rizki MaulidiahPuskesmas Driyorejo'
+   - 'Mulai'
+   - 'Lihat'
+[LISTING] Tabel #0: headers = ['No', 'Nama', 'Tanggal Lahir', 'Nomor Tiket', 'Nama Wali', 'Unit Pelayanan', 'Pemeriksaan Mandiri', 'Pelayanan', 'Pemeriksaan', 'Rapor']
+      row: ['1', 'ABAS SULAIMAN ZONI', '18 Okt 1975', '7PG-NPM', '-', 'Puskesmas Driyorejo', 'Lengkap', 'Selesai Pemeriksaan', 'Mulai', 'Lihat']
+      row: ['2', 'ABDUL AZIS', '24 Okt 1996', 'MHU-KTC', '-', 'Puskesmas Driyorejo', 'Lengkap', 'Selesai Pemeriksaan', 'Mulai', 'Lihat']
+      row: ['3', 'ABDUL AZIS', '12 Jul 1993', '6LY-FNH', '-', 'Puskesmas Driyorejo', 'Lengkap', 'Selesai Pemeriksaan', 'Mulai', 'Lihat']
+======================================================================
+[DIAG] Opsi dropdown terlihat: ['Nama', 'Belum Pemeriksaan', 'Sedang Pemeriksaan', 'Selesai Pemeriksaan 739', '<', '1', '2', '3', '…', '74', '>']
+[DIAG] Dropdown filter -> Nama.
+[DIAG] (cari) hasil 'ACHMAD NUR RAJA FALENTINO' muncul.
+[DIAG] Baris cocok 'ACHMAD NUR RAJA FALENTINO': 1.
+[DIAG] Tombol di baris: ['Mulai', 'Lihat']
+[DIAG] Klik aksi baris 'Mulai'.
+======================================================================
+[DETAIL] URL: https://sehatindonesiaku.kemkes.go.id/ckg-pelayanan/detail-pemeriksaan?_d=eyJlIjoiVlMxNXZwcXdSaVNjQmdJVXZZeER4YWZZTTd3MmUxSDc4ZHpZMjNZN3RyeEc3UmFXMXBYSDUwR3NHZ1FDZzVtK0tueTFPZDZFcU91Qkh3NTVJSTR1TE5nZGRlS1krZElGelA0OEpIMjkiLCJpdiI6ImZXK2llRjZxUG9obmlybTEiLCJlayI6IlZPK0ZBUlNMb05zaUNKRHRocUpJdmlvKzRBd0Mvd05YWDJtc0VOM1NFMjBxdDJaRnp0YjBCeVRhWWc1eHhMcm4vemJEODQxOUFpQmQ4alltRXk3R2ZzaHpyQndhVHVQVzlhSWlpTFJFMWorWUZrQjY0L3FOWitHZm1PeE9PTDJPditSc2ZoZUVpUnBET2FCaHd2aTNWeGFpOTNJbENORFpMVUJJNldnN3AxOUx6WGlrcno0N003RmlwOGJzZXBnR08wQzFiOW10eWhFai91cFlsMDYyLzRJanNqSnpxa1ZmeUV2LzhZMkdtaXlyUVVRdWFUejZ2SHZzZFhSSEJrc2R1c2I1S0prNmRsWUQrbWRQZDk4dTdxaDVjcjBtVTNXZnVoZ0ovWTc4NVRWK3dkSXJWQXJCMjNDOGpDYUU0QnFxYlJLKzM5ZytuODlodHlCdE1aa3NVZz09IiwiayI6Ilg1RENVakxvVWoifQ%253D%253D
+[DETAIL] INPUT (label | id | name | type | value | placeholder):
+   - 'Ya'                                     | id='hasil-lab-0-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-0-1' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-0-2' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-1-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-2-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-3-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-4-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-4-1' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-5-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-5-1' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-6-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-6-1' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-7-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-7-1' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-7-2' name='' type='checkbox' checked=True value='on' ph=''
+[DETAIL] SELECT (label | id | name | options):
+[DETAIL] TEXTAREA:
+[DETAIL] Dropdown custom (Vue):
+   - 'Selesaikan Layanan'
+   - 'Kirim Rapor (0/3)'
+   - 'Lihat Rapor'
+[DETAIL] Heading/tab/section:
+[DETAIL] Tombol:
+   - 'CKG Umum'
+   - 'CKG Sekolah'
+   - 'Tatalaksana'
+   - 'Klaster 2'
+   - 'Klaster 4'
+   - 'Keluar'
+   - 'Pandu Rizki MaulidiahPuskesmas Driyorejo'
+   - 'Mulai Tatalaksana'
+   - 'Detail Data'
+   - 'Jumlah Pemeriksaan (5/6)'
+   - 'Input Data'
+   - 'Panduan Pemeriksaan'
+   - 'Skrining Gizi, Tekanan Darah, dan Gula Darah Laki-laki'
+   - 'Skrining Telinga dan Mata (18-39 tahun)'
+   - 'Skrining Gigi - Dewasa 18-24 tahun'
+   - 'Pemeriksaan Kadar CO (Tatalaksana Merokok)'
+   - 'Tuberkulosis - Skrining Nakes Dewasa & Lansia'
+   - 'Skrining Laboratorium Hepatitis dan Fibrosis/Sirosis'
+   - 'Pemeriksaan Calon Pengantin Laki-laki'
+   - 'Layanan Penyakit Tropis Terabaikan'
+[PEMERIKSAAN] Daftar form (tombol -> judul kartu terdekat):
+   - [Mulai Tatalaksana] 'Mulai Tatalaksana'
+   - [Input Data] 'Demografi Dewasa Laki-LakiInput Data'
+   - [Input Data] 'Faktor Risiko TB - Dewasa & LansiaInput Data'
+   - [Input Data] 'HatiInput Data'
+   - [Input Data] 'Kesehatan JiwaInput Data'
+   - [Input Data] 'Perilaku MerokokInput Data'
+   - [Input Data] 'Tingkat Aktivitas Fisik (sedang dan berat)Input Data'
+   - [Input Data] 'Gizi (BB - TB - Lingkar Perut) Laki-lakiYa Selesai diperiksa Input Data'
+   - [Input Data] 'Pemeriksaan Gula Darah Dewasa LansiaYa Selesai diperiksa Input Data'
+   - [Input Data] 'Tekanan Darah Dewasa LansiaYa Selesai diperiksa Input Data'
+   - [Input Data] 'Skrining Telinga dan Mata (18-39 tahun)Ya Selesai diperiksa Input Data'
+   - [Input Data] 'Skrining Karies dan Gigi HilangYa Selesai diperiksa Input Data'
+   - [Input Data] 'Pemeriksaan Kadar CO (Hanya Diisi Apabila Merokok atau Terpapar Asap Rokok)Ya Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Faktor Risiko dan Skrining X-Ray TB (Dewasa & Lansia)Ya Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Pemeriksaan Tuberkulosis (Dewasa & Lansia)Ya Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Pemeriksaan Fibrosis/Sirosis HatiYa Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Pemeriksaan HepatitisYa Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Pemeriksaan HIVYa Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Pemeriksaan SifilisYa Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Pemeriksaan Penyakit Frambusia (untuk daerah endemis atau berisiko frambusia)Ya Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Pemeriksaan Penyakit KustaYa Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Pemeriksaan Penyakit SkabiesYa Dalam Pemeriksaan Input Data'
+[DIAG] Membuka form pemeriksaan: 'Demografi Dewasa Laki'
+======================================================================
+[FORM:Demografi Dewasa Laki] URL: https://form.kemkes.go.id/v2/skrining-form/CReTtp6yKm7FX_dJr68CvaodjCnFJCN3hCErhZQEPvNsmsPzLMLWLqvS5I3En6Y0chwR4qeWTeKrDDWMCAETLtu3OiFoGG_9T8kcOCI%3D?ctx=mf5A8YNDbP3zGXrDozWqch7TtGvA5h_65J9zn6z_1-p0iDnxDjo%3D&redirectUrl=https%3A%2F%2Fsehatindonesiaku.kemkes.go.id%2Fckg-pelayanan%2Fdetail-pemeriksaan%3F_d%3DeyJlIjoiVlMxNXZwcXdSaVNjQmdJVXZZeER4YWZZTTd3MmUxSDc4ZHpZMjNZN3RyeEc3UmFXMXBYSDUwR3NHZ1FDZzVtK0tueTFPZDZFcU91Qkh3NTVJSTR1TE5nZGRlS1krZElGelA0OEpIMjkiLCJpdiI6ImZXK2llRjZxUG9obmlybTEiLCJlayI6IlZPK0ZBUlNMb05zaUNKRHRocUpJdmlvKzRBd0Mvd05YWDJtc0VOM1NFMjBxdDJaRnp0YjBCeVRhWWc1eHhMcm4vemJEODQxOUFpQmQ4alltRXk3R2ZzaHpyQndhVHVQVzlhSWlpTFJFMWorWUZrQjY0L3FOWitHZm1PeE9PTDJPditSc2ZoZUVpUnBET2FCaHd2aTNWeGFpOTNJbENORFpMVUJJNldnN3AxOUx6WGlrcno0N003RmlwOGJzZXBnR08wQzFiOW10eWhFai91cFlsMDYyLzRJanNqSnpxa1ZmeUV2LzhZMkdtaXlyUVVRdWFUejZ2SHZzZFhSSEJrc2R1c2I1S0prNmRsWUQrbWRQZDk4dTdxaDVjcjBtVTNXZnVoZ0ovWTc4NVRWK3dkSXJWQXJCMjNDOGpDYUU0QnFxYlJLKzM5ZytuODlodHlCdE1aa3NVZz09IiwiayI6Ilg1RENVakxvVWoifQ%25253D%25253D-98sec11-rowfrm000006&mitra=KclkCINNQsNN28fQESl_d2TQtGkr82rkNFZ5NFlEhlbw9mdRBrCBSD9zMUqKCQ1COOo34eBGQ9TTZb6bJBlupPomI0Wd5umoZIkGki0xcZcaPqjw8dyaWBBZ5ykTbbS9Zrw5w0jMpns6MkUhzeItDbtkwE_Q8wCB3xS9As-fY_PNUSYvdYFkdi1OCo0MOOX9T14lCmw-ZpNQTSFzuI_cl8XCqygsIewXHczRAblz128ryElDW_B14s2AYRGaFNasXbsL3A-hjJ8tLEcY2hrKpel-ulMsA29rja-iz_mUfDy2bga2O5VqLGRRFO0ENAsOitgt1oH0WXRpuN1WmdXmZLYYo5N3Kvi9g5d8eJejOr6WTgJ4nKp5HWayKRtHVAI3uDD_pf1Z54Df
+[FORM:Demografi Dewasa Laki] INPUT (label | id | name | type | value | placeholder):
+   - 'Belum Menikah'                          | id='sq_100i_0' name='LPM000056|FRM000006|PPM00000172|text_sq_100' type='radio' checked=False value='PPV00000337' ph=''
+   - 'Menikah'                                | id='sq_100i_1' name='LPM000056|FRM000006|PPM00000172|text_sq_100' type='radio' checked=False value='PPV00000338' ph=''
+   - 'Cerai Mati'                             | id='sq_100i_2' name='LPM000056|FRM000006|PPM00000172|text_sq_100' type='radio' checked=False value='PPV00000339' ph=''
+   - 'Cerai Hidup'                            | id='sq_100i_3' name='LPM000056|FRM000006|PPM00000172|text_sq_100' type='radio' checked=False value='PPV00000340' ph=''
+   - 'Non disabilitas'                        | id='sq_102i_0' name='LPM000056|FRM000006|PPM00000299|text_sq_102' type='radio' checked=False value='PPV00000561' ph=''
+   - 'Penyandang disabilitas'                 | id='sq_102i_1' name='LPM000056|FRM000006|PPM00000299|text_sq_102' type='radio' checked=False value='PPV00000562' ph=''
+   - ''                                       | id='' name='' type='button' checked=False value='Kirim' ph=''
+[FORM:Demografi Dewasa Laki] QTITLE (sq -> judul pertanyaan):
+   - sq_100: '1. Status Perkawinan *'
+   - sq_102: '2. Apakah Anda penyandang disabilitas? *'
+[FORM:Demografi Dewasa Laki] SELECT (label | id | name | options):
+[FORM:Demografi Dewasa Laki] TEXTAREA:
+[FORM:Demografi Dewasa Laki] Dropdown custom (Vue):
+[FORM:Demografi Dewasa Laki] Heading/tab/section:
+   - 'Demografi Dewasa Laki-Laki'
+   - '1. Status Perkawinan *ClearMoreNo data to display'
+[FORM:Demografi Dewasa Laki] Tombol:
+   - 'Kembali ke Halaman Utama'
+----------------------------------------------------------------------
+[OPSI] Form 'Demografi Dewasa Laki' — probe dropdown:
+[OPSI] dropdown text-input ditemukan: 0
+======================================================================
+[DIAG] Selesai. Dump: C:\Project Phyton\ckg-automation\data\output\diag_pelayanan_20260616_183642.txt

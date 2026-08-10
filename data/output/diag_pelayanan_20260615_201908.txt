@@ -1,0 +1,15 @@
+[DIAG] Dari Excel: nama='SUMIATI', Waktu Hadir='2026-06-12'
+[DIAG] Navigasi ke https://sehatindonesiaku.kemkes.go.id/ckg-pelayanan (dari https://sehatindonesiaku.kemkes.go.id/auth/login)
+[DIAG] Tab aktif: https://sehatindonesiaku.kemkes.go.id/auth/login
+======================================================================
+[DIAG] Tanggal tidak disentuh (pakai rentang bawaan UI).
+[DIAG] Tab 'Sedang Pemeriksaan' tak ditemukan.
+[LISTING] Dropdown custom / cursor-pointer:
+[LISTING] Tombol terlihat:
+======================================================================
+[DIAG] Kontrol dropdown filter tak ditemukan.
+[DIAG] (cari) 'SUMIATI' belum muncul setelah ~8 detik (filter mungkin lambat/gagal).
+[DIAG] Baris cocok 'SUMIATI': 0.
+[DIAG] Pencarian 'SUMIATI' tak menghasilkan baris. Baris terlihat: []. Filter mungkin belum jalan / peserta di tab lain. BERHENTI (tak klik apa pun).
+======================================================================
+[DIAG] Selesai. Dump: C:\Project Phyton\ckg-automation\data\output\diag_pelayanan_20260615_201908.txt

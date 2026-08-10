@@ -1,0 +1,106 @@
+[DIAG] Dari Excel: nama='ARUM JULIANA PUTRI', Waktu Hadir='2026-06-12'
+[DIAG] Navigasi ke https://sehatindonesiaku.kemkes.go.id/ckg-pelayanan (dari https://sehatindonesiaku.kemkes.go.id/ckg-pelayanan/detail-pemeriksaan?_d=eyJlIjoiNzdoOW9qTEZXNm5TR3VuN2JOd1RRTlNhcGNOM016NlJCMW9HTVFQSXhnVkpQbDE4eFMxRjg4ZDJYOUlubmlGM3U0TlJ5TEdFSkgvWWIydHN5d1JCemZGVHlhOU93KzBUbkUwZmcvdTQiLCJpdiI6IklndG14N3U5SFlIRzIxT2ciLCJlayI6Imc2WTdjS29HdHV1ZmpzUUtVMUk1OHM2b1dOcVIzVTd4LzJaWTFDb0k3Y3VXQVQ1WjhmWlBqd0MwbUx5dmptSVlGaG03S0N0czM5ek1NSnRLRjdEa1BlemJBQ3lrM3JNd205R2xIYjNTT3N6M2V3Q1plUnZ4bUlQYWtQcVY5TFpTK3BEYmhoYldjb3B0anUvelNXQVIwNWhjOC8ycEJOa3A0VDA5WXlzRVIwQTg5N2h1NXJDUllveEpzMlVLdzBWU0xMcUxhWGgzT0lqVndSUzNicVlLaHJQbHlTTVBGV3d5SGQ1eTEzOWRLa25iUXl4ZjVBRldEZG52NlREU2o2THRyaVFlQklka3FmVkFpWVFTWWtWcG9kQU0wWmZSNHlJWXpYbnQ4UDdoL09Vd0o3ek5CaUN3NGMwVTdPUVZvM0FrNVQ0dkFOL2tXVkR5NGFXMFhtM0NjUT09IiwiayI6InNfOEVJeE1nWWkifQ%253D%253D)
+[DIAG] Tab aktif: https://sehatindonesiaku.kemkes.go.id/ckg-pelayanan
+======================================================================
+[DIAG] Tanggal tidak disentuh (pakai rentang bawaan UI).
+[DIAG] Pindah tab -> Selesai Pemeriksaan.
+[LISTING] Dropdown custom / cursor-pointer:
+   - 'Nama'
+   - 'Belum Pemeriksaan'
+   - 'Sedang Pemeriksaan'
+   - 'Selesai Pemeriksaan 739'
+[LISTING] Tombol terlihat:
+   - 'CKG Umum'
+   - 'CKG Sekolah'
+   - 'Tatalaksana'
+   - 'Klaster 2'
+   - 'Klaster 4'
+   - 'Keluar'
+   - 'Pandu Rizki MaulidiahPuskesmas Driyorejo'
+   - 'Mulai'
+   - 'Lihat'
+[LISTING] Tabel #0: headers = ['No', 'Nama', 'Tanggal Lahir', 'Nomor Tiket', 'Nama Wali', 'Unit Pelayanan', 'Pemeriksaan Mandiri', 'Pelayanan', 'Pemeriksaan', 'Rapor']
+      row: ['1', 'ABAS SULAIMAN ZONI', '18 Okt 1975', '7PG-NPM', '-', 'Puskesmas Driyorejo', 'Lengkap', 'Selesai Pemeriksaan', 'Mulai', 'Lihat']
+      row: ['2', 'ABDUL AZIS', '24 Okt 1996', 'MHU-KTC', '-', 'Puskesmas Driyorejo', 'Lengkap', 'Selesai Pemeriksaan', 'Mulai', 'Lihat']
+      row: ['3', 'ABDUL AZIS', '12 Jul 1993', '6LY-FNH', '-', 'Puskesmas Driyorejo', 'Lengkap', 'Selesai Pemeriksaan', 'Mulai', 'Lihat']
+======================================================================
+[DIAG] Opsi dropdown terlihat: ['Nama', 'Belum Pemeriksaan', 'Sedang Pemeriksaan', 'Selesai Pemeriksaan 739', '<', '1', '2', '3', '…', '74', '>']
+[DIAG] Dropdown filter -> Nama.
+[DIAG] (cari) hasil 'ARUM JULIANA PUTRI' muncul.
+[DIAG] Baris cocok 'ARUM JULIANA PUTRI': 1.
+[DIAG] Tombol di baris: ['Mulai', 'Lihat']
+[DIAG] Klik aksi baris 'Mulai'.
+======================================================================
+[DETAIL] URL: https://sehatindonesiaku.kemkes.go.id/ckg-pelayanan/detail-pemeriksaan?_d=eyJlIjoidnJFTjhwSUM5L21PYnR6NVMwSGFmNGVMQ1F6RUVoSWhneHg5K09icVM1NXdSamtlZnJXcVBLWC9MVS9qakVmV2tockxJWUFFdHNweTFNRXZlYnM2Sy8rK0Zxc2M0SHdjQjlDUXZ4NE4iLCJpdiI6IllqRW1sRFplMGxFT0p6bUEiLCJlayI6IkdGcDF5c05iWkl0cExYay9ueStJRUNjTGZ4TUtYZk5rdUhkZGpVek9sc2lIVWxkb0o1SU1Rb0tCWW1WM0VMRFJNd3FPaVowTE1Eb3dSVnozSkxPKzRrNkxaTCtQWGs3K0JKK0VmbTdLWFZtemJzQi9udTZWN1d3cW1ZQkZLU05wbDhGbWhVaUdrWC81T2tuT21lWW04bG1XTyt5MkdLM3dobXdJbW1qM25NdlA5Z0VDbE5BaC92cXZSUitaakYwWkhhVUg4OFZ6TUd3ZW8yN2FJZ2RQODRjalB4TVJSYkRxNm1mMDRSSDhQL01tOUo4SW16UjY3N2NIUHhPeDFiRjdFc2Jldm16cTROTW85RHpsZnVBZElodXNrTElQYVdWOTlxMWdhZ0pvd0xCdzdVVExNQ0xYSHZrYWhTZW9UWE1RdldxYk1wckwvR1lndzZXOVhMandUZz09IiwiayI6IjNhX1ZVWjlQZmcifQ%253D%253D
+[DETAIL] INPUT (label | id | name | type | value | placeholder):
+   - 'Ya'                                     | id='hasil-lab-0-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-0-1' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-0-2' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-1-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-2-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-3-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-4-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-4-1' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-5-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-5-1' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-6-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-6-1' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-6-2' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-7-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-7-1' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-7-2' name='' type='checkbox' checked=True value='on' ph=''
+[DETAIL] SELECT (label | id | name | options):
+[DETAIL] TEXTAREA:
+[DETAIL] Dropdown custom (Vue):
+   - 'Selesaikan Layanan'
+   - 'Kirim Rapor (0/3)'
+   - 'Lihat Rapor'
+[DETAIL] Heading/tab/section:
+[DETAIL] Tombol:
+   - 'CKG Umum'
+   - 'CKG Sekolah'
+   - 'Tatalaksana'
+   - 'Klaster 2'
+   - 'Klaster 4'
+   - 'Keluar'
+   - 'Pandu Rizki MaulidiahPuskesmas Driyorejo'
+   - 'Mulai Tatalaksana'
+   - 'Detail Data'
+   - 'Jumlah Pemeriksaan (6/7)'
+   - 'Input Data'
+   - 'Panduan Pemeriksaan'
+   - 'Skrining Gizi, Tekanan Darah, dan Gula Darah Perempuan'
+   - 'Skrining Telinga dan Mata (18-39 tahun)'
+   - 'Skrining Gigi - Dewasa 18-24 tahun'
+   - 'Pemeriksaan Kadar CO (Tatalaksana Merokok)'
+   - 'Tuberkulosis - Skrining Nakes Dewasa & Lansia'
+   - 'Skrining Laboratorium Hepatitis dan Fibrosis/Sirosis'
+   - 'Pemeriksaan Calon Pengantin Perempuan'
+   - 'Layanan Penyakit Tropis Terabaikan'
+[PEMERIKSAAN] Daftar form (tombol -> judul kartu terdekat):
+   - [Mulai Tatalaksana] 'Mulai Tatalaksana'
+   - [Input Data] 'Demografi Dewasa PerempuanInput Data'
+   - [Input Data] 'Faktor Risiko TB - Dewasa & LansiaInput Data'
+   - [Input Data] 'HatiInput Data'
+   - [Input Data] 'Kesehatan JiwaInput Data'
+   - [Input Data] 'Perilaku MerokokInput Data'
+   - [Input Data] 'Riwayat Imunisasi Tetanus(Status T) - Hanya untuk CatinInput Data'
+   - [Input Data] 'Tingkat Aktivitas Fisik (sedang dan berat)Input Data'
+   - [Input Data] 'Gizi (BB - TB - Lingkar Perut) PerempuanYa Selesai diperiksa Input Data'
+   - [Input Data] 'Pemeriksaan Gula Darah Dewasa LansiaYa Selesai diperiksa Input Data'
+   - [Input Data] 'Tekanan Darah Dewasa LansiaYa Selesai diperiksa Input Data'
+   - [Input Data] 'Skrining Telinga dan Mata (18-39 tahun)Ya Selesai diperiksa Input Data'
+   - [Input Data] 'Skrining Karies dan Gigi HilangYa Selesai diperiksa Input Data'
+   - [Input Data] 'Pemeriksaan Kadar CO (Hanya Diisi Apabila Merokok atau Terpapar Asap Rokok)Ya Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Faktor Risiko dan Skrining X-Ray TB (Dewasa & Lansia)Ya Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Pemeriksaan Tuberkulosis (Dewasa & Lansia)Ya Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Pemeriksaan Fibrosis/Sirosis HatiYa Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Pemeriksaan HepatitisYa Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Pemeriksaan Calon Pengantin PerempuanYa Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Pemeriksaan HIVYa Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Pemeriksaan SifilisYa Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Pemeriksaan Penyakit Frambusia (untuk daerah endemis atau berisiko frambusia)Ya Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Pemeriksaan Penyakit KustaYa Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Pemeriksaan Penyakit SkabiesYa Dalam Pemeriksaan Input Data'
+======================================================================
+[DIAG] Selesai. Dump: C:\Project Phyton\ckg-automation\data\output\diag_pelayanan_20260616_185007.txt

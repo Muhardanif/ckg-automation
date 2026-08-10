@@ -1,0 +1,193 @@
+[DIAG] Dari Excel: nama='AZKA BARRAH RIOR RAMDANA', Waktu Hadir='2026-06-12'
+[DIAG] Navigasi ke https://sehatindonesiaku.kemkes.go.id/ckg-pelayanan (dari https://sehatindonesiaku.kemkes.go.id/ckg-pelayanan/detail-pemeriksaan?_d=eyJlIjoiQ2NKb3QwaDZrclZIbmtWcFg0RGhpZWllWHQzQWNDRWYvdDZYSFJ3aVczR2Q1ZzVRRU5weDVHN29lNitMc3NYenRVRTcxL0JYdU1HbVlTZzZGbnl6RE9WV3B5cHFjdTBlY3Y3VGhwSVUiLCJpdiI6ImZqRUdSbWRBTXFjRUp4WmsiLCJlayI6IkZ3V09hVFpyK2ZYOEpKUUNQL3BleEcyb0pkWWNia0ZTbFZpWmxpdjA1UWV1UXAvSGVpNXBFOElza3VpU1QvbFRvUDlLeUlOb3l1QWRIdmprTktqN29NeEs4emYwTDZCRXVBTkhFak5ubG54OTQ1bmc4RXREV2t1Yk1sbG5YSER4M081ajJ4SzdOTGI1d0VkeHZVMXVPUmVoUU8yMmJJQWZlTTU1WTZVY1c4dlVtRnZsamxybk9DSGJ2L3g4WkZKZVNLSmJiTzZCNkFUOXFYa3hoSXpLTllSa1VoKzhtNHE0UFpJcC9WbkloazljbzFMbHl3UHhNTTRGSnBORFpkUDVLdkF5dm5zamJNK3A3SDdWV1VYODFSSTlzZndKdk1xQUc3amtYSGtmYkhzMWN6TERISUJSV0JjRDMyRi94eVNVZHVPcEVoZmFlYXhadDd5cWhpaHBWZz09IiwiayI6IjhETUhDR25VVFUifQ%253D%253D)
+[DIAG] Tab aktif: https://sehatindonesiaku.kemkes.go.id/ckg-pelayanan
+======================================================================
+[DIAG] Tanggal tidak disentuh (pakai rentang bawaan UI).
+[DIAG] Pindah tab -> Selesai Pemeriksaan.
+[LISTING] Dropdown custom / cursor-pointer:
+   - 'Nama'
+   - 'Belum Pemeriksaan'
+   - 'Sedang Pemeriksaan'
+   - 'Selesai Pemeriksaan 741'
+[LISTING] Tombol terlihat:
+   - 'CKG Umum'
+   - 'CKG Sekolah'
+   - 'Tatalaksana'
+   - 'Klaster 2'
+   - 'Klaster 4'
+   - 'Keluar'
+   - 'Pandu Rizki MaulidiahPuskesmas Driyorejo'
+   - 'Mulai'
+   - 'Lihat'
+[LISTING] Tabel #0: headers = ['No', 'Nama', 'Tanggal Lahir', 'Nomor Tiket', 'Nama Wali', 'Unit Pelayanan', 'Pemeriksaan Mandiri', 'Pelayanan', 'Pemeriksaan', 'Rapor']
+      row: ['1', 'ABAS SULAIMAN ZONI', '18 Okt 1975', '7PG-NPM', '-', 'Puskesmas Driyorejo', 'Lengkap', 'Selesai Pemeriksaan', 'Mulai', 'Lihat']
+      row: ['2', 'ABDUL AZIS', '24 Okt 1996', 'MHU-KTC', '-', 'Puskesmas Driyorejo', 'Lengkap', 'Selesai Pemeriksaan', 'Mulai', 'Lihat']
+      row: ['3', 'ABDUL AZIS', '12 Jul 1993', '6LY-FNH', '-', 'Puskesmas Driyorejo', 'Lengkap', 'Selesai Pemeriksaan', 'Mulai', 'Lihat']
+======================================================================
+[DIAG] Opsi dropdown terlihat: ['Nama', 'Belum Pemeriksaan', 'Sedang Pemeriksaan', 'Selesai Pemeriksaan 741', '<', '1', '2', '3', '…', '75', '>']
+[DIAG] Dropdown filter -> Nama.
+[DIAG] (cari) hasil 'AZKA BARRAH RIOR RAMDANA' muncul.
+[DIAG] Baris cocok 'AZKA BARRAH RIOR RAMDANA': 1.
+[DIAG] Tombol di baris: ['Mulai', 'Lihat']
+[DIAG] Klik aksi baris 'Mulai'.
+======================================================================
+[DETAIL] URL: https://sehatindonesiaku.kemkes.go.id/ckg-pelayanan/detail-pemeriksaan?_d=eyJlIjoia2tGNDRUUkhUbit6YUFQVmRrTytrb3VidnZ1SG4xWU9jQnpTZldFZG9xSTA2anh1WDFQblFTdXdWNXd3RUhOUWhZV0NOUUhxMVBIWGRybUFHUURTamZ4WUFDdmYvMDBaRXRDN0VmeWciLCJpdiI6Imc1WTZWblNiVXlwbGJqUGUiLCJlayI6IlV5RTdUUVhTNWRkcVQ5WDA3aUdRNVIzNnJJTTlMdkRuZ294Nzh0SjhiSFJDS3ZFaFZidjlzcEJONlFmVjlORUplM1RHTGFWcEVGemFDZmRjSFlIRjJhNHBMR1cveGtMMFdFbUlkWHdWU1AxNGprbUFwbmdxeThCTnJ1a0FkNGxQWTlNUktkMk9RWGxZa2dYMWRyckVKcXQ4QnU0cEhMV2ZwZU9jZWxOWWhtQzVOR2hiWGVSZGs0UHkxaHlTV1Mwcys1UjA4MVdvTU1sSmo1Lzk3Q2VQUFdkM1NJR3dsSnVSd2h1Zkswa3JBNW9zNklSMTRSdUtjV3huVlFwV3NMNndOTDdYRExqcXpYdXo1VWtxWXU5QXEwTXRpd1hpSUROaVVCcHJzWVlRZ2dRZHpRSHNSR3YrUWduaXBXeU5IbiswTndaZ1FINDVBNXdEQVF1VDdCdmRtUT09IiwiayI6ImFIN2gxY1JKNm8ifQ%253D%253D
+[DETAIL] INPUT (label | id | name | type | value | placeholder):
+   - 'Ya'                                     | id='hasil-lab-0-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-1-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-2-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-3-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-3-1' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-4-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-4-1' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-4-2' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-5-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-6-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-7-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-8-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-9-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-10-0' name='' type='checkbox' checked=True value='on' ph=''
+[DETAIL] SELECT (label | id | name | options):
+[DETAIL] TEXTAREA:
+[DETAIL] Dropdown custom (Vue):
+   - 'Selesaikan Layanan'
+   - 'Kirim Rapor (0/3)'
+   - 'Lihat Rapor'
+[DETAIL] Heading/tab/section:
+[DETAIL] Tombol:
+   - 'CKG Umum'
+   - 'CKG Sekolah'
+   - 'Tatalaksana'
+   - 'Klaster 2'
+   - 'Klaster 4'
+   - 'Keluar'
+   - 'Pandu Rizki MaulidiahPuskesmas Driyorejo'
+   - 'Detail Data'
+   - 'Jumlah Pemeriksaan (2/10)'
+   - 'Input Data'
+   - 'Panduan Pemeriksaan'
+   - 'Gizi Anak Sekolah'
+   - 'Tekanan Darah Anak dan Remaja'
+   - 'Pemeriksaan Gula Darah Anak'
+   - 'Tuberkulosis - Skrining Nakes Usia 10-14 tahun'
+   - 'Layanan Penyakit Tropis Terabaikan'
+   - 'Skrining Telinga dan Mata - Anak Sekolah'
+   - 'Skrining Gigi - Anak'
+   - 'Hasil Pengukuran Kebugaran Jasmani Anak'
+   - 'Hepatitis B 7-12 Tahun'
+   - 'Hasil Pemeriksaan RDT Malaria'
+   - 'Pemeriksaan Kadar CO (Tatalaksana Merokok)'
+[PEMERIKSAAN] Daftar form (tombol -> judul kartu terdekat):
+   - [Input Data] 'Faktor Risiko Gula Darah AnakInput Data'
+   - [Input Data] 'Faktor Risiko MalariaInput Data'
+   - [Input Data] 'Faktor Risiko TB - Dewasa & LansiaInput Data'
+   - [Input Data] 'Gejala Cemas RemajaInput Data'
+   - [Input Data] 'Gejala Depresi RemajaInput Data'
+   - [Input Data] 'Kesehatan Reproduksi Putra - Anak SekolahInput Data'
+   - [Input Data] 'Kuesioner Tingkat Aktivitas Fisik - Tingkat Aktivitas FisikInput Data'
+   - [Input Data] 'Kelayakan Tes KebugaranInput Data'
+   - [Input Data] 'Perilaku Merokok - Anak SekolahInput Data'
+   - [Input Data] 'Faktor Risiko Hepatitis SDInput Data'
+   - [Input Data] 'Gizi Anak SekolahYa Selesai diperiksa Input Data'
+   - [Input Data] 'Tekanan Darah Anak dan RemajaYa Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Pemeriksaan Gula Darah AnakYa Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Faktor Risiko dan Skrining X-Ray TB (Dewasa & Lansia)Ya Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Pemeriksaan Tuberkulosis (Anak)Ya Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Pemeriksaan Penyakit Frambusia (untuk daerah endemis atau berisiko frambusia)Ya Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Pemeriksaan Penyakit KustaYa Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Pemeriksaan Penyakit SkabiesYa Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Skrining Telinga dan Mata - Anak SekolahYa Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Pemeriksaan Gigi - AnakYa Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Hasil Pemeriksaan Kebugaran Jasmani AnakYa Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Hepatitis B Usia 7-12 TahunYa Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Pemeriksaan RDT Malaria (untuk daerah endemis atau berisiko malaria)Ya Dalam Pemeriksaan Input Data'
+   - [Input Data] 'Pemeriksaan Kadar CO (Hanya Diisi Apabila Merokok atau Terpapar Asap Rokok)Ya Dalam Pemeriksaan Input Data'
+[DIAG] Akan dump 4 form (Otomasi=Ya).
+######################################################################
+[DIAG] (1/4) Buka form: 'Faktor Risiko Gula Darah Anak' [sumber=Default]
+======================================================================
+[FORM:Faktor Risiko Gula Darah Anak] URL: https://form.kemkes.go.id/v2/skrining-form/8sZwmCf_1yuZhGijfD4gyJtvWdhye0Dt9sxfiN90RliaS7Keu6zaA8YTb7mJlaEwjTap7xgaoZ5iNel6yDlS1dR1eqyeYbCrWz8287Q%3D?ctx=R2NQodFLngMhMUBC6GXkjIdSzNbWpsS1EFkcvZ8lCt1PIGETV2s%3D&redirectUrl=https%3A%2F%2Fsehatindonesiaku.kemkes.go.id%2Fckg-pelayanan%2Fdetail-pemeriksaan%3F_d%3DeyJlIjoia2tGNDRUUkhUbit6YUFQVmRrTytrb3VidnZ1SG4xWU9jQnpTZldFZG9xSTA2anh1WDFQblFTdXdWNXd3RUhOUWhZV0NOUUhxMVBIWGRybUFHUURTamZ4WUFDdmYvMDBaRXRDN0VmeWciLCJpdiI6Imc1WTZWblNiVXlwbGJqUGUiLCJlayI6IlV5RTdUUVhTNWRkcVQ5WDA3aUdRNVIzNnJJTTlMdkRuZ294Nzh0SjhiSFJDS3ZFaFZidjlzcEJONlFmVjlORUplM1RHTGFWcEVGemFDZmRjSFlIRjJhNHBMR1cveGtMMFdFbUlkWHdWU1AxNGprbUFwbmdxeThCTnJ1a0FkNGxQWTlNUktkMk9RWGxZa2dYMWRyckVKcXQ4QnU0cEhMV2ZwZU9jZWxOWWhtQzVOR2hiWGVSZGs0UHkxaHlTV1Mwcys1UjA4MVdvTU1sSmo1Lzk3Q2VQUFdkM1NJR3dsSnVSd2h1Zkswa3JBNW9zNklSMTRSdUtjV3huVlFwV3NMNndOTDdYRExqcXpYdXo1VWtxWXU5QXEwTXRpd1hpSUROaVVCcHJzWVlRZ2dRZHpRSHNSR3YrUWduaXBXeU5IbiswTndaZ1FINDVBNXdEQVF1VDdCdmRtUT09IiwiayI6ImFIN2gxY1JKNm8ifQ%25253D%25253D-98sec11-rowfrm000110&mitra=YrWi_ILjSX7IypST7mNqmfOZYOtMjKtZnfGEw5QXvb14EbkcBkXlm5KqIRlmv01YHqYZrYzjHZH9qaf-dkatUbhjFZr0N6ZfDTRXvUKTC8aP79zf7NzIj-jxRyNmcNNecqbu8hbElHHW0-4kznUnLG7oGB6NxRP0SVPz0WoIFl5SjPZz_bTjG8uOH-45NqHXJQb135F4MehxGNE9ClIFtTo9QtDlMlmMOw2BSEu64rBviR7ZC5UOnGOQd5FVcXRCRtyY6QZrbq_X4UTJd4BI9vtMqe6js_EPSdrWgotTP6o2lEYWuW7Nk7UEifAiUosTorlwtGjwUc2ieBhHhIP_26slp7lwOO9FZ8ISe2UZj5tObtqYZspmxyZH-7GflKW1rX307uW2g4q-
+[FORM:Faktor Risiko Gula Darah Anak] INPUT (label | id | name | type | value | placeholder):
+   - 'Ya'                                     | id='sq_100i_0' name='LPM000080|FRM000110|PPM00000567|text_sq_100' type='radio' checked=False value='PPV00001034' ph=''
+   - 'Tidak'                                  | id='sq_100i_1' name='LPM000080|FRM000110|PPM00000567|text_sq_100' type='radio' checked=False value='PPV00001035' ph=''
+   - ''                                       | id='' name='' type='button' checked=False value='Kirim' ph=''
+[FORM:Faktor Risiko Gula Darah Anak] QTITLE (sq -> judul pertanyaan):
+   - sq_100: '1. Apakah Anak Anda pernah dinyatakan diabetes atau kencing manis oleh Dokter? *'
+[FORM:Faktor Risiko Gula Darah Anak] SELECT (label | id | name | options):
+[FORM:Faktor Risiko Gula Darah Anak] TEXTAREA:
+[FORM:Faktor Risiko Gula Darah Anak] Dropdown custom (Vue):
+[FORM:Faktor Risiko Gula Darah Anak] Heading/tab/section:
+   - 'Faktor Risiko Gula Darah Anak'
+[FORM:Faktor Risiko Gula Darah Anak] Tombol:
+   - 'Kembali ke Halaman Utama'
+######################################################################
+[DIAG] (2/4) Buka form: 'Kesehatan Reproduksi Putra - Anak Sekolah' [sumber=Default]
+======================================================================
+[FORM:Kesehatan Reproduksi Putra - Anak Sekolah] URL: https://form.kemkes.go.id/v2/skrining-form/sO_ZV8xbbDIqj0_BwiOjVEukvPkNldFvgt-FK6uoFrvAetfRtDPjkcASEgvv7GZyXxolfszAy6LfQBJHmMj_AVfkvDOrHKYhodw0UT0%3D?ctx=Mj5ySL1XsEILeK7nUyC5KjSxC7ylu6vfU-cmA1xolURNH3OO-hM%3D&redirectUrl=https%3A%2F%2Fsehatindonesiaku.kemkes.go.id%2Fckg-pelayanan%2Fdetail-pemeriksaan%3F_d%3DeyJlIjoia2tGNDRUUkhUbit6YUFQVmRrTytrb3VidnZ1SG4xWU9jQnpTZldFZG9xSTA2anh1WDFQblFTdXdWNXd3RUhOUWhZV0NOUUhxMVBIWGRybUFHUURTamZ4WUFDdmYvMDBaRXRDN0VmeWciLCJpdiI6Imc1WTZWblNiVXlwbGJqUGUiLCJlayI6IlV5RTdUUVhTNWRkcVQ5WDA3aUdRNVIzNnJJTTlMdkRuZ294Nzh0SjhiSFJDS3ZFaFZidjlzcEJONlFmVjlORUplM1RHTGFWcEVGemFDZmRjSFlIRjJhNHBMR1cveGtMMFdFbUlkWHdWU1AxNGprbUFwbmdxeThCTnJ1a0FkNGxQWTlNUktkMk9RWGxZa2dYMWRyckVKcXQ4QnU0cEhMV2ZwZU9jZWxOWWhtQzVOR2hiWGVSZGs0UHkxaHlTV1Mwcys1UjA4MVdvTU1sSmo1Lzk3Q2VQUFdkM1NJR3dsSnVSd2h1Zkswa3JBNW9zNklSMTRSdUtjV3huVlFwV3NMNndOTDdYRExqcXpYdXo1VWtxWXU5QXEwTXRpd1hpSUROaVVCcHJzWVlRZ2dRZHpRSHNSR3YrUWduaXBXeU5IbiswTndaZ1FINDVBNXdEQVF1VDdCdmRtUT09IiwiayI6ImFIN2gxY1JKNm8ifQ%25253D%25253D-98sec11-rowfrm000126&mitra=KyxDNSu5ZDxhZaMVK-ARRtYKSXfQhKKc6ZNkkvYEdQjUDgp-NhPboSrMlXrTbntyewG95kGWSIivx5q1oWM0FX4q-vjyAFLm0vEDfdoVF0fv-4HXIcfjMA1aC_AQCFakdnVcEO9RpNZMTAgruSUJW3vNOTRJL_Eq-CWBHr7MMTeERaesQBcyg4xqHofV6rlQIiJd6VZG87WIRiXmd79dfGmOSaj4ox5VlCFlFclbIeh6chGqsc-L3iMSMiFyVRIlDT4o1vM0lAhGw13PDPqg0Ivn18-nWPCotQqa_6PLNFGXdnzuf2bXK-JRMInxVYosPcIJx2bcy5jBhSHIAJUFJKfpXr2STe0Pa54za8cqaMemhRutnw7phBGvbV-c7pv2F75qFYP2Pld3
+[FORM:Kesehatan Reproduksi Putra - Anak Sekolah] INPUT (label | id | name | type | value | placeholder):
+   - 'Ya'                                     | id='sq_100i_0' name='LPM000088|FRM000126|PPM00000318|text_sq_100' type='radio' checked=False value='PPV00000588' ph=''
+   - 'Tidak'                                  | id='sq_100i_1' name='LPM000088|FRM000126|PPM00000318|text_sq_100' type='radio' checked=False value='PPV00000589' ph=''
+   - 'Ya'                                     | id='sq_101i_0' name='LPM000088|FRM000126|PPM00000322|text_sq_101' type='radio' checked=False value='PPV00000594' ph=''
+   - 'Tidak'                                  | id='sq_101i_1' name='LPM000088|FRM000126|PPM00000322|text_sq_101' type='radio' checked=False value='PPV00000595' ph=''
+   - 'Ya'                                     | id='sq_102i_0' name='LPM000088|FRM000126|PPM00000327|text_sq_102' type='radio' checked=False value='PPV00000602' ph=''
+   - 'Tidak'                                  | id='sq_102i_1' name='LPM000088|FRM000126|PPM00000327|text_sq_102' type='radio' checked=False value='PPV00000603' ph=''
+   - ''                                       | id='' name='' type='button' checked=False value='Kirim' ph=''
+[FORM:Kesehatan Reproduksi Putra - Anak Sekolah] QTITLE (sq -> judul pertanyaan):
+   - sq_100: '1. Apakah mengalami gatal-gatal di kemaluan (alat kelamin) atau pernah kencing berwarna kuning kental seperti susu/nanah? *'
+   - sq_101: '2. Apakah mengalami nyeri/ tidak nyaman saat Buang Air Kecil (BAK) atau Buang Air Besar (BAB)? *'
+   - sq_102: '3. Apakah mengalami luka di anus atau dubur? *'
+[FORM:Kesehatan Reproduksi Putra - Anak Sekolah] SELECT (label | id | name | options):
+[FORM:Kesehatan Reproduksi Putra - Anak Sekolah] TEXTAREA:
+[FORM:Kesehatan Reproduksi Putra - Anak Sekolah] Dropdown custom (Vue):
+[FORM:Kesehatan Reproduksi Putra - Anak Sekolah] Heading/tab/section:
+   - 'Kesehatan Reproduksi Putra - Anak Sekolah'
+[FORM:Kesehatan Reproduksi Putra - Anak Sekolah] Tombol:
+   - 'Kembali ke Halaman Utama'
+######################################################################
+[DIAG] (3/4) Buka form: 'Faktor Risiko Hepatitis SD' [sumber=Default]
+======================================================================
+[FORM:Faktor Risiko Hepatitis SD] URL: https://form.kemkes.go.id/v2/skrining-form/Cgc701XfbuwER0MhE9_ElClsn5-2KvQqZZ8r_jM4N8azG9wfK2mrk3I9F0OBXrdc6Qwr8niYBMWkBZa-2D0G7Esl7-YkSoN2p5eDasg%3D?ctx=tmtxa8lSZ0LHc7LxuMsMX4hyPd0sI-YF6jPU7hxuI-VrgibNiBA%3D&redirectUrl=https%3A%2F%2Fsehatindonesiaku.kemkes.go.id%2Fckg-pelayanan%2Fdetail-pemeriksaan%3F_d%3DeyJlIjoia2tGNDRUUkhUbit6YUFQVmRrTytrb3VidnZ1SG4xWU9jQnpTZldFZG9xSTA2anh1WDFQblFTdXdWNXd3RUhOUWhZV0NOUUhxMVBIWGRybUFHUURTamZ4WUFDdmYvMDBaRXRDN0VmeWciLCJpdiI6Imc1WTZWblNiVXlwbGJqUGUiLCJlayI6IlV5RTdUUVhTNWRkcVQ5WDA3aUdRNVIzNnJJTTlMdkRuZ294Nzh0SjhiSFJDS3ZFaFZidjlzcEJONlFmVjlORUplM1RHTGFWcEVGemFDZmRjSFlIRjJhNHBMR1cveGtMMFdFbUlkWHdWU1AxNGprbUFwbmdxeThCTnJ1a0FkNGxQWTlNUktkMk9RWGxZa2dYMWRyckVKcXQ4QnU0cEhMV2ZwZU9jZWxOWWhtQzVOR2hiWGVSZGs0UHkxaHlTV1Mwcys1UjA4MVdvTU1sSmo1Lzk3Q2VQUFdkM1NJR3dsSnVSd2h1Zkswa3JBNW9zNklSMTRSdUtjV3huVlFwV3NMNndOTDdYRExqcXpYdXo1VWtxWXU5QXEwTXRpd1hpSUROaVVCcHJzWVlRZ2dRZHpRSHNSR3YrUWduaXBXeU5IbiswTndaZ1FINDVBNXdEQVF1VDdCdmRtUT09IiwiayI6ImFIN2gxY1JKNm8ifQ%25253D%25253D-98sec11-rowfrm000114&mitra=HI-g2OLjkZtJYz_7q6dk3rRPAza7oH39r1f5htSgIhAe99_wXYAehfVuSeNT2X0btyJFFGD1RNNSQNgfqGLSeiaJTDUosmsHC5zrmG7BdpWXYWR1U7JwkB80r7Uts-EnkoLYjjZsOIETKgia72cgQDD0eaEqVE9A1dr0gHIeTjgSSq_I13dHWOdGjMy9pCFTWkdkzWaNXGsqvIcoxL3rr-HqN8fXZgTmrGBROgZstcIK2d8ZBxz2RX-qZRkeYVcXskvr02nt-K61WCYgXqpcl9lSYg0Kx-rfoVQ1BxjWyc-IJng_U1mrkLhC_kdCSN-rUBiYIjFtoz8hOZBKGTEQrFxj7yB4ZSCXdtzpMd8LjBsiESeyfNOqaXkY5dd8ee4uJ5_iP-gXq2N-
+[FORM:Faktor Risiko Hepatitis SD] INPUT (label | id | name | type | value | placeholder):
+   - 'Ya'                                     | id='sq_100i_0' name='LPM000078|FRM000114|PPM00000176|text_sq_100' type='radio' checked=False value='PPV00000349' ph=''
+   - 'Tidak'                                  | id='sq_100i_1' name='LPM000078|FRM000114|PPM00000176|text_sq_100' type='radio' checked=False value='PPV00000350' ph=''
+   - 'Ya'                                     | id='sq_101i_0' name='LPM000078|FRM000114|PPM00000177|text_sq_101' type='radio' checked=False value='PPV00000351' ph=''
+   - 'Tidak'                                  | id='sq_101i_1' name='LPM000078|FRM000114|PPM00000177|text_sq_101' type='radio' checked=False value='PPV00000352' ph=''
+   - 'Ya'                                     | id='sq_102i_0' name='LPM000078|FRM000114|PPM00000179|text_sq_102' type='radio' checked=False value='PPV00000355' ph=''
+   - 'Tidak'                                  | id='sq_102i_1' name='LPM000078|FRM000114|PPM00000179|text_sq_102' type='radio' checked=False value='PPV00000356' ph=''
+   - 'Ya'                                     | id='sq_103i_0' name='LPM000078|FRM000114|PPM00000180|text_sq_103' type='radio' checked=False value='PPV00000357' ph=''
+   - 'Tidak'                                  | id='sq_103i_1' name='LPM000078|FRM000114|PPM00000180|text_sq_103' type='radio' checked=False value='PPV00000358' ph=''
+   - ''                                       | id='' name='' type='button' checked=False value='Kirim' ph=''
+[FORM:Faktor Risiko Hepatitis SD] QTITLE (sq -> judul pertanyaan):
+   - sq_100: '1. Apakah Anda pernah menjalani tes untuk Hepatitis B dan mendapatkan hasil positif? *'
+   - sq_101: '2. Apakah Anda memiliki ibu kandung/saudara sekandung yang menderita Hepatitis B? *'
+   - sq_102: '3. Apakah Anda pernah menerima transfusi darah sebelumnya? *'
+   - sq_103: '4. Apakah Anda pernah menjalani cuci darah atau hemodialisis? *'
+[FORM:Faktor Risiko Hepatitis SD] SELECT (label | id | name | options):
+[FORM:Faktor Risiko Hepatitis SD] TEXTAREA:
+[FORM:Faktor Risiko Hepatitis SD] Dropdown custom (Vue):
+[FORM:Faktor Risiko Hepatitis SD] Heading/tab/section:
+   - 'Faktor Risiko Hepatitis SD'
+[FORM:Faktor Risiko Hepatitis SD] Tombol:
+   - 'Kembali ke Halaman Utama'
+######################################################################
+[DIAG] (4/4) Buka form: 'Pemeriksaan Gula Darah Anak' [sumber=Default]
+======================================================================
+[FORM:Pemeriksaan Gula Darah Anak] URL: https://form.kemkes.go.id/v2/skrining-form/7l9G3zcZZcj9pQftZS6VXn9r9V9fuyRkiahpdOz6pBnYqHsQyznEyrBKjhK_CpAtYxf_MtuAFrhvZuZU3B_jXYQApNVV2hksJAFhX10%3D?ctx=_wyX3d-zA9qAodW2dk5G7Cav1-ycAQX5bkQtJ1-J0Fnx0ddHvdI%3D&redirectUrl=https%3A%2F%2Fsehatindonesiaku.kemkes.go.id%2Fckg-pelayanan%2Fdetail-pemeriksaan%3F_d%3DeyJlIjoia2tGNDRUUkhUbit6YUFQVmRrTytrb3VidnZ1SG4xWU9jQnpTZldFZG9xSTA2anh1WDFQblFTdXdWNXd3RUhOUWhZV0NOUUhxMVBIWGRybUFHUURTamZ4WUFDdmYvMDBaRXRDN0VmeWciLCJpdiI6Imc1WTZWblNiVXlwbGJqUGUiLCJlayI6IlV5RTdUUVhTNWRkcVQ5WDA3aUdRNVIzNnJJTTlMdkRuZ294Nzh0SjhiSFJDS3ZFaFZidjlzcEJONlFmVjlORUplM1RHTGFWcEVGemFDZmRjSFlIRjJhNHBMR1cveGtMMFdFbUlkWHdWU1AxNGprbUFwbmdxeThCTnJ1a0FkNGxQWTlNUktkMk9RWGxZa2dYMWRyckVKcXQ4QnU0cEhMV2ZwZU9jZWxOWWhtQzVOR2hiWGVSZGs0UHkxaHlTV1Mwcys1UjA4MVdvTU1sSmo1Lzk3Q2VQUFdkM1NJR3dsSnVSd2h1Zkswa3JBNW9zNklSMTRSdUtjV3huVlFwV3NMNndOTDdYRExqcXpYdXo1VWtxWXU5QXEwTXRpd1hpSUROaVVCcHJzWVlRZ2dRZHpRSHNSR3YrUWduaXBXeU5IbiswTndaZ1FINDVBNXdEQVF1VDdCdmRtUT09IiwiayI6ImFIN2gxY1JKNm8ifQ%25253D%25253D-98sec11-rowfrm000195&mitra=zpGxHzAMRj9xJWAOKI-WBvvJFC9UpNEBBuYdhZ9qVPq44vGIHKdLrK5XAo9b9qE3ZW57oxibGxBnxWOJ_Gg_mRHdmAE2a1MMkrVXZ8yK2grQsjLIitISZRLa49ms0534hGAQII5kwMmHfNY39ZOBwynTiSsMi3q31LAqyJnpI-vQwCrIsJ8jc5TrGvMAfjcXJwJlc3o3uWh6rlhEu-xj853SFh-MvKxenMUqOtU10IDkjGeHPVRXYoxDOWi0LwMDQ9-dhro-VS1ltVpOk3GgBPApoFsXuFJkmcqq9ZiXBZA1dGkgjAnjbPkG7gjfTJ15g8gDIqkMZfm4ajGGBAnAExbJ4Yp_MEezDcw9lAw8c8MT9GWg4adG5_UlJHyqEhQtz5Q9I85xRQB4
+[FORM:Pemeriksaan Gula Darah Anak] INPUT (label | id | name | type | value | placeholder):
+   - 'Ya'                                     | id='sq_100i_0' name='LPM000118|FRM000195|PPM00000567|text_sq_100' type='radio' checked=False value='PPV00001034' ph=''
+   - 'Tidak'                                  | id='sq_100i_1' name='LPM000118|FRM000195|PPM00000567|text_sq_100' type='radio' checked=False value='PPV00001035' ph=''
+   - '2. Gula Darah Sewaktu (GDS) *'          | id='sq_102i' name='' type='number' checked=False value='' ph='Isi sesuai hasil pemeriksaan. Untuk usia 3-12 dan 14 tahun serta siswa kelas 8-9 pastikan pemeriksaan & pencatatan hanya dilakukan pada anak yang “Berisiko DM” dari kuesioner mandiri. Dan lakukan pemeriksaan pada semua anak yang "Memiliki Riwayat DM hasil diagnosis dokter"'
+   - ''                                       | id='' name='' type='button' checked=False value='Kirim' ph=''
+[FORM:Pemeriksaan Gula Darah Anak] QTITLE (sq -> judul pertanyaan):
+   - sq_100: '1. Apakah Anak Anda pernah dinyatakan diabetes atau kencing manis oleh Dokter? *'
+   - sq_102: '2. Gula Darah Sewaktu (GDS) *'
+[FORM:Pemeriksaan Gula Darah Anak] SELECT (label | id | name | options):
+[FORM:Pemeriksaan Gula Darah Anak] TEXTAREA:
+[FORM:Pemeriksaan Gula Darah Anak] Dropdown custom (Vue):
+[FORM:Pemeriksaan Gula Darah Anak] Heading/tab/section:
+   - 'Pemeriksaan Gula Darah Anak'
+   - '2. Gula Darah Sewaktu (GDS) *'
+[FORM:Pemeriksaan Gula Darah Anak] Tombol:
+   - 'Kembali ke Halaman Utama'
+======================================================================
+[DIAG] Selesai. Dump: C:\Project Phyton\ckg-automation\data\output\diag_pelayanan_20260616_191710.txt

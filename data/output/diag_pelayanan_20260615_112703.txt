@@ -1,0 +1,119 @@
+[DIAG] Dari Excel: nama='SUMIATI', Waktu Hadir='2026-06-12'
+[DIAG] Tab aktif: https://sehatindonesiaku.kemkes.go.id/ckg-pelayanan
+======================================================================
+[DIAG] Tanggal tidak disentuh (pakai rentang bawaan UI).
+[LISTING] Dropdown custom / cursor-pointer:
+   - 'Nama'
+   - 'Belum Pemeriksaan 67'
+   - 'Sedang Pemeriksaan'
+   - 'Selesai Pemeriksaan'
+[LISTING] Tombol terlihat:
+   - 'CKG Umum'
+   - 'CKG Sekolah'
+   - 'Tatalaksana'
+   - 'Klaster 2'
+   - 'Klaster 4'
+   - 'Keluar'
+   - 'Pandu Rizki MaulidiahPuskesmas Driyorejo'
+   - 'Mulai'
+[LISTING] Tabel #0: headers = ['No', 'Nama', 'Tanggal Lahir', 'Nomor Tiket', 'Nama Wali', 'Unit Pelayanan', 'Pemeriksaan Mandiri', 'Pelayanan', 'Pemeriksaan', 'Rapor']
+      row: ['1', 'ABDUL GHOFUR', '05 Mar 1986', 'ZAK-YVN', '-', 'Puskesmas Driyorejo', 'Lengkap', 'Belum Pemeriksaan', 'Mulai', 'Lihat']
+      row: ['2', 'ACHMAD NUR RAJA FALENTINO', '24 Jul 2003', '6NS-9X3', '-', 'Puskesmas Driyorejo', 'Belum lengkap', 'Belum Pemeriksaan', 'Mulai', 'Lihat']
+      row: ['3', 'ACHMAD TUNGGAL', '10 Sep 1950', 'Z62-WFN', '-', 'Puskesmas Driyorejo', 'Belum lengkap', 'Belum Pemeriksaan', 'Mulai', 'Lihat']
+======================================================================
+[DIAG] Opsi dropdown terlihat: ['Nama', 'Belum Pemeriksaan 67', 'Sedang Pemeriksaan', 'Selesai Pemeriksaan', '<', '1', '2', '3', '…', '7', '>']
+[DIAG] Dropdown filter -> Nama.
+[DIAG] Baris cocok 'SUMIATI': 1.
+======================================================================
+[DETAIL] URL: https://sehatindonesiaku.kemkes.go.id/ckg-pelayanan/detail-pemeriksaan?_d=eyJlIjoid1RYa3pTT0VPcEFXT0hJUFBXcDJqbHhsWkIxNDhKcExsbGdTNld3d1BGQjRJSHVJNUl1ZmhIOHFYelpHS0xFSDVpQ1hraGRHUkhJTEVqTWNWS1oxWUNHbXk2cmNXVzVJVDlzS1FoamMiLCJpdiI6InBkZUtlWnp0aTJmZVowR2MiLCJlayI6ImxKaEx3SWQxcnJOU09MTmMrU3BNUzhua3E5NHEydzl0ek8wMGZMdFB5dXozWVgrZ04zYU5RMHpVWUs0bSs0K2ZqaURTQ3NsMVdMRUczc1VRcWYvYy8wbW54WE5ZWUs4MkQ1dEQ1cUJ6dVFxckQxcVg0Z1A3QzUxMit6TU9PWWVWNTNiUllwYkdjNjNIYndENzVDT0R4TG51bFFFMW5aRVJRU3gyNHQwczk4NjQwOXdkM0ZaTGdMZzh3OWRLQUxoZThXeU5zZGtFKzFodDBpSk9EZDlLRTRGZEE1dU1pd1JKWjVidmNUUExsMkl0SGt4OXpUU0Z2U2wwdndva005blJOcXFKNjVkdUlRem40ajJiODJ6UUNyYUdta3pTV2Y0VDJSNG05ZTdZZkZZanhQelI3dm41RUM5anRHZ01xVXI5dHdJZElKZytWV3hFaXZocjRoSERYdz09IiwiayI6IkdOMV9ONUNVcXkifQ%253D%253D
+[DETAIL] INPUT (label | id | name | type | value | placeholder):
+   - 'Ya'                                     | id='hasil-lab-0-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-0-1' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-0-2' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-1-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-1-1' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-1-2' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-1-3' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-1-4' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-1-5' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-1-6' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-1-7' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-1-8' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-1-9' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-2-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-2-1' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-3-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-3-1' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-3-2' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-4-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-5-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-5-1' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-6-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-7-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-8-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-8-1' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-8-2' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-8-3' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-8-4' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-9-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-10-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-11-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-11-1' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-12-0' name='' type='checkbox' checked=True value='on' ph=''
+   - 'Ya'                                     | id='hasil-lab-13-0' name='' type='checkbox' checked=True value='on' ph=''
+[DETAIL] SELECT (label | id | name | options):
+[DETAIL] TEXTAREA:
+[DETAIL] Dropdown custom (Vue):
+   - 'Kirim Rapor (0/3)'
+[DETAIL] Heading/tab/section:
+[DETAIL] Tombol:
+   - 'CKG Umum'
+   - 'CKG Sekolah'
+   - 'Tatalaksana'
+   - 'Klaster 2'
+   - 'Klaster 4'
+   - 'Keluar'
+   - 'Pandu Rizki MaulidiahPuskesmas Driyorejo'
+   - 'Mulai Pemeriksaan'
+   - 'Detail Data'
+   - 'Jumlah Pemeriksaan (0/9)'
+   - 'Input Data'
+   - 'Panduan Pemeriksaan'
+   - 'Skrining Gizi, Tekanan Darah, dan Gula Darah Perempuan => 40 Tahun'
+   - 'Skrining Geriatri (Usia >=60 thn/lansia)'
+   - 'Tuberkulosis - Skrining Nakes Dewasa & Lansia'
+   - 'Layanan Penyakit Tropis Terabaikan'
+   - 'Skrining Telinga dan Mata (=>40 tahun)'
+   - 'Skrining Gigi - Dewasa >=25 tahun'
+   - 'Pemeriksaan PPOK (Skrining PUMA)'
+   - 'Pemeriksaan Kadar CO (Tatalaksana Merokok)'
+   - 'Skrining Laboratorium =>40 thn Perempuan Fungsi Ginjal, Hati, Profil Lipid'
+   - 'Skrining Jantung (Pemeriksaan EKG - hanya penyandang HT & DM)'
+   - 'Skrining Kanker Payudara'
+   - 'Skrining Kanker Leher Rahim'
+   - 'Skrining Kanker Paru (Usia=>45 tahun)'
+   - 'Skrining Kanker Usus (TL APCS)'
+[DIAG] Klik 'Mulai Pemeriksaan' OK.
+[DIAG] Pilih tanggal periksa di modal: hari 15.
+[DIAG] Klik 'Simpan' modal mulai pemeriksaan.
+[DIAG] Klik 'Input Data' OK.
+======================================================================
+[INPUT_DATA] URL: https://form.kemkes.go.id/v2/skrining-form/Qy8d1ixiDn-t6FThskZitX0lWOrMBBk9AE1jbbIZ8VMIoTLZHxeS_LskcIhN3ggyKS_DxdJ6rSYypGBneelm39RKPDkWmjEC55YJhzA%3D?ctx=kmczPLpSqMjF0-uksw8YaLGGf18vaexCyRIk-vMpx9iKVAXgzvo%3D&redirectUrl=https%3A%2F%2Fsehatindonesiaku.kemkes.go.id%2Fckg-pelayanan%2Fdetail-pemeriksaan%3F_d%3DeyJlIjoid1RYa3pTT0VPcEFXT0hJUFBXcDJqbHhsWkIxNDhKcExsbGdTNld3d1BGQjRJSHVJNUl1ZmhIOHFYelpHS0xFSDVpQ1hraGRHUkhJTEVqTWNWS1oxWUNHbXk2cmNXVzVJVDlzS1FoamMiLCJpdiI6InBkZUtlWnp0aTJmZVowR2MiLCJlayI6ImxKaEx3SWQxcnJOU09MTmMrU3BNUzhua3E5NHEydzl0ek8wMGZMdFB5dXozWVgrZ04zYU5RMHpVWUs0bSs0K2ZqaURTQ3NsMVdMRUczc1VRcWYvYy8wbW54WE5ZWUs4MkQ1dEQ1cUJ6dVFxckQxcVg0Z1A3QzUxMit6TU9PWWVWNTNiUllwYkdjNjNIYndENzVDT0R4TG51bFFFMW5aRVJRU3gyNHQwczk4NjQwOXdkM0ZaTGdMZzh3OWRLQUxoZThXeU5zZGtFKzFodDBpSk9EZDlLRTRGZEE1dU1pd1JKWjVidmNUUExsMkl0SGt4OXpUU0Z2U2wwdndva005blJOcXFKNjVkdUlRem40ajJiODJ6UUNyYUdta3pTV2Y0VDJSNG05ZTdZZkZZanhQelI3dm41RUM5anRHZ01xVXI5dHdJZElKZytWV3hFaXZocjRoSERYdz09IiwiayI6IkdOMV9ONUNVcXkifQ%25253D%25253D-98sec11-rowfrm000008&mitra=22NebvwiB7mZ7s7COwQnSTYD2A29MrG3yBCUwdHCp1xhOEuGzwzPsKzhjq1PdGmD8Zmy0uSUUgVvihBaprydI8QRoSWTNylFsbXdYrz_ylwm-i1mrDy1j-5jujGxdDF2cOl8rFJpdJvxAy1BNey3XdlJj3fPnCWopyBfsM4tWviAo6aKwbxrMJGT2AEr0I8oIUHEe7wGDDKnt1MmurdmSWvtX4zG_L_1QHIRNKzG-q_1comD2FitIpqR9bKDCUkVyh3QbLFvHLv_2scgKhgsUq7ifys0YFmDnMmMOrTEVmNqdqGJZJN43Hcvit7Yp0J495LxS2-2bwYQvy9sP39tciEfJipCtTuyzImx58yBW0erfiCGAfkkWJsmgXX7xkxq6mHZUNEfYyJo
+[INPUT_DATA] INPUT (label | id | name | type | value | placeholder):
+   - 'Belum Menikah'                          | id='sq_100i_0' name='LPM000064|FRM000008|PPM00000172|text_sq_100' type='radio' checked=False value='PPV00000337' ph=''
+   - 'Menikah'                                | id='sq_100i_1' name='LPM000064|FRM000008|PPM00000172|text_sq_100' type='radio' checked=False value='PPV00000338' ph=''
+   - 'Cerai Mati'                             | id='sq_100i_2' name='LPM000064|FRM000008|PPM00000172|text_sq_100' type='radio' checked=False value='PPV00000339' ph=''
+   - 'Cerai Hidup'                            | id='sq_100i_3' name='LPM000064|FRM000008|PPM00000172|text_sq_100' type='radio' checked=False value='PPV00000340' ph=''
+   - 'Non disabilitas'                        | id='sq_101i_0' name='LPM000064|FRM000008|PPM00000299|text_sq_101' type='radio' checked=False value='PPV00000561' ph=''
+   - 'Penyandang disabilitas'                 | id='sq_101i_1' name='LPM000064|FRM000008|PPM00000299|text_sq_101' type='radio' checked=False value='PPV00000562' ph=''
+   - ''                                       | id='' name='' type='button' checked=False value='Kirim' ph=''
+[INPUT_DATA] SELECT (label | id | name | options):
+[INPUT_DATA] TEXTAREA:
+[INPUT_DATA] Dropdown custom (Vue):
+[INPUT_DATA] Heading/tab/section:
+   - 'Demografi Lansia'
+   - '1. Status Perkawinan *ClearMoreNo data to display'
+[INPUT_DATA] Tombol:
+   - 'Kembali ke Halaman Utama'
+======================================================================
+[DIAG] Selesai. Dump: C:\Project Phyton\ckg-automation\data\output\diag_pelayanan_20260615_112703.txt

@@ -1,6 +1,5 @@
-data/output/*
-!data/output/.gitkeep
-data/input/*
+data/output/screenshots/
+data/*.zip
 data/*.db
 data/*.db-journal
 data/*.db-wal
